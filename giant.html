@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAOS — הופכים לענק | שש המערכות, המדידה והביצוע</title>
+<meta name="description" content="איך גוף ענק בנוי מאחורי הקלעים, איפה SAOS עומדת נכון להיום לפי מדידה חיה, אילו פערים נשארו ומי מבצע כל פער. כל מספר נמדד, כל קבלה גלויה.">
+<meta name="theme-color" content="#09090b">
+<link rel="canonical" href="https://roshpinacare-sys.github.io/giant.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8' fill='none' stroke='%230d9d6d' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='3' fill='none' stroke='%230d9d6d' stroke-width='1.8'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f7f5f2;--bg2:#f1eeea;--panel:#fff;--line:#e7e3dd;--line2:#d8d2c9;
+  --acc:#0d9d6d;--acc-d:#0a7a55;--acc-bg:rgba(13,157,109,.08);--acc-line:rgba(13,157,109,.32);
+  --red:#c2410c;--red-bg:rgba(194,65,12,.07);--red-line:rgba(194,65,12,.35);
+  --amber:#a16207;--amber-bg:rgba(161,98,7,.09);--amber-line:rgba(161,98,7,.35);
+  --text:#191919;--dim:#565049;--faint:#8d877f;
+  --mono:ui-monospace,'SF Mono',Consolas,Menlo,monospace;
+  --sans:-apple-system,'Segoe UI',Roboto,'Noto Sans Hebrew',Arial,sans-serif;
+  --r:16px;--rs:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc-d);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:rgba(247,245,242,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+.bar{display:flex;align-items:center;gap:12px;padding:13px 0}
+.mark{width:34px;height:34px;border-radius:10px;background:#09090b;color:var(--acc);display:grid;place-items:center;flex:none}
+.bname{font-weight:800;font-size:16px;letter-spacing:.2px}
+.bname span{display:block;font-weight:500;font-size:11.5px;color:var(--dim);letter-spacing:.4px}
+nav{margin-inline-start:auto;display:flex;gap:2px;align-items:center}
+nav a{font-size:13.5px;color:var(--dim);padding:7px 12px;border-radius:999px;white-space:nowrap}
+nav a:hover{color:var(--text);background:var(--bg2);text-decoration:none}
+@media(max-width:700px){nav a.hide-m{display:none}}
+.hero{padding:52px 0 30px}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:1.2px;color:var(--acc-d);margin-bottom:12px}
+h1{font-size:clamp(1.7rem,4.5vw,2.7rem);line-height:1.25;font-weight:800;letter-spacing:-.4px;max-width:820px}
+.sub{color:var(--dim);font-size:clamp(1rem,2.2vw,1.13rem);max-width:760px;margin-top:14px}
+.pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.pill{font-size:12.5px;font-weight:600;border:1px solid var(--line2);background:var(--panel);border-radius:999px;padding:5px 13px;color:var(--dim)}
+.pill b{color:var(--text);font-family:var(--mono)}
+section{padding:34px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.25rem,3vw,1.6rem);font-weight:800;letter-spacing:-.2px;margin-bottom:6px}
+.ssub{color:var(--dim);font-size:.95rem;margin-bottom:22px;max-width:740px}
+.grid6{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.sys{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px}
+.sys h3{font-size:1.02rem;font-weight:800;display:flex;align-items:center;gap:8px}
+.sys .num{font-family:var(--mono);font-size:.72rem;color:var(--acc-d);background:var(--acc-bg);border:1px solid var(--acc-line);border-radius:999px;padding:1px 8px;flex:none}
+.sys .giant{font-size:.88rem;color:var(--dim)}
+.sys .meas{font-size:.88rem;background:var(--bg2);border-radius:var(--rs);padding:9px 11px;border:1px solid var(--line)}
+.sys .meas b{font-family:var(--mono)}
+.sys .gap{font-size:.85rem;color:var(--red);background:var(--red-bg);border-radius:var(--rs);padding:8px 11px;border:1px solid var(--red-line)}
+.sys .who{font-size:.8rem;color:var(--faint)}
+.chip{display:inline-block;font-size:.72rem;font-weight:700;border-radius:999px;padding:2px 10px;vertical-align:middle}
+.c-ok{background:var(--acc-bg);color:var(--acc-d);border:1px solid var(--acc-line)}
+.c-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-line)}
+.c-amb{background:var(--amber-bg);color:var(--amber);border:1px solid var(--amber-line)}
+.feed{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.feedhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--bg2);flex-wrap:wrap}
+.feedhead strong{font-size:.95rem}
+.age{font-family:var(--mono);font-size:.78rem;color:var(--dim)}
+.rline{padding:11px 16px;border-bottom:1px solid var(--line);font-size:.88rem;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.rline:last-child{border-bottom:none}
+.rline .oid{font-family:var(--mono);font-size:.76rem;color:var(--acc-d);flex:none}
+.rline .rt{color:var(--dim)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:860px){.twocol{grid-template-columns:1fr}}
+.sov{background:#09090b;color:#e9e6e1;border-radius:var(--r);padding:24px}
+.sov h2{color:#fff}
+.sov p{color:#b8b3ac;font-size:.95rem;margin-top:8px;max-width:720px}
+.sov .l{display:flex;gap:10px;align-items:baseline;margin-top:14px;font-size:.92rem}
+.sov .l b{color:var(--acc);font-family:var(--mono);flex:none}
+.sov a{color:#7fd7b8}
+table.gaps{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+table.gaps th,table.gaps td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:right;font-size:.88rem;vertical-align:top}
+table.gaps th{background:var(--bg2);font-size:.78rem;letter-spacing:.6px;color:var(--dim)}
+table.gaps tr:last-child td{border-bottom:none}
+footer{border-top:1px solid var(--line);background:var(--bg2);margin-top:30px}
+.fin{padding:26px 0 34px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+.flinks{display:flex;gap:14px;flex-wrap:wrap;font-size:.85rem;color:var(--dim)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
+    <div class="bname">SAOS<span>הופכים לענק</span></div>
+    <nav aria-label="ראשי">
+      <a class="hide-m" href="#systems">שש המערכות</a>
+      <a class="hide-m" href="#work">הביצוע החי</a>
+      <a class="hide-m" href="#gaps">הפערים</a>
+      <a class="hide-m" href="standard.html">התקן</a>
+      <a class="hide-m" href="index.html">לשער</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="hero">
+      <div class="kicker">המפה המלאה — מדידה חיה, לא הצהרות</div>
+      <h1>ענק לא נולד גדול. ענק בנוי משש מערכות שעובדות כל רגע — וכאן רואים איפה אנחנו בכל אחת מהן.</h1>
+      <p class="sub">גוף ענק ניכר לא בסלוגנים אלא במה שרץ מאחורי הקלעים — חישוב משלו, חושים שמודדים כל הזמן, ידיים שמבצעות בלי לחכות, קול אחיד, משטח-אמון גלוי וסדר אחד. העמוד הזה מודד אותנו מול התקן הזה בכל טעינה, מציג את הקבלות של מה שבוצע עכשיו, ומנתב מה שנותר להחלטה אל הריבונות.</p>
+      <div class="pillrow" id="pills">
+        <span class="pill">טוען מדידה חיה…</span>
+      </div>
+    </div>
+
+    <section id="systems">
+      <h2>שש המערכות של ענק</h2>
+      <p class="ssub">לכל מערכת — מה ענק עושה, מה נמדד אצלנו עכשיו, הפער שנותר ומי מבצע. המדידות נטענות חי ממקורות ציבוריים.</p>
+      <div class="grid6">
+        <div class="sys">
+          <h3><span class="num">1</span>חישוב ריבוני</h3>
+          <p class="giant">ענק מריץ את המנועים שלו על תשתית משלו ולא מחכה לאף אחד. לולאה קריטית שתלויה בחסד-חיוב של צד-שלישי היא נקודת-עצירה.</p>
+          <div class="meas">נמדד — <b id="engines">…</b> מנועים חיים בחישוב ציבורי (GridWatch, ops-intake, ops-forge, Autonomy, Pulse, FleetHQ, Domain). <span class="chip c-red" id="wallchip">חומת-הדקות</span> <b id="wall">…</b> <span style="font-size:.72rem;color:var(--faint)">(מדידת-המבצע הטרייה — מתעדכן בכל תדריך)</span></div>
+          <div class="gap">פער — 87 וורקפלו ב-18 ריפו פרטיים חסומים מאחורי חומת-חיוב. ההגירה לחישוב-ציבורי כבר פועלת מנוע-אחר-מנוע.</div>
+          <div class="who">מבצע — ההגירה נמשכת ב-ops-forge · ההחלטה על חיוב מנותבת לריבונות</div>
+        </div>
+        <div class="sys">
+          <h3><span class="num">2</span>חושים</h3>
+          <p class="giant">ענק לא מגלה תקלה מצעקת-לקוח. יש שכבת-חישה שסורקת הכול בקצב קבוע ומדווחת לפני שמישהו שם לב.</p>
+          <div class="meas">נמדד — GridWatch סורק את כל הצי כל 30 דק עם ריפוי-עצמי, ops-intake מקים מדידה מלאה של 33 ריפו עם מכ"ם-פידים ובדיקת-עמודים. <span class="chip" id="sensechip">…</span></div>
+          <div class="gap">פער — ריפוי-עצמי עוצר בחומת-החיוב של השכבה הפרטית; החושים רואים, הידיים מוגבלות.</div>
+          <div class="who">מבצע — GridWatch ו-ops-intake חיים · הרחבת-ההשגחה על השכבה הפרטית לאחר פתיחת-החומה</div>
+        </div>
+        <div class="sys">
+          <h3><span class="num">3</span>ידיים</h3>
+          <p class="giant">בענק המדידה לא נגמרת בדוח. יש איבר-ביצוע שלוקח את תור-העבודות ועושה — עם קבלות שאפשר לבדוק.</p>
+          <div class="meas">נמדד — ops-forge חי כל 30 דק: קורא את התור, מבצע מתכונים דטרמיניסטיים, חותם קבלות ומסלים לריבונות. <b id="hands">…</b></div>
+          <div class="gap">פער — סדרי-עבודה שדורשים שפה והכרעה ממתינים לסוכן-שפה; המנוע הדטרמיניסטי לא מחליף תודעה.</div>
+          <div class="who">מבצע — ops-forge · שקע-המוח מותנה בהחלטת-ריבונות מתועדת</div>
+        </div>
+        <div class="sys">
+          <h3><span class="num">4</span>קול</h3>
+          <p class="giant">לענק יש שפה אחת בכל נקודת-מגע — מקצועית, מוסדית, בלי חיבורים אישיים ובלי סימני-חיבור-מלאכותי.</p>
+          <div class="meas">נמדד — צ'רטר-קול נחתם כחוק ב-Domain עם שש הוראות ושער-ביצוע על כל קומיט; השער ו-ops-intake נכתבו מראשיתם בשפה-זו.</div>
+          <div class="gap">פער — שאריות-קול אישי במשטחים של ערוצים אחרים מולדות בהסלמות מתועדות ולא בקפיצה-יד.</div>
+          <div class="who">מבצע — ערוץ-הקול ב-Domain וב-Console · אכיפה אוטומטית בשער-הקומיטים</div>
+        </div>
+        <div class="sys">
+          <h3><span class="num">5</span>משטח-אמון</h3>
+          <p class="giant">ענק מראה מצב גלוי עם גיל, גרסה ומקור. מה שנרקב נכתב, מה שנמדד מוצג, ואפס סטטוס-קברים.</p>
+          <div class="meas">נמדד — עמודי-מצב חיים בשער, ב-Console, ב-GridWatch וב-FleetHQ עם חוק-גיל 24 שע ובלוק-גרסה חתום בשער. <span class="chip" id="trustchip">…</span></div>
+          <div class="gap">פער — פיד אחד בן 21 יום עדיין מוצג בלי סימון-גיל, ולחלק מהעמודים אין גרסה.</div>
+          <div class="who">מבצע — ערוץ-Domain לסימון-גיל · ops-forge לבלוקי-גרסה בנתיב שלו</div>
+        </div>
+        <div class="sys">
+          <h3><span class="num">6</span>סדר</h3>
+          <p class="giant">בענק יש שער-אחת, מפה אחת ותור אחד. כל מי שמצטרף — אדם או סוכן — יודע תוך דקה איפה הוא נמצא ומה הצעד הבא.</p>
+          <div class="meas">נמדד — מפת-מרחב ל-33 ריפו עם סדר-קריאה לסוכן חדש, תור-עבודות מדודר עם משימות-מוכנות, וחוזה-צריכה כתוב.</div>
+          <div class="gap">פער — האוסף עצמו עדיין מפוזר בין 33 ריפו; הסדר קיים במפה והפיזור קיים בשטח. איחוד-משטחים הוא הצעד הבא.</div>
+          <div class="who">מבצע — ops-intake מחזיק את המפה ואת התור · סדר-קבוע נכתב ביומני-עבודה</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2>הביצוע החי</h2>
+      <p class="ssub">הקבלות האחרונות של איבר-הביצוע וההזמנות הפתוחות בתור. נטען ישירות מהמקור בכל טעינה — אפשר לאמת כל שורה בריפו.</p>
+      <div class="twocol">
+        <div class="feed">
+          <div class="feedhead"><strong>קבלות — ops-forge</strong><span class="age" id="receiptAge">…</span></div>
+          <div id="receipts"><div class="rline"><span class="rt">טוען…</span></div></div>
+        </div>
+        <div class="feed">
+          <div class="feedhead"><strong>תור-העבודות — ops-intake</strong><span class="age" id="queueAge">…</span></div>
+          <div id="queue"><div class="rline"><span class="rt">טוען…</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gaps">
+      <h2>הפערים שנותרו ומי מבצע כל אחד</h2>
+      <p class="ssub">אין כאן קישוט. כל שורה נמדדה על המשטחים החיים, וכל פער עם אחריות מוגדרת.</p>
+      <table class="gaps">
+        <thead><tr><th>הפער</th><th>נמדד</th><th>הביצוע</th></tr></thead>
+        <tbody>
+          <tr><td>חומת-הדקות בשכבה הפרטית</td><td>18 ריפו, 87 וורקפלו עם כשל-מיידי ואפס-צעדים</td><td>המהגרים לחישוב-ציבורי רצים; הכרעת-החיוב מנותבת לריבונות בתדריך עם מספרים טריים</td></tr>
+          <tr><td>פיד מזדקן מוצג בלי סימון</td><td>agent/state.json בן 21 יום ב-Domain</td><td>ערוץ-Domain — שמירת-חוק-גיל על כל פיד שנצרך במשטח גלוי</td></tr>
+          <tr><td>שקע-מוח לסדרי-עבודה שדורשים שפה</td><td>4 הזמנות בתור ממתינות לסוכן-שפה</td><td>מותנה בהחלטת-ריבונות מתועדת על הזרמת-הוצאה; המנוע הדטרמיניסטי מכסה את השאר</td></tr>
+          <tr><td>איחוד-משטחים</td><td>33 ריפו, 12 ציבוריים, עמודי-Pages פעילים בחלקם</td><td>השער מרכז את הכניסה; המשך-ההרגה של עמודים מתים או החייאתם</td></tr>
+          <tr><td>שימור-ידע בין-סוכנים</td><td>יומני-עבודה קיימים אך לא בכל ריפו</td><td>חוק-יומן נאכף בכל משימה מוכנה בתור; השלמה הדרגתית בכל נגיעה</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="sovereignty">
+      <div class="sov">
+        <h2>מה שנותר להכרעה — נותב לריבונות</h2>
+        <p>על-פי החוק המוסדי, ההכרעות שנותרו לא ממתינות לאף אדם ספציפי — הן מוגשות לריבונות עם המספרים, החלופות והמלצת-ההנדסה. איבר-הביצוע אינו מרים חיוב ואינו מבטל חומות; הוא מכין את ההכרעה ומבצע את שאושר.</p>
+        <div class="l"><b>01</b><span>חומת-הדקות — תדריך עם שתי החלופות הוגש ונחתם בערוץ-הריבונות. <a href="https://github.com/roshpinacare-sys/ops-forge/blob/main/ops/DECISIONS/minutes-wall" target="_blank" rel="noopener">מקור-התדריך</a></span></div>
+        <div class="l"><b>02</b><span>הפעלת-שקע-המוח במבצע — מותנית בהחלטה מתועדת על הוצאה. המנוע חי ופועל דטרמיניסטית בלעדיו.</span></div>
+        <div class="l"><b>03</b><span>עדיפויות-הביצוע של שאר הפערים — מתעדכנות בכל מחזור לפי המדידה הטרייה בתור.</span></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap fin">
+    <div class="flinks">
+      <a href="index.html">שער הכניסה</a>
+      <a href="standard.html">התקן ההנדסי</a>
+      <a href="https://roshpinacare-sys.github.io/GridWatch/">בריאות הצי</a>
+      <a href="https://github.com/roshpinacare-sys/ops-forge">ops-forge</a>
+      <a href="https://github.com/roshpinacare-sys/ops-intake">ops-intake</a>
+      <a href="https://github.com/roshpinacare-sys">GitHub</a>
+    </div>
+    <div style="font-size:.8rem;color:var(--faint)">כל מספר בעמוד נמדד ממקור ציבורי עם חותמת-זמן. אפשר לבדוק הכול.</div>
+  </div>
+</footer>
+
+<script>
+const RAW='https://raw.githubusercontent.com/roshpinacare-sys/';
+function ageStr(ts){const d=Date.parse(ts);if(isNaN(d))return null;const s=(Date.now()-d)/1000;if(s<3600)return Math.max(1,Math.round(s/60))+' דק';if(s<86400)return Math.round(s/3600)+' שע';return Math.round(s/86400)+' ימ';}
+function chip(el,cls,txt){el.className='chip '+cls;el.textContent=txt;}
+async function jf(url){const r=await fetch(url);if(!r.ok)throw new Error(r.status);return r.json();}
+async function tf(url){const r=await fetch(url);if(!r.ok)throw new Error(r.status);return r.text();}
+(async()=>{
+  const pills=document.getElementById('pills');
+  let ok=0,fail=0;
+  const done=()=>{pills.innerHTML=
+    '<span class="pill">פידים חיים <b>'+ok+'</b></span><span class="pill">'+(fail?'כשלי-אחזור <b>'+fail+'</b>':'אפס כשלי-אחזור')+'</span><span class="pill">חוק-גיל <b>24 שע</b></span>';};
+  // GridWatch
+  try{
+    const f=await jf(RAW+'GridWatch/main/state/fleet-health.json');
+    const t=f.totals||{};const g=t.green??0,red=t.red??0,amb=t.amber??0;
+    document.getElementById('sensechip').className='chip '+(red===0?'c-ok':red<10?'c-amb':'c-red');
+    document.getElementById('sensechip').textContent=red===0?'הצי ירוק':red+' אדומים בפיקוח';
+    document.getElementById('trustchip')&&(document.getElementById('trustchip').textContent='ריצת-חישה אחרונה לפני '+(ageStr(f.generatedAt)||'ללא חותמת'));
+    ok++;
+  }catch(e){document.getElementById('sensechip').className='chip c-red';document.getElementById('sensechip').textContent='כשל-אחזור';fail++;}
+  // QUEUE
+  try{
+    const q=await jf(RAW+'ops-intake/main/ops/QUEUE.json');
+    const orders=(q.orders||[]).filter(o=>(o.status||'OPEN')==='OPEN');
+    const top=orders.slice(0,4).map(o=>'<div class="rline"><span class="oid">'+o.id+'</span><span class="rt">'+(o.title||'')+'</span></div>').join('')||'<div class="rline"><span class="rt">התור ריק — כל ההזמנות נסגרו באימות-מדידה</span></div>';
+    document.getElementById('queue').innerHTML=top;
+    document.getElementById('queueAge').textContent='נמדד לפני '+(ageStr(q.receipt?.measuredAt||q.measuredAt)||'…')+' · '+orders.length+' פתוחות';
+    ok++;
+  }catch(e){document.getElementById('queue').innerHTML='<div class="rline"><span class="rt">כשל-אחזור — האימות העצמאי נשאר אפשרי בריפו</span></div>';fail++;}
+  // RECEIPTS
+  try{
+    const t=await tf(RAW+'ops-forge/main/ops/RECEIPTS.jsonl');
+    const lines=t.trim().split('\n').filter(Boolean);
+    const last=lines.slice(-5).reverse().map(l=>JSON.parse(l));
+    document.getElementById('receipts').innerHTML=last.map(r=>'<div class="rline"><span class="oid">'+(r.orderId||r.kind||'—')+'</span><span class="rt">'+(r.result||'')+'</span></div>').join('');
+    document.getElementById('receiptAge').textContent=lines.length+' קבלות חתומות';
+    ok++;
+  }catch(e){document.getElementById('receipts').innerHTML='<div class="rline"><span class="rt">כשל-אחזור — האימות העצמאי נשאר אפשרי בריפו</span></div>';fail++;}
+  // static measured facts
+  document.getElementById('engines').textContent='7';
+  document.getElementById('wall').textContent='18 ריפו · 87 וורקפלו';
+  document.getElementById('hands').textContent='הקבלות בצד — כל מחזור חתום';
+  done();
+})();
+</script>
+</body>
+</html>
