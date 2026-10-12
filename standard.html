@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAOS — התקן ההנדסי | השוואה מדידה מול גופים גדולים</title>
+<meta name="description" content="איך גופי הנדסה גדולים עובדים מאחורי הקלעים, איפה SAOS עומדת ביחס לזה נכון להיום, ומה סדר הביצוע. כל טענת מצב נמדדה.">
+<meta name="theme-color" content="#09090b">
+<link rel="canonical" href="https://roshpinacare-sys.github.io/standard.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8' fill='none' stroke='%230d9d6d' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='3' fill='none' stroke='%230d9d6d' stroke-width='1.8'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f7f5f2;--bg2:#f1eeea;--panel:#fff;--line:#e7e3dd;--line2:#d8d2c9;
+  --acc:#0d9d6d;--acc-d:#0a7a55;--acc-bg:rgba(13,157,109,.08);--acc-line:rgba(13,157,109,.32);
+  --red:#c2410c;--red-bg:rgba(194,65,12,.07);--red-line:rgba(194,65,12,.35);
+  --amber:#a16207;--amber-bg:rgba(161,98,7,.09);--amber-line:rgba(161,98,7,.35);
+  --text:#191919;--dim:#565049;--faint:#8d877f;
+  --mono:ui-monospace,'SF Mono',Consolas,Menlo,monospace;
+  --sans:-apple-system,'Segoe UI',Roboto,'Noto Sans Hebrew',Arial,sans-serif;
+  --r:16px;--rs:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc-d);text-decoration:none}a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:8px}
+.mono{font-family:var(--mono);direction:ltr;unicode-bidi:embed}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px;width:100%}
+header{position:sticky;top:0;z-index:50;background:rgba(247,245,242,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hrow{height:56px;display:flex;align-items:center;gap:12px}
+.hrow a.back{font-size:13.5px;color:var(--dim);padding:6px 12px;border-radius:999px;border:1px solid var(--line2)}
+.hrow a.back:hover{color:var(--text);text-decoration:none;border-color:var(--acc-line)}
+.bname{font-weight:700;font-size:14.5px}
+main{padding:44px 0}
+.kick{display:inline-flex;font-size:12px;font-weight:600;color:var(--acc-d);background:var(--acc-bg);border:1px solid var(--acc-line);border-radius:999px;padding:5px 13px}
+h1{font-size:clamp(26px,4.6vw,40px);font-weight:800;letter-spacing:-.6px;line-height:1.12;margin:16px 0 12px}
+.lede{color:var(--dim);font-size:15px;max-width:68ch}
+h2{font-size:21px;font-weight:800;letter-spacing:-.3px;margin:44px 0 6px}
+h2 .n{color:var(--faint);font-weight:600;font-size:14px;margin-inline-end:8px}
+.sub{color:var(--dim);font-size:13.5px;margin-bottom:16px;max-width:70ch}
+table{width:100%;border-collapse:separate;border-spacing:0;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:13.5px;margin-top:8px}
+th,td{padding:11px 14px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line);min-width:0}
+th{background:var(--bg2);font-size:12px;color:var(--faint);font-weight:600;letter-spacing:.2px}
+tr:last-child td{border-bottom:0}
+td.dim{color:var(--dim)}
+.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:2px 10px;border:1px solid}
+.pill.p0{color:var(--red);border-color:var(--red-line);background:var(--red-bg)}
+.pill.p1{color:var(--amber);border-color:var(--amber-line);background:var(--amber-bg)}
+.pill.p2{color:var(--faint);border-color:var(--line2);background:var(--bg2)}
+.pill.have{color:var(--acc-d);border-color:var(--acc-line);background:var(--acc-bg)}
+.meas{font-size:11.5px;color:var(--faint);font-family:var(--mono);direction:ltr;unicode-bidi:embed}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-top:12px;font-size:13.5px;color:var(--dim)}
+.box b{color:var(--text)}
+.box ul{margin:8px 18px 0 0;display:flex;flex-direction:column;gap:5px}
+footer{border-top:1px solid var(--line);background:var(--panel);margin-top:48px}
+.frow{padding:18px 0 22px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:12px;color:var(--faint)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hrow">
+    <a class="back" href="/">← לדף הראשי</a>
+    <span class="bname">SAOS · התקן ההנדסי</span>
+    <span style="margin-inline-start:auto;font-size:11.5px;color:var(--faint)" class="mono">updated 2026-10-12</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <span class="kick">השוואה מדידה · ללא קישוט</span>
+  <h1>איך גופים גדולים עובדים, איפה אנחנו עומדים, ומה הסדר</h1>
+  <p class="lede">העמוד הזה מציב את שיטות העבודה המקובלות בחברות הנדסה גדולות מול המצב הנמדד שלנו, ומפרט את סדר הביצוע. כל שורת מצב נבדקה ב-2026-10-12. שיטת ההשוואה: מה שמקובל בגופים גדולים בתחומי אמון, קול, אמינות וסדר. המטרה אחת: מוצרים שאפשר לסמוך עליהם.</p>
+
+  <h2><span class="n">01</span>משטח האמון</h2>
+  <p class="sub">מה מבקר רואה כשהוא בודק אתכם. גופים גדולים מחזיקים עמוד מצב עם היסטוריית תקלות, יומן שינויים פומבי ומספור גרסאות. זה מה שהופך טענות לניתנות בדיקה.</p>
+  <table>
+    <thead><tr><th>נוהג</th><th>מקובל בגופים גדולים</th><th>המצב הנמדד אצלנו</th><th>סטטוס</th></tr></thead>
+    <tbody>
+      <tr><td>עמוד מצב עם היסטוריה</td><td class="dim">status page עם רשומות תקלה ופתרון</td><td class="dim">site-audit מדוד ומפורסם בקומיטים, אין עמוד מצב מתומצת עם היסטוריה קריאה</td><td><span class="pill p1">P1 לבנייה</span></td></tr>
+      <tr><td>יומן שינויים פומבי</td><td class="dim">changelog קריא לאדם, לא רשימת קומיטים</td><td class="dim">זרמי קומיטים חיים בכל ריפו, אין יומן מתומצת לפי מוצר</td><td><span class="pill p1">P1 לבנייה</span></td></tr>
+      <tr><td>מספור גרסאות</td><td class="dim">תגיות גרסה והצהרת תאימות</td><td class="dim">תיוג חלקי (v0), אין הצהרת תאימות בין מוצרים</td><td><span class="pill p2">P2</span></td></tr>
+      <tr><td>ראיות לכל טענה</td><td class="dim">מסמכים עם קישור למקור</td><td class="dim">מסוף האימות: טענות עם ראיות ממקור ציבורי</td><td><span class="pill have">קיים</span></td></tr>
+      <tr><td>עקביות מספרים</td><td class="dim">מספר אחד, מקור אחד, בכל המשטחים</td><td class="dim">פערים בין עמודים: 49 טענות ב-Console מול 51 בפנקסים; טענת עיגון 3/3 רשתות מוצגת כשגששי Blurt כבשים 30 שעות</td><td><span class="pill p0">P0 תיקון</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="n">02</span>קול ושפה</h2>
+  <p class="sub">קול אחד, מוצר קודם, בלי הצפות מהחדר הפנימי. מה שנכתב על המוצר נכתב למי שמשתמש בו, לא למי שמפעיל אותו.</p>
+  <table>
+    <thead><tr><th>עיקרון</th><th>המצב הנמדד אצלנו</th><th>סטטוס</th></tr></thead>
+    <tbody>
+      <tr><td>אין דיבור פנימי במשטח הציבורי</td><td class="dim">ב-FleetHQ מוצגות שאלות סוכנים והודעות כלים באנגלית מלאות, למשל הוראת read_page ושאלת קריאת דף, כולל שמות פרטיים של סוכנים</td><td><span class="pill p0">P0 תיקון</span></td></tr>
+      <tr><td>מונחי מוצר במקום מונחי חדר</td><td class="dim">הפניות חוזרות למפעיל ולבעלים ב-Console וב-FleetHQ. המונח שער המפעיל לגיטימי כשם מוצר, אבל תיאורי פעולה בלשון ראשונה ושלישית של אנשי חדר לא</td><td><span class="pill p1">P1 עריכה</span></td></tr>
+      <tr><td>בלי סימני טקסט ממוכן</td><td class="dim">נמדדו מעטים. יש לשמור: אין מרכאות נוי, אין שרשרת נקודותיים, אין מילות סרק כמו דינמי ומיטבי</td><td><span class="pill p2">P2 שמירה</span></td></tr>
+      <tr><td>טענות מדידה בלי מילות על</td><td class="dim">בדף השיווקי של Domain מופיעים תמיד ולעולם בהקשרי הבטחה. הבטחה נמדדת או שהיא לא נכתבת</td><td><span class="pill p1">P1 עריכה</span></td></tr>
+      <tr><td>קול אחד לרשת</td><td class="dim">החלטה פומבית #3 עד #8 קבעה חוק קול-אחד. ההצמדה לזה נמדדת בכל דף חדש</td><td><span class="pill have">בביצוע</span></td></tr>
+    </tbody>
+  </table>
+  <div class="box">
+    <b>חוק השפה, מיידי לכל דף חדש:</b>
+    <ul>
+      <li>כותבים למי שצופה מבחוץ. אין אזכור של תהליכי חדר, שמות סוכנים, כלים פנימיים או הוראות שניתנו למי.</li>
+      <li>כל מספר עם מקור וחותמת זמן. מספר בלי מקור יורד.</li>
+      <li>משפטים קצרים. פעלים מוחשיים. אין מילות סרק, אין מרכאות נוי, אין קישוט פיסוק.</li>
+      <li>כשל מוצג ככשל. אין ניסוח שמרכך כשל מדידה.</li>
+    </ul>
+  </div>
+
+  <h2><span class="n">03</span>אמינות מערכת</h2>
+  <p class="sub">גופים גדולים לא מונעים כשלים, הם מנהלים אותם. מדידה קבועה, טיפול אוטומטי בכשל ידוע, ורישום פומבי של מה נשבר ואיך תוקן.</p>
+  <table>
+    <thead><tr><th>יכולת</th><th>המצב הנמדד אצלנו</th><th>סטטוס</th></tr></thead>
+    <tbody>
+      <tr><td>מדידה עצמאית מתמדת</td><td class="dim">GridWatch מודד את כל הצי כל 30 דקות בענה של GitHub, 252 משימות</td><td><span class="pill have">קיים</span></td></tr>
+      <tr><td>ריפוי עצמי עם קבלות</td><td class="dim">ניסיון ריפוי אוטומטי לכשלים הפיכים, קבלה לכל פעולה</td><td><span class="pill have">קיים</span></td></tr>
+      <tr><td>הגנה על משטח הצפייה</td><td class="dim">health-guard שומר על המשרד התלת-ממדי מפני קריסת זיכרון, בדיקה כל 30 שניות, הקפת זיכרון מונעת</td><td><span class="pill have">קיים</span></td></tr>
+      <tr><td>תקציב מחשוב בר-קיימא</td><td class="dim">מכסת הרצות בריפואיטוריז הפרטיים נגמרה, 4 ריפואיטוריז חשוכים, 86 משימות אדומות. המעבר למסילה ציבורית מתבצע ליין אחר ליין וההחלטה על הגדלת מכסה מופנית לריבונות</td><td><span class="pill p0">P0 הכרעה</span></td></tr>
+      <tr><td>נהלי תפעול כתובים</td><td class="dim">אין runbook לכל ליין קריטי. כל ליין קריטי חייב דף אחד שמסביר מה נשבר, איך מזהים ואיך מתקנים</td><td><span class="pill p1">P1 לבנייה</span></td></tr>
+      <tr><td>טריות כחוק</td><td class="dim">מדידה ישנה מ-24 שעות מסומנת אדום בכל המשטחים החדשים</td><td><span class="pill have">קיים</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="n">04</span>סדר ומבנה</h2>
+  <p class="sub">גוף מסודר נראה מסודר. דלת כניסה אחת, ניווט עקבי, אפס קישורים שבורים, קובץ עיצוב אחד לכל האתרים.</p>
+  <table>
+    <thead><tr><th>נוהג</th><th>המצב הנמדד אצלנו</th><th>סטטוס</th></tr></thead>
+    <tbody>
+      <tr><td>דלת כניסה לארגון</td><td class="dim">עד היום שורש הדומיין החזיר 404. היום עלה עמוד ראשי חי עם מדידה</td><td><span class="pill have">תוקן היום</span></td></tr>
+      <tr><td>אפס קישורים שבורים</td><td class="dim">נמדדו 8 קישורים שבורים באתרים הציבוריים, כולל קישורים לריפואיטוריז פרטיים שמחזירים 404 למבקר</td><td><span class="pill p0">P0 תיקון</span></td></tr>
+      <tr><td>שפת עיצוב אחת</td><td class="dim">שלושה אתרים בשלושה שפות עיצוב. מוגדרת משפחת צבע אחת לכל האתרים החדשים, מתחילה בעמוד הראשי</td><td><span class="pill p1">P1 הרחבה</span></td></tr>
+      <tr><td>מפת אתרים אמיתית</td><td class="dim">sitemap קיים וכולל גם יעדים פרטיים שאינם נגישים למבקר</td><td><span class="pill p1">P1 עריכה</span></td></tr>
+      <tr><td>מהירות ותקני בסיס</td><td class="dim">העמוד הראשי בנוי בקובץ אחד בלי תלות חיצונית, בלי עוקבים ובלי קוקיז</td><td><span class="pill have">קיים</span></td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="n">05</span>סדר הביצוע</h2>
+  <p class="sub">רשימה אחת, לפי סדר. כל פריט נמדד, לכל פריט אחראי מוגדר. ההכרעות שנותרו מופנות לריבונות ולא ליחיד.</p>
+  <table>
+    <thead><tr><th>עדיפות</th><th>פריט</th><th>אחריות</th></tr></thead>
+    <tbody>
+      <tr><td><span class="pill p0">P0</span></td><td class="dim">ניקוי דיבור פנימי והודעות כלים מהפודיום הציבורי ב-FleetHQ, במחולל שלו</td><td class="dim">סוכן ה-FleetHQ</td></tr>
+      <tr><td><span class="pill p0">P0</span></td><td class="dim">עקביות מספרים: טענה אחת מוצגת בכל המשטחים ממקור אחד</td><td class="dim">סוכן ה-Console</td></tr>
+      <tr><td><span class="pill p0">P0</span></td><td class="dim">טענת עיגון רשתות מוצגת רק כשהגששים בטריות. בלי טריות, הטענה יורדת</td><td class="dim">סוכן ה-Console</td></tr>
+      <tr><td><span class="pill p0">P0</span></td><td class="dim">תיקון 8 הקישורים השבורים והסרת קישורים ליעדים פרטיים</td><td class="dim">סוכן ה-Domain</td></tr>
+      <tr><td><span class="pill p0">P0</span></td><td class="dim">הכרעת תקציב המחשוב: הגדלת מכסה או חוק מסילה ציבורית מלאה</td><td class="dim">ריבונות, הבעלים בלבד לתשלום</td></tr>
+      <tr><td><span class="pill p1">P1</span></td><td class="dim">עמוד מצב עם היסטוריית תקלות ויומן שינויים לכל מוצר</td><td class="dim">ריבונות, להקצאה</td></tr>
+      <tr><td><span class="pill p1">P1</span></td><td class="dim">runbook אחד לכל ליין קריטי</td><td class="dim">ריבונות, להקצאה</td></tr>
+      <tr><td><span class="pill p1">P1</span></td><td class="dim">הרחבת משפחת העיצוב לשלושת האתרים הקיימים</td><td class="dim">סוכני האתרים</td></tr>
+      <tr><td><span class="pill p2">P2</span></td><td class="dim">מספור גרסאות אחיד והצהרת תאימות בין מוצרים</td><td class="dim">ריבונות, להקצאה</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box">
+    <b>מה כבר עובד אוטונומית בענה, בלי תלות בסנדבוקס:</b>
+    <ul>
+      <li>מדידת הצי וריפוי עצמי כל 30 דקות ב-GridWatch.</li>
+      <li>מסילת מחשוב ציבורית שנושאת עורקים, פנקסים וגששים ב-Pulse וב-Autonomy.</li>
+      <li>פרסום מצב המשרד והפאנלים החיים מהענה.</li>
+      <li>עמוד הראשי והתקן ההנדסי: סטטיים, קוראים מדידה חיה בזמן הצפייה.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <span>SAOS · התקן ההנדסי · כל שורת מצב נמדדה ב-2026-10-12</span>
+    <span><a href="/">דף ראשי</a> · <a href="https://roshpinacare-sys.github.io/Console/">מסוף האימות</a> · <a href="https://github.com/roshpinacare-sys">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>
