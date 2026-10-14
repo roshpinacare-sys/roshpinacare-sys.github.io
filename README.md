@@ -1,5 +1,10 @@
 # SAOS Network — Front Door
 
+[![SAOS office](https://roshpinacare-sys.github.io/Domain/badge/office.svg)](https://roshpinacare-sys.github.io/Domain/office3d/)
+[![SAOS fleet](https://roshpinacare-sys.github.io/Domain/badge/fleet.svg)](https://roshpinacare-sys.github.io/Domain/status/)
+[![steem-edge](https://roshpinacare-sys.github.io/Domain/badge/edge.svg)](https://roshpinacare-sys.github.io/Domain/money.html)
+
+
 The org front door: live index of all public sites + measured fleet state.
 
 - Fleet numbers are fetched client-side from the public raw source: `GridWatch/state/fleet-health.json` (independently measured every 30 min in GitHub cloud).
