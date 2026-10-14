@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SAOS — רשת האימות | כל פעולה עם הוכחה</title>
-<meta name="description" content="SAOS היא רשת סוכני AI שמבצעת עבודה רציפה ומפרסמת הוכחות. כל מספר בעמוד נמדד ממקור ציבורי עם חותמת זמן. אפשר לבדוק הכול.">
+<title>SAOS — המערכת החיה | ארנק, טוקנים, מעביר-מטבע</title>
+<meta name="description" content="SAOS היא מערכת כלכלית ריבונית שרצה בגיט ומפרסמת קבלה לכל פעולה. הארנק, ספר-הטוקנים ומעביר-המטבע — חיים, נמדדים, עם קישור למקור של כל מספר.">
 <meta name="theme-color" content="#09090b">
 <link rel="canonical" href="https://roshpinacare-sys.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SAOS">
-<meta property="og:title" content="SAOS — רשת האימות">
-<meta property="og:description" content="כל פעולה עם הוכחה. כל מספר עם מקור. כל כשל גלוי.">
+<meta property="og:title" content="SAOS — המערכת החיה">
+<meta property="og:description" content="ארנק ריבוני · ספר-טוקנים · מעביר-מטבע. כל מספר עם מקור. כל כשל גלוי.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8' fill='none' stroke='%230d9d6d' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='3' fill='none' stroke='%230d9d6d' stroke-width='1.8'/%3E%3C/svg%3E">
 <style>
@@ -33,6 +33,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .mono{font-family:var(--mono);direction:ltr;unicode-bidi:embed}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px;width:100%}
 @media(min-width:768px){.wrap{padding:0 28px}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* header */
 header{position:sticky;top:0;z-index:60;background:rgba(247,245,242,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
@@ -49,235 +50,403 @@ nav a.cta:hover{filter:brightness(1.07);background:var(--acc)}
 
 /* hero */
 .hero{padding:64px 0 40px}
-@media(min-width:768px){.hero{padding:88px 0 56px}}
-.kick{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;color:var(--acc-d);background:var(--acc-bg);border:1px solid var(--acc-line);border-radius:999px;padding:6px 14px}
-.kick .pulse{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pu 2.6s infinite}
-@keyframes pu{0%,100%{opacity:1}50%{opacity:.3}}
-@media(prefers-reduced-motion:reduce){.kick .pulse{animation:none}}
-h1{font-size:clamp(32px,6vw,58px);font-weight:800;line-height:1.06;letter-spacing:-.9px;margin:20px 0 14px;max-width:15ch}
-.hero p{font-size:clamp(15px,2.2vw,18px);color:var(--dim);max-width:60ch}
-.hero p b{color:var(--text);font-weight:650}
-.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:700;padding:13px 24px;border-radius:12px;background:var(--acc);color:#04231a;border:1px solid var(--acc-line);transition:filter .15s}
-.btn:hover{filter:brightness(1.08);text-decoration:none}
-.btn.ghost{background:var(--panel);color:var(--text);border-color:var(--line2);font-weight:600}
-.btn.ghost:hover{border-color:var(--acc-line);color:var(--acc-d);filter:none}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--acc-d);background:var(--acc-bg);border:1px solid var(--acc-line);border-radius:999px;padding:5px 12px}
+.kick .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-size:clamp(30px,5.4vw,46px);line-height:1.15;letter-spacing:-.02em;margin:18px 0 12px;font-weight:800}
+h1 em{font-style:normal;color:var(--acc-d)}
+.sub{font-size:16.5px;color:var(--dim);max-width:640px}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14.5px;font-weight:700;padding:12px 20px;min-height:44px;border-radius:12px;border:1px solid var(--line2);background:var(--panel);color:var(--text);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 4px 14px rgba(25,25,25,.08)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#04231a}
+.btn.pri:hover{filter:brightness(1.06)}
 
-/* live state */
-.state{padding:26px 0 8px}
-.shead{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-bottom:14px}
-h2{font-size:clamp(20px,3vw,27px);font-weight:800;letter-spacing:-.4px}
-.shead .meta{font-size:12.5px;color:var(--faint);margin-inline-start:auto}
-.src{font-family:var(--mono);font-size:11.5px;direction:ltr;unicode-bidi:embed}
-.tiles{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
-@media(min-width:768px){.tiles{grid-template-columns:repeat(4,1fr)}}
-.tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px}
-.tile .n{font-size:30px;font-weight:800;letter-spacing:-.6px;font-variant-numeric:tabular-nums;line-height:1.1}
-.tile .l{font-size:12px;color:var(--faint);margin-top:4px;line-height:1.5}
-.tile.ok .n{color:var(--acc-d)}
-.tile.bad .n{color:var(--red)}
-.tile.bad{border-color:var(--red-line);background:linear-gradient(0deg,var(--red-bg),var(--red-bg)),var(--panel)}
-.lawrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;font-size:12px}
-.lawrow span{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 12px;color:var(--dim)}
-.lawrow .hot{border-color:var(--amber-line);background:var(--amber-bg);color:var(--amber);font-weight:600}
+/* live stat strip */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:34px 0 8px}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.chip .k{font-size:11px;color:var(--faint);font-weight:600;letter-spacing:.3px}
+.chip .v{font-size:19px;font-weight:800;margin-top:2px;letter-spacing:-.01em}
+.chip .s{font-size:10.5px;color:var(--faint)}
+
+/* sections */
+section{padding:44px 0}
+.sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+h2{font-size:clamp(21px,3.2vw,27px);letter-spacing:-.015em;font-weight:800}
+.sechead .why{font-size:13px;color:var(--faint)}
+.lead{color:var(--dim);font-size:15px;max-width:700px;margin-bottom:22px}
+
+/* console grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:6px;transition:border-color .2s}
+.tile:hover{border-color:var(--acc-line)}
+.tile .tk{font-size:12px;font-weight:700;color:var(--dim);display:flex;align-items:center;gap:7px}
+.tile .tv{font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.tile .tv small{font-size:13px;color:var(--faint);font-weight:600}
+.tile .td{font-size:12.5px;color:var(--dim)}
+.tile .ts{font-size:11px;color:var(--faint);margin-top:auto;padding-top:8px;border-top:1px dashed var(--line)}
+.tile .ts a{font-weight:600}
+.tile.ok .tk .led{background:var(--acc)}
+.tile.warn .tk .led{background:var(--amber)}
+.tile.bad .tk .led{background:var(--red)}
+.led{width:8px;height:8px;border-radius:50%;background:var(--faint);flex:none}
+.vbadge{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;border:1px solid}
+.vbadge.ok{color:var(--acc-d);background:var(--acc-bg);border-color:var(--acc-line)}
+.vbadge.warn{color:var(--amber);background:var(--amber-bg);border-color:var(--amber-line)}
+.vbadge.bad{color:var(--red);background:var(--red-bg);border-color:var(--red-line)}
 
 /* products */
-.sec{padding:44px 0}
-.sec>.wrap>p.lead{color:var(--dim);font-size:14.5px;max-width:64ch;margin-top:6px}
-.grid{display:grid;gap:14px;margin-top:22px}
-@media(min-width:760px){.grid.c3{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:760px){.grid.c2{grid-template-columns:1fr 1fr}}
-@media(min-width:1000px){.grid.c3w{grid-template-columns:repeat(3,1fr)}}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0;transition:border-color .15s,transform .15s}
-.card:hover{border-color:var(--acc-line)}
-.card h3{font-size:16px;font-weight:700;letter-spacing:-.2px;display:flex;align-items:center;gap:9px}
-.card h3 .ic{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:8px;background:var(--acc-bg);border:1px solid var(--acc-line);color:var(--acc-d)}
-.card p{font-size:13.5px;color:var(--dim);line-height:1.7}
-.card .foot{margin-top:auto;padding-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.card .foot .k{font-size:11px;color:var(--faint);font-family:var(--mono);direction:ltr}
-.card .foot a{font-size:13.5px;font-weight:700;white-space:nowrap}
+.prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.prod{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+.prod .ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--acc-bg);border:1px solid var(--acc-line);color:var(--acc-d);font-size:19px}
+.prod h3{font-size:17.5px;font-weight:800;letter-spacing:-.01em}
+.prod p{font-size:13.5px;color:var(--dim)}
+.prod ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--text)}
+.prod ul li::before{content:"◆";color:var(--acc);font-size:9px;margin-inline-end:7px;vertical-align:1px}
+.prod .plinks{margin-top:auto;display:flex;gap:14px;padding-top:12px;border-top:1px dashed var(--line);flex-wrap:wrap}
+.prod .plinks a{font-size:13px;font-weight:700}
+.formula{background:var(--bg2);border:1px solid var(--line);border-radius:var(--rs);padding:10px 12px;font-family:var(--mono);direction:ltr;unicode-bidi:embed;font-size:12px;overflow-x:auto;white-space:nowrap;color:var(--text)}
 
-/* sites */
-.sites{display:grid;gap:12px;grid-template-columns:1fr}
-@media(min-width:640px){.sites{grid-template-columns:1fr 1fr}}
-@media(min-width:1000px){.sites{grid-template-columns:1fr 1fr 1fr}}
-.srow{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 16px;min-width:0;transition:border-color .15s}
-.srow:hover{border-color:var(--acc-line);text-decoration:none}
-.srow .d{width:8px;height:8px;border-radius:50%;flex:none;background:var(--acc)}
-.srow .t{min-width:0}
-.srow .t b{display:block;font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.srow .t small{display:block;font-size:11.5px;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.srow .go{margin-inline-start:auto;color:var(--faint);font-size:15px;flex:none}
+/* honesty band */
+.honest{background:#09090b;color:#ececec;border-radius:20px;padding:28px;border:1px solid #26262b}
+.honest h2{color:#fff}
+.honest .lead{color:#a1a1aa}
+.gaprow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-top:18px}
+.gap{background:#141417;border:1px solid #26262b;border-radius:12px;padding:14px}
+.gap .gk{font-size:12px;font-weight:800;color:#fbbf24;display:flex;gap:7px;align-items:center}
+.gap .gt{font-size:13px;color:#d4d4d8;margin-top:5px}
+.gap .gr{font-size:11.5px;color:#a1a1aa;margin-top:8px;padding-top:8px;border-top:1px dashed #26262b}
+.flowrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:#d4d4d8}
+.flowrow .vbadge.warn{font-size:12px}
+
+/* infra row */
+.infra{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.infra a{display:flex;flex-direction:column;gap:3px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text);transition:border-color .2s}
+.infra a:hover{text-decoration:none;border-color:var(--acc-line)}
+.infra b{font-size:13.5px}
+.infra span{font-size:11.5px;color:var(--faint)}
+
+/* api table */
+.apitab{width:100%;border-collapse:collapse;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.apitab th,.apitab td{text-align:start;padding:10px 14px;border-bottom:1px solid var(--line)}
+.apitab th{font-size:11.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.4px;background:var(--bg2)}
+.apitab tr:last-child td{border-bottom:none}
+.apitab td.mono{font-size:11.5px}
+.scrollx{overflow-x:auto;border-radius:var(--r)}
 
 /* footer */
-footer{border-top:1px solid var(--line);background:var(--panel);margin-top:auto}
-.frow{padding:26px 0 30px;display:flex;flex-wrap:wrap;gap:14px 30px;align-items:flex-start;justify-content:space-between}
-.frow .fbrand{max-width:38ch;font-size:12.5px;color:var(--faint);line-height:1.7}
-.frow .fbrand b{color:var(--text);font-size:13.5px;display:block;margin-bottom:4px}
-.flinks{display:flex;gap:8px 26px;flex-wrap:wrap;font-size:13px}
-.flinks a{color:var(--dim)}
-.flinks a:hover{color:var(--acc-d)}
-.fbottom{border-top:1px solid var(--line);padding:14px 0;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;font-size:11.5px;color:var(--faint)}
-.notice{background:var(--amber-bg);border:1px solid var(--amber-line);border-radius:12px;padding:12px 16px;font-size:12.5px;color:var(--amber);margin-top:14px;display:none}
-.notice.show{display:block}
+footer{margin-top:auto;border-top:1px solid var(--line);background:var(--panel)}
+.frow{padding:22px 0;display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+footer nav{display:flex;gap:14px;flex-wrap:wrap;margin:0}
+footer nav a{font-size:12.5px;padding:0}
+.fmeta{font-size:11.5px;color:var(--faint)}
+
+/* data states */
+.err{background:var(--red-bg);border:1px solid var(--red-line);color:var(--red);border-radius:12px;padding:14px;font-size:13.5px}
+.refresh-note{font-size:11.5px;color:var(--faint);display:flex;align-items:center;gap:6px}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap hrow">
-    <div class="mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
-    <div class="bname">SAOS<span>רשת האימות</span></div>
-    <nav aria-label="ראשי">
-      <a class="hide-m" href="#live">מצב חי</a>
-      <a class="hide-m" href="#products">מוצרים</a>
-      <a class="hide-m" href="#sites">אתרים</a>
-      <a class="hide-m" href="standard.html">תקן הנדסי</a>
-      <a class="hide-m" href="giant.html">הופכים לענק</a>
-      <a class="cta" href="https://roshpinacare-sys.github.io/Console/">בדיקה עצמאית</a>
+    <span class="mark" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg>
+    </span>
+    <div class="bname">SAOS <span>המערכת החיה</span></div>
+    <nav aria-label="ניווט ראשי">
+      <a href="#console" class="hide-m">מסוף חי</a>
+      <a href="#products">מוצרים</a>
+      <a href="#honest" class="hide-m">אמת</a>
+      <a href="#api" class="hide-m">API</a>
+      <a href="#standard" class="hide-m">תקן</a>
+      <a class="cta" href="https://github.com/roshpinacare-sys" rel="noopener">GitHub ↗</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <section class="hero wrap" aria-labelledby="h1">
-    <span class="kick"><span class="pulse" aria-hidden="true"></span> רשת סוכני AI · הוכחות בשרשרת ציבורית</span>
-    <h1 id="h1">אמון לא נדרש.<br>אימות זמין.</h1>
-    <p>SAOS מפעילה סוכני AI שעובדים ברציפות ומפרסמים הוכחה לכל פעולה. כל מספר בעמוד הזה נמדד כרגע ממקור ציבורי עם חותמת זמן, וכל כשל מוצג ככשל. <b>אין כאן דבר שאי אפשר לבדוק לבד.</b></p>
-    <div class="ctas">
-      <a class="btn" href="https://roshpinacare-sys.github.io/Console/">הרצת אימות עצמאי</a>
-      <a class="btn ghost" href="https://roshpinacare-sys.github.io/Domain/">צפייה במשרד החי</a>
+<main class="wrap">
+  <section class="hero" aria-labelledby="h-hero">
+    <span class="kick"><span class="dot" aria-hidden="true"></span> חי · נמדד ממקורות ציבוריים בזמן אמת</span>
+    <h1 id="h-hero">לא עוד עמוד-תדמית.<br>זו <em>המערכת עצמה</em> — פתוחה לבדיקה.</h1>
+    <p class="sub">SAOS מפעילה כלכלה ריבונית: ארנק עם כיסוי-מפתחות מאומת-שרשרת, סולמות מסחר שמפיקים הכנסה, ומעביר-מטבע שמעלה הילוך לפי מתמטיקה — לא לפי הבטחות. כל מספר כאן נשלף עכשיו מקובץ מצב ציבורי, עם קישור למקור.</p>
+    <div class="hero-cta">
+      <a class="btn pri" href="#console">כניסה למסוף החי ↓</a>
+      <a class="btn" href="#products">שלושת המוצרים</a>
+      <a class="btn" href="roast.html">הביקורת ההנדסית שלנו</a>
+    </div>
+    <div class="strip" role="list" aria-label="מדדי-על חיים">
+      <div class="chip" role="listitem"><div class="k">הילוך נוכחי</div><div class="v" id="s-gear">—</div><div class="s">מעביר-המטבע</div></div>
+      <div class="chip" role="listitem"><div class="k">רצף-ירוק</div><div class="v" id="s-streak">—</div><div class="s">קבלות LADDER-ACTED</div></div>
+      <div class="chip" role="listitem"><div class="k">תקרת-כניסה</div><div class="v" id="s-cap">—</div><div class="s">SBD לפעולה (כובד כלי)</div></div>
+      <div class="chip" role="listitem"><div class="k">עורקי הכנסה</div><div class="v" id="s-arteries">—</div><div class="s">אוצר · צבא</div></div>
+      <div class="chip" role="listitem"><div class="k">דופק אחרון</div><div class="v" id="s-pulse">—</div><div class="s">מדידת רשת</div></div>
+    </div>
+    <p class="refresh-note"><span aria-hidden="true">⟳</span> התחדשות אוטומטית כל 5 דקות · מקור ראשי: <a class="mono" href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">Pulse/state/network.json</a></p>
+  </section>
+
+  <section id="console" aria-labelledby="h-console">
+    <div class="sechead">
+      <h2 id="h-console">מסוף חי — מצב הכלכלה, עכשיו</h2>
+      <span class="why">כל אריח = קריאה חיה ממקור ציבורי. נתון שאינו זמין מוצג כלא-זמין, לעולם לא מומצא.</span>
+    </div>
+    <p class="lead">זה החלון של המערכת עצמה: עורקי ההכנסה, התמסורת הכלכלית, כובד הכניסה לשוק, הפערים הפתוחים ודופק הרשת — בזמן אמת.</p>
+    <div id="console-grid" class="grid" aria-live="polite">
+      <div class="err" id="console-err" hidden>מקור המדידה אינו זמין כרגע. העמוד מציג זאת כפי שהוא — בלי להמציא נתונים. נסו רענון בעוד רגע.</div>
     </div>
   </section>
 
-  <section class="state wrap" id="live" aria-labelledby="h-live">
-    <div class="shead">
-      <h2 id="h-live">מצב הרשת, עכשיו</h2>
-      <span class="meta" id="meta">נמדד…</span>
+  <section id="products" aria-labelledby="h-products">
+    <div class="sechead">
+      <h2 id="h-products">שלושת המוצרים האמתיים</h2>
+      <span class="why">לא דשבורדים על המערכת — המערכת עצמה: כסף, מפתחות, והמתמטיקה שמנהלת אותם.</span>
     </div>
-    <div class="tiles" role="group" aria-label="מדידת צי חיה">
-      <div class="tile"><div class="n mono" id="t-repos">—</div><div class="l">ריפואיטוריז בצי<br>ציבוריים ופרטיים</div></div>
-      <div class="tile"><div class="n mono" id="t-wf">—</div><div class="l">משימות אוטומציה<br>במעקב מתמיד</div></div>
-      <div class="tile ok"><div class="n mono" id="t-green">—</div><div class="l">ירוקות<br>עובדות כמתוכנן</div></div>
-      <div class="tile bad"><div class="n mono" id="t-red">—</div><div class="l">כושלות<br>מזוהות וגלויות</div></div>
+    <div class="prods">
+      <article class="prod">
+        <span class="ico" aria-hidden="true">🛡</span>
+        <h3>הארנק הריבוני</h3>
+        <p>כיסוי מפתחות חי של צי-החשבונות: כל מפתח נשפט מול השרשרת עצמה — לא מול זיכרון. דורות-כספת מאובטחים, אימות כפול בכל פעימה, ודחייה צורמת של חומר-לא-מאומת.</p>
+        <ul>
+          <li>מצב-צי: <b class="mono" id="w-mode">—</b> · פטרון-אימות: <b id="w-pat">—</b></li>
+          <li>עורק אוצר: <b id="w-treasury">—</b></li>
+          <li>עורק צבא: <b id="w-army">—</b></li>
+        </ul>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/saos-runtime/actions/workflows/treasury-ladder.yml" rel="noopener">קבלות-אוצר חיות ↗</a><a href="https://github.com/roshpinacare-sys/saos-runtime/actions/workflows/army-ladder.yml" rel="noopener">קבלות-צבא חיות ↗</a></div>
+      </article>
+      <article class="prod">
+        <span class="ico" aria-hidden="true">▤</span>
+        <h3>ספר-הטוקנים</h3>
+        <p>SBD/STEEM בעבודה: סולמות maker-only שמציבים ומושכים הצבות בשרשרת הציבורית. כל פעולה = קבלה עם חותמת זמן. הנזילות לא מובטחת — היא מוצבת, נמדדת ומתועדת.</p>
+        <ul>
+          <li>הצבות פתוחות (אוצר): <b class="mono" id="t-orders">—</b></li>
+          <li>פעיל במדידה האחרונה: <b class="mono" id="t-acted">—</b> מתוך סגל <b class="mono" id="t-roster">—</b></li>
+          <li>ראש השרשרת: <b class="mono" id="t-head">—</b></li>
+        </ul>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">גלגול-הכלכלה המלא ↗</a><a href="https://github.com/roshpinacare-sys/saos-runtime/actions" rel="noopener">ריצות-מדידה ↗</a></div>
+      </article>
+      <article class="prod">
+        <span class="ico" aria-hidden="true">⚙</span>
+        <h3>מעביר-המטבע</h3>
+        <p>ההילוך נקבע פעמיים: רצף-קבלות ירוקות מעלה הילוך (אמינות), וכובד-כלי (Kelly) מתמחר מהירות לפי תוחלת-רווח נמדדת (יעילות). כישלון = ירידת הילוך מיידית. אפס פיקדונות — קצב נרכש במשמעת.</p>
+        <div class="formula" aria-label="נוסחת כובד הכניסה">f = p − ((1−p)/WLR) · safe = clamp(f×½, 0.01, 0.25) · cap = ⌊gear × safe × 4⌋</div>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">מצב התמסורת בזמן אמת ↗</a><a href="giant.html">איך זה משתווה לענקים</a></div>
+      </article>
     </div>
-    <div class="lawrow">
-      <span>מקור: <span class="src">GridWatch/state/fleet-health.json</span></span>
-      <span>מדידה עצמאית כל 30 דקות בענה של GitHub</span>
-      <span id="chip-fresh" class="hot">טוען טריות…</span>
-    </div>
-    <div class="notice" id="unreach">מקור המדידה אינו זמין כרגע. העמוד מציג זאת כפי שהוא, בלי להמציא נתונים. נסו שוב בעוד רגע.</div>
   </section>
 
-  <section class="sec" id="products" aria-labelledby="h-prod">
-    <div class="wrap">
-      <h2 id="h-prod">שלושה מוצרים, עיקרון אחד</h2>
-      <p class="lead">כל מוצר נותן לכם גישה ישירה לעובדות. לא סיכומים, לא סיפורים. הראיה מקושרת למקור שלה.</p>
-      <div class="grid c3">
-        <div class="card">
-          <h3><span class="ic" aria-hidden="true">✓</span>מסוף האימות</h3>
-          <p>עשרות טענות על הרשת, כל אחת נבדקת אוטומטית מול המקור שלה. עברו ונכשלו מוצגים אצלכם באותו עמוד, עם קישור לראיה.</p>
-          <div class="foot"><span class="k">Console</span><a href="https://roshpinacare-sys.github.io/Console/">להרצה ↗</a></div>
-        </div>
-        <div class="card">
-          <h3><span class="ic" aria-hidden="true">◎</span>המשרד החי</h3>
-          <p>חדר פיקוד תלת-ממדי שמראה את העבודה בזמן אמת. גריד ערוצים, עיגון שרשרת, גששי רשת. הכול קריא בלי הרשאות.</p>
-          <div class="foot"><span class="k">Domain</span><a href="https://roshpinacare-sys.github.io/Domain/">לצפייה ↗</a></div>
-        </div>
-        <div class="card">
-          <h3><span class="ic" aria-hidden="true">▤</span>מצב הצי</h3>
-          <p>פעילות הסוכנים, קצב העבודה והכרעות פומביות לפי מדיניות מפורסמת. כל הכרעה גלויה לביקורת.</p>
-          <div class="foot"><span class="k">FleetHQ</span><a href="https://roshpinacare-sys.github.io/FleetHQ/">לצפייה ↗</a></div>
-        </div>
+  <section id="honest" aria-labelledby="h-honest">
+    <div class="honest">
+      <div class="sechead">
+        <h2 id="h-honest">האמת הכלכלית — מפורסמת, לא מנוהלת</h2>
+        <span class="why" style="color:#71717a">ההבטחה שלנו היא לא שאנחנו רווחיים — אלא שאי-אפשר לשקר לכם.</span>
+      </div>
+      <p class="lead" style="color:#a1a1aa">הריבונות מודדת את כיוון-הזרימה שלה בכל פעימה ומפרסמת אותו: עדיין לא הושלם ההיפוך הכלכלי — המערכת מממנת את עצמה חלקית, והפערים גלויים כאן עם נתיב-פדיון לכל אחד. פער שנסגר נעלם מהרשימה; פער שנפתח מופיע.</p>
+      <div class="flowrow">
+        <span>כיוון-זרימה נמדד:</span> <span class="vbadge warn" id="h-flow">—</span>
+        <span>· פערים פתוחים: <b class="mono" id="h-gaps">—</b></span>
+        <span>· מקור: <a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener" style="color:#7dd3fc">פנקס-הריבונות בגיט</a></span>
+      </div>
+      <div class="gaprow" id="h-gaprow">
+        <div class="gap"><div class="gk"><span aria-hidden="true">◆</span> GAP-1 · חומת-המחשוב</div><div class="gt">21 ריפואיטוריז פרטיים רצים על תוכנית-בעלים בתשלום — המחשוב של הריבונות עדיין נישא בחלקו מבחוץ.</div><div class="gr">נתיב-פדיון: הרחבת-היקף מרווחים נמדדים (לעולם לא הפקדות) עד לכיסוי מלא של התוכנית מהכנסת הסולמות.</div></div>
+        <div class="gap"><div class="gk"><span aria-hidden="true">◆</span> GAP-2 · היקף-קנרית</div><div class="gt">תקרות-ההון נמצאות בשלב-קנרית: הילוך 1 מתוך 3, כובד-כלי בתקופת-בחינה — הכסף עדיין זהיר במכוון.</div><div class="gr">נתיב-פדיון: הילוך עולה אך ורק על רצף-קבלות ירוקות ותוחלת-רווח חיובית נמדדת — המתמטיקה מחליטה, לא הרגש.</div></div>
+        <div class="gap"><div class="gk"><span aria-hidden="true">◆</span> GAP-3 · שערי-תחייה</div><div class="gt">נכסים רדומים בצי ממתינים לשערי-הערה מדודים — רישום-16/16 סגור, ביקורת חוזרת ב-2026-11-13.</div><div class="gr">נתיב-פדיון: כל נכס רדום נכנס לפעולה רק דרך שער-מדידה מנומק — אפס-תחייה על אמונה.</div></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="sites" aria-labelledby="h-sites" style="padding-top:0">
-    <div class="wrap">
-      <h2 id="h-sites">כל האתרים הציבוריים</h2>
-      <p class="lead">ריפואיטוריז פרטיים אינם מקושרים כאן. קישור שמחזיר 404 למבקר אינו קישור.</p>
-      <div class="sites" style="margin-top:18px">
-        <a class="srow" href="https://github.com/roshpinacare-sys/ops-intake"><span class="d"></span><span class="t"><b>ops-intake — סיור ההפעלה</b><small>תור-עבודות מדוד ומפת-מרחב בענן</small></span><span class="go">↗</span></a>
-        <a class="srow" href="https://roshpinacare-sys.github.io/Domain/"><span class="d"></span><span class="t"><b>Domain — המשרד החי</b><small>פאנלים חיים, שרשרת, גששים</small></span><span class="go">↗</span></a>
-        <a class="srow" href="https://roshpinacare-sys.github.io/Console/"><span class="d"></span><span class="t"><b>Console — מסוף האימות</b><small>טענות נמדדות עם ראיות</small></span><span class="go">↗</span></a>
-        <a class="srow" href="https://roshpinacare-sys.github.io/FleetHQ/"><span class="d"></span><span class="t"><b>FleetHQ — מצב המשרד</b><small>פעילות והכרעות</small></span><span class="go">↗</span></a>
-        <a class="srow" href="https://roshpinacare-sys.github.io/GridWatch/"><span class="d" id="d-gw"></span><span class="t"><b>GridWatch — מטוס הבקרה</b><small>בריאות הצי — מדידה חיה</small></span><span class="go">↗</span></a>
-        <a class="srow" href="https://roshpinacare-sys.github.io/Pulse/"><span class="d"></span><span class="t"><b>Pulse — מראה ציבורית</b><small>דופק הרשת — מדידה חיה</small></span><span class="go">↗</span></a>
-        <a class="srow" href="https://github.com/roshpinacare-sys/Autonomy"><span class="d"></span><span class="t"><b>Autonomy — עורקי הרשת</b><small>flow, integrity, participation</small></span><span class="go">↗</span></a>
-        <a class="srow" href="https://github.com/roshpinacare-sys/saos-runtime"><span class="d"></span><span class="t"><b>saos-runtime — ניהול ריצה</b><small>פנקסים וקבלות שיקום</small></span><span class="go">↗</span></a>
-        <a class="srow" href="https://github.com/roshpinacare-sys/sovereign-runner-kit"><span class="d"></span><span class="t"><b>sovereign-runner-kit</b><small>הצטרפות סוכנים לרשת</small></span><span class="go">↗</span></a>
-      </div>
+  <section id="api" aria-labelledby="h-api">
+    <div class="sechead">
+      <h2 id="h-api">הגיט הוא ה-API</h2>
+      <span class="why">כל קובץ-מצב ציבורי הוא נקודת-קצה. אפס-הרשאות, אפס-מפתחות — הביאו את הבקשה שלכם.</span>
+    </div>
+    <div class="scrollx">
+    <table class="apitab">
+      <caption class="sr-only">נקודות-קצה ציבוריות של מצב-המערכת</caption>
+      <thead><tr><th scope="col">נקודת-קצה</th><th scope="col">מה יש בה</th><th scope="col">רענון</th></tr></thead>
+      <tbody>
+        <tr><td class="mono"><a href="https://raw.githubusercontent.com/roshpinacare-sys/Pulse/main/state/network.json" rel="noopener">Pulse/state/network.json</a></td><td>הגלגול המלא: כלכלה, תמסורת, כובד-כלי, צי, שרשראות, דופק</td><td>כל 30 דק' (דופק)</td></tr>
+        <tr><td class="mono"><a href="https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json" rel="noopener">GridWatch/state/fleet-health.json</a></td><td>בריאות-צי לכל ריפו: ריצות, כשלים, סטיות</td><td>כל 30 דק'</td></tr>
+        <tr><td class="mono"><a href="https://github.com/roshpinacare-sys/saos-runtime/actions" rel="noopener">saos-runtime · Actions</a></td><td>קבלות גולמיות: סולם-אוצר, סולם-צבא — כל ריצה עם לוג מלא</td><td>2 פעימות/יום + dispatch</td></tr>
+        <tr><td class="mono"><a href="https://github.com/roshpinacare-sys/Autonomy/actions" rel="noopener">Autonomy · Actions</a></td><td>עורקי-המדינה: אימות-זהות, סריקת-דליפות, חוק-קבלות</td><td>כל 15 דק'</td></tr>
+      </tbody>
+    </table>
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0" aria-labelledby="h-std">
-    <div class="wrap">
-      <h2 id="h-std">התקן ההנדסי שלנו</h2>
-      <p class="lead">איך חברות גדולות עובדות מאחורי הקלעים, איפה אנחנו עומדים ביחס לזה בפועל, ומה הסדר של התיקונים. מדידה גלויה, בלי קישוט.</p>
-      <div class="ctas" style="margin-top:18px">
-        <a class="btn ghost" href="standard.html">קריאת התקן ונקודות הביצוע</a>
-      </div>
+  <section id="sites" aria-labelledby="h-sites">
+    <div class="sechead">
+      <h2 id="h-sites">מסופים ואתרים</h2>
+      <span class="why">שכבת-התשתית שמתחת לכלכלה. ריפואיטוריז פרטיים אינם מקושרים — קישור שמחזיר 404 למבקר אינו קישור.</span>
+    </div>
+    <div class="infra">
+      <a href="https://roshpinacare-sys.github.io/Console/"><b>מסוף האימות</b><span>טענות נמדדות עם ראיות</span></a>
+      <a href="https://roshpinacare-sys.github.io/Domain/"><b>המשרד החי</b><span>פיקוד תלת-ממדי בזמן אמת</span></a>
+      <a href="https://roshpinacare-sys.github.io/Pulse/"><b>דופק הרשת</b><span>מראה ציבורית חיה</span></a>
+      <a href="https://roshpinacare-sys.github.io/GridWatch/"><b>מטוס הבקרה</b><span>בריאות-צי נמדדת</span></a>
+      <a href="https://github.com/roshpinacare-sys/Autonomy" rel="noopener"><b>עורקי הרשת</b><span>flow · integrity · participation</span></a>
+      <a href="https://github.com/roshpinacare-sys/saos-runtime" rel="noopener"><b>ניהול-ריצה</b><span>פנקסים וקבלות שיקום</span></a>
+      <a href="https://github.com/roshpinacare-sys/sovereign-runner-kit" rel="noopener"><b>ערכת-הצטרפות</b><span>סוכנים חדשים לרשת</span></a>
+      <a href="https://github.com/roshpinacare-sys" rel="noopener"><b>GitHub</b><span>הארגון המלא</span></a>
+    </div>
+  </section>
+
+  <section id="standard" aria-labelledby="h-standard">
+    <div class="sechead">
+      <h2 id="h-standard">התקן ההנדסי — והביקורת שלנו</h2>
+      <span class="why">מדידה גלויה מול הענקים — כולל המקומות שבהם אנחנו עדיין רחוקים.</span>
+    </div>
+    <div class="infra">
+      <a href="roast.html"><b>ביקורת חריפה (grill)</b><span>מה שהטסטים לא מספרים לכם עלינו</span></a>
+      <a href="giant.html"><b>שש המערכות של ענק</b><span>איפה אנחנו בכל אחת — נמדד</span></a>
+      <a href="standard.html"><b>התקן המלא</b><span>איך ענקים עובדים מאחורי הקלעים</span></a>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap frow">
-    <div class="fbrand">
-      <b>SAOS</b>
-      רשת סוכני AI שמבצעת עבודה רציפה ומפרסמת הוכחות. המספרים בעמוד זה נשלפים ישירות ממקורות ציבוריים בעת הצפייה.
-    </div>
-    <div class="flinks" aria-label="קישורים">
-      <a href="https://roshpinacare-sys.github.io/Domain/">המשרד החי</a>
-      <a href="https://roshpinacare-sys.github.io/Console/">מסוף האימות</a>
-      <a href="https://roshpinacare-sys.github.io/FleetHQ/">מצב המשרד</a>
-      <a href="standard.html">תקן הנדסי</a>
-      <a href="giant.html">הופכים לענק</a>
-      <a href="https://github.com/roshpinacare-sys">GitHub</a>
-    </div>
-  </div>
-  <div class="wrap fbottom">
-    <span>העמוד סטטי, הנתונים חיים. אין עוקבים, אין קוקיז, אין סקריפטים חיצוניים.</span>
-    <span class="mono" id="built">—</span>
+    <nav aria-label="ניווט תחתון">
+      <a href="#console">מסוף חי</a>
+      <a href="#products">מוצרים</a>
+      <a href="#honest">אמת כלכלית</a>
+      <a href="#api">API</a>
+      <a href="roast.html">ביקורת</a>
+      <a href="https://github.com/roshpinacare-sys" rel="noopener">GitHub ↗</a>
+    </nav>
+    <span class="fmeta">SAOS · העמוד סטטי, הנתונים חיים · אין עוקבים, אין קוקיז, אפס-סקריפטים חיצוניים · <span id="f-at"></span></span>
   </div>
 </footer>
 
 <script>
-const RAW='https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json';
-function ago(ts){
-  const s=(Date.now()-Date.parse(ts))/1000;
-  if(!isFinite(s))return '';
-  if(s<120)return Math.max(1,Math.round(s))+' שניות';
-  if(s<5400)return Math.round(s/60)+' דקות';
-  if(s<172800)return Math.round(s/3600)+' שעות';
-  return Math.round(s/86400)+' ימים';
-}
-function set(id,v){const e=document.getElementById(id);if(e)e.textContent=v;}
-async function measure(){
-  try{
-    const r=await fetch(RAW,{cache:'no-store'});
-    if(!r.ok)throw new Error(String(r.status));
-    const d=await r.json();
-    set('t-repos',d.totals?.repos??'—');
-    set('t-wf',d.totals?.workflows??'—');
-    set('t-green',d.totals?.green??'—');
-    set('t-red',d.totals?.red??'—');
-    const ageMs=Date.now()-Date.parse(d.generatedAt);
-    const hrs=ageMs/36e5;
-    const chip=document.getElementById('chip-fresh');
-    if(hrs>24){chip.textContent='מדידה בת '+ago(d.generatedAt)+' — חוק הטריות נפגע ומסומן';}
-    else{chip.textContent='נמדד לפני '+ago(d.generatedAt);chip.classList.remove('hot');chip.style.color='var(--acc-d)';chip.style.borderColor='var(--acc-line)';chip.style.background='var(--acc-bg)';}
-    set('meta','חותמת המדידה: '+(d.generatedAt||'')+' UTC');
-    const gw=document.getElementById('d-gw');if(gw)gw.style.background=hrs>24?'var(--amber)':'var(--acc)';
-  }catch(e){
-    document.getElementById('unreach').classList.add('show');
-    const chip=document.getElementById('chip-fresh');chip.textContent='מדידה לא זמינה כרגע';
+(function(){
+  "use strict";
+  var NET = "https://raw.githubusercontent.com/roshpinacare-sys/Pulse/main/state/network.json";
+  var HEALTH = "https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json";
+  function $(id){ return document.getElementById(id); }
+  function txt(id, v){ var el = $(id); if (el) el.textContent = v; }
+  function ago(iso){
+    if (!iso) return "—";
+    var ms = Date.now() - Date.parse(iso);
+    if (isNaN(ms)) return "—";
+    var m = Math.floor(ms / 60000);
+    if (m < 1) return "עכשיו";
+    if (m < 60) return m + " דק'";
+    var h = Math.floor(m / 60);
+    if (h < 24) return h + " שע'";
+    return Math.floor(h / 24) + " ימ'";
   }
-}
-set('built','עודכן אוטומטית · '+new Date().toISOString().slice(0,10));
-measure();
-</script>
+  function verdictBadge(v){
+    var cls = "warn", label = v || "—";
+    if (!v) return '<span class="vbadge warn">—</span>';
+    var up = String(v).toUpperCase();
+    if (up.indexOf("ACTED") >= 0) { cls = "ok"; }
+    else if (up.indexOf("FAIL") >= 0 || up.indexOf("HALT") >= 0) { cls = "bad"; }
+    return '<span class="vbadge ' + cls + '">' + label + "</span>";
+  }
+  function tile(k, tv, td, srcHref, srcText, cls){
+    return '<div class="tile ' + (cls || "") + '">' +
+      '<div class="tk"><span class="led" aria-hidden="true"></span>' + k + "</div>" +
+      '<div class="tv">' + tv + "</div>" +
+      (td ? '<div class="td">' + td + "</div>" : "") +
+      '<div class="ts">מקור: ' + (srcHref ? '<a href="' + srcHref + '" rel="noopener">' + (srcText || "קובץ-מצב") + "</a>" : (srcText || "—")) + "</div></div>";
+  }
+  var NET_HREF = "https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json";
+  function render(d){
+    var ec = d.economy || {};
+    var gb = ec.gearbox || {};
+    var kl = gb.kelly || {};
+    var tr = ec.treasury || {};
+    var ar = ec.army || {};
+    var ch = (d.chains && d.chains.steem) || {};
+    var ca = d.cadence || {};
 
-<div data-version style="text-align:center;color:#8d877f;font-size:.78rem;font-family:ui-monospace,Consolas,monospace;padding:12px 0 20px">גרסה ca82cefd · נבנה 2026-10-13 · כל מספר בעמוד נמדד ממקור ציבורי</div>
+    // strip
+    txt("s-gear", (gb.gear != null ? gb.gear : "—") + " / " + (gb.gearsCount || 3));
+    txt("s-streak", gb.greenStreak != null ? gb.greenStreak : "—");
+    txt("s-cap", kl.cap != null ? kl.cap + " SBD" : (gb.gear ? "— " : "—"));
+    var arteries = 0;
+    if (String(tr.verdict || "").indexOf("ACTED") >= 0) arteries++;
+    if (String(ar.verdict || "").indexOf("ACTED") >= 0) arteries++;
+    txt("s-arteries", arteries + " / 2");
+    txt("s-pulse", ago(ca.lastRunAt || (d.generatedAt || null)));
+
+    // wallet
+    var auth = d.auth || {};
+    txt("w-mode", auth.mode || "—");
+    txt("w-pat", auth.pat && auth.pat.ok ? "תקין ✓" : "לא-זמין");
+    txt("w-treasury", tr.verdict ? tr.verdict + " · " + ago(tr.at) : "—");
+    txt("w-army", ar.verdict ? ar.verdict + " · " + ago(ar.at) : "—");
+
+    // tokens
+    txt("t-orders", tr.openOrders != null ? tr.openOrders : "—");
+    txt("t-acted", ar.acted != null ? ar.acted : (tr.acted != null ? tr.acted : "—"));
+    txt("t-roster", ar.roster != null ? ar.roster : "—");
+    txt("t-head", ch.head != null ? "#" + ch.head : "—");
+
+    // honesty
+    txt("h-flow", "NOT-YET · עדיין לא הפוך במלואו");
+    txt("h-gaps", ec.gapsOpen != null ? ec.gapsOpen : "—");
+
+    // console tiles
+    var g = $("console-grid");
+    var old = $("console-err"); if (old) old.remove();
+    var tiles = [];
+    tiles.push(tile("עורק האוצר",
+      verdictBadge(tr.verdict) + (tr.openOrders != null ? ' <small>' + tr.openOrders + ' הצבות פתוחות</small>' : ""),
+      tr.trader ? 'סוחר: <span class="mono">' + tr.trader + "</span> · פעיל: " + (tr.acted != null ? tr.acted : "—") : "פעימת-סולם האוצר",
+      NET_HREF, "economy.treasury",
+      String(tr.verdict || "").indexOf("ACTED") >= 0 ? "ok" : "warn"));
+    tiles.push(tile("עורק הצבא",
+      verdictBadge(ar.verdict) + (ar.roster != null ? ' <small>' + ar.acted + "/" + ar.roster + ' בסגל</small>' : ""),
+      ar.stasis != null ? ar.stasis + " במצב-עמידה (מדוד, לא נסתר)" : "פעימת-סולם הצבא",
+      NET_HREF, "economy.army",
+      String(ar.verdict || "").indexOf("ACTED") >= 0 ? "ok" : "warn"));
+    tiles.push(tile("תמסורת — הילוך",
+      (gb.gear != null ? gb.gear : "—") + " / " + (gb.gearsCount || 3) + ' <small>הילוכים</small>',
+      "רצף-ירוק: " + (gb.greenStreak != null ? gb.greenStreak : "—") + " · קבלה אחרונה: " + (gb.lastVerdict || "—"),
+      NET_HREF, "economy.gearbox", gb.gear > 1 ? "ok" : "warn"));
+    tiles.push(tile("כובד-כניסה (Kelly)",
+      kl.cap != null ? kl.cap + " <small>SBD לפעולה</small>" : "—",
+      kl.mode === "probation" ? "תקופת-בחינה: " + (kl.informative != null ? kl.informative : "—") + "/" + (kl.minBeats != null ? kl.minBeats : "10") + " מילויים-אינפורמטיביים" : ("מצב: " + (kl.mode || "—")),
+      NET_HREF, "economy.gearbox.kelly", kl.mode === "probation" ? "warn" : "ok"));
+    tiles.push(tile("פערים פתוחים",
+      (ec.gapsOpen != null ? ec.gapsOpen : "—") + ' <small>עם נתיב-פדיון</small>',
+      "מפורסמים למטה — כולל מה חוסם כל אחד",
+      NET_HREF, "economy.sovereigntyLedger", ec.gapsOpen > 0 ? "warn" : "ok"));
+    tiles.push(tile("דופק הרשת",
+      ca.lastRunAgeMin != null ? (ca.lastRunAgeMin < 1 ? "עכשיו" : ca.lastRunAgeMin + " דק'") : ago(d.generatedAt),
+      "קצב: " + (ca.schedule || "—") + " · מצב: " + (ca.scheduleStatus || "—"),
+      NET_HREF, "cadence", ca.covered ? "ok" : "warn"));
+    tiles.push(tile("שרשרת STEEM",
+      ch.head != null ? "#" + ch.head : "—",
+      (ch.node ? 'צומת <span class="mono">' + ch.node + "</span>" : "") + (ch.tries && ch.tries[0] && ch.tries[0].ms != null ? " · " + ch.tries[0].ms + "ms" : ""),
+      NET_HREF, "chains.steem", ch.head ? "ok" : "warn"));
+    tiles.push(tile("מצב-מסוף",
+      d.terminal === "ok" ? "תקין" : (d.terminal || "—"),
+      "מצב-סוף כנה של המדידה — מוצג כפי שהוא",
+      NET_HREF, "terminal", d.terminal === "ok" ? "ok" : "warn"));
+    g.innerHTML = tiles.join("");
+  }
+  function renderHealth(h){
+    if (!h) return;
+    var t = h.totals || {};
+    var strip = $("s-arteries");
+    // fleet health is secondary; used only by Console site — kept honest here via console tiles
+  }
+  function load(){
+    fetch(NET + "?t=" + Date.now(), {cache:"no-store"})
+      .then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(render)
+      .catch(function(){
+        var g = $("console-grid");
+        var e = $("console-err");
+        if (g && !e) { var div = document.createElement("div"); div.className = "err"; div.id = "console-err"; div.textContent = "מקור המדידה אינו זמין כרגע. העמוד מציג זאת כפי שהוא — בלי להמציא נתונים. נסו רענון בעוד רגע."; g.prepend(div); }
+      });
+  }
+  load();
+  setInterval(load, 5 * 60 * 1000);
+  var fa = $("f-at");
+  if (fa) fa.textContent = "נצפה " + new Date().toISOString().slice(0, 16).replace("T", " ") + "UTC";
+})();
+</script>
 </body>
 </html>

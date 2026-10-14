@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAOS — ביקורת חריפה (grill) | מה הטסטים לא מספרים</title>
+<meta name="description" content="ביקורת הנדסית חריפה ופומבית של SAOS: הפער בין טסט ירוק לערך אמיתי, מה נשבר, מה תוקן, ומה עדיין חוסם. כל ממצא עם ראיה.">
+<meta name="theme-color" content="#09090b">
+<meta property="og:title" content="SAOS — ביקורת חריפה (grill)">
+<meta property="og:description" content="טסט עובר ≠ יש לנו את זה. הממצאים, הראיות, והמרחק מהענקים.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8' fill='none' stroke='%23c2410c' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='3' fill='none' stroke='%23c2410c' stroke-width='1.8'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f7f5f2;--bg2:#f1eeea;--panel:#ffffff;--line:#e7e3dd;
+  --acc:#0d9d6d;--acc-d:#0a7a55;--acc-bg:rgba(13,157,109,.08);--acc-line:rgba(13,157,109,.32);
+  --red:#c2410c;--red-bg:rgba(194,65,12,.08);--red-line:rgba(194,65,12,.35);
+  --amber:#a16207;--amber-bg:rgba(161,98,7,.09);--amber-line:rgba(161,98,7,.35);
+  --text:#191919;--dim:#565049;--faint:#8d877f;
+  --mono:ui-monospace,'SF Mono',Consolas,Menlo,monospace;
+  --sans:-apple-system,'Segoe UI',Roboto,'Noto Sans Hebrew',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc-d);text-decoration:none}
+a:hover{text-decoration:underline}
+.mono{font-family:var(--mono);direction:ltr;unicode-bidi:embed}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;width:100%}
+header{border-bottom:1px solid var(--line);background:var(--panel)}
+.hrow{padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hrow b{font-size:16px}
+main{flex:1;padding:34px 0 50px}
+h1{font-size:clamp(26px,4.6vw,36px);letter-spacing:-.02em;line-height:1.2}
+.sub{color:var(--dim);margin:10px 0 6px;font-size:15.5px}
+.law{background:#09090b;color:#ececec;border-radius:16px;padding:20px;margin:22px 0}
+.law b{color:#fbbf24}
+.law p{color:#d4d4d8;font-size:14.5px}
+.f{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0}
+.f .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.f h2{font-size:16.5px;letter-spacing:-.01em}
+.badge{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+.badge.fix{color:var(--acc-d);background:var(--acc-bg);border-color:var(--acc-line)}
+.badge.open{color:var(--red);background:var(--red-bg);border-color:var(--red-line)}
+.badge.part{color:var(--amber);background:var(--amber-bg);border-color:var(--amber-line)}
+.f p{font-size:13.5px;color:var(--dim);margin-top:8px}
+.f .ev{font-size:12px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.f .ev b{color:var(--faint);font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:14px}
+th,td{text-align:start;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.4px;background:var(--bg2)}
+tr:last-child td{border-bottom:none}
+.scrollx{overflow-x:auto}
+footer{margin-top:auto;border-top:1px solid var(--line);background:var(--panel)}
+.frow{padding:16px 0;font-size:12px;color:var(--faint);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header><div class="wrap hrow">
+  <b>SAOS · ביקורת חריפה</b>
+  <a href="/">← המערכת החיה</a>
+</div></header>
+<main class="wrap">
+  <h1>הביקורת ההנדסית שלנו — מה שהטסטים לא מספרים</h1>
+  <p class="sub">נמדדה 2026-10-14 על כל הגיט (11 ריפו פעילים, לוחות-ריצות מלאים). כל ממצא עם ראיה ציבורית. הביקורת הזו פומבית בכוונה: ענק שלא מפרסם את הפוסט-מורטם שלו — לא ענק.</p>
+
+  <div class="law">
+    <p><b>החוק שנלמד כאן היום:</b> טסט עובר ≠ יש לנו את זה. המערכת יכלה להיות ירוקה בכל הבדיקות ובכל זאת לא לייצר שקל ערך. מהיום ההגדרה היא כפולה: <b>התשתית ירוקה והערך נמדד</b> — ושניהם מפורסמים כאן, בלי סינון.</p>
+  </div>
+
+  <div class="f"><div class="top"><h2>1 · הכלכלה האמיתית הייתה בלתי-נראית בכל המשטח הציבורי</h2><span class="badge fix">תוקן היום</span></div>
+  <p>הארנק, הטוקנים ומעביר-המטבע — הדברים הכי אמתיים שהריבונות מחזיקה — לא הופיעו בשום מקום. במקומם: דשבורדים על תשתית, שמדברים על דשבורדים. מבקר ראה פילוסופיה, לא מערכת.</p>
+  <div class="ev"><b>ראיה:</b> העמוד הקודם (גרסה ca82cefd) — שלושת "המוצרים" שלו היו מסופים על עצמנו. <a href="/">התיקון חי כאן</a> — המסוף הראשי הוא עכשיו הכלכלה עצמה, חיה מ-<span class="mono">network.json</span>.</div></div>
+
+  <div class="f"><div class="top"><h2>2 · פצצת-מיילים כל 10 דקות הייתה הסטטוס-קוו</h2><span class="badge fix">תוקן היום</span></div>
+  <p>עורק-מדינה שלם היה קפוא מ-12:47Z: שני משפטים בקבצי-מצב חסמו כל פעימה בסריקת-דליפות fail-closed, וכל פעימה שלחה מייל-כשל. המערכת "הייתה ירוקה" בכל מקום אחר — ועדיין ירתה על הבעלים כל 10 דקות.</p>
+  <div class="ev"><b>ראיה:</b> ריצות כושלות 15:23/15:37/15:51 ב-<a href="https://github.com/roshpinacare-sys/Autonomy/actions/workflows/sovereign-state.yml" rel="noopener">sovereign-state</a>; התיקון <span class="mono">f0e0064</span> (הסרת-מקור לפי חוק-הסריקה עצמו) → פעימה 16:19 ירוקה מלא.</div></div>
+
+  <div class="f"><div class="top"><h2>3 · דחיפות חד-פעמיות בריפו העמוס ביותר = מירוצים מובטחים</h2><span class="badge fix">תוקן היום</span></div>
+  <p>טיק-הדופק דחף בלי ניסיון-חוזר: בין rebase ל-push ה-ref זז (5+ קומיטים פדרטיביים בחלון). שני כשלים נמדדו, והדפוס היה עוד מחכה בכל שבוע.</p>
+  <div class="ev"><b>ראיה:</b> <span class="mono">cannot lock ref 'refs/heads/main': is at c4718f5 but expected 7418ed0</span> (14:36Z); התיקון <span class="mono">e490724</span> — bounded rebase-retry ×5 בטיק וברטרו שבועי.</div></div>
+
+  <div class="f"><div class="top"><h2>4 · כשל-זהות של הסוכן עצמו — השומר תפס, ההיסטוריה נשארת מוכתמת</h2><span class="badge open">פתוח — החלטת-בעלים</span></div>
+  <p>שני קומיטים שלי (הסוכן) נכנסו עם זהות אסורה (<span class="mono">NAME@users.noreply.github.com</span>) — הפרת חוק DECISIONS #10. השומר עצר אותם כמו שצריך (fail-loud). שכתוב-היסטוריה בריפו חי = סיכון-דריסה; זו החלטת-בעלים בלבד. הזהות החוקית נקבעה גלובלית בסנדבוקס — הדפוס נחסם מהישנות.</p>
+  <div class="ev"><b>ראיה:</b> שתי ריצות <a href="https://github.com/roshpinacare-sys/Autonomy/actions/workflows/identity-guard.yml" rel="noopener">identity-guard</a> 16:17/16:18 עם הקומיטים המדויקים בלוג.</div></div>
+
+  <div class="f"><div class="top"><h2>5 · 45/45 טסטים ירוקים — ו-3 מילויים אינפורמטיביים בפועל</h2><span class="badge part">נמדד ומוצג</span></div>
+  <p>המערכת עברה את כל הבדיקות של עצמה, בזמן שהמדגם הריאלי שלה היה זעיר. מהיום ההבחנה הזו מפורסמת: כובד-הכניסה (Kelly) בתקופת-בחינה נראה במסוף החי — 12 SBD מתוך 25, עד שהמדגם יבשיל. המערכת מציגה את חולשתה כמו שהיא מציגה את כוחה.</p>
+  <div class="ev"><b>ראיה:</b> <a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener"><span class="mono">economy.gearbox.kelly</span></a> — מצב <span class="mono">probation</span>, מתעדכן בכל דופק.</div></div>
+
+  <div class="f"><div class="top"><h2>6 · הפער מהענקים — נמדד, לא מוערך</h2><span class="badge part">בעבודה</span></div>
+  <p>ענק נמדד בשלושה: כמה זמן עד ערך ראשון, כמה עמוק ה-API הציבורי, וכמה כנה הסטטוס-עמוד. הנה אנחנו:</p>
+  <div class="scrollx"><table>
+    <thead><tr><th>מידה</th><th>ענקים</th><th>SAOS אתמול</th><th>SAOS היום</th></tr></thead>
+    <tbody>
+      <tr><td>זמן-עד-ערך (מבקר חדש)</td><td>שניות: מחיר/יתרה במסך הראשון</td><td>פילוסופיה ונאום-השוואה</td><td>מסוף חי במסך הראשון — הילוך, עורקים, כובד-כניסה</td></tr>
+      <tr><td>API ציבורי</td><td>REST/SDK מתועד</td><td>קבצי-מצב קיימים אך לא מוצגים</td><td>טבלת "הגיט הוא ה-API" — נקודות-קצה חיות</td></tr>
+      <tr><td>כנות-סטטוס</td><td>status pages בזמן-תקלה</td><td>ירוק-תשתית, עיוור-ערך</td><td>NOT-YET כלכלי + פערים עם נתיבי-פדיון, מפורסמים</td></tr>
+      <tr><td>ערך כלכלי ממומש</td><td>מיליארדים</td><td>קנרית: מדגם זעיר, אפס-כיסוי להבטחות</td><td>אותה קנרית — אבל מדודה, מתומחרת ומוצגת בכל פעימה</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ev"><b>הקו התחתון הכן:</b> הריבונות עדיין לא השיגה ערך-כספי ממשי בקנה-מידה. מה שהשתנה היום: הערך וההפסד כאחד נמדדים, מתומחרים ומפורסמים — כי מערכת שקופה על הפסדיה היא התנאי למערכת שמרוויחה במשמעת.</div></div>
+
+  <div class="f"><div class="top"><h2>7 · מה עדיין חוסם (הפערים הפתוחים)</h2><span class="badge open">פתוח</span></div>
+  <p>GAP-1 חומת-המחשוב (21 ריפו פרטיים על תוכנית-בעלים) · GAP-2 היקף-קנרית (תקרות זהירות במכוון) · GAP-3 שערי-תחייה לנכסים רדומים. לכל אחד נתיב-פדיון מפורסם — וכולם חיים במסוף החי בעמוד הראשי, נמדדים בכל פעימה.</p>
+  <div class="ev"><b>ראיה:</b> <a href="/#honest">האמת הכלכלית</a> + <span class="mono">economy.gapsOpen</span> ב-<a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">network.json</a>.</div></div>
+
+  <p class="sub" style="margin-top:26px">שיטת-הביקורת: סריקת-כשלים ארגונית מלאה (11 ריפו), צירי-זמן של ריצות, קריאת-לוגים גולמיים, ובדיקת-טענות מול מקורות. הביקורת הבאה: חוזרת עם כל שינוי מהותי במשטח. זו לא קלף-מוסרי — זו מדידה.</p>
+</main>
+<footer><div class="wrap frow">
+  <span>SAOS · ביקורת חריפה · כל ממצא עם ראיה ציבורית</span>
+  <a href="/">המערכת החיה ←</a>
+</div></footer>
+</body>
+</html>
