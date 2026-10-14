@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SAOS — The Living System | Wallet, Tokens, Currency Transmission</title>
+<meta name="description" content="SAOS runs a sovereign economy in git and publishes a receipt for every action. The wallet, the token ledger and the currency transmission — live, measured, every number linked to its source.">
+<meta name="theme-color" content="#09090b">
+<link rel="canonical" href="https://roshpinacare-sys.github.io/index-en.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SAOS">
+<meta property="og:title" content="SAOS — The Living System">
+<meta property="og:description" content="Sovereign wallet · token ledger · currency transmission. Every number with a source. Every failure visible.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8' fill='none' stroke='%230d9d6d' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='3' fill='none' stroke='%230d9d6d' stroke-width='1.8'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f7f5f2;--bg2:#f1eeea;--panel:#ffffff;--line:#e7e3dd;--line2:#d8d2c9;
+  --acc:#0d9d6d;--acc-d:#0a7a55;--acc-bg:rgba(13,157,109,.08);--acc-line:rgba(13,157,109,.32);
+  --red:#c2410c;--red-bg:rgba(194,65,12,.08);--red-line:rgba(194,65,12,.35);
+  --amber:#a16207;--amber-bg:rgba(161,98,7,.09);--amber-line:rgba(161,98,7,.35);
+  --text:#191919;--dim:#565049;--faint:#8d877f;
+  --mono:ui-monospace,'SF Mono','Cascadia Code',Consolas,Menlo,monospace;
+  --sans:-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --r:16px;--rs:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:var(--acc-d);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:8px}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;width:100%}
+@media(min-width:768px){.wrap{padding:0 28px}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+header{position:sticky;top:0;z-index:60;background:rgba(247,245,242,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hrow{height:60px;display:flex;align-items:center;gap:14px}
+.mark{width:32px;height:32px;flex:none;display:grid;place-items:center;border:1px solid var(--acc-line);background:var(--acc-bg);border-radius:9px;color:var(--acc-d)}
+.bname{font-weight:700;font-size:15px}
+.bname span{color:var(--faint);font-weight:500;font-size:11px;display:block}
+nav{margin-left:auto;display:flex;gap:2px;align-items:center;flex-wrap:wrap}
+nav a{font-size:13px;color:var(--dim);padding:7px 10px;border-radius:999px;white-space:nowrap}
+nav a:hover{color:var(--text);background:var(--bg2);text-decoration:none}
+nav a.cta{color:#04231a;background:var(--acc);font-weight:700;margin-left:6px}
+nav a.lang{font-weight:700;color:var(--acc-d)}
+@media(max-width:760px){nav a.hide-m{display:none}}
+.hero{padding:56px 0 36px}
+.kick{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--acc-d);background:var(--acc-bg);border:1px solid var(--acc-line);border-radius:999px;padding:5px 12px}
+.kick .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.15;letter-spacing:-.02em;margin:18px 0 12px;font-weight:800}
+h1 em{font-style:normal;color:var(--acc-d)}
+.sub{font-size:16px;color:var(--dim);max-width:660px}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:12px 20px;min-height:44px;border-radius:12px;border:1px solid var(--line2);background:var(--panel);color:var(--text);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 4px 14px rgba(25,25,25,.08)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#04231a}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:32px 0 8px}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.chip .k{font-size:11px;color:var(--faint);font-weight:600;letter-spacing:.3px}
+.chip .v{font-size:19px;font-weight:800;margin-top:2px}
+.chip .s{font-size:10.5px;color:var(--faint)}
+section{padding:42px 0}
+.sechead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+h2{font-size:clamp(20px,3vw,26px);letter-spacing:-.015em;font-weight:800}
+.sechead .why{font-size:13px;color:var(--faint)}
+.lead{color:var(--dim);font-size:15px;max-width:700px;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:6px;transition:border-color .2s}
+.tile:hover{border-color:var(--acc-line)}
+.tile .tk{font-size:12px;font-weight:700;color:var(--dim);display:flex;align-items:center;gap:7px}
+.tile .tv{font-size:23px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.tile .tv small{font-size:13px;color:var(--faint);font-weight:600}
+.tile .td{font-size:12.5px;color:var(--dim)}
+.tile .ts{font-size:11px;color:var(--faint);margin-top:auto;padding-top:8px;border-top:1px dashed var(--line)}
+.tile.ok .tk .led{background:var(--acc)}
+.tile.warn .tk .led{background:var(--amber)}
+.tile.bad .tk .led{background:var(--red)}
+.led{width:8px;height:8px;border-radius:50%;background:var(--faint);flex:none}
+.vbadge{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;border:1px solid}
+.vbadge.ok{color:var(--acc-d);background:var(--acc-bg);border-color:var(--acc-line)}
+.vbadge.warn{color:var(--amber);background:var(--amber-bg);border-color:var(--amber-line)}
+.vbadge.bad{color:var(--red);background:var(--red-bg);border-color:var(--red-line)}
+.prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.prod{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+.prod .ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--acc-bg);border:1px solid var(--acc-line);color:var(--acc-d);font-size:19px}
+.prod h3{font-size:17px;font-weight:800}
+.prod p{font-size:13.5px;color:var(--dim)}
+.prod ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.prod ul li::before{content:"◆";color:var(--acc);font-size:9px;margin-right:7px;vertical-align:1px}
+.prod .plinks{margin-top:auto;display:flex;gap:14px;padding-top:12px;border-top:1px dashed var(--line);flex-wrap:wrap}
+.prod .plinks a{font-size:13px;font-weight:700}
+.formula{background:var(--bg2);border:1px solid var(--line);border-radius:var(--rs);padding:10px 12px;font-family:var(--mono);font-size:12px;overflow-x:auto;white-space:nowrap}
+.honest{background:#09090b;color:#ececec;border-radius:20px;padding:28px;border:1px solid #26262b}
+.honest h2{color:#fff}
+.honest .lead{color:#a1a1aa}
+.gaprow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-top:18px}
+.gap{background:#141417;border:1px solid #26262b;border-radius:12px;padding:14px}
+.gap .gk{font-size:12px;font-weight:800;color:#fbbf24;display:flex;gap:7px;align-items:center}
+.gap .gt{font-size:13px;color:#d4d4d8;margin-top:5px}
+.gap .gr{font-size:11.5px;color:#a1a1aa;margin-top:8px;padding-top:8px;border-top:1px dashed #26262b}
+.flowrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:#d4d4d8}
+.apitab{width:100%;border-collapse:collapse;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.apitab th,.apitab td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line)}
+.apitab th{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.4px;background:var(--bg2)}
+.apitab tr:last-child td{border-bottom:none}
+.scrollx{overflow-x:auto;border-radius:var(--r)}
+.infra{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.infra a{display:flex;flex-direction:column;gap:3px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text);transition:border-color .2s}
+.infra a:hover{text-decoration:none;border-color:var(--acc-line)}
+.infra b{font-size:13.5px}
+.infra span{font-size:11.5px;color:var(--faint)}
+footer{margin-top:auto;border-top:1px solid var(--line);background:var(--panel)}
+.frow{padding:22px 0;display:flex;gap:18px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+footer nav{display:flex;gap:14px;flex-wrap:wrap;margin:0}
+footer nav a{font-size:12.5px;padding:0}
+.fmeta{font-size:11.5px;color:var(--faint)}
+.err{background:var(--red-bg);border:1px solid var(--red-line);color:var(--red);border-radius:12px;padding:14px;font-size:13.5px}
+.refresh-note{font-size:11.5px;color:var(--faint);display:flex;align-items:center;gap:6px}
+label{font-size:13px;font-weight:600;display:flex;flex-direction:column;gap:6px;margin-top:6px}
+input[type=range]{min-height:44px;accent-color:var(--acc-d)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hrow">
+    <span class="mark" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg>
+    </span>
+    <div class="bname">SAOS <span>The Living System</span></div>
+    <nav aria-label="Main navigation">
+      <a href="#console" class="hide-m">Console</a>
+      <a href="#market" class="hide-m">Market</a>
+      <a href="#products">Products</a>
+      <a href="#math" class="hide-m">Math</a>
+      <a href="#honest" class="hide-m">Truth</a>
+      <a href="#api" class="hide-m">API</a>
+      <a href="#standard" class="hide-m">Standard</a>
+      <a href="/" hreflang="he" class="lang">עברית</a>
+      <a class="cta" href="https://github.com/roshpinacare-sys" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" aria-labelledby="h-hero">
+    <span class="kick"><span class="dot" aria-hidden="true"></span> Live · measured from public sources in real time</span>
+    <h1 id="h-hero">Not another landing page.<br>This is <em>the system itself</em> — open for inspection.</h1>
+    <p class="sub">SAOS runs a sovereign economy: a wallet with chain-verified key coverage, trading ladders that generate income, and a currency transmission that shifts gears on mathematics — never on promises. Every number here is fetched right now from a public state file, with a link to its source.</p>
+    <div class="hero-cta">
+      <a class="btn pri" href="#console">Enter the live console ↓</a>
+      <a class="btn" href="#products">The three products</a>
+      <a class="btn" href="roast.html">Our engineering roast</a>
+    </div>
+    <div class="strip" role="list" aria-label="Live headline metrics">
+      <div class="chip" role="listitem"><div class="k">Current gear</div><div class="v" id="s-gear">—</div><div class="s">currency transmission</div></div>
+      <div class="chip" role="listitem"><div class="k">Green streak</div><div class="v" id="s-streak">—</div><div class="s">consecutive ACTED receipts</div></div>
+      <div class="chip" role="listitem"><div class="k">Entry cap</div><div class="v" id="s-cap">—</div><div class="s">SBD per operation (kelly)</div></div>
+      <div class="chip" role="listitem"><div class="k">Income arteries</div><div class="v" id="s-arteries">—</div><div class="s">treasury · army</div></div>
+      <div class="chip" role="listitem"><div class="k">Last heartbeat</div><div class="v" id="s-pulse">—</div><div class="s">network measurement</div></div>
+    </div>
+    <p class="refresh-note"><span aria-hidden="true">⟳</span> Auto-refresh every 5 minutes · primary source: <a class="mono" href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">Pulse/state/network.json</a></p>
+  </section>
+
+  <section id="console" aria-labelledby="h-console">
+    <div class="sechead"><h2 id="h-console">Live console — the economy, right now</h2><span class="why">Every tile = a live read from a public source. Missing data is shown as missing. Never invented.</span></div>
+    <p class="lead">This is the window into the system itself: income arteries, the economic transmission, market entry weight, open gaps and network pulse — in real time.</p>
+    <div id="console-grid" class="grid" aria-live="polite">
+      <div class="err" id="console-err" hidden>The measurement source is unavailable right now. The page shows this as-is — without inventing data. Try refreshing.</div>
+    </div>
+  </section>
+
+  <section id="market" aria-labelledby="h-market">
+    <div class="sechead"><h2 id="h-market">The market the ladders work in — live</h2><span class="why">The public chain's internal SBD/STEEM market. Exactly the arena where our maker ladders place orders.</span></div>
+    <p class="lead">Chain median price, leading bids and asks, and the spread — fetched now from the public node <span class="mono">api.steemit.com</span>. No price, no currency story. Now there is one.</p>
+    <div id="market-grid" class="grid" aria-live="polite">
+      <div class="err" id="market-err" hidden>The public node is not responding right now. Instead of inventing a price — we show the truth. Try refreshing.</div>
+    </div>
+  </section>
+
+  <section id="products" aria-labelledby="h-products">
+    <div class="sechead"><h2 id="h-products">The three real products</h2><span class="why">Not dashboards about the system — the system itself: money, keys, and the math that governs them.</span></div>
+    <div class="prods">
+      <article class="prod">
+        <span class="ico" aria-hidden="true">🛡</span>
+        <h3>The sovereign wallet</h3>
+        <p>Live key coverage of the account fleet: every key is judged against the chain itself — never against memory. Sealed vault generations, double verification per beat, loud refusal of unverified material.</p>
+        <ul>
+          <li>Fleet mode: <b class="mono" id="w-mode">—</b> · auth patron: <b id="w-pat">—</b></li>
+          <li>Treasury artery: <b id="w-treasury">—</b></li>
+          <li>Army artery: <b id="w-army">—</b></li>
+        </ul>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/saos-runtime/actions/workflows/treasury-ladder.yml" rel="noopener">Live treasury receipts ↗</a><a href="https://github.com/roshpinacare-sys/saos-runtime/actions/workflows/army-ladder.yml" rel="noopener">Live army receipts ↗</a></div>
+      </article>
+      <article class="prod">
+        <span class="ico" aria-hidden="true">▤</span>
+        <h3>The token ledger</h3>
+        <p>SBD/STEEM at work: maker-only ladders placing and pulling orders on the public chain. Every action = a timestamped receipt. Liquidity is not promised — it is placed, measured and logged.</p>
+        <ul>
+          <li>Open orders (treasury): <b class="mono" id="t-orders">—</b></li>
+          <li>Acted in latest beat: <b class="mono" id="t-acted">—</b> of roster <b class="mono" id="t-roster">—</b></li>
+          <li>Chain head: <b class="mono" id="t-head">—</b></li>
+        </ul>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">Full economy rollup ↗</a><a href="https://github.com/roshpinacare-sys/saos-runtime/actions" rel="noopener">Measurement runs ↗</a></div>
+      </article>
+      <article class="prod">
+        <span class="ico" aria-hidden="true">⚙</span>
+        <h3>The currency transmission</h3>
+        <p>The gear is set twice: a streak of green receipts upshifts (reliability), and the kelly weight prices speed from measured expectancy (efficiency). Failure = instant downshift. Zero deposits — pace is bought with discipline.</p>
+        <div class="formula" aria-label="Kelly entry weight formula">f = p − ((1−p)/WLR) · safe = clamp(f×½, 0.01, 0.25) · cap = ⌊gear × safe × 4⌋</div>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">Live transmission state ↗</a><a href="giant.html">How it compares to giants</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="math" aria-labelledby="h-math">
+    <div class="sechead"><h2 id="h-math">Live math — the calculator that governs the money</h2><span class="why">The same code that prices the production entry cap. Move the assumptions and watch the transmission brake or open.</span></div>
+    <p class="lead">The real system is currently in probation (small fill sample) — this calculator demonstrates the full math as it runs in production: half-kelly with a ceiling and a floor, never releasing beyond the gear earned by receipts.</p>
+    <div class="prods">
+      <article class="prod">
+        <h3 style="margin-bottom:2px">Assumptions (drag and see)</h3>
+        <label>Win rate (p): <b class="mono" id="m-pv" style="font-size:15px">40%</b><input type="range" id="m-p" min="1" max="95" value="40"></label>
+        <label style="margin-top:10px">Avg win/loss ratio (WLR): <b class="mono" id="m-wv" style="font-size:15px">1.8</b><input type="range" id="m-w" min="1" max="40" value="18"></label>
+        <label style="margin-top:10px">Gear (git table cap): <b class="mono" id="m-gv" style="font-size:15px">25 SBD</b><input type="range" id="m-g" min="0" max="2" value="0"></label>
+      </article>
+      <article class="prod">
+        <h3 style="margin-bottom:2px">Result — same formulas, same code</h3>
+        <div class="formula" id="m-f" style="margin-top:8px">f = …</div>
+        <div class="formula" id="m-safe">safe = …</div>
+        <div class="formula" id="m-cap">cap = …</div>
+        <p style="font-size:12.5px;color:var(--dim);margin-top:10px" id="m-verdict"></p>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">Measured production state ↗</a><a href="#console">Back to console</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="receipts" aria-labelledby="h-receipts">
+    <div class="sechead"><h2 id="h-receipts">Receipt stream — latest runs, live</h2><span class="why">Fetched from the public GitHub API (local cache with an "as of" stamp). Rate-limited by GitHub — when there is none, we say so.</span></div>
+    <div class="scrollx">
+    <table class="apitab" id="r-table">
+      <caption class="sr-only">Latest income ladder runs</caption>
+      <thead><tr><th scope="col">Result</th><th scope="col">Ladder</th><th scope="col">When</th><th scope="col">Link</th></tr></thead>
+      <tbody id="r-body"><tr><td colspan="4" style="color:var(--faint)">Loading receipts…</td></tr></tbody>
+    </table>
+    </div>
+    <p class="refresh-note" style="margin-top:8px"><span aria-hidden="true">⟳</span> <span id="r-asof">as of …</span></p>
+  </section>
+
+  <section id="honest" aria-labelledby="h-honest">
+    <div class="honest">
+      <div class="sechead"><h2 id="h-honest">The economic truth — published, not managed</h2><span class="why" style="color:#71717a">Our promise is not that we are profitable — it is that we cannot lie to you.</span></div>
+      <p class="lead" style="color:#a1a1aa">The sovereignty measures its flow direction every beat and publishes it: the economic inversion is not yet complete — the system partially funds itself, and the gaps are visible here, each with a redemption path. A closed gap disappears from the list; an opened one appears.</p>
+      <div class="flowrow">
+        <span>Measured flow direction:</span> <span class="vbadge warn" id="h-flow">—</span>
+        <span>· Open gaps: <b class="mono" id="h-gaps">—</b></span>
+        <span>· Source: <a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener" style="color:#7dd3fc">the sovereignty ledger in git</a></span>
+      </div>
+      <div class="gaprow">
+        <div class="gap"><div class="gk"><span aria-hidden="true">◆</span> GAP-1 · Compute wall</div><div class="gt">21 private repos run on the owner's paid plan — part of the sovereignty's compute is still carried from outside.</div><div class="gr">Redemption path: scale expansion on measured profit (never deposits) until the plan is fully covered by ladder income.</div></div>
+        <div class="gap"><div class="gk"><span aria-hidden="true">◆</span> GAP-2 · Canary scale</div><div class="gt">Capital caps are in canary stage: gear 1 of 3, kelly weight in probation — the money is deliberately cautious.</div><div class="gr">Redemption path: gears rise only on green receipt streaks and positive measured expectancy — the math decides, not sentiment.</div></div>
+        <div class="gap"><div class="gk"><span aria-hidden="true">◆</span> GAP-3 · Revival gates</div><div class="gt">Dormant fleet assets await measured revival gates — 16/16 registry closed, re-review due 2026-11-13.</div><div class="gr">Redemption path: each dormant asset acts only through a reasoned measurement gate — zero revival on faith.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="api" aria-labelledby="h-api">
+    <div class="sechead"><h2 id="h-api">Git is the API</h2><span class="why">Every public state file is an endpoint. Zero permissions, zero keys — bring your own request.</span></div>
+    <div class="scrollx">
+    <table class="apitab">
+      <caption class="sr-only">Public system-state endpoints</caption>
+      <thead><tr><th scope="col">Endpoint</th><th scope="col">Contents</th><th scope="col">Refresh</th></tr></thead>
+      <tbody>
+        <tr><td class="mono"><a href="https://raw.githubusercontent.com/roshpinacare-sys/Pulse/main/state/network.json" rel="noopener">Pulse/state/network.json</a></td><td>The full rollup: economy, transmission, kelly, fleet, chains, pulse</td><td>every 30 min</td></tr>
+        <tr><td class="mono"><a href="https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json" rel="noopener">GridWatch/state/fleet-health.json</a></td><td>Per-repo fleet health: runs, failures, drifts</td><td>every 30 min</td></tr>
+        <tr><td class="mono"><a href="https://github.com/roshpinacare-sys/saos-runtime/actions" rel="noopener">saos-runtime · Actions</a></td><td>Raw receipts: treasury ladder, army ladder — every run with full logs</td><td>2 beats/day + dispatch</td></tr>
+        <tr><td class="mono"><a href="https://github.com/roshpinacare-sys/Autonomy/actions" rel="noopener">Autonomy · Actions</a></td><td>State arteries: identity verification, leak scans, receipt law</td><td>every 15 min</td></tr>
+        <tr><td class="mono"><a href="https://api.steemit.com" rel="noopener">api.steemit.com</a></td><td>Public chain node: median price, order book, balances</td><td>live</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section id="sites" aria-labelledby="h-sites">
+    <div class="sechead"><h2 id="h-sites">Consoles and sites</h2><span class="why">The infrastructure layer beneath the economy. Private repos are not linked — a link that 404s for a visitor is not a link.</span></div>
+    <div class="infra">
+      <a href="https://roshpinacare-sys.github.io/Console/"><b>Verification terminal</b><span>measured claims with evidence</span></a>
+      <a href="https://roshpinacare-sys.github.io/Domain/"><b>The living office</b><span>real-time 3D command room</span></a>
+      <a href="https://roshpinacare-sys.github.io/Pulse/"><b>Network pulse</b><span>live public mirror</span></a>
+      <a href="https://roshpinacare-sys.github.io/GridWatch/"><b>Control tower</b><span>measured fleet health</span></a>
+      <a href="https://github.com/roshpinacare-sys/Autonomy" rel="noopener"><b>Network arteries</b><span>flow · integrity · participation</span></a>
+      <a href="https://github.com/roshpinacare-sys/saos-runtime" rel="noopener"><b>Run management</b><span>recovery ledgers and receipts</span></a>
+      <a href="https://github.com/roshpinacare-sys/sovereign-runner-kit" rel="noopener"><b>Join kit</b><span>new agents into the network</span></a>
+      <a href="https://github.com/roshpinacare-sys" rel="noopener"><b>GitHub</b><span>the full organization</span></a>
+    </div>
+  </section>
+
+  <section id="standard" aria-labelledby="h-standard">
+    <div class="sechead"><h2 id="h-standard">The engineering standard — and our own roast</h2><span class="why">Open measurement against the giants — including the places where we are still far.</span></div>
+    <div class="infra">
+      <a href="roast.html"><b>Sharp roast (grill)</b><span>what the tests don't tell you about us</span></a>
+      <a href="giant.html"><b>Six systems of a giant</b><span>where we stand in each — measured</span></a>
+      <a href="standard.html"><b>The full standard</b><span>how giants work behind the scenes</span></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <nav aria-label="Footer navigation">
+      <a href="#console">Console</a>
+      <a href="#products">Products</a>
+      <a href="#honest">Economic truth</a>
+      <a href="#api">API</a>
+      <a href="roast.html">Roast</a>
+      <a href="https://github.com/roshpinacare-sys" rel="noopener">GitHub ↗</a>
+      <a href="/" hreflang="he">עברית</a>
+    </nav>
+    <span class="fmeta">SAOS · static page, live data · no trackers, no cookies, zero external scripts · <span id="f-at"></span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var NET = "https://raw.githubusercontent.com/roshpinacare-sys/Pulse/main/state/network.json";
+  function $(id){ return document.getElementById(id); }
+  function txt(id, v){ var el = $(id); if (el) el.textContent = v; }
+  function ago(iso){
+    if (!iso) return "—";
+    var ms = Date.now() - Date.parse(iso);
+    if (isNaN(ms)) return "—";
+    var m = Math.floor(ms / 60000);
+    if (m < 1) return "now";
+    if (m < 60) return m + " min";
+    var h = Math.floor(m / 60);
+    if (h < 24) return h + "h";
+    return Math.floor(h / 24) + "d";
+  }
+  function verdictBadge(v){
+    if (!v) return '<span class="vbadge warn">—</span>';
+    var cls = "warn", up = String(v).toUpperCase();
+    if (up.indexOf("ACTED") >= 0) cls = "ok";
+    else if (up.indexOf("FAIL") >= 0 || up.indexOf("HALT") >= 0) cls = "bad";
+    return '<span class="vbadge ' + cls + '">' + v + "</span>";
+  }
+  function tile(k, tv, td, srcHref, srcText, cls){
+    return '<div class="tile ' + (cls || "") + '">' +
+      '<div class="tk"><span class="led" aria-hidden="true"></span>' + k + "</div>" +
+      '<div class="tv">' + tv + "</div>" +
+      (td ? '<div class="td">' + td + "</div>" : "") +
+      '<div class="ts">source: ' + (srcHref ? '<a href="' + srcHref + '" rel="noopener">' + (srcText || "state file") + "</a>" : (srcText || "—")) + "</div></div>";
+  }
+  var NET_HREF = "https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json";
+  function render(d){
+    var ec = d.economy || {};
+    var gb = ec.gearbox || {};
+    var kl = gb.kelly || {};
+    var tr = ec.treasury || {};
+    var ar = ec.army || {};
+    var ch = (d.chains && d.chains.steem) || {};
+    var ca = d.cadence || {};
+    txt("s-gear", (gb.gear != null ? gb.gear : "—") + " / " + (gb.gearsCount || 3));
+    txt("s-streak", gb.greenStreak != null ? gb.greenStreak : "—");
+    txt("s-cap", kl.cap != null ? kl.cap + " SBD" : "—");
+    var arteries = 0;
+    if (String(tr.verdict || "").indexOf("ACTED") >= 0) arteries++;
+    if (String(ar.verdict || "").indexOf("ACTED") >= 0) arteries++;
+    txt("s-arteries", arteries + " / 2");
+    txt("s-pulse", ago(ca.lastRunAt || (d.generatedAt || null)));
+    var auth = d.auth || {};
+    txt("w-mode", auth.mode || "—");
+    txt("w-pat", auth.pat && auth.pat.ok ? "healthy ✓" : "unavailable");
+    txt("w-treasury", tr.verdict ? tr.verdict + " · " + ago(tr.at) : "—");
+    txt("w-army", ar.verdict ? ar.verdict + " · " + ago(ar.at) : "—");
+    txt("t-orders", tr.openOrders != null ? tr.openOrders : "—");
+    txt("t-acted", ar.acted != null ? ar.acted : (tr.acted != null ? tr.acted : "—"));
+    txt("t-roster", ar.roster != null ? ar.roster : "—");
+    txt("t-head", ch.head != null ? "#" + ch.head : "—");
+    txt("h-flow", "NOT-YET · inversion not complete");
+    txt("h-gaps", ec.gapsOpen != null ? ec.gapsOpen : "—");
+    var g = $("console-grid");
+    var old = $("console-err"); if (old) old.remove();
+    var tiles = [];
+    tiles.push(tile("Treasury artery",
+      verdictBadge(tr.verdict) + (tr.openOrders != null ? ' <small>' + tr.openOrders + ' open orders</small>' : ""),
+      tr.trader ? 'trader: <span class="mono">' + tr.trader + "</span> · acted: " + (tr.acted != null ? tr.acted : "—") : "treasury ladder beat",
+      NET_HREF, "economy.treasury",
+      String(tr.verdict || "").indexOf("ACTED") >= 0 ? "ok" : "warn"));
+    tiles.push(tile("Army artery",
+      verdictBadge(ar.verdict) + (ar.roster != null ? ' <small>' + ar.acted + "/" + ar.roster + ' roster</small>' : ""),
+      ar.stasis != null ? ar.stasis + " standing by (measured, not hidden)" : "army ladder beat",
+      NET_HREF, "economy.army",
+      String(ar.verdict || "").indexOf("ACTED") >= 0 ? "ok" : "warn"));
+    tiles.push(tile("Transmission — gear",
+      (gb.gear != null ? gb.gear : "—") + " / " + (gb.gearsCount || 3) + ' <small>gears</small>',
+      "green streak: " + (gb.greenStreak != null ? gb.greenStreak : "—") + " · last receipt: " + (gb.lastVerdict || "—"),
+      NET_HREF, "economy.gearbox", gb.gear > 1 ? "ok" : "warn"));
+    tiles.push(tile("Entry weight (Kelly)",
+      kl.cap != null ? kl.cap + " <small>SBD per op</small>" : "—",
+      kl.mode === "probation" ? "probation: " + (kl.informative != null ? kl.informative : "—") + "/" + (kl.minBeats != null ? kl.minBeats : "10") + " informative fills" : ("mode: " + (kl.mode || "—")),
+      NET_HREF, "economy.gearbox.kelly", kl.mode === "probation" ? "warn" : "ok"));
+    tiles.push(tile("Open gaps",
+      (ec.gapsOpen != null ? ec.gapsOpen : "—") + ' <small>with redemption paths</small>',
+      "published below — including what blocks each one",
+      NET_HREF, "economy.sovereigntyLedger", ec.gapsOpen > 0 ? "warn" : "ok"));
+    tiles.push(tile("Network pulse",
+      ca.lastRunAgeMin != null ? (ca.lastRunAgeMin < 1 ? "now" : ca.lastRunAgeMin + " min") : ago(d.generatedAt),
+      "cadence: " + (ca.schedule || "—") + " · status: " + (ca.scheduleStatus || "—"),
+      NET_HREF, "cadence", ca.covered ? "ok" : "warn"));
+    tiles.push(tile("STEEM chain",
+      ch.head != null ? "#" + ch.head : "—",
+      (ch.node ? 'node <span class="mono">' + ch.node + "</span>" : "") + (ch.tries && ch.tries[0] && ch.tries[0].ms != null ? " · " + ch.tries[0].ms + "ms" : ""),
+      NET_HREF, "chains.steem", ch.head ? "ok" : "warn"));
+    tiles.push(tile("Terminal state",
+      d.terminal === "ok" ? "healthy" : (d.terminal || "—"),
+      "honest terminal verdict of the measurement — shown as-is",
+      NET_HREF, "terminal", d.terminal === "ok" ? "ok" : "warn"));
+    g.innerHTML = tiles.join("");
+  }
+  function load(){
+    fetch(NET + "?t=" + Date.now(), {cache:"no-store"})
+      .then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(render)
+      .catch(function(){
+        var g = $("console-grid");
+        var e = $("console-err");
+        if (g && !e) { var div = document.createElement("div"); div.className = "err"; div.id = "console-err"; div.textContent = "The measurement source is unavailable right now. The page shows this as-is — without inventing data. Try refreshing."; g.prepend(div); }
+      });
+  }
+  load();
+  setInterval(load, 5 * 60 * 1000);
+  var fa = $("f-at");
+  if (fa) fa.textContent = "viewed " + new Date().toISOString().slice(0, 16).replace("T", " ") + "UTC";
+
+  function rpc(method, params){
+    return fetch("https://api.steemit.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ jsonrpc: "2.0", method: method, params: params || [], id: 1 })
+    }).then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function(j){ if (j.error) throw new Error(j.error.message || "rpc"); return j.result; });
+  }
+  function num(str){ return parseFloat(String(str).split(" ")[0]); }
+  function renderMarket(price, book){
+    var g = $("market-grid");
+    var old = $("market-err"); if (old) old.remove();
+    var tiles = [];
+    tiles.push(tile("Chain median price",
+      (price ? price.toFixed(5) : "—") + ' <small>SBD / STEEM</small>',
+      "the official reference price the chain publishes",
+      "https://steemblocks.com", "api.steemit.com · median price", price ? "ok" : "warn"));
+    var asks = (book && book.asks) || [], bids = (book && book.bids) || [];
+    var ba = asks.length ? num(asks[0].real_price) : null;
+    var bb = bids.length ? num(bids[0].real_price) : null;
+    var spread = (ba && bb) ? ((ba - bb) / ((ba + bb) / 2)) * 100 : null;
+    tiles.push(tile("Leading ask",
+      ba ? ba.toFixed(5) + " <small>SBD/STEEM</small>" : "—",
+      asks.length ? "depth: " + (num(asks[0].steem) / 1000).toFixed(1) + "K STEEM at this level" : "no asks",
+      "https://steemwallet.app", "order book · asks", ba ? "ok" : "warn"));
+    tiles.push(tile("Leading bid",
+      bb ? bb.toFixed(5) + " <small>SBD/STEEM</small>" : "—",
+      bids.length ? "depth: " + (num(bids[0].steem) / 1000).toFixed(1) + "K STEEM at this level" : "no bids",
+      "https://steemwallet.app", "order book · bids", bb ? "ok" : "warn"));
+    tiles.push(tile("Market spread",
+      spread != null ? spread.toFixed(3) + "%" : "—",
+      spread != null ? (spread < 0.5 ? "tight market — makers need precision" : "wide market — room for ladders") : "not measured",
+      "https://steemwallet.app", "order book · spread", spread != null ? (spread < 0.5 ? "warn" : "ok") : "warn"));
+    g.innerHTML = tiles.join("");
+  }
+  function loadMarket(){
+    Promise.allSettled([rpc("condenser_api.get_current_median_history_price"), rpc("condenser_api.get_order_book", [5])])
+      .then(function(rs){
+        var price = null, book = null;
+        if (rs[0].status === "fulfilled" && rs[0].value && rs[0].value.base) price = num(rs[0].value.base) / num(rs[0].value.quote);
+        if (rs[1].status === "fulfilled" && rs[1].value) book = rs[1].value;
+        if (price || book) renderMarket(price, book);
+        else { var e = $("market-err"); if (e) e.hidden = false; }
+      });
+  }
+  loadMarket();
+  setInterval(loadMarket, 5 * 60 * 1000);
+
+  var RUNS = "https://api.github.com/repos/roshpinacare-sys/saos-runtime/actions/runs?per_page=30";
+  var RL = { "treasury-ladder.yml": "Treasury ladder", "army-ladder.yml": "Army ladder" };
+  function rel(iso){
+    var m = Math.floor((Date.now() - Date.parse(iso)) / 60000);
+    if (m < 1) return "now"; if (m < 60) return m + " min";
+    var h = Math.floor(m / 60); if (h < 24) return h + "h";
+    return Math.floor(h / 24) + "d";
+  }
+  function renderRuns(runs, asof){
+    var rows = (runs || [])
+      .filter(function(r){ return RL[r.path]; })
+      .slice(0, 8)
+      .map(function(r){
+        var cls = r.conclusion === "success" ? "ok" : (r.conclusion === "failure" ? "bad" : "warn");
+        var label = r.conclusion === "success" ? "succeeded" : (r.conclusion === "failure" ? "failed" : (r.conclusion || r.status));
+        return '<tr><td><span class="vbadge ' + cls + '">' + label + "</span></td>" +
+          "<td>" + RL[r.path] + "</td>" +
+          "<td>" + rel(r.created_at) + "</td>" +
+          '<td><a href="' + r.html_url + '" rel="noopener">run #' + r.run_number + " ↗</a></td></tr>";
+      });
+    var body = $("r-body");
+    if (body) body.innerHTML = rows.length ? rows.join("") : '<tr><td colspan="4" style="color:var(--faint)">no ladder runs in the recent window</td></tr>';
+    var as = $("r-asof"); if (as) as.textContent = "as of " + asof;
+  }
+  function loadRuns(){
+    var cached = null;
+    try { cached = JSON.parse(localStorage.getItem("saos-runs") || "null"); } catch (e) {}
+    if (cached && cached.runs) renderRuns(cached.runs, cached.at);
+    fetch(RUNS, { headers: { Accept: "application/vnd.github+json" } })
+      .then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function(d){
+        var runs = (d.workflow_runs || []).map(function(r){ return { path: r.path, conclusion: r.conclusion, status: r.status, created_at: r.created_at, html_url: r.html_url, run_number: r.run_number }; });
+        if (runs.length) {
+          renderRuns(runs, new Date().toISOString().slice(11, 16) + "UTC");
+          try { localStorage.setItem("saos-runs", JSON.stringify({ runs: runs, at: new Date().toISOString().slice(11, 16) + "UTC" })); } catch (e) {}
+        } else if (!cached) {
+          var body = $("r-body"); if (body) body.innerHTML = '<tr><td colspan="4" style="color:var(--faint)">the public API returned no runs right now</td></tr>';
+        }
+      })
+      .catch(function(){
+        if (!cached) {
+          var body = $("r-body");
+          if (body) body.innerHTML = '<tr><td colspan="4">receipt stream rate-limited right now (GitHub per-IP limit). Instead of fake emptiness — direct link: <a href="https://github.com/roshpinacare-sys/saos-runtime/actions" rel="noopener">all runs ↗</a></td></tr>';
+        }
+      });
+  }
+  loadRuns();
+
+  var GEARS = [25, 50, 100];
+  function calc(){
+    var p = parseInt($("m-p").value, 10) / 100;
+    var wlr = parseInt($("m-w").value, 10) / 10;
+    var gi = parseInt($("m-g").value, 10);
+    var gearCap = GEARS[gi];
+    $("m-pv").textContent = Math.round(p * 100) + "%";
+    $("m-wv").textContent = wlr.toFixed(1);
+    $("m-gv").textContent = gearCap + " SBD";
+    var f = p - ((1 - p) / wlr);
+    var safe = Math.max(0.01, Math.min(f * 0.5, 0.25));
+    var cap = Math.min(Math.floor(gearCap * safe * 4), gearCap);
+    $("m-f").textContent = "f = " + (p * 100).toFixed(0) + "% − ((1 − " + (p * 100).toFixed(0) + "%) / " + wlr.toFixed(1) + ") = " + (f * 100).toFixed(1) + "%";
+    $("m-safe").textContent = "safe = clamp(f × ½, 0.01, 0.25) = " + safe.toFixed(4);
+    $("m-cap").textContent = "cap = ⌊" + gearCap + " × " + safe.toFixed(4) + " × 4⌋ = " + cap + " SBD (within gear cap " + gearCap + ")";
+    var v = $("m-verdict");
+    if (f <= 0) v.textContent = "Negative expectancy — the real system would drop to probation and shrink exposure. This is the weight that protects the money.";
+    else if (cap >= gearCap) v.textContent = "The math touches the gear ceiling — from here gears rise only on green receipts, never on deposits.";
+    else v.textContent = "Positive but cautious expectancy — the weight prices trust by the sample. The real system measured " + (document.getElementById("s-cap") ? document.getElementById("s-cap").textContent : "—") + " in production.";
+  }
+  ["m-p", "m-w", "m-g"].forEach(function(id){ var el = $(id); if (el) { el.addEventListener("input", calc); el.addEventListener("change", calc); } });
+  calc();
+})();
+</script>
+</body>
+</html>

@@ -155,10 +155,13 @@ footer nav a{font-size:12.5px;padding:0}
     <div class="bname">SAOS <span>המערכת החיה</span></div>
     <nav aria-label="ניווט ראשי">
       <a href="#console" class="hide-m">מסוף חי</a>
+      <a href="#market" class="hide-m">שוק</a>
       <a href="#products">מוצרים</a>
+      <a href="#math" class="hide-m">מתמטיקה</a>
       <a href="#honest" class="hide-m">אמת</a>
       <a href="#api" class="hide-m">API</a>
       <a href="#standard" class="hide-m">תקן</a>
+      <a href="index-en.html" hreflang="en" style="font-weight:700;color:var(--acc-d)">EN</a>
       <a class="cta" href="https://github.com/roshpinacare-sys" rel="noopener">GitHub ↗</a>
     </nav>
   </div>
@@ -192,6 +195,17 @@ footer nav a{font-size:12.5px;padding:0}
     <p class="lead">זה החלון של המערכת עצמה: עורקי ההכנסה, התמסורת הכלכלית, כובד הכניסה לשוק, הפערים הפתוחים ודופק הרשת — בזמן אמת.</p>
     <div id="console-grid" class="grid" aria-live="polite">
       <div class="err" id="console-err" hidden>מקור המדידה אינו זמין כרגע. העמוד מציג זאת כפי שהוא — בלי להמציא נתונים. נסו רענון בעוד רגע.</div>
+    </div>
+  </section>
+
+  <section id="market" aria-labelledby="h-market">
+    <div class="sechead">
+      <h2 id="h-market">השוק שבו הסולמות עובדים — חי</h2>
+      <span class="why">השוק הפנימי SBD/STEEM של השרשרת הציבורית. זה בדיוק המגרש שבו הסולמות מציבים הצבות maker.</span>
+    </div>
+    <p class="lead">מחיר-חציון השרשרת, הצעות-המכר והמכירה המובילות והפער ביניהן — נשלף עכשיו מהצומת הציבורי <span class="mono">api.steemit.com</span>. בלי מחיר אין סיפור-מטבע; עכשיו יש.</p>
+    <div id="market-grid" class="grid" aria-live="polite">
+      <div class="err" id="market-err" hidden>הצומת הציבורי אינו מגיב כרגע. במקום להמציא מחיר — מציגים את האמת. נסו רענון.</div>
     </div>
   </section>
 
@@ -231,6 +245,51 @@ footer nav a{font-size:12.5px;padding:0}
         <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">מצב התמסורת בזמן אמת ↗</a><a href="giant.html">איך זה משתווה לענקים</a></div>
       </article>
     </div>
+  </section>
+
+  <section id="math" aria-labelledby="h-math">
+    <div class="sechead">
+      <h2 id="h-math">מתמטיקה חיה — המחשבון שמנהל את הכסף</h2>
+      <span class="why">אותו קוד שמתמחר את תקרת-הכניסה בפרודקשן. תזיזו את ההנחות וראו איך ההילוך נבלם או נפתח.</span>
+    </div>
+    <p class="lead">המערכת עצמה נמצאת כרגע בתקופת-בחינה (מדגם מילויים קטן) — המחשבון מדגים את המתמטיקה המלאה כפי שהיא רצה בפרודקשן: חצי-קלי עם תקרה ורצפה, שלעולם לא משחררת מעבר להילוך שנצבר בקבלות.</p>
+    <div class="prods">
+      <article class="prod">
+        <h3 style="margin-bottom:2px">הנחות (תזיזו וראו)</h3>
+        <label style="font-size:13px;font-weight:600;display:flex;flex-direction:column;gap:6px;margin-top:6px">שיעור-הצלחה (p): <b class="mono" id="m-pv" style="font-size:15px">40%</b>
+          <input type="range" id="m-p" min="1" max="95" value="40" style="min-height:44px;accent-color:var(--acc-d)">
+        </label>
+        <label style="font-size:13px;font-weight:600;display:flex;flex-direction:column;gap:6px;margin-top:10px">יחס רווח/הפסד ממוצע (WLR): <b class="mono" id="m-wv" style="font-size:15px">1.8</b>
+          <input type="range" id="m-w" min="1" max="40" value="18" style="min-height:44px;accent-color:var(--acc-d)">
+        </label>
+        <label style="font-size:13px;font-weight:600;display:flex;flex-direction:column;gap:6px;margin-top:10px">הילוך (תקרת הטבלה בגיט): <b class="mono" id="m-gv" style="font-size:15px">25 SBD</b>
+          <input type="range" id="m-g" min="0" max="2" value="0" style="min-height:44px;accent-color:var(--acc-d)">
+        </label>
+      </article>
+      <article class="prod">
+        <h3 style="margin-bottom:2px">התוצאה — אותן נוסחאות, אותו קוד</h3>
+        <div class="formula" id="m-f" style="margin-top:8px">f = …</div>
+        <div class="formula" id="m-safe">safe = …</div>
+        <div class="formula" id="m-cap">cap = …</div>
+        <p style="font-size:12.5px;color:var(--dim);margin-top:10px" id="m-verdict"></p>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">המצב המדוד בפרודקשן ↗</a><a href="#console">חזרה למסוף</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="receipts" aria-labelledby="h-receipts">
+    <div class="sechead">
+      <h2 id="h-receipts">זרם-הקבלות — הריצות האחרונות, חי</h2>
+      <span class="why">נשלף מה-API הציבורי של GitHub (מטמון מקומי עם חותמת "נכון ל-"). מוגבל-קצב על ידי GitHub — כשאין, כותבים שאין.</span>
+    </div>
+    <div class="scrollx">
+    <table class="apitab" id="r-table">
+      <caption class="sr-only">ריצות אחרונות של סולמות ההכנסה</caption>
+      <thead><tr><th scope="col">כשל/הצלחה</th><th scope="col">סולם</th><th scope="col">מתי</th><th scope="col">קישור</th></tr></thead>
+      <tbody id="r-body"><tr><td colspan="4" style="color:var(--faint)">טוען קבלות…</td></tr></tbody>
+    </table>
+    </div>
+    <p class="refresh-note" style="margin-top:8px"><span aria-hidden="true">⟳</span> <span id="r-asof">נכון ל-…</span></p>
   </section>
 
   <section id="honest" aria-labelledby="h-honest">
@@ -446,6 +505,130 @@ footer nav a{font-size:12.5px;padding:0}
   setInterval(load, 5 * 60 * 1000);
   var fa = $("f-at");
   if (fa) fa.textContent = "נצפה " + new Date().toISOString().slice(0, 16).replace("T", " ") + "UTC";
+
+  /* ── שוק חי: מחיר-חציון + ספר-הצבות מהצומת הציבורי ───────────────────── */
+  function rpc(method, params){
+    return fetch("https://api.steemit.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ jsonrpc: "2.0", method: method, params: params || [], id: 1 })
+    }).then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function(j){ if (j.error) throw new Error(j.error.message || "rpc"); return j.result; });
+  }
+  function num(str){ return parseFloat(String(str).split(" ")[0]); }
+  function renderMarket(price, book){
+    var g = $("market-grid");
+    var old = $("market-err"); if (old) old.remove();
+    var tiles = [];
+    tiles.push(tile("מחיר-חציון השרשרת",
+      (price ? price.toFixed(5) : "—") + ' <small>SBD / STEEM</small>',
+      "המחיר הרשמי שהשרשרת מפרסמת — הייחוס של כל פעולת-סולם",
+      "https://steemblocks.com", "api.steemit.com · median price", price ? "ok" : "warn"));
+    var asks = (book && book.asks) || [], bids = (book && book.bids) || [];
+    var ba = asks.length ? num(asks[0].real_price) : null;
+    var bb = bids.length ? num(bids[0].real_price) : null;
+    var spread = (ba && bb) ? ((ba - bb) / ((ba + bb) / 2)) * 100 : null;
+    tiles.push(tile("הצעת-מכירה מובילה (ask)",
+      ba ? ba.toFixed(5) + " <small>SBD/STEEM</small>" : "—",
+      asks.length ? "עומק: " + (num(asks[0].steem) / 1000).toFixed(1) + "K STEEM ברמה זו" : "אין הצעות",
+      "https://steemwallet.app", "order book · asks", ba ? "ok" : "warn"));
+    tiles.push(tile("הצעת-קנייה מובילה (bid)",
+      bb ? bb.toFixed(5) + " <small>SBD/STEEM</small>" : "—",
+      bids.length ? "עומק: " + (num(bids[0].steem) / 1000).toFixed(1) + "K STEEM ברמה זו" : "אין הצעות",
+      "https://steemwallet.app", "order book · bids", bb ? "ok" : "warn"));
+    tiles.push(tile("פער השוק (spread)",
+      spread != null ? spread.toFixed(3) + "%" : "—",
+      spread != null ? (spread < 0.5 ? "שוק צמוד — maker חייב דיוק" : "שוק רחב — מרווח לסולמות") : "לא נמדד",
+      "https://steemwallet.app", "order book · spread", spread != null ? (spread < 0.5 ? "warn" : "ok") : "warn"));
+    g.innerHTML = tiles.join("");
+  }
+  function loadMarket(){
+    Promise.allSettled([rpc("condenser_api.get_current_median_history_price"), rpc("condenser_api.get_order_book", [5])])
+      .then(function(rs){
+        var price = null, book = null;
+        if (rs[0].status === "fulfilled" && rs[0].value && rs[0].value.base) {
+          price = num(rs[0].value.base) / num(rs[0].value.quote);
+        }
+        if (rs[1].status === "fulfilled" && rs[1].value) book = rs[1].value;
+        if (price || book) { renderMarket(price, book); }
+        else { var e = $("market-err"); if (e) e.hidden = false; }
+      });
+  }
+  loadMarket();
+  setInterval(loadMarket, 5 * 60 * 1000);
+
+  /* ── זרם-קבלות: ריצות סולם אחרונות מה-API הציבורי + מטמון מקומי ──────── */
+  var RUNS = "https://api.github.com/repos/roshpinacare-sys/saos-runtime/actions/runs?per_page=30";
+  var RL = { "treasury-ladder.yml": "סולם-אוצר", "army-ladder.yml": "סולם-צבא" };
+  function rel(iso){
+    var m = Math.floor((Date.now() - Date.parse(iso)) / 60000);
+    if (m < 1) return "עכשיו"; if (m < 60) return m + " דק'";
+    var h = Math.floor(m / 60); if (h < 24) return h + " שע'";
+    return Math.floor(h / 24) + " ימ'";
+  }
+  function renderRuns(runs, asof){
+    var rows = (runs || [])
+      .filter(function(r){ return RL[r.path]; })
+      .slice(0, 8)
+      .map(function(r){
+        var cls = r.conclusion === "success" ? "ok" : (r.conclusion === "failure" ? "bad" : "warn");
+        var label = r.conclusion === "success" ? "הצליחה" : (r.conclusion === "failure" ? "נכשלה" : (r.conclusion || r.status));
+        return '<tr><td><span class="vbadge ' + cls + '">' + label + "</span></td>" +
+          "<td>" + RL[r.path] + "</td>" +
+          '<td>' + rel(r.created_at) + "</td>" +
+          '<td><a href="' + r.html_url + '" rel="noopener">ריצה #' + r.run_number + " ↗</a></td></tr>";
+      });
+    var body = $("r-body");
+    if (body) body.innerHTML = rows.length ? rows.join("") : '<tr><td colspan="4" style="color:var(--faint)">אין ריצות סולם בחלון האחרון</td></tr>';
+    var as = $("r-asof"); if (as) as.textContent = "נכון ל-" + asof;
+  }
+  function loadRuns(){
+    var cached = null;
+    try { cached = JSON.parse(localStorage.getItem("saos-runs") || "null"); } catch (e) {}
+    if (cached && cached.runs) renderRuns(cached.runs, cached.at);
+    fetch(RUNS, { headers: { Accept: "application/vnd.github+json" } })
+      .then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function(d){
+        var runs = (d.workflow_runs || []).map(function(r){ return { path: r.path, conclusion: r.conclusion, status: r.status, created_at: r.created_at, html_url: r.html_url, run_number: r.run_number }; });
+        if (runs.length) {
+          renderRuns(runs, new Date().toISOString().slice(11, 16) + "UTC");
+          try { localStorage.setItem("saos-runs", JSON.stringify({ runs: runs, at: new Date().toISOString().slice(11, 16) + "UTC" })); } catch (e) {}
+        } else if (!cached) {
+          var body = $("r-body"); if (body) body.innerHTML = '<tr><td colspan="4" style="color:var(--faint)">ה-API הציבורי לא החזיר ריצות כרגע</td></tr>';
+        }
+      })
+      .catch(function(){
+        if (!cached) {
+          var body = $("r-body");
+          if (body) body.innerHTML = '<tr><td colspan="4">זרימת-הקבלות מוגבלת-קצב כרגע (מגבלת GitHub לכתובת). במקום להציג ריק מזויף — קישור ישיר: <a href="https://github.com/roshpinacare-sys/saos-runtime/actions" rel="noopener">כל הריצות ↗</a></td></tr>';
+        }
+      });
+  }
+  loadRuns();
+
+  /* ── מחשבון-התמסורת: אותן נוסחאות כמו grids/alpha-performance-math.mjs ── */
+  var GEARS = [25, 50, 100];
+  function calc(){
+    var p = parseInt($("m-p").value, 10) / 100;
+    var wlr = parseInt($("m-w").value, 10) / 10;
+    var gi = parseInt($("m-g").value, 10);
+    var gearCap = GEARS[gi];
+    $("m-pv").textContent = Math.round(p * 100) + "%";
+    $("m-wv").textContent = wlr.toFixed(1);
+    $("m-gv").textContent = gearCap + " SBD";
+    var f = p - ((1 - p) / wlr);
+    var safe = Math.max(0.01, Math.min(f * 0.5, 0.25));
+    var cap = Math.min(Math.floor(gearCap * safe * 4), gearCap);
+    $("m-f").textContent = "f = " + (p * 100).toFixed(0) + "% − ((1 − " + (p * 100).toFixed(0) + "%) / " + wlr.toFixed(1) + ") = " + (f * 100).toFixed(1) + "%";
+    $("m-safe").textContent = "safe = clamp(f × ½, 0.01, 0.25) = " + safe.toFixed(4);
+    $("m-cap").textContent = "cap = ⌊" + gearCap + " × " + safe.toFixed(4) + " × 4⌋ = " + cap + " SBD (מתוך תקרת-הילוך " + gearCap + ")";
+    var v = $("m-verdict");
+    if (f <= 0) v.textContent = "תוחלת שלילית — המערכת האמתית הייתה צוללת לתקופת-בחינה ומצמצמת חשיפה. זה הכובד שמגן על הכסף.";
+    else if (cap >= gearCap) v.textContent = "המתמטיקה נוגעת בתקרת-ההילוך — מכאן אפשר לעלות הילוך רק בקבלות-ירוקות, לעולם לא בהפקדה.";
+    else v.textContent = "תוחלת חיובית אך זהירה — הכובד מתמחר את האמון לפי המדגם. המערכת האמתית מדדה " + (document.getElementById("s-cap") ? document.getElementById("s-cap").textContent : "—") + " בפועל.";
+  }
+  ["m-p", "m-w", "m-g"].forEach(function(id){ var el = $(id); if (el) { el.addEventListener("input", calc); el.addEventListener("change", calc); } });
+  calc();
 })();
 </script>
 </body>
