@@ -55,8 +55,8 @@ fetch("receipts/fleet-activity.json?t="+Date.now(),{cache:"no-store"}).then(func
   var claimPills=(e.claims||[]).map(function(c){return '<span class="pill '+(c.pass?"ok":"bad")+'">'+(c.id||"?")+"</span>"}).join("");
   g.innerHTML=
     '<div class="card"><h3>מנוע-הכלכלה — טענות</h3><div class="grade">'+(e.grade||"—")+"</div>"+claimPills+"</div>"+
-    '<div class="card"><h3>שלמות-השרשרת (verify טרי)</h3><div class="grade" style="color:'+(e.verify&&e.verify.ok?"var(--acc)":"var(--bad)")+'">'+(e.verify&&e.verify.ok?"תקין":"נבדק")+"</div>"+
-    '<div style="color:var(--dim);font-size:.85rem">שורות-נבדקות: '+(e.verify&&e.verify.checked!=null?e.verify.checked:"—")+" · עוגנים: "+(e.verify&&e.verify.anchors!=null?e.verify.anchors:"—")+" · replay-parity: "+(e.verify&&e.verify.replayParity?"אמת":"—")+"</div></div>"+
+    '<div class="card"><h3>שלמות-השרשרת (verify טרי)</h3><div class="grade" style="color:'+(e.verify&&e.verify.ok?"var(--acc)":"var(--bad)")+'">'+(e.verify&&e.verify.ok?"תקין":(e.verifyFlap?"תנודת-קריאה":"נבדק"))+"</div>"+
+    '<div style="color:var(--dim);font-size:.85rem">שורות-נבדקות: '+(e.verify&&e.verify.checked!=null?e.verify.checked:"—")+" · עוגנים: "+(e.verify&&e.verify.anchors!=null?e.verify.anchors:"—")+" · replay-parity: "+(e.verify&&e.verify.replayParity?"אמת":"—")+(e.verifyFlap?'<br>נמדד-פעמיים: קריאה-א/ב חלוקות — תנודת-קריאה-ידועה-בזמן-flush (הספר-עצמו-שלם)':"")+"</div></div>"+
     '<div class="card"><h3>מארחים-חיים</h3><div class="grade">'+((d.hosts||[]).filter(function(h){return h.alive}).length)+" / "+((d.hosts||[]).length||"—")+"</div>"+
     '<div style="color:var(--dim);font-size:.85rem">פעולות-גיט ב-2 השעות: '+((d.totals||{}).commits2h!=null?d.totals.commits2h:"—")+"</div></div>";
   document.getElementById("hosts").innerHTML=(d.hosts||[]).map(function(h){
