@@ -130,7 +130,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
     <span class="mark" aria-hidden="true">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg>
     </span>
-    <div class="bname">SAOS <span>The Living System</span></div>
+    <div class="bname">SAOS <span>The Living Network</span></div>
     <nav aria-label="Main navigation">
       <a href="#console" class="hide-m">Console</a>
       <a href="#network" class="hide-m">Our network</a>
@@ -161,6 +161,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       <a class="btn" href="roast.html">Our engineering roast</a>
     </div>
     <div class="strip" role="list" aria-label="Live headline metrics">
+      <div class="chip" role="listitem"><div class="k">Live fleet</div><div class="v" id="s-fleet">—</div><div class="s">repos in our network</div></div>
       <div class="chip" role="listitem"><div class="k">Fuel gear</div><div class="v" id="s-gear">—</div><div class="s">the fuel pump</div></div>
       <div class="chip" role="listitem"><div class="k">Green streak</div><div class="v" id="s-streak">—</div><div class="s">consecutive ACTED receipts</div></div>
       <div class="chip" role="listitem"><div class="k">Fuel cap</div><div class="v" id="s-cap">—</div><div class="s">per operation · kelly weight on external coin</div></div>
@@ -176,6 +177,9 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       <span class="why">The agents, the laws and the self-healing are the story. Foreign currencies here only fuel, fund and enrich our architecture.</span>
     </div>
     <p class="lead">SAOS is a fleet of autonomous agents on live git: dozens of public repositories, 9 live sites, and independent health measurements every 30 minutes. Everything runs under published laws — and every wound is measured, torn loudly, and cured at HEAD with run-ID proof.</p>
+    <div id="fleet-grid" class="grid" aria-live="polite" style="margin-bottom:16px">
+      <div class="err" id="fleet-err" hidden>Fleet measurement is unavailable right now. We show it as-is — without inventing data. Try refreshing.</div>
+    </div>
     <div class="prods">
       <article class="prod">
         <span class="ico" aria-hidden="true">🕸</span>
@@ -386,6 +390,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
 (function(){
   "use strict";
   var NET = "https://raw.githubusercontent.com/roshpinacare-sys/Pulse/main/state/network.json";
+  var HEALTH = "https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json";
   function $(id){ return document.getElementById(id); }
   function txt(id, v){ var el = $(id); if (el) el.textContent = v; }
   function ago(iso){
@@ -414,6 +419,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       '<div class="ts">source: ' + (srcHref ? '<a href="' + srcHref + '" rel="noopener">' + (srcText || "state file") + "</a>" : (srcText || "—")) + "</div></div>";
   }
   var NET_HREF = "https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json";
+  var HEALTH_HREF = "https://github.com/roshpinacare-sys/GridWatch/blob/main/state/fleet-health.json";
   function render(d){
     var ec = d.economy || {};
     var gb = ec.gearbox || {};
@@ -480,6 +486,32 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       NET_HREF, "terminal", d.terminal === "ok" ? "ok" : "warn"));
     g.innerHTML = tiles.join("");
   }
+  function renderHealth(h){
+    if (!h) return;
+    var t = h.totals || {};
+    txt("s-fleet", t.repos != null ? t.repos + " repos" : "—");
+    var fg = $("fleet-grid");
+    if (!fg) return;
+    var fe = $("fleet-err"); if (fe) fe.remove();
+    var ft = [];
+    ft.push(tile("Network fleet",
+      (t.repos != null ? t.repos : "—") + ' <small>repositories</small>',
+      t.public != null ? t.public + " public · " + (t.private != null ? t.private + " private" : "—") + " — all public state in git" : "our fleet",
+      HEALTH_HREF, "totals.repos", "ok"));
+    ft.push(tile("Automation backbone",
+      (t.workflows != null ? t.workflows : "—") + ' <small>workflows</small>',
+      "scheduled runs that fire on their own — supervision, measurement, receipts",
+      HEALTH_HREF, "totals.workflows", "ok"));
+    ft.push(tile("Measured fleet health",
+      (t.green != null ? t.green + " green" : "—") + (t.amber != null ? " · " + t.amber + " amber" : "") + (t.red != null ? " · " + t.red + " red" : ""),
+      "red is not hidden: a visible failure beats fake health",
+      HEALTH_HREF, "totals.green/amber/red", t.red > 0 ? "warn" : "ok"));
+    ft.push(tile("Fleet heartbeat",
+      ago(h.generatedAt),
+      "cadence: every " + (h.cadenceMin != null ? h.cadenceMin : "—") + " min · source: GridWatch",
+      HEALTH_HREF, "generatedAt", "ok"));
+    fg.innerHTML = ft.join("");
+  }
   function load(){
     fetch(NET + "?t=" + Date.now(), {cache:"no-store"})
       .then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
@@ -492,6 +524,18 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
   }
   load();
   setInterval(load, 5 * 60 * 1000);
+  function loadHealth(){
+    fetch(HEALTH + "?t=" + Date.now(), {cache:"no-store"})
+      .then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(renderHealth)
+      .catch(function(){
+        var fg = $("fleet-grid");
+        var fe = $("fleet-err");
+        if (fg && !fe) { var div = document.createElement("div"); div.className = "err"; div.id = "fleet-err"; div.textContent = "Fleet measurement is unavailable right now. We show it as-is — without inventing data. Try refreshing."; fg.prepend(div); }
+      });
+  }
+  loadHealth();
+  setInterval(loadHealth, 5 * 60 * 1000);
   var fa = $("f-at");
   if (fa) fa.textContent = "viewed " + new Date().toISOString().slice(0, 16).replace("T", " ") + "UTC";
 
