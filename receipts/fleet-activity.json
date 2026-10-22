@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-22T15:44:14.716Z",
+  "generatedAt": "2026-10-22T15:50:05.134Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 137948,
+      "checked": 137285,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 137951,
+      "checked": 137302,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 137948
+    "seq": 137285
   },
   "hosts": [
     {
@@ -94,7 +94,7 @@
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 4,
+      "ageMin": 10,
       "alive": true
     },
     {
@@ -109,50 +109,50 @@
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 20,
       "alive": true
     }
   ],
   "repos": [
     {
       "name": "my-project",
-      "commits2h": 147,
-      "commits24h": 1204,
-      "last": "vault-sync [seal-host]: union-resolved — איחוד-ללא-מחיקות",
-      "lastAt": "2026-10-22T15:43:52Z",
+      "commits2h": 146,
+      "commits24h": 1210,
+      "last": "state-snapshot [seal-host]: 6 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)",
+      "lastAt": "2026-10-22T15:47:02Z",
       "feed": [
         {
-          "at": "2026-10-22T15:43:52Z",
+          "at": "2026-10-22T15:47:02Z",
+          "msg": "state-snapshot [seal-host]: 6 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
+        },
+        {
+          "at": "2026-10-22T15:46:37Z",
           "msg": "vault-sync [seal-host]: union-resolved — איחוד-ללא-מחיקות"
         },
         {
-          "at": "2026-10-22T15:43:51Z",
-          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
-        },
-        {
-          "at": "2026-10-22T15:43:10Z",
-          "msg": "worklog [wave-G66b]: Task 66 המשך — סוף-פנדולום-ה-pool · ריפוי-מטמון-אדום · חילוץ-הקונסולה (trace 1a163cdefe90"
+          "at": "2026-10-22T15:46:36Z",
+          "msg": "vault-seal [seal-host]: 1 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
         }
       ]
     },
     {
       "name": "fleet-economy",
-      "commits2h": 148,
-      "commits24h": 1346,
-      "last": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
-      "lastAt": "2026-10-22T15:41:55Z",
+      "commits2h": 151,
+      "commits24h": 247,
+      "last": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)",
+      "lastAt": "2026-10-22T15:48:54Z",
       "feed": [
         {
-          "at": "2026-10-22T15:41:55Z",
-          "msg": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
+          "at": "2026-10-22T15:48:54Z",
+          "msg": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)"
         },
         {
-          "at": "2026-10-22T15:41:14Z",
-          "msg": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)"
+          "at": "2026-10-22T15:47:01Z",
+          "msg": "[builder] acts=19 metrics=19 backlog=0 · צמיחה-ריבונית מאוטמת"
         },
         {
-          "at": "2026-10-22T15:41:13Z",
-          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+          "at": "2026-10-22T15:47:01Z",
+          "msg": "builder-merge: אימוץ-קנוני (union-תיקייה-דיסקרטית)"
         }
       ]
     },
@@ -179,32 +179,36 @@
     },
     {
       "name": "steem",
-      "commits2h": 47,
-      "commits24h": 100,
-      "last": "vault-seal [seal-host]: 10 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)",
-      "lastAt": "2026-10-22T15:33:44Z",
+      "commits2h": 48,
+      "commits24h": 103,
+      "last": "beat verdict: state via API last-mile (survives reconcile races)",
+      "lastAt": "2026-10-22T18:48:44+03:00",
       "feed": [
         {
-          "at": "2026-10-22T15:33:44Z",
-          "msg": "vault-seal [seal-host]: 10 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+          "at": "2026-10-22T18:48:44+03:00",
+          "msg": "beat verdict: state via API last-mile (survives reconcile races)"
         },
         {
-          "at": "2026-10-22T15:23:20Z",
-          "msg": "vault-sync [seal-host]: union-resolved — איחוד-ללא-מחיקות"
+          "at": "2026-10-22T18:48:43+03:00",
+          "msg": "beat verdict: state via API last-mile (survives reconcile races)"
         },
         {
-          "at": "2026-10-22T15:23:19Z",
-          "msg": "vault-seal [seal-host]: 10 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+          "at": "2026-10-22T18:48:09+03:00",
+          "msg": "beat: hyper-grid state via API last-mile (t25 · T-62 tick survival)"
         }
       ]
     },
     {
       "name": "root-site",
       "commits2h": 25,
-      "commits24h": 68,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 536 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-22T15:39:52Z",
+      "commits24h": 69,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 539 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-22T15:44:15Z",
       "feed": [
+        {
+          "at": "2026-10-22T15:44:15Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 539 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-22T15:39:52Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 536 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -212,17 +216,13 @@
         {
           "at": "2026-10-22T15:34:02Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 554 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-22T15:29:40Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 548 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 93,
-      "commits24h": 1347,
+      "commits2h": 89,
+      "commits24h": 1345,
       "last": "dex-activation: ignition tick 2026-10-22T15:42:07Z [skip ci]",
       "lastAt": "2026-10-22T15:42:07Z",
       "feed": [
@@ -242,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 79,
-      "commits24h": 116,
+      "commits2h": 74,
+      "commits24h": 114,
       "last": "pacemaker receipt: 2026-10-22T15:41:55Z",
       "lastAt": "2026-10-22T15:41:55Z",
       "feed": [
@@ -283,7 +283,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 539,
-    "commits24h": 4182
+    "commits2h": 533,
+    "commits24h": 3089
   }
 }
