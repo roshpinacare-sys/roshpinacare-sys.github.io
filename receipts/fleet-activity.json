@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-22T13:00:45.294Z",
+  "generatedAt": "2026-10-22T13:06:37.959Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 70247,
+      "checked": 42772,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 70272,
+      "checked": 42790,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 70247
+    "seq": 42772
   },
   "hosts": [
     {
@@ -94,7 +94,7 @@
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 1,
+      "ageMin": 7,
       "alive": true
     },
     {
@@ -109,50 +109,50 @@
     },
     {
       "name": "guardian",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 4,
+      "alive": true
     }
   ],
   "repos": [
     {
       "name": "my-project",
       "commits2h": 120,
-      "commits24h": 1017,
+      "commits24h": 1023,
       "last": "state-snapshot [seal-host]: 5 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)",
-      "lastAt": "2026-10-22T12:59:02Z",
+      "lastAt": "2026-10-22T13:04:25Z",
       "feed": [
         {
-          "at": "2026-10-22T12:59:02Z",
+          "at": "2026-10-22T13:04:25Z",
           "msg": "state-snapshot [seal-host]: 5 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
         },
         {
-          "at": "2026-10-22T12:56:30Z",
-          "msg": "state-snapshot [seal-host]: 6 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
+          "at": "2026-10-22T13:04:04Z",
+          "msg": "vault-seal [seal-host]: 1 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
         },
         {
-          "at": "2026-10-22T12:56:08Z",
-          "msg": "vault-sync [seal-host]: union-sync — אף-צד-לא-נמחק"
+          "at": "2026-10-22T13:02:46Z",
+          "msg": "vault-sync [auto-economy]: union-resolved 1 files — איחוד-ללא-מחיקות"
         }
       ]
     },
     {
       "name": "fleet-economy",
-      "commits2h": 126,
-      "commits24h": 1154,
-      "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
-      "lastAt": "2026-10-22T12:58:48Z",
+      "commits2h": 37,
+      "commits24h": 37,
+      "last": "[builder] acts=3 metrics=3 backlog=0 · צמיחה-ריבונית מאוטמת",
+      "lastAt": "2026-10-22T13:05:10Z",
       "feed": [
         {
-          "at": "2026-10-22T12:58:48Z",
+          "at": "2026-10-22T13:05:10Z",
+          "msg": "[builder] acts=3 metrics=3 backlog=0 · צמיחה-ריבונית מאוטמת"
+        },
+        {
+          "at": "2026-10-22T13:04:47Z",
+          "msg": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)"
+        },
+        {
+          "at": "2026-10-22T13:04:09Z",
           "msg": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)"
-        },
-        {
-          "at": "2026-10-22T12:58:48Z",
-          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
-        },
-        {
-          "at": "2026-10-22T12:56:13Z",
-          "msg": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)"
         }
       ]
     },
@@ -181,9 +181,13 @@
       "name": "steem",
       "commits2h": 13,
       "commits24h": 13,
-      "last": "beat verdict: state via API last-mile (survives reconcile races)",
-      "lastAt": "2026-10-22T15:58:29+03:00",
+      "last": "engine: drop flock instance gate from dev — port-bind IS the instance gate (T-582 orphan-lock trap: engine killed 12:39Z",
+      "lastAt": "2026-10-22T13:05:08Z",
       "feed": [
+        {
+          "at": "2026-10-22T13:05:08Z",
+          "msg": "engine: drop flock instance gate from dev — port-bind IS the instance gate (T-582 orphan-lock trap: engine kil"
+        },
         {
           "at": "2026-10-22T15:58:29+03:00",
           "msg": "beat verdict: state via API last-mile (survives reconcile races)"
@@ -191,51 +195,47 @@
         {
           "at": "2026-10-22T15:58:27+03:00",
           "msg": "beat verdict: state via API last-mile (survives reconcile races)"
-        },
-        {
-          "at": "2026-10-22T15:57:47+03:00",
-          "msg": "beat: hyper-grid state via API last-mile (t25 · T-62 tick survival)"
         }
       ]
     },
     {
       "name": "root-site",
-      "commits2h": 16,
-      "commits24h": 32,
-      "last": "agent-9/t55s: pages-deploy — migrate Pages to Actions-based deploys (staged: inert until build_type=workflow, guard fail",
-      "lastAt": "2026-10-22T15:59:27+03:00",
+      "commits2h": 17,
+      "commits24h": 34,
+      "last": "swallow-watch branch-guard (wave 19.73, trace 1a163b10c3de4db9): the census re-activator's dispatch ref fell back on an ",
+      "lastAt": "2026-10-22T13:05:01Z",
       "feed": [
+        {
+          "at": "2026-10-22T13:05:01Z",
+          "msg": "swallow-watch branch-guard (wave 19.73, trace 1a163b10c3de4db9): the census re-activator's dispatch ref fell b"
+        },
+        {
+          "at": "2026-10-22T13:00:45Z",
+          "msg": "life-pulse [liveness-host]: engine 7/8 · 392 פעולות-2ש' · 10/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-22T15:59:27+03:00",
           "msg": "agent-9/t55s: pages-deploy — migrate Pages to Actions-based deploys (staged: inert until build_type=workflow, "
-        },
-        {
-          "at": "2026-10-22T12:56:26Z",
-          "msg": "life-pulse [liveness-host]: engine 7/8 · 290 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-22T12:50:34Z",
-          "msg": "life-pulse [liveness-host]: engine 7/8 · 386 פעולות-2ש' · 10/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
       "commits2h": 100,
-      "commits24h": 1356,
-      "last": "office-worldbeat: advance the persistent world",
-      "lastAt": "2026-10-22T12:58:10Z",
+      "commits24h": 1351,
+      "last": "swallow-watch branch-guard (wave 19.73, trace 1a163b10c3de4db9): the census re-activator's dispatch ref fell back on an ",
+      "lastAt": "2026-10-22T13:04:24Z",
       "feed": [
         {
-          "at": "2026-10-22T12:58:10Z",
+          "at": "2026-10-22T13:04:24Z",
+          "msg": "swallow-watch branch-guard (wave 19.73, trace 1a163b10c3de4db9): the census re-activator's dispatch ref fell b"
+        },
+        {
+          "at": "2026-10-22T13:02:58Z",
           "msg": "office-worldbeat: advance the persistent world"
         },
         {
-          "at": "2026-10-22T12:54:15Z",
-          "msg": "office window (twin): ALIVE 2026-10-22T12:54:15Z"
-        },
-        {
-          "at": "2026-10-22T12:53:42Z",
+          "at": "2026-10-22T12:58:10Z",
           "msg": "office-worldbeat: advance the persistent world"
         }
       ]
@@ -244,20 +244,20 @@
       "name": "Console",
       "commits2h": 17,
       "commits24h": 17,
-      "last": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-22T12:58Z",
-      "lastAt": "2026-10-22T12:58:55Z",
+      "last": "truth-gate G64: dedup against the PUBLISHED artifact, not the runs-list — runs exist != measurement happened",
+      "lastAt": "2026-10-22T13:05:33Z",
       "feed": [
+        {
+          "at": "2026-10-22T13:05:33Z",
+          "msg": "truth-gate G64: dedup against the PUBLISHED artifact, not the runs-list — runs exist != measurement happened"
+        },
+        {
+          "at": "2026-10-22T13:04:49Z",
+          "msg": "swallow-watch branch-guard (wave 19.73, trace 1a163b10c3de4db9): the census re-activator's dispatch ref fell b"
+        },
         {
           "at": "2026-10-22T12:58:55Z",
           "msg": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-22T12:58Z"
-        },
-        {
-          "at": "2026-10-22T12:55:35Z",
-          "msg": "pacemaker receipt: 2026-10-22T12:55:34Z"
-        },
-        {
-          "at": "2026-10-22T12:55:14Z",
-          "msg": "dex-beat: h1233413 · claimed0 · Σ14300 credits · 2026-10-22T12:55Z"
         }
       ]
     },
@@ -281,9 +281,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 10,
+    "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 392,
-    "commits24h": 3590
+    "commits2h": 304,
+    "commits24h": 2476
   }
 }
