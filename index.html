@@ -154,7 +154,7 @@ footer nav a{font-size:12.5px;padding:0}
     <span class="mark" aria-hidden="true">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/><circle cx="12" cy="12" r="3"/></svg>
     </span>
-    <div class="bname">SAOS <span>המערכת החיה</span></div>
+    <div class="bname">SAOS <span>הרשת החיה</span></div>
     <nav aria-label="ניווט ראשי">
       <a href="#console" class="hide-m">מסוף חי</a>
       <a href="#network" class="hide-m">הרשת שלנו</a>
@@ -185,6 +185,7 @@ footer nav a{font-size:12.5px;padding:0}
       <a class="btn" href="roast.html">הביקורת ההנדסית שלנו</a>
     </div>
     <div class="strip" role="list" aria-label="מדדי-על חיים">
+      <div class="chip" role="listitem"><div class="k">צי חי</div><div class="v" id="s-fleet">—</div><div class="s">ריפואיטוריז ברשת שלנו</div></div>
       <div class="chip" role="listitem"><div class="k">הילוך תדלוק</div><div class="v" id="s-gear">—</div><div class="s">משאבת-התדלוק</div></div>
       <div class="chip" role="listitem"><div class="k">רצף-ירוק</div><div class="v" id="s-streak">—</div><div class="s">קבלות LADDER-ACTED</div></div>
       <div class="chip" role="listitem"><div class="k">תקרת-תדלוק</div><div class="v" id="s-cap">—</div><div class="s">לפעולה · כובד-כלי על מטבע-חוץ</div></div>
@@ -201,6 +202,9 @@ footer nav a{font-size:12.5px;padding:0}
     </div>
     <p class="lead">SAOS היא צי סוכנים אוטונומיים על גיט חי: עשרות מאגרים ציבוריים, 9 אתרים חיים, ומדידת-בריאות בלתי-תלויה כל 30 דקות. הכל מתנהל בחוקים מפורסמים — וכל פצע נמדד, נקרע בקול ונרפא ב-HEAD עם הוכחת run-ID.</p>
           <li>הארגון: <b class="mono">39 ריפואיטוריז ציבוריים</b> · אפס-תלות בהפעלה ידנית — <b>נמדד בהיעדר-הבעלים</b></li>
+    <div id="fleet-grid" class="grid" aria-live="polite" style="margin-bottom:16px">
+      <div class="err" id="fleet-err" hidden>מדידת-הצי אינה זמינה כרגע. מציגים כפי שהוא — בלי להמציא נתונים. נסו רענון.</div>
+    </div>
     <div class="prods">
       <article class="prod">
         <span class="ico" aria-hidden="true">🕸</span>
@@ -471,6 +475,7 @@ footer nav a{font-size:12.5px;padding:0}
       '<div class="ts">מקור: ' + (srcHref ? '<a href="' + srcHref + '" rel="noopener">' + (srcText || "קובץ-מצב") + "</a>" : (srcText || "—")) + "</div></div>";
   }
   var NET_HREF = "https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json";
+  var HEALTH_HREF = "https://github.com/roshpinacare-sys/GridWatch/blob/main/state/fleet-health.json";
   function render(d){
     var ec = d.economy || {};
     var gb = ec.gearbox || {};
@@ -550,8 +555,28 @@ footer nav a{font-size:12.5px;padding:0}
   function renderHealth(h){
     if (!h) return;
     var t = h.totals || {};
-    var strip = $("s-arteries");
-    // fleet health is secondary; used only by Console site — kept honest here via console tiles
+    txt("s-fleet", t.repos != null ? t.repos + " ריפו" : "—");
+    var fg = $("fleet-grid");
+    if (!fg) return;
+    var fe = $("fleet-err"); if (fe) fe.remove();
+    var ft = [];
+    ft.push(tile("צי הרשת",
+      (t.repos != null ? t.repos : "—") + ' <small>ריפואיטוריז</small>',
+      t.public != null ? t.public + " ציבוריים · " + (t.private != null ? t.private + " פרטיים" : "—") + " — כל המצב הציבורי בגיט" : "הצי שלנו",
+      HEALTH_HREF, "totals.repos", "ok"));
+    ft.push(tile("תשתית-אוטומציה",
+      (t.workflows != null ? t.workflows : "—") + ' <small>workflows</small>',
+      "ריצות מתוזמנות שרצות לבד — פיקוח, מדידה, קבלות",
+      HEALTH_HREF, "totals.workflows", "ok"));
+    ft.push(tile("בריאות-צי מדודה",
+      (t.green != null ? t.green + " ירוק" : "—") + (t.amber != null ? " · " + t.amber + " ענבר" : "") + (t.red != null ? " · " + t.red + " אדום" : ""),
+      "אדום לא מוסתר: כשל גלוי עדיף על בריאות מדומה",
+      HEALTH_HREF, "totals.green/amber/red", t.red > 0 ? "warn" : "ok"));
+    ft.push(tile("דופק הצי",
+      ago(h.generatedAt),
+      "קצב מדידה: כל " + (h.cadenceMin != null ? h.cadenceMin : "—") + " דק' · מקור: GridWatch",
+      HEALTH_HREF, "generatedAt", "ok"));
+    fg.innerHTML = ft.join("");
   }
   function load(){
     fetch(NET + "?t=" + Date.now(), {cache:"no-store"})
@@ -565,6 +590,18 @@ footer nav a{font-size:12.5px;padding:0}
   }
   load();
   setInterval(load, 5 * 60 * 1000);
+  function loadHealth(){
+    fetch(HEALTH + "?t=" + Date.now(), {cache:"no-store"})
+      .then(function(r){ if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(renderHealth)
+      .catch(function(){
+        var fg = $("fleet-grid");
+        var fe = $("fleet-err");
+        if (fg && !fe) { var div = document.createElement("div"); div.className = "err"; div.id = "fleet-err"; div.textContent = "מדידת-הצי אינה זמינה כרגע. מציגים כפי שהוא — בלי להמציא נתונים. נסו רענון."; fg.prepend(div); }
+      });
+  }
+  loadHealth();
+  setInterval(loadHealth, 5 * 60 * 1000);
   var fa = $("f-at");
   if (fa) fa.textContent = "נצפה " + new Date().toISOString().slice(0, 16).replace("T", " ") + "UTC";
 
