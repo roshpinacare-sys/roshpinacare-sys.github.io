@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-22T12:56:25.572Z",
+  "generatedAt": "2026-10-22T13:00:45.294Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 27645,
+      "checked": 70247,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 27727,
+      "checked": 70272,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 27645
+    "seq": 70247
   },
   "hosts": [
     {
@@ -64,7 +64,7 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -89,12 +89,12 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 1,
+      "ageMin": 2,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 22,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -109,50 +109,50 @@
     },
     {
       "name": "guardian",
-      "ageMin": 1,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     }
   ],
   "repos": [
     {
       "name": "my-project",
-      "commits2h": 125,
-      "commits24h": 1016,
-      "last": "vault-sync [seal-host]: union-sync — אף-צד-לא-נמחק",
-      "lastAt": "2026-10-22T12:56:08Z",
+      "commits2h": 120,
+      "commits24h": 1017,
+      "last": "state-snapshot [seal-host]: 5 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)",
+      "lastAt": "2026-10-22T12:59:02Z",
       "feed": [
+        {
+          "at": "2026-10-22T12:59:02Z",
+          "msg": "state-snapshot [seal-host]: 5 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
+        },
+        {
+          "at": "2026-10-22T12:56:30Z",
+          "msg": "state-snapshot [seal-host]: 6 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
+        },
         {
           "at": "2026-10-22T12:56:08Z",
           "msg": "vault-sync [seal-host]: union-sync — אף-צד-לא-נמחק"
-        },
-        {
-          "at": "2026-10-22T12:56:07Z",
-          "msg": "vault-seal [seal-host]: 1 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
-        },
-        {
-          "at": "2026-10-22T12:53:42Z",
-          "msg": "state-snapshot [seal-host]: 6 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
         }
       ]
     },
     {
       "name": "fleet-economy",
-      "commits2h": 24,
-      "commits24h": 24,
-      "last": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)",
-      "lastAt": "2026-10-22T12:56:13Z",
+      "commits2h": 126,
+      "commits24h": 1154,
+      "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
+      "lastAt": "2026-10-22T12:58:48Z",
       "feed": [
+        {
+          "at": "2026-10-22T12:58:48Z",
+          "msg": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)"
+        },
+        {
+          "at": "2026-10-22T12:58:48Z",
+          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+        },
         {
           "at": "2026-10-22T12:56:13Z",
           "msg": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)"
-        },
-        {
-          "at": "2026-10-22T12:56:12Z",
-          "msg": "vault-seal [seal-host]: 4 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
-        },
-        {
-          "at": "2026-10-22T12:54:47Z",
-          "msg": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)"
         }
       ]
     },
@@ -179,53 +179,57 @@
     },
     {
       "name": "steem",
-      "commits2h": 9,
-      "commits24h": 9,
-      "last": "exec-cycle (runtime-bridge W5): doctrine-capped broadcast receipts (txids, zero keys) [skip ci]",
-      "lastAt": "2026-10-22T12:51:40Z",
+      "commits2h": 13,
+      "commits24h": 13,
+      "last": "beat verdict: state via API last-mile (survives reconcile races)",
+      "lastAt": "2026-10-22T15:58:29+03:00",
       "feed": [
         {
-          "at": "2026-10-22T12:51:40Z",
-          "msg": "exec-cycle (runtime-bridge W5): doctrine-capped broadcast receipts (txids, zero keys) [skip ci]"
+          "at": "2026-10-22T15:58:29+03:00",
+          "msg": "beat verdict: state via API last-mile (survives reconcile races)"
         },
         {
-          "at": "2026-10-22T12:50:11Z",
-          "msg": "w42 receipt: standing autonomy verified estate-wide — 20 repos <1h, wipe self-healed, 8/9 organs up [trace:1a1"
+          "at": "2026-10-22T15:58:27+03:00",
+          "msg": "beat verdict: state via API last-mile (survives reconcile races)"
         },
         {
-          "at": "2026-10-22T12:43:15Z",
-          "msg": "vault-sync [seal-host]: union-resolved — איחוד-ללא-מחיקות"
+          "at": "2026-10-22T15:57:47+03:00",
+          "msg": "beat: hyper-grid state via API last-mile (t25 · T-62 tick survival)"
         }
       ]
     },
     {
       "name": "root-site",
       "commits2h": 16,
-      "commits24h": 30,
-      "last": "life-pulse [liveness-host]: engine 7/8 · 386 פעולות-2ש' · 10/11 מארחים-חיים",
-      "lastAt": "2026-10-22T12:50:34Z",
+      "commits24h": 32,
+      "last": "agent-9/t55s: pages-deploy — migrate Pages to Actions-based deploys (staged: inert until build_type=workflow, guard fail",
+      "lastAt": "2026-10-22T15:59:27+03:00",
       "feed": [
+        {
+          "at": "2026-10-22T15:59:27+03:00",
+          "msg": "agent-9/t55s: pages-deploy — migrate Pages to Actions-based deploys (staged: inert until build_type=workflow, "
+        },
+        {
+          "at": "2026-10-22T12:56:26Z",
+          "msg": "life-pulse [liveness-host]: engine 7/8 · 290 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-22T12:50:34Z",
           "msg": "life-pulse [liveness-host]: engine 7/8 · 386 פעולות-2ש' · 10/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-22T12:46:13Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 276 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-22T12:40:23Z",
-          "msg": "life-pulse [liveness-host]: engine 7/8 · 396 פעולות-2ש' · 10/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 102,
+      "commits2h": 100,
       "commits24h": 1356,
-      "last": "office window (twin): ALIVE 2026-10-22T12:54:15Z",
-      "lastAt": "2026-10-22T12:54:15Z",
+      "last": "office-worldbeat: advance the persistent world",
+      "lastAt": "2026-10-22T12:58:10Z",
       "feed": [
+        {
+          "at": "2026-10-22T12:58:10Z",
+          "msg": "office-worldbeat: advance the persistent world"
+        },
         {
           "at": "2026-10-22T12:54:15Z",
           "msg": "office window (twin): ALIVE 2026-10-22T12:54:15Z"
@@ -233,20 +237,20 @@
         {
           "at": "2026-10-22T12:53:42Z",
           "msg": "office-worldbeat: advance the persistent world"
-        },
-        {
-          "at": "2026-10-22T12:48:15Z",
-          "msg": "office-worldbeat: advance the persistent world"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 14,
-      "commits24h": 14,
-      "last": "pacemaker receipt: 2026-10-22T12:55:34Z",
-      "lastAt": "2026-10-22T12:55:35Z",
+      "commits2h": 17,
+      "commits24h": 17,
+      "last": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-22T12:58Z",
+      "lastAt": "2026-10-22T12:58:55Z",
       "feed": [
+        {
+          "at": "2026-10-22T12:58:55Z",
+          "msg": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-22T12:58Z"
+        },
         {
           "at": "2026-10-22T12:55:35Z",
           "msg": "pacemaker receipt: 2026-10-22T12:55:34Z"
@@ -254,10 +258,6 @@
         {
           "at": "2026-10-22T12:55:14Z",
           "msg": "dex-beat: h1233413 · claimed0 · Σ14300 credits · 2026-10-22T12:55Z"
-        },
-        {
-          "at": "2026-10-22T12:54:39Z",
-          "msg": "giants-beat: 2026-10-22T12:54:38Z · 25 families · top30d: Uniswap $103583624.17 · clean"
         }
       ]
     },
@@ -281,9 +281,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 290,
-    "commits24h": 2450
+    "commits2h": 392,
+    "commits24h": 3590
   }
 }
