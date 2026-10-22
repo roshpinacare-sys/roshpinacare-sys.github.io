@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SAOS — The Living System | Wallet, Tokens, Currency Transmission</title>
-<meta name="description" content="SAOS runs a sovereign economy in git and publishes a receipt for every action. The wallet, the token ledger and the currency transmission — live, measured, every number linked to its source.">
+<title>SAOS — The Living Sovereign Network | Agents, Laws, Proofs</title>
+<meta name="description" content="SAOS is a sovereign network of agents running on git: laws enforced in public, gates that heal themselves, a receipt for every action. The economic instruments — wallet, token ledger, currency transmission — serve the network on external fuel rails, without being the center.">
 <meta name="theme-color" content="#09090b">
 <link rel="canonical" href="https://roshpinacare-sys.github.io/index-en.html">
 <meta property="og:type" content="website">
@@ -147,9 +147,9 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
   <section class="hero" aria-labelledby="h-hero">
     <span class="kick"><span class="dot" aria-hidden="true"></span> Live · measured from public sources in real time</span>
     <h1 id="h-hero">Not another landing page.<br>This is <em>the system itself</em> — open for inspection.</h1>
-    <p class="sub">SAOS runs a sovereign economy: a wallet with chain-verified key coverage, trading ladders that generate income, and a currency transmission that shifts gears on mathematics — never on promises. Every number here is fetched right now from a public state file, with a link to its source.</p>
+    <p class="sub">SAOS is a network of autonomous agents running on live git — laws enforced in public, gates that heal themselves, a chained decision ledger. The economy here is the network's instrument: the wallet, income ladders and currency transmission run on external rails (Steem/SBD) that exist to fuel, fund and enrich our architecture — not to be the center. Every number is fetched right now from a public source, with a link to it.</p>
     <div class="hero-cta">
-      <a class="btn pri" href="#console">Enter the live console ↓</a>
+      <a class="btn pri" href="#network">The network &amp; the agents ↓</a> <a class="btn" href="#console">Enter the live console ↓</a>
       <a class="btn" href="#products">The three products</a>
       <a class="btn" href="roast.html">Our engineering roast</a>
     </div>
@@ -163,24 +163,57 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
     <p class="refresh-note"><span aria-hidden="true">⟳</span> Auto-refresh every 5 minutes · primary source: <a class="mono" href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">Pulse/state/network.json</a></p>
   </section>
 
+  <section id="network" aria-labelledby="h-network">
+    <div class="sechead">
+      <h2 id="h-network">Our network — the center</h2>
+      <span class="why">The agents, the laws and the self-healing are the story. Foreign currencies here only fuel, fund and enrich our architecture.</span>
+    </div>
+    <p class="lead">SAOS is a fleet of autonomous agents on live git: dozens of public repositories, 9 live sites, and independent health measurements every 30 minutes. Everything runs under published laws — and every wound is measured, torn loudly, and cured at HEAD with run-ID proof.</p>
+    <div class="prods">
+      <article class="prod">
+        <span class="ico" aria-hidden="true">🕸</span>
+        <h3>The fleet and the agents</h3>
+        <p>Sovereign agents write, measure, guard and heal — under a gated identity (lane@fleet.local), on a living ledger, with receipts. Fleet state and health measurements are fetched from an independent public source — never invented.</p>
+        <ul>
+          <li>Independent health measurement: <b class="mono">every 30 minutes</b></li>
+          <li>Publication law: <b>measured or null</b> — unavailable data is shown as unavailable</li>
+        </ul>
+        <div class="plinks"><a href="https://roshpinacare-sys.github.io/Domain/status/" rel="noopener">Live fleet state ↗</a><a href="https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json" rel="noopener">Measurement source ↗</a></div>
+      </article>
+      <article class="prod">
+        <span class="ico" aria-hidden="true">⚖</span>
+        <h3>The laws — enforced, not declared</h3>
+        <p>Identity law, deny-by-default: only gated lane identities and the owner may write — every push is scanned, every violator torn loudly, with a daily sweep that cannot be silenced. One writer per file. Zero secrets in repositories.</p>
+        <ul>
+          <li>Identity law v3: <b>deny-by-default</b> across every active repo</li>
+          <li>Writing: <b>one repo · one writer</b> per file</li>
+        </ul>
+        <div class="plinks"><a href="https://github.com/roshpinacare-sys/sovereign-runner-kit/blob/main/AGENT-COORDINATION.md" rel="noopener">The law &amp; decision ledger ↗</a></div>
+      </article>
+      <article class="prod">
+        <span class="ico" aria-hidden="true">♡</span>
+        <h3>Measured self-healing</h3>
+        <p>Every wound is registered, torn loudly and cured — with a run-ID receipt. The CONTINUED ledger is chained at 64 decisions today; the sovereign page shows the network as it is — including what is not yet solved.</p>
+        <ul>
+          <li>Live decision chain: <b class="mono">CONTINUED #64</b></li>
+          <li>Every wave: <b>measure → root → cure → prove</b></li>
+        </ul>
+        <div class="plinks"><a href="https://roshpinacare-sys.github.io/Domain/sovereign.html" rel="noopener">The sovereign page ↗</a><a href="https://roshpinacare-sys.github.io/Domain/truth.html" rel="noopener">The truth band ↗</a></div>
+      </article>
+    </div>
+  </section>
   <section id="console" aria-labelledby="h-console">
-    <div class="sechead"><h2 id="h-console">Live console — the economy, right now</h2><span class="why">Every tile = a live read from a public source. Missing data is shown as missing. Never invented.</span></div>
+    <div class="sechead"><h2 id="h-console">Live console — our sovereign economy, right now</h2><span class="why">Every tile = a live read from a public source. Missing data is shown as missing. Never invented.</span></div>
     <p class="lead">This is the window into the system itself: income arteries, the economic transmission, market entry weight, open gaps and network pulse — in real time.</p>
     <div id="console-grid" class="grid" aria-live="polite">
       <div class="err" id="console-err" hidden>The measurement source is unavailable right now. The page shows this as-is — without inventing data. Try refreshing.</div>
     </div>
   </section>
 
-  <section id="market" aria-labelledby="h-market">
-    <div class="sechead"><h2 id="h-market">The market the ladders work in — live</h2><span class="why">The public chain's internal SBD/STEEM market. Exactly the arena where our maker ladders place orders.</span></div>
-    <p class="lead">Chain median price, leading bids and asks, and the spread — fetched now from the public node <span class="mono">api.steemit.com</span>. No price, no currency story. Now there is one.</p>
-    <div id="market-grid" class="grid" aria-live="polite">
-      <div class="err" id="market-err" hidden>The public node is not responding right now. Instead of inventing a price — we show the truth. Try refreshing.</div>
-    </div>
-  </section>
+  
 
   <section id="products" aria-labelledby="h-products">
-    <div class="sechead"><h2 id="h-products">The three real products</h2><span class="why">Not dashboards about the system — the system itself: money, keys, and the math that governs them.</span></div>
+    <div class="sechead"><h2 id="h-products">The three real products</h2><span class="why">Not dashboards about the system — the network's instruments: money, keys and math, in service of our architecture.</span></div>
     <div class="prods">
       <article class="prod">
         <span class="ico" aria-hidden="true">🛡</span>
@@ -196,7 +229,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       <article class="prod">
         <span class="ico" aria-hidden="true">▤</span>
         <h3>The token ledger</h3>
-        <p>SBD/STEEM at work: maker-only ladders placing and pulling orders on the public chain. Every action = a timestamped receipt. Liquidity is not promised — it is placed, measured and logged.</p>
+        <p>The network's income instrument on the external rail: maker-only ladders in the public chain's internal SBD/STEEM market. Every action = a receipt with a timestamp. Liquidity is not promised — it is placed, measured and documented, and the yield funds our architecture.</p>
         <ul>
           <li>Open orders (treasury): <b class="mono" id="t-orders">—</b></li>
           <li>Acted in latest beat: <b class="mono" id="t-acted">—</b> of roster <b class="mono" id="t-roster">—</b></li>
@@ -211,6 +244,13 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
         <div class="formula" aria-label="Kelly entry weight formula">f = p − ((1−p)/WLR) · safe = clamp(f×½, 0.01, 0.25) · cap = ⌊gear × safe × 4⌋</div>
         <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">Live transmission state ↗</a><a href="giant.html">How it compares to giants</a></div>
       </article>
+    </div>
+  </section>
+  <section id="market" aria-labelledby="h-market">
+    <div class="sechead"><h2 id="h-market">The fuel rail: the internal SBD/STEEM market — live</h2><span class="why">An external rail — a tool in the network's service: the arena where the ladders earn the fuel. Not the center — the instrument.</span></div>
+    <p class="lead">Chain median price, leading bids and asks, and the spread — fetched now from the public node <span class="mono">api.steemit.com</span>. Measured in the open — to fund our architecture, not to be the story.</p>
+    <div id="market-grid" class="grid" aria-live="polite">
+      <div class="err" id="market-err" hidden>The public node is not responding right now. Instead of inventing a price — we show the truth. Try refreshing.</div>
     </div>
   </section>
 
@@ -408,7 +448,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       ca.lastRunAgeMin != null ? (ca.lastRunAgeMin < 1 ? "now" : ca.lastRunAgeMin + " min") : ago(d.generatedAt),
       "cadence: " + (ca.schedule || "—") + " · status: " + (ca.scheduleStatus || "—"),
       NET_HREF, "cadence", ca.covered ? "ok" : "warn"));
-    tiles.push(tile("STEEM chain",
+    tiles.push(tile("External rail · STEEM",
       ch.head != null ? "#" + ch.head : "—",
       (ch.node ? 'node <span class="mono">' + ch.node + "</span>" : "") + (ch.tries && ch.tries[0] && ch.tries[0].ms != null ? " · " + ch.tries[0].ms + "ms" : ""),
       NET_HREF, "chains.steem", ch.head ? "ok" : "warn"));
