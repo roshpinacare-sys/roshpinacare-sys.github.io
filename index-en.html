@@ -183,6 +183,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
         <p>Sovereign agents write, measure, guard and heal — under a gated identity (lane@fleet.local), on a living ledger, with receipts. Fleet state and health measurements are fetched from an independent public source — never invented.</p>
         <ul>
           <li>Independent health measurement: <b class="mono">every 30 minutes</b></li>
+          <li>The org: <b class="mono">39 public repositories</b> · zero dependence on manual activation — <b>measured in the owner's absence</b></li>
           <li>Publication law: <b>measured or null</b> — unavailable data is shown as unavailable</li>
         </ul>
         <div class="plinks"><a href="https://roshpinacare-sys.github.io/Domain/status/" rel="noopener">Live fleet state ↗</a><a href="https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json" rel="noopener">Measurement source ↗</a></div>
@@ -204,21 +205,23 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
         <ul>
           <li>Live decision chain: <b class="mono">CONTINUED #64</b></li>
           <li>Every wave: <b>measure → root → cure → prove</b></li>
+          <li>Self-chaining clock: <b class="mono">4.5h streak · 21 generations · 3 revivers</b> — measured 2026-10-22</li>
+          <li>Autonomous truth healing: <b>STALE→healed in 76 seconds</b> (08:21Z, zero human action)</li>
         </ul>
-        <div class="plinks"><a href="https://roshpinacare-sys.github.io/Domain/sovereign.html" rel="noopener">The sovereign page ↗</a><a href="https://roshpinacare-sys.github.io/Domain/truth.html" rel="noopener">The truth band ↗</a></div>
+        <div class="plinks"><a href="https://roshpinacare-sys.github.io/Domain/sovereign.html" rel="noopener">The sovereign page ↗</a><a href="https://roshpinacare-sys.github.io/Domain/truth.html" rel="noopener">The truth band ↗</a><a href="https://github.com/roshpinacare-sys/agent9-clock/actions" rel="noopener">The live chain clock ↗</a></div>
       </article>
+      <article class="prod">
+        <span class="ico" aria-hidden="true">🚀</span>
+        <h3>Sovereign stable deployment</h3>
+        <p>Even this site deploys autonomously: an ordered Actions pipeline (latest-wins) replaced the flapping builder — after a public measurement (13 of 15 builds cancelled) pointed at it, and the conclusion was executed the same day, byte-identical. Overload census: 93 scheduled workflows in one repo — measured, logged.</p>
+        <ul>
+          <li>The pipeline: <a class="mono" href="https://github.com/roshpinacare-sys/Domain/actions/workflows/pages-deploy.yml" rel="noopener">pages-deploy ↗</a></li>
+          <li>Full product catalog:: <a class="mono" href="https://roshpinacare-sys.github.io/Domain/products.html" rel="noopener">products.html ↗</a></li>
+        </ul>
+      </article>
+
     </div>
   </section>
-  <section id="console" aria-labelledby="h-console">
-    <div class="sechead"><h2 id="h-console">Live console — our sovereign economy, right now</h2><span class="why">Every tile = a live read from a public source. Missing data is shown as missing. Never invented.</span></div>
-    <p class="lead">This is the window into the system itself: income arteries, the economic transmission, market entry weight, open gaps and network pulse — in real time.</p>
-    <div id="console-grid" class="grid" aria-live="polite">
-      <div class="err" id="console-err" hidden>The measurement source is unavailable right now. The page shows this as-is — without inventing data. Try refreshing.</div>
-    </div>
-  </section>
-
-  
-
   <section id="products" aria-labelledby="h-products">
     <div class="sechead"><h2 id="h-products">The three economic organs — serving the architecture</h2><span class="why">Not dashboards about the system — the network's instruments: money, keys and math, in service of our architecture.</span></div>
     <div class="prods">
@@ -253,6 +256,17 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       </article>
     </div>
   </section>
+
+  <section id="console" aria-labelledby="h-console">
+    <div class="sechead"><h2 id="h-console">Live console — network pulse and economy, right now</h2><span class="why">Every tile = a live read from a public source. Missing data is shown as missing. Never invented.</span></div>
+    <p class="lead">This is the window into the system itself: income arteries, the economic transmission, market entry weight, open gaps and network pulse — in real time.</p>
+    <div id="console-grid" class="grid" aria-live="polite">
+      <div class="err" id="console-err" hidden>The measurement source is unavailable right now. The page shows this as-is — without inventing data. Try refreshing.</div>
+    </div>
+  </section>
+
+  
+
   <section id="market" aria-labelledby="h-market">
     <div class="sechead"><h2 id="h-market">Fuel — the external market that funds the network</h2><span class="why">STEEM/SBD are not ours and not the goal: external currencies the network exploits. Maker ladders draw income from them — and the income funds and enriches our architecture.</span></div>
     <p class="lead">Chain median price, leading bids and asks, and the spread — fetched now from the public node <span class="mono">api.steemit.com</span>. Measured in the open — to fund our architecture, not to be the story.</p>
@@ -296,7 +310,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
 
   <section id="honest" aria-labelledby="h-honest">
     <div class="honest">
-      <div class="sechead"><h2 id="h-honest">The economic truth — published, not managed</h2><span class="why" style="color:#71717a">Our promise is not that we are profitable — it is that we cannot lie to you.</span></div>
+      <div class="sechead"><h2 id="h-honest">The measured truth — published, not managed</h2><span class="why" style="color:#71717a">Our promise is not that we are profitable — it is that we cannot lie to you.</span></div>
       <p class="lead" style="color:#a1a1aa">The sovereignty measures its flow direction every beat and publishes it: the economic inversion is not yet complete — the system partially funds itself, and the gaps are visible here, each with a redemption path. A closed gap disappears from the list; an opened one appears.</p>
       <div class="flowrow">
         <span>Measured flow direction:</span> <span class="vbadge warn" id="h-flow">—</span>
