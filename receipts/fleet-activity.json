@@ -1,14 +1,23 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-22T10:56:28.530Z",
+  "generatedAt": "2026-10-22T11:00:13.830Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 7917,
+      "checked": 9930,
       "anchors": 0,
-      "replayParity": true
+      "replayParity": true,
+      "brokenAt": null
     },
+    "verifySecond": {
+      "ok": true,
+      "checked": 9951,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
+    "verifyFlap": false,
     "grade": "7/8",
     "allPass": false,
     "claims": [
@@ -45,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 7917
+    "seq": 9941
   },
   "hosts": [
     {
@@ -80,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 5,
+      "ageMin": 9,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 3,
+      "alive": true
     },
     {
       "name": "gates-host",
@@ -95,12 +104,12 @@
     },
     {
       "name": "liveness-host",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 4,
+      "alive": true
     },
     {
       "name": "guardian",
-      "ageMin": 7,
+      "ageMin": 11,
       "alive": true
     }
   ],
@@ -108,42 +117,42 @@
     {
       "name": "my-project",
       "commits2h": 136,
-      "commits24h": 949,
-      "last": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
-      "lastAt": "2026-10-22T10:55:28Z",
+      "commits24h": 953,
+      "last": "state-snapshot [seal-host]: 4 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)",
+      "lastAt": "2026-10-22T10:58:14Z",
       "feed": [
         {
-          "at": "2026-10-22T10:55:28Z",
-          "msg": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
+          "at": "2026-10-22T10:58:14Z",
+          "msg": "state-snapshot [seal-host]: 4 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
         },
         {
-          "at": "2026-10-22T10:52:54Z",
-          "msg": "state-snapshot [seal-host]: 6 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
+          "at": "2026-10-22T10:57:58Z",
+          "msg": "vault-sync [seal-host]: union-resolved — איחוד-ללא-מחיקות"
         },
         {
-          "at": "2026-10-22T10:52:35Z",
-          "msg": "vault-sync [seal-host]: union-sync — אף-צד-לא-נמחק"
+          "at": "2026-10-22T10:57:56Z",
+          "msg": "vault-seal [seal-host]: 5 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
         }
       ]
     },
     {
       "name": "fleet-economy",
-      "commits2h": 154,
-      "commits24h": 1099,
-      "last": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
-      "lastAt": "2026-10-22T10:55:31Z",
+      "commits2h": 153,
+      "commits24h": 1102,
+      "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
+      "lastAt": "2026-10-22T10:58:02Z",
       "feed": [
         {
-          "at": "2026-10-22T10:55:31Z",
-          "msg": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        },
-        {
-          "at": "2026-10-22T10:52:40Z",
+          "at": "2026-10-22T10:58:02Z",
           "msg": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)"
         },
         {
-          "at": "2026-10-22T10:52:39Z",
-          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+          "at": "2026-10-22T10:58:01Z",
+          "msg": "vault-seal [seal-host]: 3 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+        },
+        {
+          "at": "2026-10-22T10:57:52Z",
+          "msg": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)"
         }
       ]
     },
@@ -170,32 +179,36 @@
     },
     {
       "name": "steem",
-      "commits2h": 7,
-      "commits24h": 7,
-      "last": "beat: hyper-grid state via API last-mile (t25 · T-62 tick survival)",
-      "lastAt": "2026-10-22T13:55:50+03:00",
+      "commits2h": 9,
+      "commits24h": 9,
+      "last": "SAOS-runtime-ci: heartbeat state (offline conversation + content) [ci]",
+      "lastAt": "2026-10-22T10:56:22Z",
       "feed": [
+        {
+          "at": "2026-10-22T10:56:22Z",
+          "msg": "SAOS-runtime-ci: heartbeat state (offline conversation + content) [ci]"
+        },
+        {
+          "at": "2026-10-22T10:56:22Z",
+          "msg": "SAOS-engine-ci: portfolio snapshot (weights 3, verdict SNAPSHOT-OK) [ci]"
+        },
         {
           "at": "2026-10-22T13:55:50+03:00",
           "msg": "beat: hyper-grid state via API last-mile (t25 · T-62 tick survival)"
-        },
-        {
-          "at": "2026-10-22T13:28:01+03:00",
-          "msg": "beat verdict: state via API last-mile (survives reconcile races)"
-        },
-        {
-          "at": "2026-10-22T13:28:00+03:00",
-          "msg": "beat verdict: state via API last-mile (survives reconcile races)"
         }
       ]
     },
     {
       "name": "root-site",
-      "commits2h": 13,
-      "commits24h": 14,
-      "last": "live-link [liveness-host]: קישור-עמדת-החיים בשני-השערים (HE: חי ● · EN: LIVE ●) — גל-63 · הפעילות-האוטונומית-נראית-לעין",
-      "lastAt": "2026-10-22T10:53:12Z",
+      "commits2h": 14,
+      "commits24h": 15,
+      "last": "life-pulse [liveness-host]: engine 7/8 · 444 פעולות-2ש' · 9/11 מארחים-חיים",
+      "lastAt": "2026-10-22T10:56:29Z",
       "feed": [
+        {
+          "at": "2026-10-22T10:56:29Z",
+          "msg": "life-pulse [liveness-host]: engine 7/8 · 444 פעולות-2ש' · 9/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-22T10:53:12Z",
           "msg": "live-link [liveness-host]: קישור-עמדת-החיים בשני-השערים (HE: חי ● · EN: LIVE ●) — גל-63 · הפעילות-האוטונומית-נ"
@@ -203,41 +216,41 @@
         {
           "at": "2026-10-22T10:48:44Z",
           "msg": "identity-guard refinement (wave 19.71, trace 1a1632a1236932b1): guard job gated to push-only — its range seman"
-        },
-        {
-          "at": "2026-10-22T10:46:30Z",
-          "msg": "build-stamp: חותמת-בנייה גלויה בפוטר של כל עמוד + no-cache meta (trace 1a163302be53ba4d) — המפעיל ראה גרסה ישנ"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 116,
-      "commits24h": 1350,
-      "last": "office-worldbeat: advance the persistent world",
-      "lastAt": "2026-10-22T10:55:56Z",
+      "commits2h": 114,
+      "commits24h": 1351,
+      "last": "agent-9/t55: fleet-truth bake [sources ok 13/13] @ 2026-10-22T10:59:38Z [skip ci]",
+      "lastAt": "2026-10-22T10:59:38Z",
       "feed": [
+        {
+          "at": "2026-10-22T10:59:38Z",
+          "msg": "agent-9/t55: fleet-truth bake [sources ok 13/13] @ 2026-10-22T10:59:38Z [skip ci]"
+        },
+        {
+          "at": "2026-10-22T10:59:30Z",
+          "msg": "dex-activation: ignition tick 2026-10-22T10:59:30Z [skip ci]"
+        },
         {
           "at": "2026-10-22T10:55:56Z",
           "msg": "office-worldbeat: advance the persistent world"
-        },
-        {
-          "at": "2026-10-22T10:54:15Z",
-          "msg": "human-cadence: hourly books · 2026-10-22T10:54:14Z [skip ci]"
-        },
-        {
-          "at": "2026-10-22T10:54:07Z",
-          "msg": "office-artery: shift 2026-10-22T10:54:07Z [skip ci]"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 11,
-      "commits24h": 11,
-      "last": "identity-guard refinement (wave 19.71, trace 1a1632a1236932b1): guard job gated to push-only — its range semantics (befo",
-      "lastAt": "2026-10-22T10:48:41Z",
+      "commits2h": 12,
+      "commits24h": 12,
+      "last": "pacemaker receipt: 2026-10-22T10:57:55Z",
+      "lastAt": "2026-10-22T10:57:55Z",
       "feed": [
+        {
+          "at": "2026-10-22T10:57:55Z",
+          "msg": "pacemaker receipt: 2026-10-22T10:57:55Z"
+        },
         {
           "at": "2026-10-22T10:48:41Z",
           "msg": "identity-guard refinement (wave 19.71, trace 1a1632a1236932b1): guard job gated to push-only — its range seman"
@@ -245,10 +258,6 @@
         {
           "at": "2026-10-22T10:45:55Z",
           "msg": "truth-gate: 2026-10-22T10:45:55Z · ALL-GREEN"
-        },
-        {
-          "at": "2026-10-22T10:45:17Z",
-          "msg": "truth-gate anchor (G63, measured): hourly cron shed by scheduler (04:49→07:17→08:28 gaps, owner found frozen t"
         }
       ]
     },
@@ -296,9 +305,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 9,
+    "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 444,
-    "commits24h": 3507
+    "commits2h": 445,
+    "commits24h": 3519
   }
 }
