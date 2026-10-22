@@ -239,7 +239,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       <article class="prod">
         <span class="ico" aria-hidden="true">▤</span>
         <h3>The token ledger — the fuel pump</h3>
-        <p>The network's income instrument on the external rail: maker-only ladders in the public chain's internal SBD/STEEM market. Every action = a receipt with a timestamp. Liquidity is not promised — it is placed, measured and documented, and the yield funds our architecture.</p>
+        <p>The network's income instrument on the external rail: maker-only ladders in the public chain's internal market. Every action = a receipt with a timestamp. Liquidity is not promised — it is placed, measured and documented, and the yield funds our architecture.</p>
         <ul>
           <li>Open orders (treasury): <b class="mono" id="t-orders">—</b></li>
           <li>Acted in latest beat: <b class="mono" id="t-acted">—</b> of roster <b class="mono" id="t-roster">—</b></li>
@@ -458,7 +458,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       (gb.gear != null ? gb.gear : "—") + " / " + (gb.gearsCount || 3) + ' <small>gears</small>',
       "green streak: " + (gb.greenStreak != null ? gb.greenStreak : "—") + " · last receipt: " + (gb.lastVerdict || "—"),
       NET_HREF, "economy.gearbox", gb.gear > 1 ? "ok" : "warn"));
-    tiles.push(tile("Entry weight (Kelly)",
+    tiles.push(tile("Fuel cap (Kelly)",
       kl.cap != null ? kl.cap + " <small>SBD per op</small>" : "—",
       kl.mode === "probation" ? "probation: " + (kl.informative != null ? kl.informative : "—") + "/" + (kl.minBeats != null ? kl.minBeats : "10") + " informative fills" : ("mode: " + (kl.mode || "—")),
       NET_HREF, "economy.gearbox.kelly", kl.mode === "probation" ? "warn" : "ok"));
