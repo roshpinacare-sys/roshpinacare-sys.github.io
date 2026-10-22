@@ -117,6 +117,8 @@ footer nav{display:flex;gap:14px;flex-wrap:wrap;margin:0}
 footer nav a{font-size:12.5px;padding:0}
 .fmeta{font-size:11.5px;color:var(--faint)}
 .err{background:var(--red-bg);border:1px solid var(--red-line);color:var(--red);border-radius:12px;padding:14px;font-size:13.5px}
+.lawchip{margin:18px 0 0;display:flex;gap:10px;align-items:flex-start;background:var(--acc-bg);border:1px solid var(--acc-line);border-radius:12px;padding:12px 16px;font-size:13.5px;line-height:1.7;color:var(--text)}
+.lawchip b.t{color:var(--acc-d);white-space:nowrap}
 .refresh-note{font-size:11.5px;color:var(--faint);display:flex;align-items:center;gap:6px}
 label{font-size:13px;font-weight:600;display:flex;flex-direction:column;gap:6px;margin-top:6px}
 input[type=range]{min-height:44px;accent-color:var(--acc-d)}
@@ -131,7 +133,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
     <div class="bname">SAOS <span>The Living System</span></div>
     <nav aria-label="Main navigation">
       <a href="#console" class="hide-m">Console</a>
-      <a href="#market" class="hide-m">Market</a>
+      <a href="#market" class="hide-m">Fuel rail</a>
       <a href="#products">Products</a>
       <a href="#math" class="hide-m">Math</a>
       <a href="#honest" class="hide-m">Truth</a>
@@ -148,6 +150,10 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
     <span class="kick"><span class="dot" aria-hidden="true"></span> Live · measured from public sources in real time</span>
     <h1 id="h-hero">Not another landing page.<br>This is <em>the system itself</em> — open for inspection.</h1>
     <p class="sub">SAOS is a network of autonomous agents running on live git — laws enforced in public, gates that heal themselves, a chained decision ledger. The economy here is the network's instrument: the wallet, income ladders and currency transmission run on external rails (Steem/SBD) that exist to fuel, fund and enrich our architecture — not to be the center. Every number is fetched right now from a public source, with a link to it.</p>
+    <div class="lawchip" role="note">
+      <b class="t">Center-of-gravity law:</b>
+      <span><b>Our architecture is the center</b> — the fleet, the laws, the office, the newspaper, proof badges, the wallet and the network's own exchange. External coins (Steem/SBD) are <b>not the center and not the showcase</b>: fuel and a funding rail, measured honestly — strengthening, funding and enriching ours.</span>
+    </div>
     <div class="hero-cta">
       <a class="btn pri" href="#network">The network &amp; the agents ↓</a> <a class="btn" href="#console">Enter the live console ↓</a>
       <a class="btn" href="#products">The three products</a>
@@ -240,7 +246,7 @@ input[type=range]{min-height:44px;accent-color:var(--acc-d)}
       <article class="prod">
         <span class="ico" aria-hidden="true">⚙</span>
         <h3>The currency transmission</h3>
-        <p>The gear is set twice: a streak of green receipts upshifts (reliability), and the kelly weight prices speed from measured expectancy (efficiency). Failure = instant downshift. Zero deposits — pace is bought with discipline.</p>
+        <p>A utility on the fuel rail, in the architecture's service: the gear is set twice — a streak of green receipts upshifts (reliability), and the kelly weight prices speed from measured expectancy (efficiency). Failure = instant downshift. Zero deposits — pace is bought with discipline.</p>
         <div class="formula" aria-label="Kelly entry weight formula">f = p − ((1−p)/WLR) · safe = clamp(f×½, 0.01, 0.25) · cap = ⌊gear × safe × 4⌋</div>
         <div class="plinks"><a href="https://github.com/roshpinacare-sys/Pulse/blob/main/state/network.json" rel="noopener">Live transmission state ↗</a><a href="giant.html">How it compares to giants</a></div>
       </article>
