@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-23T15:10:12.931Z",
+  "generatedAt": "2026-10-23T15:10:18.645Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 49628,
+      "checked": 37357,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 49656,
+      "checked": 37427,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 49630
+    "seq": 37357
   },
   "hosts": [
     {
@@ -89,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 3,
+      "ageMin": 1,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 3,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "gates-host",
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 44,
-      "commits24h": 44,
+      "commits2h": 23,
+      "commits24h": 23,
       "last": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
       "lastAt": "2026-10-23T15:09:22Z",
       "feed": [
@@ -179,8 +179,8 @@
     },
     {
       "name": "steem",
-      "commits2h": 32,
-      "commits24h": 32,
+      "commits2h": 33,
+      "commits24h": 231,
       "last": "vault-seal [seal-host]: re-seal 11 — החיים-נושמים-בין-סטפים (גל-105b)",
       "lastAt": "2026-10-23T15:06:24Z",
       "feed": [
@@ -242,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 42,
-      "commits24h": 42,
+      "commits2h": 16,
+      "commits24h": 16,
       "last": "grid-pulse: ARMED-LIVE · 13 open orders · sovereign keyless mirror · 2026-10-23T15:10:05Z",
       "lastAt": "2026-10-23T15:10:05Z",
       "feed": [
@@ -281,8 +281,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 65,
-      "commits24h": 65,
+      "commits2h": 39,
+      "commits24h": 39,
       "last": "wallet-artery receipt: 2026-10-23T15:09:29Z",
       "lastAt": "2026-10-23T15:09:29Z",
       "feed": [
@@ -302,9 +302,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 316,
-    "commits24h": 1416
+    "commits2h": 244,
+    "commits24h": 1542
   }
 }
