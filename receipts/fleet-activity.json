@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-23T15:30:40.941Z",
+  "generatedAt": "2026-10-23T15:30:44.858Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 61145,
+      "checked": 52186,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 61173,
+      "checked": 52223,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 61145
+    "seq": 52194
   },
   "hosts": [
     {
@@ -89,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 3,
+      "ageMin": 2,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 3,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "gates-host",
@@ -117,7 +117,7 @@
     {
       "name": "my-project",
       "commits2h": 62,
-      "commits24h": 157,
+      "commits24h": 156,
       "last": "vault-sync [auto-economy]: union-resolved 3 files — איחוד-ללא-מחיקות",
       "lastAt": "2026-10-23T15:29:20Z",
       "feed": [
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 64,
-      "commits24h": 64,
+      "commits2h": 43,
+      "commits24h": 43,
       "last": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
       "lastAt": "2026-10-23T15:29:22Z",
       "feed": [
@@ -179,8 +179,8 @@
     },
     {
       "name": "steem",
-      "commits2h": 53,
-      "commits24h": 53,
+      "commits2h": 54,
+      "commits24h": 243,
       "last": "vault-seal [seal-host]: re-seal 11 — החיים-נושמים-בין-סטפים (גל-105b)",
       "lastAt": "2026-10-23T15:27:33Z",
       "feed": [
@@ -221,11 +221,15 @@
     },
     {
       "name": "Domain",
-      "commits2h": 89,
-      "commits24h": 1046,
-      "last": "office-worldbeat: advance the persistent world",
-      "lastAt": "2026-10-23T15:30:11Z",
+      "commits2h": 90,
+      "commits24h": 1047,
+      "last": "grid-doctor v2: live fleet truth + drift + phantom-claims 2026-10-23T15:30:37Z [skip ci]",
+      "lastAt": "2026-10-23T15:30:37Z",
       "feed": [
+        {
+          "at": "2026-10-23T15:30:37Z",
+          "msg": "grid-doctor v2: live fleet truth + drift + phantom-claims 2026-10-23T15:30:37Z [skip ci]"
+        },
         {
           "at": "2026-10-23T15:30:11Z",
           "msg": "office-worldbeat: advance the persistent world"
@@ -233,17 +237,13 @@
         {
           "at": "2026-10-23T15:29:45Z",
           "msg": "sovereign-tick: decision receipts [skip ci]"
-        },
-        {
-          "at": "2026-10-23T15:25:46Z",
-          "msg": "office-worldbeat: advance the persistent world"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 59,
-      "commits24h": 59,
+      "commits2h": 33,
+      "commits24h": 33,
       "last": "grid-beat: 6 placed (steem 6 / hive 0) · 0 cancelled · 2026-10-23T15:30Z",
       "lastAt": "2026-10-23T15:30:28Z",
       "feed": [
@@ -281,8 +281,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 69,
-      "commits24h": 73,
+      "commits2h": 47,
+      "commits24h": 47,
       "last": "[state] tick#885 auto: 2026-10-23T15:28:42Z",
       "lastAt": "2026-10-23T15:28:42Z",
       "feed": [
@@ -302,9 +302,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 410,
-    "commits24h": 1486
+    "commits2h": 343,
+    "commits24h": 1603
   }
 }
