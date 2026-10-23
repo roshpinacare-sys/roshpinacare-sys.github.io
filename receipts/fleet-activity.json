@@ -1,29 +1,29 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-23T16:01:22.710Z",
+  "generatedAt": "2026-10-23T16:01:24.476Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 78155,
+      "checked": 70554,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 78192,
+      "checked": 70577,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifyFlap": false,
-    "grade": "7/8",
-    "allPass": false,
+    "grade": "8/8",
+    "allPass": true,
     "claims": [
       {
         "id": "chain-integrity",
-        "pass": false
+        "pass": true
       },
       {
         "id": "law-is-book",
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 78166
+    "seq": 70554
   },
   "hosts": [
     {
@@ -89,7 +89,7 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 2,
       "alive": true
     },
     {
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 91,
-      "commits24h": 96,
+      "commits2h": 75,
+      "commits24h": 75,
       "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
       "lastAt": "2026-10-23T15:59:51Z",
       "feed": [
@@ -179,8 +179,8 @@
     },
     {
       "name": "steem",
-      "commits2h": 74,
-      "commits24h": 77,
+      "commits2h": 72,
+      "commits24h": 260,
       "last": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)",
       "lastAt": "2026-10-23T16:00:09Z",
       "feed": [
@@ -242,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 80,
-      "commits24h": 84,
+      "commits2h": 58,
+      "commits24h": 58,
       "last": "pacemaker receipt: 2026-10-23T16:01:08Z",
       "lastAt": "2026-10-23T16:01:08Z",
       "feed": [
@@ -281,11 +281,15 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 66,
-      "commits24h": 97,
-      "last": "compute-rearm: state transition recorded 2026-10-23T16:00:41Z [skip ci]",
-      "lastAt": "2026-10-23T16:00:42Z",
+      "commits2h": 67,
+      "commits24h": 72,
+      "last": "pacer: beat receipt [run 39983210082]",
+      "lastAt": "2026-10-23T16:01:22Z",
       "feed": [
+        {
+          "at": "2026-10-23T16:01:22Z",
+          "msg": "pacer: beat receipt [run 39983210082]"
+        },
         {
           "at": "2026-10-23T16:00:42Z",
           "msg": "compute-rearm: state transition recorded 2026-10-23T16:00:41Z [skip ci]"
@@ -293,10 +297,6 @@
         {
           "at": "2026-10-23T15:59:40Z",
           "msg": "fleet-participation receipts: PASS_WITH_ALERTS · participation measured: 0/14 posting-live, 0 active-live, 0 m"
-        },
-        {
-          "at": "2026-10-23T15:59:26Z",
-          "msg": "[federation] git-estate ledger: 2026-10-23T15:59:24Z"
         }
       ]
     }
@@ -304,7 +304,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 496,
-    "commits24h": 1588
+    "commits2h": 457,
+    "commits24h": 1699
   }
 }
