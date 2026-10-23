@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-23T15:40:54.691Z",
+  "generatedAt": "2026-10-23T15:40:58.423Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 66884,
+      "checked": 57932,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 66915,
+      "checked": 57955,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 66892
+    "seq": 57932
   },
   "hosts": [
     {
@@ -89,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 3,
+      "ageMin": 2,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 3,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "gates-host",
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 76,
-      "commits24h": 76,
+      "commits2h": 55,
+      "commits24h": 55,
       "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
       "lastAt": "2026-10-23T15:38:55Z",
       "feed": [
@@ -179,8 +179,8 @@
     },
     {
       "name": "steem",
-      "commits2h": 61,
-      "commits24h": 61,
+      "commits2h": 59,
+      "commits24h": 250,
       "last": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)",
       "lastAt": "2026-10-23T15:39:09Z",
       "feed": [
@@ -222,7 +222,7 @@
     {
       "name": "Domain",
       "commits2h": 80,
-      "commits24h": 1045,
+      "commits24h": 1044,
       "last": "network-census: fleet status measured at 2026-10-23T15:39:30Z",
       "lastAt": "2026-10-23T15:39:30Z",
       "feed": [
@@ -242,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 62,
-      "commits24h": 62,
+      "commits2h": 36,
+      "commits24h": 36,
       "last": "pacemaker receipt: 2026-10-23T15:35:51Z",
       "lastAt": "2026-10-23T15:35:51Z",
       "feed": [
@@ -281,8 +281,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 62,
-      "commits24h": 77,
+      "commits2h": 51,
+      "commits24h": 51,
       "last": "chainbus: scan/consume receipts [run 39980143029]",
       "lastAt": "2026-10-23T15:39:49Z",
       "feed": [
@@ -302,9 +302,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 431,
-    "commits24h": 1514
+    "commits2h": 371,
+    "commits24h": 1629
   }
 }
