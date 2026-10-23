@@ -1,29 +1,29 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-23T15:51:08.539Z",
+  "generatedAt": "2026-10-23T15:51:11.089Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 72383,
+      "checked": 64596,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 72407,
+      "checked": 64627,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifyFlap": false,
-    "grade": "7/8",
-    "allPass": false,
+    "grade": "8/8",
+    "allPass": true,
     "claims": [
       {
         "id": "chain-integrity",
-        "pass": false
+        "pass": true
       },
       {
         "id": "law-is-book",
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 72383
+    "seq": 64601
   },
   "hosts": [
     {
@@ -89,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 3,
+      "ageMin": 2,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 3,
+      "alive": true
     },
     {
       "name": "gates-host",
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 86,
-      "commits24h": 86,
+      "commits2h": 65,
+      "commits24h": 65,
       "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
       "lastAt": "2026-10-23T15:49:25Z",
       "feed": [
@@ -179,8 +179,8 @@
     },
     {
       "name": "steem",
-      "commits2h": 62,
-      "commits24h": 63,
+      "commits2h": 60,
+      "commits24h": 248,
       "last": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)",
       "lastAt": "2026-10-23T15:49:35Z",
       "feed": [
@@ -242,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 72,
-      "commits24h": 72,
+      "commits2h": 46,
+      "commits24h": 46,
       "last": "pacemaker receipt: 2026-10-23T15:49:59Z",
       "lastAt": "2026-10-23T15:50:00Z",
       "feed": [
@@ -281,8 +281,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 56,
-      "commits24h": 80,
+      "commits2h": 54,
+      "commits24h": 54,
       "last": "sovereign-decider: 2026-10-23T15:49:16Z [skip ci]",
       "lastAt": "2026-10-23T15:49:16Z",
       "feed": [
@@ -302,9 +302,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 10,
+    "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 452,
-    "commits24h": 1532
+    "commits2h": 401,
+    "commits24h": 1644
   }
 }
