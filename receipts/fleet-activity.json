@@ -1,29 +1,29 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-23T16:32:04.900Z",
+  "generatedAt": "2026-10-23T16:32:09.065Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 94955,
+      "checked": 87801,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 94987,
+      "checked": 87825,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifyFlap": false,
-    "grade": "7/8",
-    "allPass": false,
+    "grade": "8/8",
+    "allPass": true,
     "claims": [
       {
         "id": "chain-integrity",
-        "pass": false
+        "pass": true
       },
       {
         "id": "law-is-book",
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 94955
+    "seq": 87801
   },
   "hosts": [
     {
@@ -89,12 +89,12 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 3,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 5,
+      "ageMin": 4,
       "alive": true
     },
     {
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 124,
-      "commits24h": 140,
+      "commits2h": 119,
+      "commits24h": 119,
       "last": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)",
       "lastAt": "2026-10-23T16:28:42Z",
       "feed": [
@@ -179,8 +179,8 @@
     },
     {
       "name": "steem",
-      "commits2h": 78,
-      "commits24h": 92,
+      "commits2h": 76,
+      "commits24h": 265,
       "last": "beat verdict: state via API last-mile (survives reconcile races)",
       "lastAt": "2026-10-23T19:31:31+03:00",
       "feed": [
@@ -242,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 85,
-      "commits24h": 106,
+      "commits2h": 80,
+      "commits24h": 80,
       "last": "pacemaker receipt: 2026-10-23T16:30:47Z",
       "lastAt": "2026-10-23T16:30:47Z",
       "feed": [
@@ -282,7 +282,7 @@
     {
       "name": "Autonomy",
       "commits2h": 74,
-      "commits24h": 114,
+      "commits24h": 88,
       "last": "wallet-artery receipt: 2026-10-23T16:29:36Z",
       "lastAt": "2026-10-23T16:29:37Z",
       "feed": [
@@ -304,7 +304,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 577,
-    "commits24h": 1689
+    "commits2h": 565,
+    "commits24h": 1789
   }
 }
