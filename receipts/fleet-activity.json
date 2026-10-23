@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-23T15:20:27.130Z",
+  "generatedAt": "2026-10-23T15:20:33.055Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 55437,
+      "checked": 46247,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 55466,
+      "checked": 46272,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 55445
+    "seq": 46247
   },
   "hosts": [
     {
@@ -79,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -89,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 3,
+      "ageMin": 2,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 3,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "gates-host",
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 53,
-      "commits24h": 53,
+      "commits2h": 32,
+      "commits24h": 32,
       "last": "vault-seal [auto-economy]: 4 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
       "lastAt": "2026-10-23T15:19:22Z",
       "feed": [
@@ -179,8 +179,8 @@
     },
     {
       "name": "steem",
-      "commits2h": 40,
-      "commits24h": 40,
+      "commits2h": 41,
+      "commits24h": 235,
       "last": "w46 receipt: swarm §7C risk-cabinet wave — claim+2 PRs+integration proof",
       "lastAt": "2026-10-23T15:19:55Z",
       "feed": [
@@ -200,11 +200,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 11,
-      "commits24h": 33,
-      "last": "life-pulse [liveness-host]: engine 7/8 · 244 פעולות-2ש' · 10/11 מארחים-חיים",
-      "lastAt": "2026-10-23T15:10:19Z",
+      "commits2h": 12,
+      "commits24h": 34,
+      "last": "life-pulse [liveness-host]: engine 7/8 · 363 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-23T15:20:27Z",
       "feed": [
+        {
+          "at": "2026-10-23T15:20:27Z",
+          "msg": "life-pulse [liveness-host]: engine 7/8 · 363 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-23T15:10:19Z",
           "msg": "life-pulse [liveness-host]: engine 7/8 · 244 פעולות-2ש' · 10/11 מארחים-חיים"
@@ -212,10 +216,6 @@
         {
           "at": "2026-10-23T15:10:13Z",
           "msg": "life-pulse [liveness-host]: engine 7/8 · 316 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-23T15:00:06Z",
-          "msg": "life-pulse [liveness-host]: engine 7/8 · 208 פעולות-2ש' · 10/11 מארחים-חיים"
         }
       ]
     },
@@ -242,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 50,
-      "commits24h": 50,
+      "commits2h": 24,
+      "commits24h": 24,
       "last": "pacemaker receipt: 2026-10-23T15:19:29Z",
       "lastAt": "2026-10-23T15:19:29Z",
       "feed": [
@@ -281,8 +281,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 69,
-      "commits24h": 69,
+      "commits2h": 43,
+      "commits24h": 43,
       "last": "[tick] sovereign heartbeat: 2026-10-23T15:16:57Z",
       "lastAt": "2026-10-23T15:16:57Z",
       "feed": [
@@ -302,9 +302,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 363,
-    "commits24h": 1445
+    "commits2h": 292,
+    "commits24h": 1568
   }
 }
