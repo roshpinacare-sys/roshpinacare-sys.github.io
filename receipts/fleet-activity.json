@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-24T20:43:17.491Z",
+  "generatedAt": "2026-10-24T20:43:46.944Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 55145,
+      "checked": 61912,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 55180,
+      "checked": 61928,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 55145
+    "seq": 61912
   },
   "hosts": [
     {
@@ -79,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -89,7 +89,7 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -109,7 +109,7 @@
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     }
   ],
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 57,
-      "commits24h": 320,
+      "commits2h": 41,
+      "commits24h": 41,
       "last": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)",
       "lastAt": "2026-10-24T20:42:17Z",
       "feed": [
@@ -192,11 +192,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 16,
-      "commits24h": 43,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 312 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-24T20:33:35Z",
+      "commits2h": 17,
+      "commits24h": 42,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 367 פעולות-2ש' · 10/11 מארחים-חיים",
+      "lastAt": "2026-10-24T20:43:18Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:43:18Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 367 פעולות-2ש' · 10/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-24T20:33:35Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 312 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -204,10 +208,6 @@
         {
           "at": "2026-10-24T20:33:05Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 359 פעולות-2ש' · 10/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-24T20:23:22Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 292 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
@@ -234,8 +234,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 67,
-      "commits24h": 67,
+      "commits2h": 53,
+      "commits24h": 53,
       "last": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-24T20:42Z",
       "lastAt": "2026-10-24T20:42:13Z",
       "feed": [
@@ -273,11 +273,15 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 70,
-      "commits24h": 71,
-      "last": "pacer: beat receipt [run 40130668667]",
-      "lastAt": "2026-10-24T20:38:19Z",
+      "commits2h": 64,
+      "commits24h": 64,
+      "last": "floating-builds v3: closed=0 · archived=3 · residual=4 [R54-אפס-רחיפה]",
+      "lastAt": "2026-10-24T23:43:17+03:00",
       "feed": [
+        {
+          "at": "2026-10-24T23:43:17+03:00",
+          "msg": "floating-builds v3: closed=0 · archived=3 · residual=4 [R54-אפס-רחיפה]"
+        },
         {
           "at": "2026-10-24T20:38:19Z",
           "msg": "pacer: beat receipt [run 40130668667]"
@@ -285,10 +289,6 @@
         {
           "at": "2026-10-24T20:33:40Z",
           "msg": "[state] tick#1003 auto: 2026-10-24T20:33:40Z"
-        },
-        {
-          "at": "2026-10-24T20:25:54Z",
-          "msg": "[verifier] honest verdict: 2026-10-24T20:25:53Z"
         }
       ]
     }
@@ -296,7 +296,7 @@
   "totals": {
     "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 367,
-    "commits24h": 1829
+    "commits2h": 332,
+    "commits24h": 1528
   }
 }
