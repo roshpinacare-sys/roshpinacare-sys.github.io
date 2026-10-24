@@ -1,15 +1,60 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-24T20:22:48.915Z",
+  "generatedAt": "2026-10-24T20:23:21.642Z",
   "engine": {
-    "up": false,
-    "verify": null,
-    "verifySecond": null,
+    "up": true,
+    "verify": {
+      "ok": true,
+      "checked": 50435,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
+    "verifySecond": {
+      "ok": true,
+      "checked": 50470,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
     "verifyFlap": false,
-    "grade": null,
-    "allPass": null,
-    "claims": null,
-    "seq": null
+    "grade": "8/8",
+    "allPass": true,
+    "claims": [
+      {
+        "id": "chain-integrity",
+        "pass": true
+      },
+      {
+        "id": "law-is-book",
+        "pass": true
+      },
+      {
+        "id": "no-negative-balances",
+        "pass": true
+      },
+      {
+        "id": "windows-alive",
+        "pass": true
+      },
+      {
+        "id": "tax-at-law-rate",
+        "pass": true
+      },
+      {
+        "id": "owner-report-cadence",
+        "pass": true
+      },
+      {
+        "id": "runway-guard",
+        "pass": true
+      },
+      {
+        "id": "pace-at-equilibrium",
+        "pass": true
+      }
+    ],
+    "seq": 50445
   },
   "hosts": [
     {
@@ -34,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     },
     {
@@ -44,12 +89,12 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 1,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 9,
+      "ageMin": 6,
       "alive": true
     },
     {
@@ -64,14 +109,14 @@
     },
     {
       "name": "guardian",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     }
   ],
   "repos": [
     {
       "name": "my-project",
-      "commits2h": 68,
+      "commits2h": 67,
       "commits24h": 217,
       "last": "vault-seal [auto-economy]: 9 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
       "lastAt": "2026-10-24T20:18:13Z",
@@ -92,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 64,
-      "commits24h": 300,
+      "commits2h": 21,
+      "commits24h": 21,
       "last": "[builder] acts=3 metrics=4 backlog=0 · צמיחה-ריבונית מאוטמת",
       "lastAt": "2026-10-24T20:22:35Z",
       "feed": [
@@ -147,11 +192,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 16,
-      "commits24h": 39,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 288 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-24T20:13:06Z",
+      "commits2h": 17,
+      "commits24h": 38,
+      "last": "life-pulse [liveness-host]: engine — · 354 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-24T20:22:49Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:22:49Z",
+          "msg": "life-pulse [liveness-host]: engine — · 354 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-24T20:13:06Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 288 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -159,20 +208,20 @@
         {
           "at": "2026-10-24T20:12:33Z",
           "msg": "life-pulse [liveness-host]: engine — · 295 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-24T20:02:54Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 283 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 83,
+      "commits2h": 84,
       "commits24h": 1085,
-      "last": "dex-xc: intent-gates tick 2026-10-24T20:22:16Z [skip ci]",
-      "lastAt": "2026-10-24T20:22:17Z",
+      "last": "office-worldbeat: advance the persistent world",
+      "lastAt": "2026-10-24T20:22:49Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:22:49Z",
+          "msg": "office-worldbeat: advance the persistent world"
+        },
         {
           "at": "2026-10-24T20:22:17Z",
           "msg": "dex-xc: intent-gates tick 2026-10-24T20:22:16Z [skip ci]"
@@ -180,31 +229,27 @@
         {
           "at": "2026-10-24T20:22:08Z",
           "msg": "grid-sentinel: live grid matrix + aliveness enforcement 2026-10-24T20:22:07Z [skip ci]"
-        },
-        {
-          "at": "2026-10-24T20:18:21Z",
-          "msg": "office-worldbeat: advance the persistent world"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 57,
-      "commits24h": 57,
-      "last": "giants-beat: 2026-10-24T20:22:38Z · 25 families · top30d: Uniswap $97241498.7 · clean",
-      "lastAt": "2026-10-24T20:22:38Z",
+      "commits2h": 45,
+      "commits24h": 45,
+      "last": "pacemaker receipt: 2026-10-24T20:23:09Z",
+      "lastAt": "2026-10-24T20:23:09Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:23:09Z",
+          "msg": "pacemaker receipt: 2026-10-24T20:23:09Z"
+        },
+        {
+          "at": "2026-10-24T20:22:52Z",
+          "msg": "grid-pulse: ARMED-LIVE · 26 open orders · sovereign keyless mirror · 2026-10-24T20:22:51Z"
+        },
         {
           "at": "2026-10-24T20:22:38Z",
           "msg": "giants-beat: 2026-10-24T20:22:38Z · 25 families · top30d: Uniswap $97241498.7 · clean"
-        },
-        {
-          "at": "2026-10-24T20:18:50Z",
-          "msg": "pacemaker receipt: 2026-10-24T20:18:50Z"
-        },
-        {
-          "at": "2026-10-24T20:18:36Z",
-          "msg": "pacemaker receipt: 2026-10-24T20:18:36Z"
         }
       ]
     },
@@ -228,8 +273,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 65,
-      "commits24h": 65,
+      "commits2h": 57,
+      "commits24h": 57,
       "last": "[scribe] lessons ledger: 2026-10-24T20:22:28Z",
       "lastAt": "2026-10-24T20:22:28Z",
       "feed": [
@@ -251,7 +296,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 354,
-    "commits24h": 1764
+    "commits2h": 292,
+    "commits24h": 1464
   }
 }
