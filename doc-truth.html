@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="cache-control" content="no-cache">
+<meta name="saos-build" content="2026-10-24T18:50Z">
+<title>אמת-התיעוד · SAOS — המפקד המדוד</title>
+<meta name="description" content="מפקד אמת-התיעוד המדוד של SAOS: כל קובץ תיעוד נמדד לחיותו — חי, אוטומט-מוצהר או דומם. §4 ULTIMATE DIRECTIVE.">
+<link rel="canonical" href="https://roshpinacare-sys.github.io/doc-truth.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8' fill='none' stroke='%230d9d6d' stroke-width='1.8' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='12' r='3' fill='none' stroke='%230d9d6d' stroke-width='1.8'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f7f5f2;--panel:#ffffff;--line:#e7e3dd;
+  --acc:#0d9d6d;--acc-d:#0a7a55;--acc-bg:rgba(13,157,109,.08);
+  --red:#c2410c;--red-bg:rgba(194,65,12,.08);
+  --amber:#a16207;--amber-bg:rgba(161,98,7,.09);
+  --text:#191919;--dim:#565049;--faint:#8d877f;
+  --mono:ui-monospace,'SF Mono','Cascadia Code',Consolas,Menlo,monospace;
+  --sans:-apple-system,'Segoe UI',Roboto,'Helvetica Neue','Noto Sans Hebrew',Arial,sans-serif;
+  --r:16px;--rs:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;padding:24px 16px 64px}
+main{max-width:860px;margin:0 auto}
+header{margin-bottom:24px}
+h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+.sub{color:var(--dim);margin-top:6px;font-size:.95rem}
+.stamp{font-family:var(--mono);font-size:.75rem;color:var(--faint);margin-top:10px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:16px;transition:box-shadow .2s ease}
+.card:hover{box-shadow:0 4px 20px rgba(25,25,25,.06)}
+h2{font-size:1.05rem;font-weight:700;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th{font-family:var(--mono);font-size:.72rem;color:var(--faint);text-align:right;padding:6px 8px;border-bottom:1px solid var(--line);font-weight:600}
+td{padding:8px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+.num{font-family:var(--mono)}
+.live{color:var(--acc-d);font-weight:700}
+.dorm{color:var(--red);font-weight:700;background:var(--red-bg);padding:1px 8px;border-radius:999px;font-size:.78rem}
+.tag{display:inline-block;background:var(--acc-bg);color:var(--acc-d);border:1px solid var(--acc);border-radius:999px;padding:2px 10px;font-size:.75rem;font-weight:600;margin-inline-start:6px}
+.mono{font-family:var(--mono);font-size:.78rem;word-break:break-all;color:var(--dim)}
+a{color:var(--acc-d)}
+.law{background:var(--amber-bg);border:1px solid var(--amber);border-radius:var(--rs);padding:10px 14px;font-size:.85rem;color:#7c5306;margin-top:12px}
+footer{margin-top:28px;color:var(--faint);font-size:.8rem;text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>אמת-התיעוד <span class="tag">§4 מדוד</span></h1>
+  <p class="sub">כל קובץ תיעוד בנכסי הרשת נמדד לחיותו — חי · אוטומט-מוצהר · דומם. אפס טענות: הכל מ-git, הכל שחזיר.</p>
+  <p class="stamp">SAOS-BUILD 2026-10-24T18:50Z · מנוע: giant <span class="mono">mini-services/doc-truth-sync</span> (:3062) · 49 בדיקות ירוקות · trace 1a16f29582f89abd</p>
+</header>
+
+<section class="card">
+  <h2>המפקד המדוד <span class="tag">2026-10-24T18:44Z</span></h2>
+  <table>
+    <thead><tr><th>נכס</th><th>נכללו</th><th>חיים</th><th>דוממים</th><th>ממצא</th></tr></thead>
+    <tbody>
+      <tr><td>giant (שורש+docs)</td><td class="num">21</td><td class="num live">19</td><td class="num">2</td><td>README + design-laws — חותמות-רענון הוטלו ב-giant</td></tr>
+      <tr><td>Domain (שורש)</td><td class="num">56</td><td class="num live">56</td><td class="num">0</td><td>האוטומציה מלחכת יום-יום — חי ב-100%</td></tr>
+      <tr><td>github.io</td><td class="num">8</td><td class="num live">6</td><td class="num">2</td><td>README + sitemap — README חותמת-רענון כאן; sitemap בבעלות-האוטומט (לא נגענו)</td></tr>
+      <tr><td>Zip (ארכיון)</td><td class="num">21</td><td class="num live">21</td><td class="num">0</td><td>מבודד כ-ARCHIVED-LEGACY — DECISIONS #42/#43</td></tr>
+      <tr><td>Project-files (ארכיון)</td><td class="num">19</td><td class="num live">19</td><td class="num">0</td><td>מבודד כ-ARCHIVED-LEGACY — DECISIONS #42/#43</td></tr>
+    </tbody>
+  </table>
+  <div class="law">חוק-השלמות (נלמד ב-TDD): קובץ שלא נגעו בו <strong>בתוך חלון-ההליכה</strong> הוא הדומם-ביותר — והוא בדיוק-מה שרוב-הסורקים מפספסים. המנוע מאחד git-log עם git-ls-files; שני-הדוממים ב-giant נתגלו רק דרך החוק הזה.</div>
+</section>
+
+<section class="card">
+  <h2>בידוד-הארכיונים <span class="tag">DECISIONS #42 & #43</span></h2>
+  <table>
+    <thead><tr><th>ארטיפקט</th><th>מוחלף על-ידי</th><th>סמכות</th></tr></thead>
+    <tbody>
+      <tr><td>Autonomy <span class="mono">giant/</span> (זרע exec38)</td><td>giant</td><td class="mono">#43 (exec38/38-a)</td></tr>
+      <tr><td>Zip</td><td>giant</td><td class="mono">duplicates-audit-2026-10-15</td></tr>
+      <tr><td>Project-files</td><td>giant</td><td class="mono">#42 (R360)</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:10px;font-size:.85rem;color:var(--dim)">בידוד = הצהרה תוספתית (ARCHIVED.md), לעולם לא מחיקה ולא שכתוב-היסטוריה. מניפסט-tamper-evident: <span class="mono">073ed146abeadbc3…</span></p>
+</section>
+
+<section class="card">
+  <h2>שרשרת-הקבלות <span class="tag">SAOS-DOC-TRUTH/1</span></h2>
+  <p style="font-size:.85rem;color:var(--dim)">7 קבלות שרושרשו (sha256 על רשימת-שדות-מפורשת · prev→hash · מאומת): genesis → census×5 → isolation. שחזור: <span class="mono">DOC_TRUTH_ROOT=&lt;repo&gt; bun mini-services/doc-truth-sync/index.ts --once</span></p>
+</section>
+
+<footer>
+  עמוד תוספתי · sitemap.xml והשער הראשי בבעלות-האוטומציה ולא נגעו · <a href="/">השער</a> · <a href="giant.html">GIANT</a> · <a href="https://github.com/roshpinacare-sys/giant">התא הקנון</a>
+</footer>
+</main>
+</body>
+</html>
