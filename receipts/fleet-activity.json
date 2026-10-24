@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-24T20:33:04.172Z",
+  "generatedAt": "2026-10-24T20:33:34.961Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 49341,
+      "checked": 56062,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 49367,
+      "checked": 56105,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 49349
+    "seq": 56076
   },
   "hosts": [
     {
@@ -89,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 1,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 6,
+      "alive": true
     },
     {
       "name": "gates-host",
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 56,
-      "commits24h": 309,
+      "commits2h": 30,
+      "commits24h": 30,
       "last": "worktree-union-push [reviver]: 2-קבצים אוחדו-ב-worktree-מבודד (origin-76aa03e ∪ local-3b4c07f) · אפס-מחיקות · העץ-החי-לא",
       "lastAt": "2026-10-24T20:32:24Z",
       "feed": [
@@ -192,11 +192,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 16,
-      "commits24h": 41,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 292 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-24T20:23:22Z",
+      "commits2h": 17,
+      "commits24h": 40,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 359 פעולות-2ש' · 10/11 מארחים-חיים",
+      "lastAt": "2026-10-24T20:33:05Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:33:05Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 359 פעולות-2ש' · 10/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-24T20:23:22Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 292 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -204,10 +208,6 @@
         {
           "at": "2026-10-24T20:22:49Z",
           "msg": "life-pulse [liveness-host]: engine — · 354 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-24T20:13:06Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 288 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
@@ -234,8 +234,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 64,
-      "commits24h": 64,
+      "commits2h": 50,
+      "commits24h": 50,
       "last": "grid-beat: 6 placed (steem 6 / hive 0) · 0 cancelled · 2026-10-24T20:31Z",
       "lastAt": "2026-10-24T20:31:53Z",
       "feed": [
@@ -273,8 +273,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 69,
-      "commits24h": 69,
+      "commits2h": 61,
+      "commits24h": 61,
       "last": "[verifier] honest verdict: 2026-10-24T20:25:53Z",
       "lastAt": "2026-10-24T20:25:54Z",
       "feed": [
@@ -294,9 +294,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 10,
+    "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 359,
-    "commits24h": 1801
+    "commits2h": 312,
+    "commits24h": 1499
   }
 }
