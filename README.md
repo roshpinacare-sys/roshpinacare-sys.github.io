@@ -13,3 +13,9 @@ The org front door: live index of all public sites + measured fleet state.
 - Decisions route to sovereignty (sovereign-decider), not to individuals.
 
 Sites: Domain (HQ) · Console (verify) · FleetHQ (office state) · GridWatch (control plane) · Pulse (public mirror) · Autonomy (arteries) · saos-runtime · steem · sovereign-runner-kit
+
+---
+
+## חותמת-רענון אמת-תיעוד (2026-10-24 · מפקד §4)
+
+נמדד: קובץ זה היה דומם מ-2026-10-14 (נתפס ע"י מפקד אמת-התיעוד ב-giant, חוק-השלמות). העמוד החדש **doc-truth.html** מציג את המפקד המדוד החי. ה-sitemap.xml דומם אך בבעלות-liveness-host — לא נגענו.
