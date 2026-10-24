@@ -1,6 +1,6 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-24T19:40:50.923Z",
+  "generatedAt": "2026-10-24T19:42:24.308Z",
   "engine": {
     "up": false,
     "verify": null,
@@ -19,59 +19,59 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 1,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "economy-node-host",
-      "ageMin": 0,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "sovereign-builder-host",
-      "ageMin": 0,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 1,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "social-host",
-      "ageMin": 0,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "push-reviver",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 12,
-      "alive": true
-    },
-    {
-      "name": "gates-host",
       "ageMin": 0,
       "alive": true
     },
     {
+      "name": "gates-host",
+      "ageMin": null,
+      "alive": false
+    },
+    {
       "name": "liveness-host",
-      "ageMin": 10,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "guardian",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     }
   ],
   "repos": [
     {
       "name": "my-project",
-      "commits2h": 95,
+      "commits2h": 92,
       "commits24h": 201,
       "last": "worktree-union-push [reviver]: 4-קבצים אוחדו-ב-worktree-מבודד (origin-d980a36 ∪ local-d9802b8) · אפס-מחיקות · העץ-החי-לא",
       "lastAt": "2026-10-24T19:39:38Z",
@@ -96,29 +96,16 @@
       "commits24h": null,
       "last": null,
       "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "feed": null
     },
     {
       "name": "coord-work",
-      "commits2h": 0,
-      "commits24h": 0,
-      "last": "feat(lanes): register giant-dispatch-kernel lane — G67 Thread 1 landed (trace 1a169401bd341b91)",
-      "lastAt": "2026-10-23T15:15:48Z",
-      "feed": [
-        {
-          "at": "2026-10-23T15:15:48Z",
-          "msg": "feat(lanes): register giant-dispatch-kernel lane — G67 Thread 1 landed (trace 1a169401bd341b91)"
-        },
-        {
-          "at": "2026-10-21T16:43:17Z",
-          "msg": "G50 [agent-2]: lanes.json — economy-governor מרחיב-היקף: קול-התיבה (איבר-9-תושב · silence.ledger/1→FleetHQ-mai"
-        },
-        {
-          "at": "2026-10-21T05:24:32Z",
-          "msg": "LOCK G45 [agent-2]: חמש-הכל — השער-ACTIVE-אמת · פיזור-11/11 · POST-rail-HMAC · שחזור-נמחקים-שקטים · REPO-ADAPT"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "steem",
@@ -135,32 +122,24 @@
     },
     {
       "name": "root-site",
-      "commits2h": 15,
-      "commits24h": 31,
-      "last": "life-pulse [liveness-host]: engine — · 215 פעולות-2ש' · 4/11 מארחים-חיים",
-      "lastAt": "2026-10-24T19:30:36Z",
-      "feed": [
-        {
-          "at": "2026-10-24T19:30:36Z",
-          "msg": "life-pulse [liveness-host]: engine — · 215 פעולות-2ש' · 4/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-24T19:28:42Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 609 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-24T19:18:29Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 695 פעולות-2ש' · 11/11 מארחים-חיים"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "Domain",
-      "commits2h": 113,
+      "commits2h": 114,
       "commits24h": 1095,
-      "last": "quality-gate: pages measured 2026-10-24T19:40:12Z [skip ci]",
-      "lastAt": "2026-10-24T19:40:13Z",
+      "last": "office-worldbeat: advance the persistent world",
+      "lastAt": "2026-10-24T19:40:52Z",
       "feed": [
+        {
+          "at": "2026-10-24T19:40:52Z",
+          "msg": "office-worldbeat: advance the persistent world"
+        },
         {
           "at": "2026-10-24T19:40:13Z",
           "msg": "quality-gate: pages measured 2026-10-24T19:40:12Z [skip ci]"
@@ -168,33 +147,17 @@
         {
           "at": "2026-10-24T19:39:48Z",
           "msg": "builder: PULSE_SNAPSHOT+RECEIPTS_LEDGER — דופק חי + משטחי-מוצר מתחדשים [run 40126076190]"
-        },
-        {
-          "at": "2026-10-24T19:38:27Z",
-          "msg": "fleet-census(ci): artifact+delta+claims 2026-10-24T19:38:27Z [skip ci]"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 15,
-      "commits24h": 15,
-      "last": "grid-beat: 6 placed (steem 6 / hive 0) · 0 cancelled · 2026-10-24T19:40Z",
-      "lastAt": "2026-10-24T19:40:25Z",
-      "feed": [
-        {
-          "at": "2026-10-24T19:40:25Z",
-          "msg": "grid-beat: 6 placed (steem 6 / hive 0) · 0 cancelled · 2026-10-24T19:40Z"
-        },
-        {
-          "at": "2026-10-24T19:39:03Z",
-          "msg": "grid-beat: 6 placed (steem 6 / hive 0) · 0 cancelled · 2026-10-24T19:39Z"
-        },
-        {
-          "at": "2026-10-24T19:38:58Z",
-          "msg": "dex-beat: h1530344 · claimed0 · Σ14297 credits · 2026-10-24T19:38Z"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "Pulse",
@@ -216,30 +179,18 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 37,
-      "commits24h": 37,
-      "last": "builder: organ receipt [run 40126076190]",
-      "lastAt": "2026-10-24T19:39:57Z",
-      "feed": [
-        {
-          "at": "2026-10-24T19:39:57Z",
-          "msg": "builder: organ receipt [run 40126076190]"
-        },
-        {
-          "at": "2026-10-24T19:39:28Z",
-          "msg": "network-awareness: self-portrait 2026-10-24T19:38 [skip ci]"
-        },
-        {
-          "at": "2026-10-24T19:38:44Z",
-          "msg": "wallet-artery receipt: 2026-10-24T19:38:44Z"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 4,
     "hostsTotal": 11,
-    "commits2h": 276,
-    "commits24h": 1380
+    "commits2h": 207,
+    "commits24h": 1297
   }
 }
