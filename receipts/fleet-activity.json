@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-24T20:53:31.798Z",
+  "generatedAt": "2026-10-24T20:53:59.695Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 61025,
+      "checked": 67499,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 61064,
+      "checked": 67537,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 61033
+    "seq": 67505
   },
   "hosts": [
     {
@@ -64,7 +64,7 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     },
     {
@@ -89,7 +89,7 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 2,
       "alive": true
     },
     {
@@ -137,22 +137,22 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 58,
-      "commits24h": 331,
-      "last": "[builder] acts=3 metrics=7 backlog=0 · צמיחה-ריבונית מאוטמת",
-      "lastAt": "2026-10-24T20:52:42Z",
+      "commits2h": 55,
+      "commits24h": 55,
+      "last": "guardian: rail re-PUT lib/receipt-sign.ts (absent — ours-merge storm erasure; canonical lineage 1969771/a618f33)",
+      "lastAt": "2026-10-24T23:53:29+03:00",
       "feed": [
         {
-          "at": "2026-10-24T20:52:42Z",
-          "msg": "[builder] acts=3 metrics=7 backlog=0 · צמיחה-ריבונית מאוטמת"
+          "at": "2026-10-24T23:53:29+03:00",
+          "msg": "guardian: rail re-PUT lib/receipt-sign.ts (absent — ours-merge storm erasure; canonical lineage 1969771/a618f3"
         },
         {
-          "at": "2026-10-24T20:52:17Z",
-          "msg": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)"
+          "at": "2026-10-24T23:53:27+03:00",
+          "msg": "guardian: rail re-PUT tests/receipt-sign.test.ts (absent — ours-merge storm erasure; canonical lineage 1969771"
         },
         {
-          "at": "2026-10-24T20:49:03Z",
-          "msg": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)"
+          "at": "2026-10-24T23:53:25+03:00",
+          "msg": "guardian: rail re-PUT scripts/fleet-receipts-guard-core.py (absent — ours-merge storm erasure; canonical linea"
         }
       ]
     },
@@ -192,11 +192,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 17,
-      "commits24h": 45,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 332 פעולות-2ש' · 10/11 מארחים-חיים",
-      "lastAt": "2026-10-24T20:43:47Z",
+      "commits2h": 18,
+      "commits24h": 44,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 388 פעולות-2ש' · 10/11 מארחים-חיים",
+      "lastAt": "2026-10-24T20:53:32Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:53:32Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 388 פעולות-2ש' · 10/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-24T20:43:47Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 332 פעולות-2ש' · 10/11 מארחים-חיים"
@@ -204,17 +208,13 @@
         {
           "at": "2026-10-24T20:43:18Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 367 פעולות-2ש' · 10/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-24T20:33:35Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 312 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
       "commits2h": 91,
-      "commits24h": 1093,
+      "commits24h": 1092,
       "last": "office-worldbeat: advance the persistent world",
       "lastAt": "2026-10-24T20:53:23Z",
       "feed": [
@@ -234,8 +234,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 73,
-      "commits24h": 73,
+      "commits2h": 59,
+      "commits24h": 59,
       "last": "pacemaker receipt: 2026-10-24T20:48:35Z",
       "lastAt": "2026-10-24T20:48:35Z",
       "feed": [
@@ -273,11 +273,15 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 80,
-      "commits24h": 88,
-      "last": "wallet-artery receipt: 2026-10-24T20:53:12Z",
-      "lastAt": "2026-10-24T20:53:13Z",
+      "commits2h": 81,
+      "commits24h": 81,
+      "last": "[hheal] fleet scan: 2026-10-24T20:53:39Z",
+      "lastAt": "2026-10-24T20:53:39Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:53:39Z",
+          "msg": "[hheal] fleet scan: 2026-10-24T20:53:39Z"
+        },
         {
           "at": "2026-10-24T20:53:13Z",
           "msg": "wallet-artery receipt: 2026-10-24T20:53:12Z"
@@ -285,10 +289,6 @@
         {
           "at": "2026-10-24T20:53:02Z",
           "msg": "fleet-artery receipts: 2026-10-24T20:53:01Z"
-        },
-        {
-          "at": "2026-10-24T20:52:37Z",
-          "msg": "value-scan: 2026-10-24T20:52:37Z [skip ci]"
         }
       ]
     }
@@ -296,7 +296,7 @@
   "totals": {
     "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 388,
-    "commits24h": 1883
+    "commits2h": 373,
+    "commits24h": 1584
   }
 }
