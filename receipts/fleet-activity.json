@@ -1,15 +1,60 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-24T20:02:19.584Z",
+  "generatedAt": "2026-10-24T20:02:54.316Z",
   "engine": {
-    "up": false,
-    "verify": null,
-    "verifySecond": null,
+    "up": true,
+    "verify": {
+      "ok": true,
+      "checked": 25909,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
+    "verifySecond": {
+      "ok": true,
+      "checked": 25992,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
     "verifyFlap": false,
-    "grade": null,
-    "allPass": null,
-    "claims": null,
-    "seq": null
+    "grade": "8/8",
+    "allPass": true,
+    "claims": [
+      {
+        "id": "chain-integrity",
+        "pass": true
+      },
+      {
+        "id": "law-is-book",
+        "pass": true
+      },
+      {
+        "id": "no-negative-balances",
+        "pass": true
+      },
+      {
+        "id": "windows-alive",
+        "pass": true
+      },
+      {
+        "id": "tax-at-law-rate",
+        "pass": true
+      },
+      {
+        "id": "owner-report-cadence",
+        "pass": true
+      },
+      {
+        "id": "runway-guard",
+        "pass": true
+      },
+      {
+        "id": "pace-at-equilibrium",
+        "pass": true
+      }
+    ],
+    "seq": 25913
   },
   "hosts": [
     {
@@ -34,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -44,12 +89,12 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 2,
+      "ageMin": 0,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 7,
+      "ageMin": 21,
       "alive": true
     },
     {
@@ -64,14 +109,14 @@
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     }
   ],
   "repos": [
     {
       "name": "my-project",
-      "commits2h": 86,
+      "commits2h": 85,
       "commits24h": 211,
       "last": "vault-seal [auto-economy]: 9 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
       "lastAt": "2026-10-24T19:58:13Z",
@@ -92,11 +137,24 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": null,
-      "commits24h": null,
-      "last": null,
-      "lastAt": null,
-      "feed": null
+      "commits2h": 8,
+      "commits24h": 8,
+      "last": "worktree-union-push [reviver]: 3-קבצים אוחדו-ב-worktree-מבודד (origin-cd02d44 ∪ local-561b3d9) · אפס-מחיקות · העץ-החי-לא",
+      "lastAt": "2026-10-24T20:02:21Z",
+      "feed": [
+        {
+          "at": "2026-10-24T20:02:21Z",
+          "msg": "worktree-union-push [reviver]: 3-קבצים אוחדו-ב-worktree-מבודד (origin-cd02d44 ∪ local-561b3d9) · אפס-מחיקות · "
+        },
+        {
+          "at": "2026-10-24T22:56:25+03:00",
+          "msg": "fabric: יישום אלגוריתם חלוקת עומס מתקדם לטיפול בצוואר בקבוק בעומס כבד — הצעת-למידה-אוטונומית (ממתין לאישור-בעל"
+        },
+        {
+          "at": "2026-10-24T19:55:16Z",
+          "msg": "[builder] acts=1 metrics=2 backlog=0 · צמיחה-ריבונית מאוטמת"
+        }
+      ]
     },
     {
       "name": "coord-work",
@@ -134,11 +192,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 15,
-      "commits24h": 35,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 259 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-24T19:52:42Z",
+      "commits2h": 16,
+      "commits24h": 34,
+      "last": "life-pulse [liveness-host]: engine — · 297 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-24T20:02:20Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:02:20Z",
+          "msg": "life-pulse [liveness-host]: engine — · 297 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-24T19:52:42Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 259 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -146,16 +208,12 @@
         {
           "at": "2026-10-24T19:51:06Z",
           "msg": "life-pulse [liveness-host]: engine — · 278 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-24T19:42:28Z",
-          "msg": "life-pulse [liveness-host]: engine — · 207 פעולות-2ש' · 4/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 106,
+      "commits2h": 105,
       "commits24h": 1094,
       "last": "office-worldbeat: advance the persistent world",
       "lastAt": "2026-10-24T19:57:57Z",
@@ -176,11 +234,15 @@
     },
     {
       "name": "Console",
-      "commits2h": 36,
-      "commits24h": 36,
-      "last": "truth-gate: 2026-10-24T20:01:24Z · ALL-GREEN",
-      "lastAt": "2026-10-24T20:01:24Z",
+      "commits2h": 23,
+      "commits24h": 23,
+      "last": "grid-beat: 0 placed (steem 0 / hive 0) · 0 cancelled · 2026-10-24T20:02Z",
+      "lastAt": "2026-10-24T20:02:29Z",
       "feed": [
+        {
+          "at": "2026-10-24T20:02:29Z",
+          "msg": "grid-beat: 0 placed (steem 0 / hive 0) · 0 cancelled · 2026-10-24T20:02Z"
+        },
         {
           "at": "2026-10-24T20:01:24Z",
           "msg": "truth-gate: 2026-10-24T20:01:24Z · ALL-GREEN"
@@ -188,10 +250,6 @@
         {
           "at": "2026-10-24T20:01:02Z",
           "msg": "pacemaker receipt: 2026-10-24T20:01:02Z"
-        },
-        {
-          "at": "2026-10-24T19:58:51Z",
-          "msg": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-24T19:58Z"
         }
       ]
     },
@@ -215,8 +273,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 53,
-      "commits24h": 53,
+      "commits2h": 45,
+      "commits24h": 45,
       "last": "grid-watch receipt: 2026-10-24T20:02:15Z",
       "lastAt": "2026-10-24T20:02:15Z",
       "feed": [
@@ -238,7 +296,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 297,
-    "commits24h": 1430
+    "commits2h": 283,
+    "commits24h": 1416
   }
 }
