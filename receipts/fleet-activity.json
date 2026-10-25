@@ -1,6 +1,6 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-25T15:38:12.971Z",
+  "generatedAt": "2026-10-25T15:48:32.055Z",
   "engine": {
     "up": false,
     "verify": null,
@@ -19,8 +19,8 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 0,
+      "alive": true
     },
     {
       "name": "economy-node-host",
@@ -29,27 +29,27 @@
     },
     {
       "name": "sovereign-builder-host",
-      "ageMin": null,
-      "alive": false
-    },
-    {
-      "name": "saos-engine-host",
-      "ageMin": null,
-      "alive": false
-    },
-    {
-      "name": "social-host",
-      "ageMin": null,
-      "alive": false
-    },
-    {
-      "name": "push-reviver",
       "ageMin": 0,
       "alive": true
     },
     {
-      "name": "autonomy-revive-host",
+      "name": "saos-engine-host",
       "ageMin": 0,
+      "alive": true
+    },
+    {
+      "name": "social-host",
+      "ageMin": 0,
+      "alive": true
+    },
+    {
+      "name": "push-reviver",
+      "ageMin": 10,
+      "alive": true
+    },
+    {
+      "name": "autonomy-revive-host",
+      "ageMin": 11,
       "alive": true
     },
     {
@@ -59,8 +59,8 @@
     },
     {
       "name": "liveness-host",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 10,
+      "alive": true
     },
     {
       "name": "guardian",
@@ -72,7 +72,7 @@
     {
       "name": "my-project",
       "commits2h": 0,
-      "commits24h": 306,
+      "commits24h": 301,
       "last": "vault-seal [auto-economy]: 5 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
       "lastAt": "2026-10-24T21:48:13Z",
       "feed": [
@@ -96,16 +96,29 @@
       "commits24h": null,
       "last": null,
       "lastAt": null,
-      "feed": null
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "coord-work",
-      "commits2h": null,
-      "commits24h": null,
-      "last": null,
-      "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "commits2h": 0,
+      "commits24h": 0,
+      "last": "feat(lanes): register giant-dispatch-kernel lane — G67 Thread 1 landed (trace 1a169401bd341b91)",
+      "lastAt": "2026-10-23T15:15:48Z",
+      "feed": [
+        {
+          "at": "2026-10-23T15:15:48Z",
+          "msg": "feat(lanes): register giant-dispatch-kernel lane — G67 Thread 1 landed (trace 1a169401bd341b91)"
+        },
+        {
+          "at": "2026-10-21T16:43:17Z",
+          "msg": "G50 [agent-2]: lanes.json — economy-governor מרחיב-היקף: קול-התיבה (איבר-9-תושב · silence.ledger/1→FleetHQ-mai"
+        },
+        {
+          "at": "2026-10-21T05:24:32Z",
+          "msg": "LOCK G45 [agent-2]: חמש-הכל — השער-ACTIVE-אמת · פיזור-11/11 · POST-rail-HMAC · שחזור-נמחקים-שקטים · REPO-ADAPT"
+        }
+      ]
     },
     {
       "name": "steem",
@@ -122,42 +135,66 @@
     },
     {
       "name": "root-site",
-      "commits2h": null,
-      "commits24h": null,
-      "last": null,
-      "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "commits2h": 2,
+      "commits24h": 31,
+      "last": "life-pulse [liveness-host]: engine — · 84 פעולות-2ש' · 6/11 מארחים-חיים",
+      "lastAt": "2026-10-25T15:38:18Z",
+      "feed": [
+        {
+          "at": "2026-10-25T15:38:18Z",
+          "msg": "life-pulse [liveness-host]: engine — · 84 פעולות-2ש' · 6/11 מארחים-חיים"
+        },
+        {
+          "at": "2026-10-25T14:26:48Z",
+          "msg": "identity-guard deep-sweep: weekly full-history identity custody receipt [skip ci]"
+        },
+        {
+          "at": "2026-10-25T13:39:19Z",
+          "msg": "identity-guard deep-sweep: weekly full-history identity custody receipt [skip ci]"
+        }
+      ]
     },
     {
       "name": "Domain",
-      "commits2h": 84,
-      "commits24h": 1055,
-      "last": "grid-doctor v2: live fleet truth + drift + phantom-claims 2026-10-25T15:37:46Z [skip ci]",
-      "lastAt": "2026-10-25T15:37:46Z",
+      "commits2h": 83,
+      "commits24h": 1056,
+      "last": "office window: ALIVE 2026-10-25T15:46:21Z",
+      "lastAt": "2026-10-25T15:46:21Z",
       "feed": [
         {
-          "at": "2026-10-25T15:37:46Z",
-          "msg": "grid-doctor v2: live fleet truth + drift + phantom-claims 2026-10-25T15:37:46Z [skip ci]"
+          "at": "2026-10-25T15:46:21Z",
+          "msg": "office window: ALIVE 2026-10-25T15:46:21Z"
         },
         {
-          "at": "2026-10-25T15:37:27Z",
+          "at": "2026-10-25T15:46:10Z",
           "msg": "office-worldbeat: advance the persistent world"
         },
         {
-          "at": "2026-10-25T15:33:08Z",
+          "at": "2026-10-25T15:41:49Z",
           "msg": "office-worldbeat: advance the persistent world"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": null,
-      "commits24h": null,
-      "last": null,
-      "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "commits2h": 9,
+      "commits24h": 9,
+      "last": "pacemaker receipt: 2026-10-25T15:43:03Z",
+      "lastAt": "2026-10-25T15:43:03Z",
+      "feed": [
+        {
+          "at": "2026-10-25T15:43:03Z",
+          "msg": "pacemaker receipt: 2026-10-25T15:43:03Z"
+        },
+        {
+          "at": "2026-10-25T15:42:29Z",
+          "msg": "pacemaker receipt: 2026-10-25T15:42:29Z"
+        },
+        {
+          "at": "2026-10-25T15:41:59Z",
+          "msg": "pacemaker receipt: 2026-10-25T15:41:59Z"
+        }
+      ]
     },
     {
       "name": "Pulse",
@@ -179,18 +216,30 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": null,
-      "commits24h": null,
-      "last": null,
-      "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "commits2h": 40,
+      "commits24h": 40,
+      "last": "[state] tick#1083 auto: 2026-10-25T15:47:54Z",
+      "lastAt": "2026-10-25T15:47:54Z",
+      "feed": [
+        {
+          "at": "2026-10-25T15:47:54Z",
+          "msg": "[state] tick#1083 auto: 2026-10-25T15:47:54Z"
+        },
+        {
+          "at": "2026-10-25T15:45:03Z",
+          "msg": "[verifier] honest verdict: 2026-10-25T15:45:03Z"
+        },
+        {
+          "at": "2026-10-25T15:40:23Z",
+          "msg": "[tick] sovereign heartbeat: 2026-10-25T15:40:23Z"
+        }
+      ]
     }
   ],
   "totals": {
-    "hostsAlive": 6,
+    "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 84,
-    "commits24h": 1362
+    "commits2h": 134,
+    "commits24h": 1438
   }
 }
