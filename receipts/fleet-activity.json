@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-25T16:21:46.375Z",
+  "generatedAt": "2026-10-25T16:29:27.745Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 41690,
+      "checked": 19905,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 41722,
+      "checked": 19980,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 41697
+    "seq": 19907
   },
   "hosts": [
     {
@@ -64,7 +64,7 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     },
     {
@@ -79,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     },
     {
@@ -89,12 +89,12 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 10,
+      "ageMin": 2,
       "alive": true
     },
     {
@@ -109,50 +109,50 @@
     },
     {
       "name": "guardian",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     }
   ],
   "repos": [
     {
       "name": "my-project",
-      "commits2h": 22,
-      "commits24h": 298,
-      "last": "state-snapshot [seal-host]: 6 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)",
-      "lastAt": "2026-10-25T16:19:00Z",
+      "commits2h": 32,
+      "commits24h": 302,
+      "last": "state-snapshot [seal-host]: 5 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)",
+      "lastAt": "2026-10-25T16:29:15Z",
       "feed": [
         {
-          "at": "2026-10-25T16:19:00Z",
-          "msg": "state-snapshot [seal-host]: 6 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
+          "at": "2026-10-25T16:29:15Z",
+          "msg": "state-snapshot [seal-host]: 5 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
         },
         {
-          "at": "2026-10-25T16:18:15Z",
-          "msg": "vault-seal [seal-host]: 13 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+          "at": "2026-10-25T16:29:04Z",
+          "msg": "vault-sync [seal-host]: union-resolved — איחוד-ללא-מחיקות"
         },
         {
-          "at": "2026-10-25T16:13:02Z",
-          "msg": "vault-sync [auto-economy]: union-resolved 1 files — איחוד-ללא-מחיקות"
+          "at": "2026-10-25T16:29:02Z",
+          "msg": "vault-seal [seal-host]: 16 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
         }
       ]
     },
     {
       "name": "fleet-economy",
-      "commits2h": 20,
-      "commits24h": 21,
-      "last": "worktree-union-push [reviver]: 3-קבצים אוחדו-ב-worktree-מבודד (origin-1a3da1f ∪ local-f5dfa2d) · אפס-מחיקות · העץ-החי-לא",
-      "lastAt": "2026-10-25T16:21:06Z",
+      "commits2h": 26,
+      "commits24h": 26,
+      "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
+      "lastAt": "2026-10-25T16:29:09Z",
       "feed": [
         {
-          "at": "2026-10-25T16:21:06Z",
-          "msg": "worktree-union-push [reviver]: 3-קבצים אוחדו-ב-worktree-מבודד (origin-1a3da1f ∪ local-f5dfa2d) · אפס-מחיקות · "
-        },
-        {
-          "at": "2026-10-25T16:18:21Z",
+          "at": "2026-10-25T16:29:09Z",
           "msg": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)"
         },
         {
-          "at": "2026-10-25T16:18:21Z",
-          "msg": "vault-seal [seal-host]: 3 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+          "at": "2026-10-25T16:29:09Z",
+          "msg": "vault-seal [seal-host]: 4 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+        },
+        {
+          "at": "2026-10-25T16:22:53Z",
+          "msg": "rail restore (trace 1a173c3929f5d23d §2): the re-PUTs landed base64 text — byte-TRUE files restored"
         }
       ]
     },
@@ -193,10 +193,14 @@
     {
       "name": "root-site",
       "commits2h": 12,
-      "commits24h": 39,
-      "last": "life-pulse [liveness-host]: engine 7/8 · 221 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-25T16:19:15Z",
+      "commits24h": 42,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 215 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-25T16:21:46Z",
       "feed": [
+        {
+          "at": "2026-10-25T16:21:46Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 215 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-25T16:19:15Z",
           "msg": "life-pulse [liveness-host]: engine 7/8 · 221 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -204,52 +208,48 @@
         {
           "at": "2026-10-25T16:15:40Z",
           "msg": "reindex: version line → parent 9f1a07c (post-rebase content commit, built-from convention)"
-        },
-        {
-          "at": "2026-10-25T16:15:23Z",
-          "msg": "reindex: index.html version line → built-from 7dacba9 (measured, two-step commit)"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 92,
-      "commits24h": 1054,
-      "last": "agent4: owner-endpoint-hardening receipt 2026-10-25 — vault-token gate armed+proven, paper pipeline resumed (host-freeze",
-      "lastAt": "2026-10-25T16:21:17Z",
+      "commits2h": 93,
+      "commits24h": 1044,
+      "last": "office-worldbeat: advance the persistent world",
+      "lastAt": "2026-10-25T16:24:34Z",
       "feed": [
         {
-          "at": "2026-10-25T16:21:17Z",
-          "msg": "agent4: owner-endpoint-hardening receipt 2026-10-25 — vault-token gate armed+proven, paper pipeline resumed (h"
+          "at": "2026-10-25T16:24:34Z",
+          "msg": "office-worldbeat: advance the persistent world"
         },
         {
-          "at": "2026-10-25T16:21:17Z",
-          "msg": "agent4: sovereign evidence refresh 2026-10-25T16:09:43.414Z [skip ci]"
+          "at": "2026-10-25T16:24:08Z",
+          "msg": "arb-mesh: mesh-market tick 2026-10-25T16:24:08Z [skip ci]"
         },
         {
-          "at": "2026-10-25T16:19:39Z",
-          "msg": "network-census: fleet status measured at 2026-10-25T16:19:39Z"
+          "at": "2026-10-25T16:23:12Z",
+          "msg": "refs-cure[auto]: self-healed identity literals at the gate — function preserved (runtime base64), receipts car"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 18,
-      "commits24h": 18,
-      "last": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-25T16:20Z",
-      "lastAt": "2026-10-25T16:20:56Z",
+      "commits2h": 29,
+      "commits24h": 29,
+      "last": "pacemaker receipt: 2026-10-25T16:27:47Z",
+      "lastAt": "2026-10-25T16:27:48Z",
       "feed": [
         {
-          "at": "2026-10-25T16:20:56Z",
-          "msg": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-25T16:20Z"
+          "at": "2026-10-25T16:27:48Z",
+          "msg": "pacemaker receipt: 2026-10-25T16:27:47Z"
         },
         {
-          "at": "2026-10-25T16:15:55Z",
-          "msg": "pacemaker receipt: 2026-10-25T16:15:55Z"
+          "at": "2026-10-25T16:26:38Z",
+          "msg": "grid-beat: 0 placed (steem 0 / hive 0) · 0 cancelled · 2026-10-25T16:26Z"
         },
         {
-          "at": "2026-10-25T16:12:41Z",
-          "msg": "pacemaker receipt: 2026-10-25T16:12:40Z"
+          "at": "2026-10-25T16:24:13Z",
+          "msg": "pacemaker receipt: 2026-10-25T16:24:13Z"
         }
       ]
     },
@@ -273,22 +273,22 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 51,
-      "commits24h": 51,
-      "last": "grid-watch receipt: 2026-10-25T16:21:39Z",
-      "lastAt": "2026-10-25T16:21:40Z",
+      "commits2h": 69,
+      "commits24h": 69,
+      "last": "treasury: §3 measurement + plan [run 40211434112]",
+      "lastAt": "2026-10-25T16:25:05Z",
       "feed": [
         {
-          "at": "2026-10-25T16:21:40Z",
-          "msg": "grid-watch receipt: 2026-10-25T16:21:39Z"
+          "at": "2026-10-25T16:25:05Z",
+          "msg": "treasury: §3 measurement + plan [run 40211434112]"
         },
         {
-          "at": "2026-10-25T16:21:10Z",
-          "msg": "fleet-artery receipts: 2026-10-25T16:21:10Z"
+          "at": "2026-10-25T16:24:24Z",
+          "msg": "fleet-participation receipts: PASS_WITH_ALERTS · participation measured: 0/14 posting-live, 0 active-live, 0 m"
         },
         {
-          "at": "2026-10-25T16:20:39Z",
-          "msg": "decision-truth verdict: 2026-10-25T16:20:38Z"
+          "at": "2026-10-25T16:23:53Z",
+          "msg": "value-scan: 2026-10-25T16:23:52Z [skip ci]"
         }
       ]
     }
@@ -296,7 +296,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 215,
-    "commits24h": 1482
+    "commits2h": 261,
+    "commits24h": 1513
   }
 }
