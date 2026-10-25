@@ -1,33 +1,33 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-25T16:09:02.345Z",
+  "generatedAt": "2026-10-25T16:11:34.282Z",
   "engine": {
     "up": true,
     "verify": {
-      "ok": false,
-      "checked": 6529,
-      "anchors": 0,
-      "replayParity": true,
-      "brokenAt": 1
-    },
-    "verifySecond": {
       "ok": true,
-      "checked": 99,
+      "checked": 26447,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
-    "verifyFlap": true,
-    "grade": "6/7",
-    "allPass": false,
+    "verifySecond": {
+      "ok": true,
+      "checked": 26525,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
+    "verifyFlap": false,
+    "grade": "8/8",
+    "allPass": true,
     "claims": [
       {
         "id": "chain-integrity",
-        "pass": false
+        "pass": true
       },
       {
         "id": "law-is-book",
-        "pass": false
+        "pass": true
       },
       {
         "id": "no-negative-balances",
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 23
+    "seq": 26447
   },
   "hosts": [
     {
@@ -89,12 +89,12 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 7,
+      "ageMin": 10,
       "alive": true
     },
     {
@@ -117,7 +117,7 @@
     {
       "name": "my-project",
       "commits2h": 15,
-      "commits24h": 302,
+      "commits24h": 300,
       "last": "vault-seal [auto-economy]: 12 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
       "lastAt": "2026-10-25T16:08:45Z",
       "feed": [
@@ -137,11 +137,15 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 11,
-      "commits24h": 376,
-      "last": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
-      "lastAt": "2026-10-25T16:08:49Z",
+      "commits2h": 12,
+      "commits24h": 13,
+      "last": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)",
+      "lastAt": "2026-10-25T16:11:01Z",
       "feed": [
+        {
+          "at": "2026-10-25T16:11:01Z",
+          "msg": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)"
+        },
         {
           "at": "2026-10-25T16:08:49Z",
           "msg": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
@@ -149,10 +153,6 @@
         {
           "at": "2026-10-25T16:08:10Z",
           "msg": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)"
-        },
-        {
-          "at": "2026-10-25T16:08:09Z",
-          "msg": "vault-seal [seal-host]: 1 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
         }
       ]
     },
@@ -192,11 +192,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 6,
-      "commits24h": 35,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 148 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-25T16:01:23Z",
+      "commits2h": 7,
+      "commits24h": 34,
+      "last": "life-pulse [liveness-host]: engine 6/7 · 196 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-25T16:09:03Z",
       "feed": [
+        {
+          "at": "2026-10-25T16:09:03Z",
+          "msg": "life-pulse [liveness-host]: engine 6/7 · 196 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-25T16:01:23Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 148 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -204,52 +208,48 @@
         {
           "at": "2026-10-25T15:58:50Z",
           "msg": "life-pulse [liveness-host]: engine — · 157 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-25T15:51:11Z",
-          "msg": "life-pulse [liveness-host]: engine — · 86 פעולות-2ש' · 4/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 93,
+      "commits2h": 91,
       "commits24h": 1057,
-      "last": "pf-keeper receipt [skip ci]",
-      "lastAt": "2026-10-25T16:08:52Z",
+      "last": "boot-catchup-dex-mirror: local beat · 2026-10-25T15:59:26Z",
+      "lastAt": "2026-10-25T16:10:37Z",
       "feed": [
+        {
+          "at": "2026-10-25T16:10:37Z",
+          "msg": "boot-catchup-dex-mirror: local beat · 2026-10-25T15:59:26Z"
+        },
+        {
+          "at": "2026-10-25T16:10:16Z",
+          "msg": "ci(press-bake): stage sitemap.xml with baker outputs + fail-loud push — fixes 4-day silent edition stall (Oct "
+        },
         {
           "at": "2026-10-25T16:08:52Z",
           "msg": "pf-keeper receipt [skip ci]"
-        },
-        {
-          "at": "2026-10-25T16:08:47Z",
-          "msg": "voice-gate verdict [skip ci]"
-        },
-        {
-          "at": "2026-10-25T16:08:09Z",
-          "msg": "office-artery: shift 2026-10-25T16:08:09Z [skip ci]"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 21,
-      "commits24h": 21,
-      "last": "pacemaker receipt: 2026-10-25T16:07:58Z",
-      "lastAt": "2026-10-25T16:07:58Z",
+      "commits2h": 15,
+      "commits24h": 15,
+      "last": "pacemaker receipt: 2026-10-25T16:10:55Z",
+      "lastAt": "2026-10-25T16:10:55Z",
       "feed": [
+        {
+          "at": "2026-10-25T16:10:55Z",
+          "msg": "pacemaker receipt: 2026-10-25T16:10:55Z"
+        },
+        {
+          "at": "2026-10-25T16:09:53Z",
+          "msg": "grid-beat: 0 placed (steem 0 / hive 0) · 0 cancelled · 2026-10-25T16:09Z"
+        },
         {
           "at": "2026-10-25T16:07:58Z",
           "msg": "pacemaker receipt: 2026-10-25T16:07:58Z"
-        },
-        {
-          "at": "2026-10-25T16:07:33Z",
-          "msg": "truth-gate: 2026-10-25T16:07:33Z · ALL-GREEN"
-        },
-        {
-          "at": "2026-10-25T16:07:24Z",
-          "msg": "giants-beat: 2026-10-25T16:07:24Z · 25 families · top30d: Uniswap $93380079.95 · clean"
         }
       ]
     },
@@ -273,8 +273,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 50,
-      "commits24h": 50,
+      "commits2h": 40,
+      "commits24h": 40,
       "last": "[fleet-yield] yield ledger: 2026-10-25T16:07:19Z",
       "lastAt": "2026-10-25T16:07:19Z",
       "feed": [
@@ -296,7 +296,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 196,
-    "commits24h": 1842
+    "commits2h": 180,
+    "commits24h": 1460
   }
 }
