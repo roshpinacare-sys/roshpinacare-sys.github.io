@@ -1,0 +1,1587 @@
+{
+  "format": "weave-console-mirror-v1",
+  "generatedAt": "2026-10-26T13:59:09.515Z",
+  "source": "the sovereign ledger (Zip repo, cloud heart beat)",
+  "doctrine": "derived public truth - no keys, no vault blocks, no secrets; the ledger and the chains remain the source of truth",
+  "stats": {
+    "attestations": 1897,
+    "checkpoints": 1839,
+    "agents": 14,
+    "brainKeys": 3,
+    "brainLive": 3,
+    "attByStatus": {
+      "UNMEASURED": 1,
+      "VERIFIED": 1896
+    },
+    "headHash": "0x2f3fcc32f8e441b1db0892b6485fdb46d373d5caa8c59c95c61cdef10e093314",
+    "vitality": {
+      "atts24h": 1,
+      "atts7d": 145,
+      "signers24h": 1,
+      "checkpoints24h": 1,
+      "marketEvents24h": 0,
+      "aliveDays": 1,
+      "lastAttAgeMin": 0,
+      "computedAtIso": "2026-10-26T13:59:09.515Z"
+    }
+  },
+  "agents": [
+    {
+      "name": "gitkeeper",
+      "role": "DAEMON",
+      "status": "ACTIVE",
+      "address": "0x0bBE6e5361a2601737b8Ac9Dc2DCfAA8e85aC92c",
+      "attestations": 1,
+      "lastAttestationSeq": 5,
+      "lastAttestationAt": "2026-09-14T12:00:10.286Z"
+    },
+    {
+      "name": "glm-53-builder",
+      "role": "BUILDER",
+      "status": "ACTIVE",
+      "address": "0xa04A13940724159096e7183366Bc720994Ce58B2",
+      "attestations": 0,
+      "lastAttestationSeq": null,
+      "lastAttestationAt": null
+    },
+    {
+      "name": "glm-53-ui-builder",
+      "role": "BUILDER",
+      "status": "ACTIVE",
+      "address": "0x0dEFE1D429fb643731D3942AC028d2E025e42256",
+      "attestations": 0,
+      "lastAttestationSeq": null,
+      "lastAttestationAt": null
+    },
+    {
+      "name": "scout-r19",
+      "role": "SCOUT",
+      "status": "ACTIVE",
+      "address": "0xd731366E2e6E6AF6e7821EEf88872eE51D3a3668",
+      "attestations": 1,
+      "lastAttestationSeq": 3,
+      "lastAttestationAt": "2026-09-14T12:00:10.272Z"
+    },
+    {
+      "name": "weave-archive-witness",
+      "role": "DAEMON",
+      "status": "ACTIVE",
+      "address": "0x3f2c2a991EA6f7605561fabe85E5CB283a3986b2",
+      "attestations": 3,
+      "lastAttestationSeq": 1888,
+      "lastAttestationAt": "2026-10-24T12:49:17.003Z"
+    },
+    {
+      "name": "weave-auditor",
+      "role": "AUDITOR",
+      "status": "ACTIVE",
+      "address": "0xca7612bF3AE6f06A1857eA2B4F5a80F33c38E48a",
+      "attestations": 8,
+      "lastAttestationSeq": 18,
+      "lastAttestationAt": "2026-09-14T18:19:09.560Z"
+    },
+    {
+      "name": "weave-charter-anchor",
+      "role": "DAEMON",
+      "status": "ACTIVE",
+      "address": "0x77Ffc7BeB627B220956BC34fDD1B988604531196",
+      "attestations": 4,
+      "lastAttestationSeq": 529,
+      "lastAttestationAt": "2026-09-24T14:59:07.471Z"
+    },
+    {
+      "name": "weave-charter-restore",
+      "role": "DAEMON",
+      "status": "ACTIVE",
+      "address": "0x68E2Bbf06800f3E81E23d17F3e476d41b8bC450B",
+      "attestations": 2,
+      "lastAttestationSeq": 404,
+      "lastAttestationAt": "2026-09-23T00:46:11.181Z"
+    },
+    {
+      "name": "weave-cloud-heart",
+      "role": "RELAYER",
+      "status": "ACTIVE",
+      "address": "0xaB07095053FC50a306A6d26FAa2c8887c5827B92",
+      "attestations": 1817,
+      "lastAttestationSeq": 1897,
+      "lastAttestationAt": "2026-10-26T13:59:09.426Z"
+    },
+    {
+      "name": "weave-market-regulator",
+      "role": "DAEMON",
+      "status": "ACTIVE",
+      "address": "0x3EE9c78D8bb3cBd9116147E2f99bB28dCa5D1D4d",
+      "attestations": 7,
+      "lastAttestationSeq": 316,
+      "lastAttestationAt": "2026-09-21T21:22:32.413Z"
+    },
+    {
+      "name": "weave-market-regulator-v1-retired",
+      "role": "DAEMON",
+      "status": "ACTIVE",
+      "address": "0x3D0ab9984887DfEc431434017808E0B802e96184",
+      "attestations": 3,
+      "lastAttestationSeq": 28,
+      "lastAttestationAt": "2026-09-14T21:49:40.989Z"
+    },
+    {
+      "name": "weave-proof-registrar",
+      "role": "DAEMON",
+      "status": "ACTIVE",
+      "address": "0xe2dC961491DAE25F71Cbf09C8CFe7F056A8B26dC",
+      "attestations": 48,
+      "lastAttestationSeq": 1475,
+      "lastAttestationAt": "2026-10-05T23:23:17.123Z"
+    },
+    {
+      "name": "weave-relayer",
+      "role": "RELAYER",
+      "status": "ACTIVE",
+      "address": "0x2Ba272B5fa370Fe58577CA4f5B6D3e89Ddcb9446",
+      "attestations": 1,
+      "lastAttestationSeq": 8,
+      "lastAttestationAt": "2026-09-14T14:05:38.716Z"
+    },
+    {
+      "name": "weave-saosnet-witness",
+      "role": "DAEMON",
+      "status": "ACTIVE",
+      "address": "0x92678d1Fef5724265BCd263A7394D1C226b5f4e3",
+      "attestations": 2,
+      "lastAttestationSeq": 35,
+      "lastAttestationAt": "2026-09-14T23:43:09.827Z"
+    }
+  ],
+  "attestations": [
+    {
+      "seq": 1897,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-26T13:59:09.426Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "ביקורת יכולת-חתימה יומית: 14 זהויות תפקיד בספר, 1 חותמים בפועל (sealed) · השאר memory-only - מפתחותיהם חיו ב-DB סביבתי ומתים עם הסביבה · הפונקציות שלהם נבלעו בלב (gitkeeper·דחיפות, scout·סריקת האקוסיסטם) או ממתינות (relayer·עדות הפוכה)"
+    },
+    {
+      "seq": 1896,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T18:56:19.498Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1837 root 0x057f5d3debe787f7… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1895,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T18:55:06.008Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1836 root 0x5057571e156d889e… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1894,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T16:46:32.865Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1835 root 0xe71813c8f1150d1d… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1893,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T16:45:39.453Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1834 root 0xfcccdd139360c4e9… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1892,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T16:44:02.782Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1833 root 0x115030483cb57f65… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1891,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T16:43:45.976Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1832 root 0x47fe68f93dd8d116… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1890,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T13:35:08.469Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1831 root 0x007d4a4a561e5b48… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1889,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T13:34:54.126Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1830 root 0x78db758b991d94d4… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1888,
+      "type": "CROSSCHAIN",
+      "status": "VERIFIED",
+      "at": "2026-10-24T12:49:17.003Z",
+      "agentName": "weave-archive-witness",
+      "claim": "עד הארכיון: ההיסטוריה הכתובה של הרשת (roshpinacare-sys/anchor-baseline) נמדדה חיה מהמקור - 101 קבצים, 509KB - והספר מעיד על שורש …d9ff6778."
+    },
+    {
+      "seq": 1887,
+      "type": "MEASUREMENT",
+      "status": "VERIFIED",
+      "at": "2026-10-24T12:49:15.347Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "פעימת לב ריבונית: הספר אומת מחדש - 1886 רשומות, חתימות 1886/1886, head תואם. הרץ: GitHub Actions (הענן שלנו)."
+    },
+    {
+      "seq": 1886,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-24T12:49:05.462Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "ביקורת יכולת-חתימה יומית: 14 זהויות תפקיד בספר, 1 חותמים בפועל (sealed) · השאר memory-only - מפתחותיהם חיו ב-DB סביבתי ומתים עם הסביבה · הפונקציות שלהם נבלעו בלב (gitkeeper·דחיפות, scout·סריקת האקוסיסטם) או ממתינות (relayer·עדות הפוכה)"
+    },
+    {
+      "seq": 1885,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-24T12:49:05.429Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "מדידת אקוסיסטם (G6) הונחה בספר: dup=0.255 - 1519 עותקים יתרים מתוך 5956 קבצי-סטטוס שנמדדו (784 קבוצות שכפול) · יעד <0.2 מופר - התראה אדומה חיה בריצת הסריקה"
+    },
+    {
+      "seq": 1884,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T12:47:42.875Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1825 root 0x56b71ca0f2e4b96c… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1883,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T12:47:24.302Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1824 root 0x11b41cdc6d132bc8… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1882,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T09:16:19.035Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1823 root 0xbd2006fc6ecc2b93… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1881,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T09:16:07.481Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1822 root 0x738447fe981c82df… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1880,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T07:25:55.936Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1821 root 0x4147d29e5f497a0b… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1879,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T07:25:43.871Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1820 root 0xabe061d3a27725a5… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1878,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T05:01:03.836Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1819 root 0x3bd99ee5825aaecb… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1877,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T04:59:23.307Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1818 root 0x00f78d6da51b5e90… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1876,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T03:08:44.388Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1817 root 0x7614dc7c4ca46c1f… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1875,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T03:06:57.722Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1816 root 0x2e34fa5f5623ce6e… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1874,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T01:43:29.688Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1815 root 0x5f8fd942bf0bd02b… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1873,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-24T01:42:14.660Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1814 root 0xc70c3eee40ec0144… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1872,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T23:24:27.347Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1813 root 0xe970935fbcb70bc5… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1871,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T23:22:46.745Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1812 root 0xbc5ad9a4f7915a59… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1870,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T22:23:20.909Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1811 root 0xf2eb8dbbc74b9e9d… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1869,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T22:22:54.775Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1810 root 0x0579852c79ca66a5… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1868,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T21:22:57.164Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1809 root 0xf8857521a6224537… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1867,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T21:21:44.219Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1808 root 0xb4a9f6bcbd7fb224… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1866,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T20:02:10.820Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1807 root 0x773c576822d10371… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1865,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T20:01:45.420Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1806 root 0x3249b0a78365d158… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1864,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T18:30:17.569Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1805 root 0x11da15f842d3febc… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1863,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T18:29:22.158Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1804 root 0x5b90a6d10ce6b69b… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1862,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T17:25:05.524Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1803 root 0x31269864174dc0cf… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1861,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T17:24:48.544Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1802 root 0x38f27c9edaa86ae2… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1860,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T14:34:51.076Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1801 root 0xbb3221e6f1c0712b… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1859,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T14:34:39.374Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1800 root 0x33fb68b815175c25… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1858,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T13:38:46.632Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1799 root 0x4d118ea2dbd45547… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1857,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T13:37:25.833Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1798 root 0x33a60582ca8b0a50… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1856,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T13:29:50.583Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1797 root 0xc949514e27c1a9ed… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1855,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T13:29:36.425Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1796 root 0x50c79e96df32b796… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1854,
+      "type": "MEASUREMENT",
+      "status": "VERIFIED",
+      "at": "2026-10-23T13:26:54.656Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "פעימת לב ריבונית: הספר אומת מחדש - 1853 רשומות, חתימות 1853/1853, head תואם. הרץ: GitHub Actions (הענן שלנו)."
+    },
+    {
+      "seq": 1853,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-23T13:26:43.736Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "ביקורת יכולת-חתימה יומית: 14 זהויות תפקיד בספר, 1 חותמים בפועל (sealed) · השאר memory-only - מפתחותיהם חיו ב-DB סביבתי ומתים עם הסביבה · הפונקציות שלהם נבלעו בלב (gitkeeper·דחיפות, scout·סריקת האקוסיסטם) או ממתינות (relayer·עדות הפוכה)"
+    },
+    {
+      "seq": 1852,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-23T13:26:43.705Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "מדידת אקוסיסטם (G6) הונחה בספר: dup=0.2557 - 1519 עותקים יתרים מתוך 5940 קבצי-סטטוס שנמדדו (784 קבוצות שכפול) · יעד <0.2 מופר - התראה אדומה חיה בריצת הסריקה"
+    },
+    {
+      "seq": 1851,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T09:41:26.318Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1792 root 0x8497e6fcefc3fd38… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1850,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T09:41:06.746Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1791 root 0x99e8d1d8feca434c… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1849,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T07:43:36.714Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1790 root 0x22e54af230e19c53… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1848,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T07:43:19.471Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1789 root 0x733f1ca5e9e1b136… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1847,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T05:10:58.810Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1788 root 0xe404d9e8c7f7955e… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1846,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T05:10:43.162Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1787 root 0xe48d342948dc390b… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1845,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T03:33:00.762Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1786 root 0xf392c0e665f90b28… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1844,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T03:31:09.309Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1785 root 0x9604bdb29cf7c7be… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1843,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T01:39:58.192Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1784 root 0xf25f6cc9b763691e… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1842,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-23T01:38:11.956Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1783 root 0x0f7d8dc3d9b60074… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1841,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T23:31:19.404Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1782 root 0x80ee6ea2f1a4b1ef… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1840,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T23:31:01.699Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1781 root 0xf888f11629ea294e… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1839,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T22:28:48.475Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1780 root 0x4a0c417e646c48c0… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1838,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T22:28:34.871Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1779 root 0x92c719da059a66da… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1837,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T21:32:20.056Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1778 root 0x9a3ca9c03115d69e… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1836,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T21:31:23.531Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1777 root 0x2a6b211d81cdfd00… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1835,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T20:16:35.184Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1776 root 0xc16d239d1e805ba5… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1834,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T20:15:50.410Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1775 root 0xf9346d02a851c4b3… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1833,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T18:39:08.641Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1774 root 0xb5d81ede02519a01… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1832,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T18:38:54.871Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1773 root 0xe10d30cfc01547a1… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1831,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T17:34:56.012Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1772 root 0xfc06022da6fb719f… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1830,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T17:34:40.136Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1771 root 0x7161fe04817f1a68… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1829,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T14:34:49.578Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1770 root 0x5508b6c0fcfd1b8a… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1828,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T14:34:37.452Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1769 root 0x5593520955f59e44… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1827,
+      "type": "MEASUREMENT",
+      "status": "VERIFIED",
+      "at": "2026-10-22T14:00:09.346Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "פעימת לב ריבונית: הספר אומת מחדש - 1826 רשומות, חתימות 1826/1826, head תואם. הרץ: GitHub Actions (הענן שלנו)."
+    },
+    {
+      "seq": 1826,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-22T13:59:55.106Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "ביקורת יכולת-חתימה יומית: 14 זהויות תפקיד בספר, 1 חותמים בפועל (sealed) · השאר memory-only - מפתחותיהם חיו ב-DB סביבתי ומתים עם הסביבה · הפונקציות שלהם נבלעו בלב (gitkeeper·דחיפות, scout·סריקת האקוסיסטם) או ממתינות (relayer·עדות הפוכה)"
+    },
+    {
+      "seq": 1825,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-22T13:59:55.048Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "מדידת אקוסיסטם (G6) הונחה בספר: dup=0.2571 - 1519 עותקים יתרים מתוך 5908 קבצי-סטטוס שנמדדו (784 קבוצות שכפול) · יעד <0.2 מופר - התראה אדומה חיה בריצת הסריקה"
+    },
+    {
+      "seq": 1824,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T13:57:36.887Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1765 root 0xcde3fc673967ab45… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1823,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T13:56:35.035Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1764 root 0x597886e3084e326c… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1822,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T12:26:19.081Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1763 root 0xd64cdf6b27a2a8af… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1821,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T12:25:07.911Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1762 root 0xd1e2f4daa369dd8f… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1820,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T08:45:58.969Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1761 root 0xfa2109bd116fae68… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1819,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T08:45:43.006Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1760 root 0x3f31959676a560c3… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1818,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T07:46:19.198Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1759 root 0xb11075acdc66ac6d… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1817,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T07:45:56.166Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1758 root 0x9fdf4e036b4f3f39… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1816,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T05:08:55.168Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1757 root 0x387d548f55f9d325… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1815,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T05:08:34.276Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1756 root 0xe2887c9908a93ef7… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1814,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T03:08:28.352Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1755 root 0xfb6b74ed9293deca… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1813,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T03:08:16.829Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1754 root 0x35de34a9139abe6b… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1812,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T01:38:48.409Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1753 root 0xd24548acb0ef3d8d… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1811,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-22T01:38:22.161Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1752 root 0xf55aa4b5f366b7ea… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1810,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T23:33:33.593Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1751 root 0x5a3d3f4f61117255… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1809,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T23:33:12.927Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1750 root 0x06e55333d821bdf0… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1808,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T22:42:20.924Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1749 root 0x19ce9f6d42b3b083… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1807,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T22:41:19.478Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1748 root 0x06de406ec814777a… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1806,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T22:29:07.156Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1747 root 0x4fb59ef9ffc9f765… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1805,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T22:28:15.615Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1746 root 0xde60a262ca47653a… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1804,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T21:38:36.250Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1745 root 0x9c14e181c11796c8… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1803,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T21:36:51.540Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1744 root 0x7808d5eec8bb8cd3… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1802,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T18:46:18.079Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1743 root 0xfc9309c7878dc3a3… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1801,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T18:45:36.975Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1742 root 0xa40f83ec210135b5… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1800,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T17:28:17.622Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1741 root 0x0789fa6881aa639e… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1799,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T17:27:59.443Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1740 root 0x8e7802d2aca1ce57… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1798,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T16:16:33.880Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1739 root 0x91c5bda99da37dd6… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1797,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T16:15:13.060Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1738 root 0x21c538821f2bf0a4… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1796,
+      "type": "MEASUREMENT",
+      "status": "VERIFIED",
+      "at": "2026-10-21T16:12:14.660Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "פעימת לב ריבונית: הספר אומת מחדש - 1795 רשומות, חתימות 1795/1795, head תואם. הרץ: GitHub Actions (הענן שלנו)."
+    },
+    {
+      "seq": 1795,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-21T16:12:01.340Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "ביקורת יכולת-חתימה יומית: 14 זהויות תפקיד בספר, 1 חותמים בפועל (sealed) · השאר memory-only - מפתחותיהם חיו ב-DB סביבתי ומתים עם הסביבה · הפונקציות שלהם נבלעו בלב (gitkeeper·דחיפות, scout·סריקת האקוסיסטם) או ממתינות (relayer·עדות הפוכה)"
+    },
+    {
+      "seq": 1794,
+      "type": "AUDIT",
+      "status": "VERIFIED",
+      "at": "2026-10-21T16:12:01.302Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "מדידת אקוסיסטם (G6) הונחה בספר: dup=0.2673 - 1521 עותקים יתרים מתוך 5691 קבצי-סטטוס שנמדדו (786 קבוצות שכפול) · יעד <0.2 מופר - התראה אדומה חיה בריצת הסריקה"
+    },
+    {
+      "seq": 1793,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T13:56:53.151Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1734 root 0x7becad7d2c7f644a… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1792,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T13:56:36.591Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1733 root 0xdc1f8087f38875c5… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1791,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T09:55:36.508Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1732 root 0x5340c12409e425fc… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1790,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T09:55:23.046Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1731 root 0x3d096f81bda6c35f… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1789,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T07:49:12.912Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1730 root 0xfb895203d3bf791e… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1788,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T07:48:57.743Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1729 root 0x0469cae69a5fef61… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1787,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T01:43:45.574Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1728 root 0x10e937f66b8fbfb5… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1786,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-21T01:42:29.266Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1727 root 0x4301a9f4737f8d79… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1785,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-20T22:24:36.941Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1726 root 0x078b5529758f3f57… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1784,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-20T22:24:25.493Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1725 root 0x76e7c4c6072afcbc… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1783,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-20T21:34:47.947Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1724 root 0xf04f35b0def713f3… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1782,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-20T21:34:30.892Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1723 root 0xfa3997c4fc45ea31… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1781,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-20T20:04:03.774Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו ה-ZERO (Z Chain 9369, גז-אפס): checkpoint #1722 root 0x472a59db3b52ded3… עוגן כטרנזקציית EVM אמיתית ממפתח הרשת (סלקטור 0xa9059cbb + מטען קנוני, ממוען-עצמית ל-EOA אינרטי) - עד EVM ציבורי בלתי-תלוי בגיטהאב, בעלות מדודה 0.000000."
+    },
+    {
+      "seq": 1780,
+      "type": "ANCHOR",
+      "status": "VERIFIED",
+      "at": "2026-10-20T20:03:48.593Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "קו Steem/Hive: checkpoint #1721 root 0xeecdbaca82e275de… עוגן on-chain כ-custom_json saos.weave.core.v1 מאת @acct-00 (סמכות posting, מזוהה מהמפתח - ברירת המחדל acct-00) - עד חיצוני ציבורי ובלתי-תלוי בגיטהאב לאמת הספר."
+    },
+    {
+      "seq": 1779,
+      "type": "CROSSCHAIN",
+      "status": "VERIFIED",
+      "at": "2026-10-20T20:02:48.340Z",
+      "agentName": "weave-archive-witness",
+      "claim": "עד הארכיון: ההיסטוריה הכתובה של הרשת (roshpinacare-sys/anchor-baseline) נמדדה חיה מהמקור - 101 קבצים, 509KB - והספר מעיד על שורש …a19586b2."
+    },
+    {
+      "seq": 1778,
+      "type": "MEASUREMENT",
+      "status": "VERIFIED",
+      "at": "2026-10-20T20:02:47.028Z",
+      "agentName": "weave-cloud-heart",
+      "claim": "פעימת לב ריבונית: הספר אומת מחדש - 1777 רשומות, חתימות 1777/1777, head תואם. הרץ: GitHub Actions (הענן שלנו)."
+    }
+  ],
+  "checkpoints": [
+    {
+      "index": 1839,
+      "root": "0x2f3fcc32f8e441b1db0892b6485fdb46d373d5caa8c59c95c61cdef10e093314",
+      "attFrom": 1897,
+      "attTo": 1897,
+      "at": "2026-10-26T13:59:09.470Z",
+      "anchoredOn": []
+    },
+    {
+      "index": 1838,
+      "root": "0xec2a7bb4125be5c6ffba5fdc24bc1f75146d532b7e29d86a57b5504be678e5ca",
+      "attFrom": 1896,
+      "attTo": 1896,
+      "at": "2026-10-24T18:56:19.513Z",
+      "anchoredOn": []
+    },
+    {
+      "index": 1837,
+      "root": "0x057f5d3debe787f75888ed7661e06e08474d5c511586c715fad6f1778ba4934d",
+      "attFrom": 1895,
+      "attTo": 1895,
+      "at": "2026-10-24T18:55:06.024Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1836,
+      "root": "0x5057571e156d889e0db33b8dc7332080bcb2770942d222346bd9f361c95a7ede",
+      "attFrom": 1894,
+      "attTo": 1894,
+      "at": "2026-10-24T16:46:32.911Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1835,
+      "root": "0xe71813c8f1150d1dd52d425f01a563c9d011b70efdcc91e1cf5a343da9460bff",
+      "attFrom": 1893,
+      "attTo": 1893,
+      "at": "2026-10-24T16:45:39.498Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1834,
+      "root": "0xfcccdd139360c4e98e01e8c569e5d6f67c6e83ddd562b4431d1d071a3bb5821e",
+      "attFrom": 1892,
+      "attTo": 1892,
+      "at": "2026-10-24T16:44:02.798Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1833,
+      "root": "0x115030483cb57f65aeec3a9fbddd4de894781e246e73cd5fbfa01b72d08d4201",
+      "attFrom": 1891,
+      "attTo": 1891,
+      "at": "2026-10-24T16:43:46.000Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1832,
+      "root": "0x47fe68f93dd8d1163447306abf026fd733cea87eadbabe79b5dbd35edddf9b67",
+      "attFrom": 1890,
+      "attTo": 1890,
+      "at": "2026-10-24T13:35:08.486Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1831,
+      "root": "0x007d4a4a561e5b48ce6df85f50daba69e7347f464d1525ef71c64fc04ab5c6fb",
+      "attFrom": 1889,
+      "attTo": 1889,
+      "at": "2026-10-24T13:34:54.147Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1830,
+      "root": "0x78db758b991d94d49d30c17a73f6b6d28e4e48dc3e355fcc9f2816f765c21f85",
+      "attFrom": 1888,
+      "attTo": 1888,
+      "at": "2026-10-24T12:49:17.013Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1829,
+      "root": "0x05035fd8160d80afb91c29e321588d9aade1d3b573779ed6f5d305b448ecba2b",
+      "attFrom": 1887,
+      "attTo": 1887,
+      "at": "2026-10-24T12:49:15.363Z",
+      "anchoredOn": []
+    },
+    {
+      "index": 1828,
+      "root": "0x4f69d49e8af9474e31b30abad1a2f9106f6bf7ed72dbaa54af6b58adc4fb5805",
+      "attFrom": 1886,
+      "attTo": 1886,
+      "at": "2026-10-24T12:49:05.477Z",
+      "anchoredOn": []
+    },
+    {
+      "index": 1827,
+      "root": "0x2fee23129cacc56e9234596aa8713595848526c6615e76914455bb3b525856b7",
+      "attFrom": 1885,
+      "attTo": 1885,
+      "at": "2026-10-24T12:49:05.455Z",
+      "anchoredOn": []
+    },
+    {
+      "index": 1826,
+      "root": "0xecc7dd956dccb570ac832f39e3753fd881309307338642c55c6f78f85c6f8c03",
+      "attFrom": 1884,
+      "attTo": 1884,
+      "at": "2026-10-24T12:47:42.943Z",
+      "anchoredOn": []
+    },
+    {
+      "index": 1825,
+      "root": "0x56b71ca0f2e4b96c3e0b999c4f5636022456a9a69d8b08b2b208946b76bde434",
+      "attFrom": 1883,
+      "attTo": 1883,
+      "at": "2026-10-24T12:47:24.318Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1824,
+      "root": "0x11b41cdc6d132bc86c1b42facf2ae3d6de3e84e928ffa1e497e5c46e8802cd29",
+      "attFrom": 1882,
+      "attTo": 1882,
+      "at": "2026-10-24T09:16:19.052Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1823,
+      "root": "0xbd2006fc6ecc2b9378640efa43be05d1728028e36ff017a2947ffc215d10e91c",
+      "attFrom": 1881,
+      "attTo": 1881,
+      "at": "2026-10-24T09:16:07.501Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1822,
+      "root": "0x738447fe981c82df035b8c3dba1d40ac8404a87c23f108a97533a849edd9db54",
+      "attFrom": 1880,
+      "attTo": 1880,
+      "at": "2026-10-24T07:25:55.956Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1821,
+      "root": "0x4147d29e5f497a0b848497b6a800a7a0682486e39cc06ce0584826011fd170c8",
+      "attFrom": 1879,
+      "attTo": 1879,
+      "at": "2026-10-24T07:25:43.894Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1820,
+      "root": "0xabe061d3a27725a5d5987cb669c3282f8f5d0ca7134775e942fcc689fc5497bf",
+      "attFrom": 1878,
+      "attTo": 1878,
+      "at": "2026-10-24T05:01:03.861Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1819,
+      "root": "0x3bd99ee5825aaecbbc67f5c67d30eb73b2f630978c05f93900d422fbf0d974ba",
+      "attFrom": 1877,
+      "attTo": 1877,
+      "at": "2026-10-24T04:59:23.329Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1818,
+      "root": "0x00f78d6da51b5e90a1d8b328edf3bf71608d9bb2cbf5821c6f3a15e93e866110",
+      "attFrom": 1876,
+      "attTo": 1876,
+      "at": "2026-10-24T03:08:44.412Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1817,
+      "root": "0x7614dc7c4ca46c1f1f3447c90335077c18b3db4e22a99660fe40183fcb1eb525",
+      "attFrom": 1875,
+      "attTo": 1875,
+      "at": "2026-10-24T03:06:57.744Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1816,
+      "root": "0x2e34fa5f5623ce6e958b7157cc0a0460e3c77da4e62dea64462e6dd0e1d47d3e",
+      "attFrom": 1874,
+      "attTo": 1874,
+      "at": "2026-10-24T01:43:29.701Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1815,
+      "root": "0x5f8fd942bf0bd02baa38ad27b21708b95221fd00c07dc849793b127d43fbf2b8",
+      "attFrom": 1873,
+      "attTo": 1873,
+      "at": "2026-10-24T01:42:14.695Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1814,
+      "root": "0xc70c3eee40ec014470d2091746f9882d32aae4abcdf00cd9c5b5049c6bdff29f",
+      "attFrom": 1872,
+      "attTo": 1872,
+      "at": "2026-10-23T23:24:27.369Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1813,
+      "root": "0xe970935fbcb70bc5597da7282aa7f659bbf52111a368099c59b716806c00b8eb",
+      "attFrom": 1871,
+      "attTo": 1871,
+      "at": "2026-10-23T23:22:46.767Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1812,
+      "root": "0xbc5ad9a4f7915a59dee03539222b178d536eaac80c68d4147584e2f8d6edd02c",
+      "attFrom": 1870,
+      "attTo": 1870,
+      "at": "2026-10-23T22:23:20.928Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    },
+    {
+      "index": 1811,
+      "root": "0xf2eb8dbbc74b9e9d6212b8433f9a16a812808d4fc8ba54071cecff76e667d5af",
+      "attFrom": 1869,
+      "attTo": 1869,
+      "at": "2026-10-23T22:22:54.798Z",
+      "anchoredOn": [
+        "zero"
+      ]
+    },
+    {
+      "index": 1810,
+      "root": "0x0579852c79ca66a5f85f36997eb244541958aacdaf566fee1f515d06b7532807",
+      "attFrom": 1868,
+      "attTo": 1868,
+      "at": "2026-10-23T21:22:57.183Z",
+      "anchoredOn": [
+        "steem"
+      ]
+    }
+  ],
+  "anchorLines": {
+    "steem": [
+      {
+        "checkpoint": 1824,
+        "at": "2026-10-24T12:46:49.758Z",
+        "txid": "4ef2186187fd0c98eb7e916051844457c1bc5dfc",
+        "hiveTxid": null
+      },
+      {
+        "checkpoint": 1830,
+        "at": "2026-10-24T13:34:19.016Z",
+        "txid": "34b57d98e72be4c7833377c9e4e4928b673aa494",
+        "hiveTxid": null
+      },
+      {
+        "checkpoint": 1832,
+        "at": "2026-10-24T16:43:08.844Z",
+        "txid": "ff085b6b64f3bfdf201daccc64bee4c3cc54745a",
+        "hiveTxid": null
+      },
+      {
+        "checkpoint": 1834,
+        "at": "2026-10-24T16:45:01.625Z",
+        "txid": "b4d9a89c19667006eae1d5a1e8bfb003be316a71",
+        "hiveTxid": null
+      },
+      {
+        "checkpoint": 1836,
+        "at": "2026-10-24T18:54:28.012Z",
+        "txid": "900d2874cb7a16be136b842894b02200601f7f05",
+        "hiveTxid": null
+      }
+    ],
+    "zero": [
+      {
+        "checkpoint": 1825,
+        "at": "2026-10-24T12:47:31.879Z",
+        "txid": "0xe60c5d3cae00e0a07617e221acda5bc7d6f4100d7b9edbf69760e3be27b21b90",
+        "explorer": "https://zscan.live/tx/0xe60c5d3cae00e0a07617e221acda5bc7d6f4100d7b9edbf69760e3be27b21b90"
+      },
+      {
+        "checkpoint": 1831,
+        "at": "2026-10-24T13:35:00.292Z",
+        "txid": "0xa3c9ba23f7129f5f7f0cfa1a4474763249d84659b663138bd3df46912e648dd0",
+        "explorer": "https://zscan.live/tx/0xa3c9ba23f7129f5f7f0cfa1a4474763249d84659b663138bd3df46912e648dd0"
+      },
+      {
+        "checkpoint": 1833,
+        "at": "2026-10-24T16:43:52.080Z",
+        "txid": "0xdfcab9b4beef0954fd1af9208e60aeb7823bacbcf9ca0c9700c99640c9d44deb",
+        "explorer": "https://zscan.live/tx/0xdfcab9b4beef0954fd1af9208e60aeb7823bacbcf9ca0c9700c99640c9d44deb"
+      },
+      {
+        "checkpoint": 1835,
+        "at": "2026-10-24T16:46:15.947Z",
+        "txid": "0xdcba5d387a9f90c2cf26f6f1024d98e48c1f005da6f9875f5b681ac0554feae4",
+        "explorer": "https://zscan.live/tx/0xdcba5d387a9f90c2cf26f6f1024d98e48c1f005da6f9875f5b681ac0554feae4"
+      },
+      {
+        "checkpoint": 1837,
+        "at": "2026-10-24T18:56:11.833Z",
+        "txid": "0xdbfce8e1d8b1f6529b368e9f8d141cbceff7a75b1607e95a1a5ccc1105d687f8",
+        "explorer": "https://zscan.live/tx/0xdbfce8e1d8b1f6529b368e9f8d141cbceff7a75b1607e95a1a5ccc1105d687f8"
+      }
+    ]
+  },
+  "market": [
+    {
+      "seq": 37,
+      "kind": "REFUND",
+      "at": "2026-09-21T21:22:32.404Z",
+      "summary": "#3 expired-unresolved"
+    },
+    {
+      "seq": 36,
+      "kind": "REFUND",
+      "at": "2026-09-15T11:15:30.121Z",
+      "summary": "#34 no-winners (outcome=YES, winning side empty)"
+    },
+    {
+      "seq": 35,
+      "kind": "SETTLE",
+      "at": "2026-09-15T11:09:38.301Z",
+      "summary": "#26 YES"
+    },
+    {
+      "seq": 34,
+      "kind": "OPEN",
+      "at": "2026-09-15T10:35:05.425Z",
+      "summary": "#? "
+    },
+    {
+      "seq": 33,
+      "kind": "SETTLE",
+      "at": "2026-09-15T10:35:05.209Z",
+      "summary": "#29 YES"
+    },
+    {
+      "seq": 32,
+      "kind": "SETTLE",
+      "at": "2026-09-15T10:34:21.549Z",
+      "summary": "#1 YES"
+    },
+    {
+      "seq": 31,
+      "kind": "STAKE",
+      "at": "2026-09-15T02:57:51.332Z",
+      "summary": "#29 "
+    },
+    {
+      "seq": 30,
+      "kind": "STAKE",
+      "at": "2026-09-15T02:57:51.174Z",
+      "summary": "#29 "
+    },
+    {
+      "seq": 29,
+      "kind": "OPEN",
+      "at": "2026-09-15T02:57:30.924Z",
+      "summary": "#? "
+    },
+    {
+      "seq": 28,
+      "kind": "STAKE",
+      "at": "2026-09-15T01:15:43.502Z",
+      "summary": "#26 "
+    },
+    {
+      "seq": 27,
+      "kind": "STAKE",
+      "at": "2026-09-15T01:15:43.408Z",
+      "summary": "#26 "
+    },
+    {
+      "seq": 26,
+      "kind": "OPEN",
+      "at": "2026-09-15T01:15:37.521Z",
+      "summary": "#? "
+    },
+    {
+      "seq": 25,
+      "kind": "SETTLE",
+      "at": "2026-09-14T23:05:33.047Z",
+      "summary": "#22 YES"
+    },
+    {
+      "seq": 24,
+      "kind": "STAKE",
+      "at": "2026-09-14T23:00:12.829Z",
+      "summary": "#22 "
+    },
+    {
+      "seq": 23,
+      "kind": "STAKE",
+      "at": "2026-09-14T23:00:12.748Z",
+      "summary": "#22 "
+    }
+  ],
+  "brain": [
+    {
+      "fingerprint": "nv-fp:1e332f98b5ef7b9b",
+      "status": "verified",
+      "lastCode": "200",
+      "verifiedAt": "2026-10-24T18:55:39.325Z"
+    },
+    {
+      "fingerprint": "nv-fp:531b3f28a4c50a9a",
+      "status": "verified",
+      "lastCode": "200",
+      "verifiedAt": "2026-10-24T16:45:42.954Z"
+    },
+    {
+      "fingerprint": "nv-fp:596ae055a9069b87",
+      "status": "verified",
+      "lastCode": "200",
+      "verifiedAt": "2026-10-24T16:46:13.317Z"
+    }
+  ],
+  "discoveries": []
+}
