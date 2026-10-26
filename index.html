@@ -129,6 +129,12 @@ h2{font-size:clamp(21px,3.2vw,27px);letter-spacing:-.015em;font-weight:800}
 .infra b{font-size:13.5px}
 .infra span{font-size:11.5px;color:var(--faint)}
 
+/* פנקס-הביצוע · נגישות נמדדת (G77-c) */
+.lprobe{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 15px;font-family:var(--mono);direction:ltr;unicode-bidi:embed;text-align:left;font-size:11px;line-height:1.8;color:var(--dim);white-space:pre-wrap;word-break:break-all;grid-column:1/-1}
+.lprobe .ok{color:#0d9d6d;font-weight:700}
+.lprobe .bad{color:#c2410c;font-weight:700}
+.lprobe .meta{color:var(--text)}
+
 /* api table */
 .apitab{width:100%;border-collapse:collapse;font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .apitab th,.apitab td{text-align:start;padding:10px 14px;border-bottom:1px solid var(--line)}
@@ -414,7 +420,9 @@ footer nav a{font-size:12.5px;padding:0}
       <a href="https://github.com/roshpinacare-sys/saos-runtime" rel="noopener"><b>ניהול-ריצה</b><span>פנקסים וקבלות שיקום</span></a>
       <a href="https://github.com/roshpinacare-sys/sovereign-runner-kit" rel="noopener"><b>ערכת-הצטרפות</b><span>סוכנים חדשים לרשת</span></a>
       <a href="https://github.com/roshpinacare-sys" rel="noopener"><b>GitHub</b><span>הארגון המלא</span></a>
+      <div class="lprobe" id="ledger-probe">[ … מודד-נגישות פנקס-הביצוע … ]</div>
     </div>
+    <p class="why" style="margin-top:8px">חוק-הפנקס: כל-שורה-נגזרת-מפנקס-העבודה · אין-ראיה = לא-קרה. <a href="https://roshpinacare-sys.github.io/Domain/execution.html" style="color:var(--acc-bright)">לפנקס-הביצוע המלא ↗</a></p>
   </section>
 
   <section id="standard" aria-labelledby="h-standard">
@@ -739,5 +747,67 @@ footer nav a{font-size:12.5px;padding:0}
 <div id="agent9-truth-band"></div>
 <script>window.AGENT9_TRUTH_SRC = "/Domain/truth/agent9.json";</script>
 <script src="/Domain/agent9-truth-band.js" defer></script>
+<script src="/Domain/assets/execution-ledger-loader.js"></script>
+<script>
+/* פנקס-הביצוע · בדיקת-נגישות חיה (G77-c) — כל-מקור-נמדד-שורה-שורה, כנות-מלאה.
+   השורש-שנמדד: pages-deploy של-קומיט-הרענון (wave-81) נכשל-502 והדף-היה-תלוי-ב-URL יחיד.
+   כאן: אותה-שרשרת (raw main → jsDelivr → Pages), בבדיקה-חיה מהעמוד-הראשי. */
+(function(){
+  "use strict";
+  var box = document.getElementById('ledger-probe');
+  if (!box) return;
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function clock(){ return new Date().toISOString().slice(0,16); }
+  function render(lines){ box.innerHTML = Array.isArray(lines) ? lines.join('\n') : String(lines); }
+  render('[' + clock() + 'Z] probing execution-ledger sources …');
+
+  var L = window.SAOSLedger;
+  function done(lines){ render(lines && lines.length ? lines : ['[' + clock() + 'Z] probe returned nothing → <span class="bad">fail-honest</span>']); }
+
+  function loaderPath(){
+    return L.loadLedger({ timeoutMs: 8000 }).then(function(r){
+      var lines = [];
+      (r.attempts || []).forEach(function(a){
+        lines.push('[' + clock() + 'Z] ' + String(a.url).replace(/^https?:\/\//,'') + ' → <span class="bad">' + esc(a.error || 'failed') + '</span>' + (typeof a.ms === 'number' ? ' · ' + a.ms + 'ms' : ''));
+      });
+      if (r.ok) {
+        var s = r.source;
+        lines.push('[' + clock() + 'Z] ' + String(s.url).replace(/^https?:\/\//,'') + ' → <span class="ok">HTTP ' + s.status + ' OK</span> · ' + s.size + 'ch · ' + s.ms + 'ms');
+        var d = r.ledger, st = r.staleness || {};
+        var rows = (d.done || []).length + (d.partial || []).length + (d.gaps || []).length + (d.next || []).length;
+        lines.push('<span class="meta">ledger: schema=' + esc(d.schema) + ' · at=' + esc(String(d.at || '').slice(0, 16)) + 'Z · age=' + (st.ok ? st.ageHours + 'h' + (st.stale ? ' STALE(>' + st.thresholdHours + 'h)' : '') : '?') + ' · rows=' + rows + '</span>');
+        lines.push('<span class="meta">law: ' + esc(d.law || '') + '</span>');
+      } else {
+        lines.push('[' + clock() + 'Z] verdict → <span class="bad">fail-honest · no ledger rendered · zero fabricated rows</span>');
+      }
+      return lines;
+    }).catch(function(e){
+      return ['[' + clock() + 'Z] probe crashed: <span class="bad">' + esc(e && e.message ? e.message : 'unknown') + '</span> · fail-honest'];
+    });
+  }
+
+  function inlinePath(){
+    /* דה-גרייד כנה: ה-loader לא-נטען — בדיקת-מקור-יחידה מאותו-דומיין */
+    var t0 = Date.now();
+    return fetch('/Domain/execution-state.json', { cache: 'no-store' }).then(function(res){
+      return res.text().then(function(txt){
+        var lines = ['[' + clock() + 'Z] /Domain/execution-state.json (same-origin · loader-unavailable fallback) → ' + (res.ok ? '<span class="ok">HTTP ' + res.status + ' OK</span>' : '<span class="bad">HTTP ' + res.status + '</span>') + ' · ' + txt.length + 'ch · ' + (Date.now() - t0) + 'ms'];
+        if (res.ok) {
+          try {
+            var d = JSON.parse(txt);
+            var rows = (d.done || []).length + (d.partial || []).length + (d.gaps || []).length + (d.next || []).length;
+            lines.push('<span class="meta">ledger: schema=' + esc(d.schema) + ' · at=' + esc(String(d.at || '').slice(0, 16)) + 'Z · rows=' + rows + '</span>');
+          } catch (e) { lines.push('<span class="bad">JSON parse failed: ' + esc(e.message) + '</span>'); }
+        }
+        return lines;
+      });
+    }).catch(function(e){
+      return ['[' + clock() + 'Z] /Domain/execution-state.json → <span class="bad">' + esc(e && e.message ? e.message : 'network error') + '</span> · fail-honest'];
+    });
+  }
+
+  (L && typeof L.loadLedger === 'function' ? loaderPath() : inlinePath()).then(done);
+})();
+</script>
 </body>
 </html>
