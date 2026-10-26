@@ -1,29 +1,29 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-26T17:24:55.185Z",
+  "generatedAt": "2026-10-26T17:24:57.221Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 137818,
-      "anchors": 0,
+      "checked": 134483,
+      "anchors": 1,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 137846,
-      "anchors": 0,
+      "checked": 134520,
+      "anchors": 1,
       "replayParity": true,
       "brokenAt": null
     },
     "verifyFlap": false,
-    "grade": "8/8",
-    "allPass": true,
+    "grade": "7/8",
+    "allPass": false,
     "claims": [
       {
         "id": "chain-integrity",
-        "pass": true
+        "pass": false
       },
       {
         "id": "law-is-book",
@@ -54,17 +54,17 @@
         "pass": true
       }
     ],
-    "seq": 137825
+    "seq": 135644
   },
   "hosts": [
     {
       "name": "seal-host",
-      "ageMin": 0,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -79,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -89,7 +89,7 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 7,
       "alive": true
     },
     {
@@ -109,7 +109,7 @@
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     }
   ],
@@ -137,45 +137,21 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 43,
-      "commits24h": 73,
-      "last": "vault-seal [auto-economy]: 4 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
-      "lastAt": "2026-10-26T17:18:46Z",
-      "feed": [
-        {
-          "at": "2026-10-26T17:18:46Z",
-          "msg": "vault-seal [auto-economy]: 4 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        },
-        {
-          "at": "2026-10-26T17:17:32Z",
-          "msg": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)"
-        },
-        {
-          "at": "2026-10-26T17:17:31Z",
-          "msg": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "coord-work",
-      "commits2h": 5,
-      "commits24h": 5,
-      "last": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)",
-      "lastAt": "2026-10-26T15:55:09Z",
-      "feed": [
-        {
-          "at": "2026-10-26T15:55:09Z",
-          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
-        },
-        {
-          "at": "2026-10-26T15:49:42Z",
-          "msg": "vault-seal [auto-economy]: 2 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        },
-        {
-          "at": "2026-10-26T15:44:09Z",
-          "msg": "vault-seal [auto-economy]: 11 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "steem",
@@ -239,7 +215,7 @@
     {
       "name": "Console",
       "commits2h": 79,
-      "commits24h": 122,
+      "commits24h": 100,
       "last": "pacemaker receipt: 2026-10-26T17:23:48Z",
       "lastAt": "2026-10-26T17:23:48Z",
       "feed": [
@@ -278,7 +254,7 @@
     {
       "name": "Autonomy",
       "commits2h": 66,
-      "commits24h": 153,
+      "commits24h": 128,
       "last": "grid-watch receipt: 2026-10-26T17:24:42Z",
       "lastAt": "2026-10-26T17:24:42Z",
       "feed": [
@@ -298,9 +274,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 392,
-    "commits24h": 1620
+    "commits2h": 344,
+    "commits24h": 1495
   }
 }
