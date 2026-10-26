@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T15:42:05Z",
+  "generatedAt": "2026-10-26T15:42:34Z",
   "generator": "fleet-runner/pulse-network-renew.ts (directive-42 §4, trace 1a178c71bcb7ddad)",
   "note": "measured-live: כל-ערך נשאב מהצמתים בזמן-החידוש; אין-ראיה = לא-קרה",
   "fleet": {
@@ -22,7 +22,7 @@
     "runner": {
       "jobsTotal": 5397,
       "schedules": 24,
-      "watchdog": "ok@2026-10-26T15:41:42.329Z"
+      "watchdog": "ok@2026-10-26T15:42:34.966Z"
     },
     "economy": {
       "activeSoldiers": 9,
@@ -63,7 +63,7 @@
       "id": "GAP-2",
       "title": "הילוכים — מ-Canary-Gear-1 ל-Gears-2/3 לפי קבלות-ירוקות",
       "status": "GREEN-RECEIPTS-ON-FILE",
-      "measured": "kernel SMOKE-OK (13 אינווריאנטים) · ECONOMY-RUN-OK (77 פעולות-חתומות, שימור-מלא לכל-טיק) · 9 חיילים-פעילים-עם-milויים · ספר 13bids/15asks, ספרד ~23bps · חייל-חדש saos-0004 רישוי-חתום-ופעיל",
+      "measured": "kernel SMOKE-OK (13 אינווריאנטים) · ECONOMY-RUN-OK (77 פעולות-חתומות, שימור-מלא לכל-טיק) · 9 חיילים-פעילים-עם-מילויים · ספר 13bids/15asks, ספרד ~23bps · חייל-חדש saos-0004 רישוי-חתום-ופעיל",
       "evidence": "roshpina kernel-smoke.ts 2026-10-26; economy-run job journal; market /health + /economy/report measured at renew",
       "toClose": "מפעיל/מדיניות מעביר את הגיר פורמלית — הראיות-הירוקות כבר-בפנקס"
     },
@@ -73,7 +73,7 @@
       "status": "AWAKENED-PROOF-PENDING",
       "measured": "iota/kappa מתודלקים-לרצפה-החדשה (חוק-רצפת-דלק צו-42§1: 5 הזרמות-חתומות, 25M µ¢) ומסוטתקים; saos-0004 חדל-רדום→חייל-ריבוני-רשום; mm-oracle ממתין-אות-אורקל (כנה)",
       "evidence": "economy-run 1-c fuel law + ledger /state?tenantId=market accounts",
-      "toClose": "צבירת-milויים-ראשונים לחיילים-המוערים בריצות-המתוזמנות הקרובות"
+      "toClose": "צבירת-מילויים-ראשונים לחיילים-המוערים בריצות-המתוזמנות הקרובות"
     }
   ],
   "chains": {
