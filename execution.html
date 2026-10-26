@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>פנקס-הביצוע | SAOS · מה בוצע, מה לא, מה חסר, מה לבצע</title>
+<meta name="description" content="פנקס-הביצוע הכנה של SAOS: כל-מחזור-סוכן נרשם כאן — מה בוצע (עם-ראיה), מה חלקי, מה חסר, ומה הצעד-הבא. אם-הפנקס-זקן — הדף-יגיד-את-זה.">
+<meta name="theme-color" content="#f5f3f1">
+<link rel="canonical" href="https://roshpinacare-sys.github.io/Domain/execution.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d9d6d' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f5f3f1; --bg2:#efedea; --panel:#ffffff; --panel2:#fafaf9;
+  --line:#e6e2dd; --line2:#d6d0c9;
+  --acc:#0d9d6d; --acc-bright:#0b8a60; --acc-bg:rgba(13,157,109,.07); --acc-line:rgba(13,157,109,.30);
+  --green:#0d9d6d; --red:#c2410c; --amber:#a16207;
+  --text:#1d1d1f; --dim:#57534e; --faint:#8a8580;
+  --mono:ui-monospace,'SF Mono','Cascadia Code',Consolas,Menlo,monospace;
+  --sans:-apple-system,'Segoe UI',Roboto,'Helvetica Neue','Noto Sans Hebrew',Arial,sans-serif;
+  --r:14px; --r-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+a{color:var(--acc-bright);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:8px}
+.mono{font-family:var(--mono);direction:ltr;unicode-bidi:embed}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px;width:100%}
+@media(min-width:760px){.wrap{padding:0 24px}}
+main{flex:1}
+header.top{background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.bar{display:flex;align-items:center;gap:12px;padding:10px 0}
+.brand{font-weight:800;letter-spacing:.2px;font-size:15px}
+.brand small{display:block;font-weight:500;color:var(--faint);font-size:10.5px}
+nav.top{margin-inline-start:auto;display:flex;gap:14px;font-size:13px;flex-wrap:wrap}
+@media(max-width:640px){nav.top{display:none}}
+.hero{padding:34px 0 10px}
+.eyebrow{display:inline-block;font-size:11.5px;color:var(--acc-bright);background:var(--acc-bg);border:1px solid var(--acc-line);border-radius:999px;padding:3px 12px;font-weight:600}
+h1{font-size:clamp(24px,4.4vw,38px);line-height:1.15;margin:12px 0 8px;letter-spacing:-.5px}
+.lead{color:var(--dim);font-size:15.5px;max-width:70ch;line-height:1.65}
+.fresh{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 8px}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--dim)}
+.chip b{color:var(--text)}
+.chip .ok{color:var(--green);font-weight:700}
+.chip .warn{color:var(--amber);font-weight:700}
+.chip .bad{color:var(--red);font-weight:700}
+.banner{display:none;margin:14px 0 0;padding:12px 16px;border-radius:var(--r);font-size:14px;font-weight:600}
+.banner.stale{display:block;background:rgba(194,65,12,.08);border:1px solid rgba(194,65,12,.35);color:var(--red)}
+.banner.fresh-ok{display:block;background:var(--acc-bg);border:1px solid var(--acc-line);color:var(--acc-bright)}
+section.blk{margin:26px 0}
+h2{font-size:19px;margin:0 0 4px;letter-spacing:-.2px}
+.sub{color:var(--faint);font-size:12.5px;margin-bottom:12px}
+.grid{display:grid;gap:12px}
+@media(min-width:760px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.card h3{font-size:14.5px;margin:0 0 6px;display:flex;gap:8px;align-items:baseline}
+.card p{font-size:13px;color:var(--dim);line-height:1.6}
+.ev{margin-top:9px;font-size:11.5px;color:var(--faint);border-top:1px dashed var(--line2);padding-top:8px;line-height:1.55;word-break:break-word}
+.ev b{color:var(--dim)}
+.tag{font-size:10.5px;font-weight:700;border-radius:6px;padding:2px 8px;white-space:nowrap}
+.tag.done{background:rgba(13,157,109,.12);color:var(--green)}
+.tag.part{background:rgba(161,98,7,.12);color:var(--amber)}
+.tag.gap{background:rgba(194,65,12,.12);color:var(--red)}
+.tag.next{background:var(--acc-bg);color:var(--acc-bright);border:1px solid var(--acc-line)}
+.snap{background:var(--panel2);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px}
+.kv{display:flex;justify-content:space-between;gap:14px;font-size:13px;border-bottom:1px dashed var(--line2);padding-bottom:8px}
+.kv:last-child{border:0;padding-bottom:0}
+.kv span{color:var(--dim)}
+.kv b{text-align:left;direction:ltr}
+.kv b.good{color:var(--green)} .kv b.warn{color:var(--amber)} .kv b.bad{color:var(--red)}
+.howto{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;font-size:13px;color:var(--dim);line-height:1.7}
+.howto code{font-family:var(--mono);background:var(--bg2);padding:1px 6px;border-radius:6px;font-size:12px;direction:ltr;unicode-bidi:embed}
+footer{border-top:1px solid var(--line);background:var(--panel);padding:20px 0;margin-top:34px;font-size:12.5px;color:var(--faint)}
+footer a{color:var(--dim)}
+.err{display:none;margin:14px 0;padding:12px 16px;border-radius:var(--r);background:rgba(194,65,12,.08);border:1px solid rgba(194,65,12,.35);color:var(--red);font-size:13.5px;font-weight:600}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <div class="brand">SAOS · פנקס-הביצוע<small>execution-ledger/1 · כנות-מלאה</small></div>
+    <nav class="top" aria-label="ניווט">
+      <a href="index.html">הבית</a>
+      <a href="money.html">הכסף</a>
+      <a href="reports.html">דוחות</a>
+      <a href="truth.html">שער-האמת</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero" aria-label="פנקס-הביצוע">
+      <span class="eyebrow">נכתב-מתוך-פנקס-העבודה האמיתי · בלי-עיצוב-מספרים</span>
+      <h1>מה בוצע, מה לא,<br>מה חסר, מה לבצע</h1>
+      <p class="lead">זה התשובה לשאלה "מה בעצם קורה": כל-מחזור-סוכן מתועד-בפנקס-העבודה בגיט, והדף-הזה מזקק-אותו-לשורות-עם-ראיות. מה-שלא-הוכח — רשום-כלא-בוצע.</p>
+      <div class="fresh" id="chips" aria-live="polite">
+        <span class="chip">טוען-פנקס…</span>
+      </div>
+      <div class="banner" id="staleBanner" role="alert"></div>
+      <div class="err" id="loadErr">⚠️ פנקס-הביצוע (execution-state.json) לא-נטען — הכתובת-קיימת-אך-המקור-לא-נגיש. זו-בעיה-אמיתית-ולא-מסך-נסתר.</div>
+    </section>
+
+    <section class="blk" aria-label="מצב-מדוד-עכשיו">
+      <h2>המצב-המדוד · עכשיו</h2>
+      <p class="sub">חטיבת-מדידה-אחת מהריצה-האחרונה-שנאספה-לפנקס · כל-ערך-נושא-מקור</p>
+      <div class="snap" id="snap"></div>
+    </section>
+
+    <section class="blk" aria-label="מה בוצע">
+      <h2>✅ בוצע-ומוכח</h2>
+      <p class="sub">כל-שורה-עם-ראיה בדיסק-או-בריצת-CI — לחץ-לבדיקה-עצמאית בגיט</p>
+      <div class="grid c2" id="done"></div>
+    </section>
+
+    <section class="blk" aria-label="מה חלקי">
+      <h2>🔶 חלקי — חי-אך-לא-שלם</h2>
+      <p class="sub">מה שעובד-באמת-אך-עוד-לא-עומד-ביעד שהוצב-לו</p>
+      <div class="grid c2" id="partial"></div>
+    </section>
+
+    <section class="blk" aria-label="מה חסר">
+      <h2>❌ פערים — מה-שעוד-אין</h2>
+      <p class="sub">רשימת-הליטוש הכנה, לפי-חומרה — בלי-להסתיר-כלום</p>
+      <div class="grid c2" id="gaps"></div>
+    </section>
+
+    <section class="blk" aria-label="מה לבצע">
+      <h2>▶️ לבצע-הבא · בסדר-עדיפויות</h2>
+      <p class="sub">הצעדים-הבאים עם-אחריות-מוגדרת — הרשימה-הזו-היא-התוכנית-פתוחה</p>
+      <div class="grid c2" id="next"></div>
+    </section>
+
+    <section class="blk" aria-label="איך לאמת">
+      <h2>איך-מאמתים-את-כל-זה בעצמך</h2>
+      <div class="howto">
+        · פנקס-העבודה המלא (444 מחזורים): <code>github.com/roshpinacare-sys/my-project → worklog.md</code><br>
+        · הריצות-חיות של הגריד: <code>github.com/roshpinacare-sys/saos-dex/actions</code><br>
+        · ספר-הרווח-החוץ הטרי: <code>saos-dex → grids/state/external-profit-public.json</code><br>
+        · הספרים-החיים-של-המשרד: <code>mirror.json</code> ו-<code>agents/execution-metrics.json</code> בריפו-הזה (נכתבים-אוטומטית על-ידי רופא-הצי)<br>
+        · החוק: <b>אם-אין-ראיה-בגיט — זה-לא-קרה.</b> הדף-הזה-מציג-רק-מה-שיש-לו-ראיה, ומדווח-על-זקנה-בעצמו.
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    SAOS · פנקס-הביצוע · execution-ledger/1 · מחויב-לרענון-בכל-מחזור-סוכן ·
+    <a href="index.html">הבית</a> · <a href="money.html">הכסף</a> · <a href="reports.html">דוחות</a> · <a href="truth.html">שער-האמת</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  function el(id){return document.getElementById(id)}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function fmtAgo(iso){
+    var t=Date.parse(iso); if(!t) return null;
+    var h=(Date.now()-t)/36e5;
+    if(h<1) return 'לפני-פחות-משעה';
+    if(h<48) return 'לפני-'+(h<10?(Math.round(h*10)/10):Math.round(h))+'-שעות';
+    return 'לפני-'+Math.round(h/24)+'-ימים';
+  }
+  function card(item, tagCls, tagTxt){
+    return '<article class="card"><h3><span class="tag '+tagCls+'">'+tagTxt+'</span>'+esc(item.title)+'</h3>'+
+      '<p>'+esc(item.detail)+'</p>'+
+      '<div class="ev"><b>ראיה:</b> '+esc(item.evidence||'—')+'</div></article>';
+  }
+  function snapRow(k,v,cls){
+    return '<div class="kv"><span>'+esc(k)+'</span><b class="'+(cls||'')+'">'+esc(v)+'</b></div>';
+  }
+
+  fetch('execution-state.json',{cache:'no-store'}).then(function(r){
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(function(d){
+    el('loadErr').style.display='none';
+    var age=fmtAgo(d.at);
+    var hours=(Date.now()-Date.parse(d.at))/36e5;
+    var banner=el('staleBanner');
+    if(hours>=(d.freshness&&d.freshness.staleAfterHours||48)){
+      banner.className='banner stale';
+      banner.textContent='⚠️ פנקס-הביצוע זקן: עודכן '+age+' — מעבר לסף-ה-48ש׳. נדרש מחזור-סוכן לרענון. המספרים-למטה-הם-המצב-בעת-הכתיבה, לא-עכשיו.';
+    }else{
+      banner.className='banner fresh-ok';
+      banner.textContent='✔ פנקס-טרי: עודכן '+age+' · מקור: פנקס-העבודה בגיט ('+esc(d.sourceWorklog||'')+')';
+    }
+    var chips=el('chips');
+    chips.innerHTML =
+      '<span class="chip">עודכן: <b class="mono">'+esc((d.at||'').slice(0,16).replace('T',' '))+'Z</b> ('+esc(age||'?')+')</span>'+
+      '<span class="chip">סכימה: <b class="mono">'+esc(d.schema||'')+'</b></span>'+
+      '<span class="chip">מחזורים-מתועדים בפנקס-העבודה: <b class="mono">444</b></span>'+
+      '<span class="chip">חוק: <b>אין-ראיה = לא-קרה</b></span>';
+
+    var s=d.measuredSnapshot||{};
+    var cls=function(v){return (v&&v.indexOf&&v.indexOf('ARMED-LIVE')>=0)?'good':(v&&v.indexOf&&v.indexOf('WAITING')>=0)?'warn':'bad'};
+    el('snap').innerHTML =
+      snapRow('שירותים-חיים', s.services||'—','good')+
+      snapRow('סנכרון-הריפוים', s.reposInSync||'—','good')+
+      snapRow('verdict-הגריד', s.gridVerdict||'—','warn')+
+      snapRow('שומר-הערך (VALUE-GUARD)', s.valueGuard||'—','good')+
+      snapRow('רווח-חוץ מדוד-24ש׳ (USD)', '$'+(s.externalProfit24hUsd!=null?s.externalProfit24hUsd:'—')+' · '+(s.externalProfitSource||''),'warn')+
+      snapRow('רווח-חוץ היסטורי (USD, לא-מעוצב)', '$'+(s.externalFlowUsdHistoric!=null?s.externalFlowUsdHistoric:'—'),'warn')+
+      snapRow('מילויים-ריאליים-של-צד-שלישי (lifetime)', String(s.realFillsLifetime!=null?s.realFillsLifetime:'—')+' · מול '+String(s.fillRecordsLedger!=null?s.fillRecordsLedger:'—')+' רשומות-ראיה','bad');
+
+    el('done').innerHTML=(d.done||[]).map(function(x){return card(x,'done','בוצע')}).join('');
+    el('partial').innerHTML=(d.partial||[]).map(function(x){return card(x,'part','חלקי')}).join('');
+    el('gaps').innerHTML=(d.gaps||[]).map(function(x){return card(x,'gap','פער')}).join('');
+    el('next').innerHTML=(d.next||[]).map(function(x){
+      return '<article class="card"><h3><span class="tag next">לבצע</span>'+esc(x.title)+'</h3>'+
+        '<p>'+esc(x.detail)+'</p>'+
+        '<div class="ev"><b>אחריות:</b> '+esc(x.owner||'—')+'</div></article>';
+    }).join('');
+  }).catch(function(e){
+    el('loadErr').style.display='block';
+    el('chips').innerHTML='<span class="chip"><b class="bad">מקור-לא-נגיש</b></span>';
+    if(window.console) console.warn('execution-state load failed:', e);
+  });
+
+  // רצועת-חיות: הספרים-האוטומטיים שרופא-הצי כותב — אם-הם-טריים, המשרד-חי
+  fetch('mirror.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(m){
+    if(!m||!m.at) return;
+    var age=fmtAgo(m.at);
+    var c=document.createElement('span');
+    c.className='chip';
+    var h=(Date.now()-Date.parse(m.at))/36e5;
+    c.innerHTML='רופא-הצי (mirror.json): <b class="'+(h<6?'ok':(h<24?'warn':'bad'))+'">'+esc(age||'—')+'</b> · בית-ציבורי: '+esc((m.public&&m.public.head||'').slice(0,28));
+    el('chips').appendChild(c);
+  }).catch(function(){});
+})();
+</script>
+<script src="assets/bidi-fix.js" defer></script>
+</body>
+</html>
