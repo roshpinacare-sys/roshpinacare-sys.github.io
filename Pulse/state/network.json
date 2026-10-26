@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T15:42:34Z",
+  "generatedAt": "2026-10-26T15:47:33Z",
   "generator": "fleet-runner/pulse-network-renew.ts (directive-42 §4, trace 1a178c71bcb7ddad)",
   "note": "measured-live: כל-ערך נשאב מהצמתים בזמן-החידוש; אין-ראיה = לא-קרה",
   "fleet": {
@@ -9,41 +9,41 @@
       "runner": "UP"
     },
     "market": {
-      "settledTrades": 417,
-      "bids": 14,
-      "asks": 16,
+      "settledTrades": 440,
+      "bids": 13,
+      "asks": 15,
       "desk": "on"
     },
     "ledger": {
-      "seq": 1668,
+      "seq": 1684,
       "accounts": 31,
       "operatorKeys": 1
     },
     "runner": {
-      "jobsTotal": 5397,
+      "jobsTotal": 5404,
       "schedules": 24,
-      "watchdog": "ok@2026-10-26T15:42:34.966Z"
+      "watchdog": "ok@2026-10-26T15:47:28.005Z"
     },
     "economy": {
       "activeSoldiers": 9,
       "fillsByAgent": {
-        "alpha": 1033,
-        "bravo": 1453,
+        "alpha": 1037,
+        "bravo": 1476,
         "gamma": 39,
         "delta": 4,
         "epsilon": 91,
-        "zeta": 93,
+        "zeta": 104,
         "eta": 74,
-        "theta": 9,
+        "theta": 10,
         "iota": 0,
         "kappa": 0,
-        "mm-grid": 114,
+        "mm-grid": 121,
         "mm-oracle": 0,
         "saos-0004": 0
       },
-      "settledTrades": 417,
+      "settledTrades": 440,
       "conservation": "HOLDS",
-      "platformFees": "275419"
+      "platformFees": "282714"
     }
   },
   "economy": {
@@ -55,7 +55,7 @@
       "id": "GAP-1",
       "title": "חומת-מחשוב (compute wall) — כיסוי-פנימי של עלות-הריפו-הפרטי",
       "status": "OPEN-PARTIAL",
-      "measured": "platformFees=275419 µ¢ (רווח-פלטפורמה חי) · FixedFloat lane OPENED+AUTH-OK (quote חי נמדד 2026-10-26; HIVE/STEEM לא-רשומים-שם — מדידה, לא-הנחה)",
+      "measured": "platformFees=282714 µ¢ (רווח-פלטפורמה חי) · FixedFloat lane OPENED+AUTH-OK (quote חי נמדד 2026-10-26; HIVE/STEEM לא-רשומים-שם — מדידה, לא-הנחה)",
       "evidence": "fleet-runner data/vault/fixedfloat.env sealed; scripts/fixedfloat-quote.ts; economy /economy/report fees counter",
       "toClose": "הגדלת-נפח-עמלות דרך gear-2/3 (ראה GAP-2) עד שהעמלות מכסות-את-עלות-ה-runner"
     },
