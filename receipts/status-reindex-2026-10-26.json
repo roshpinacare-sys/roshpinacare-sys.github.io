@@ -1,0 +1,97 @@
+{
+  "schema": "saos/status-publication-refresh/1",
+  "at": "2026-10-26T16:05:40Z",
+  "task": "E10 — re-index public status site to 2026-10-26 and push (EMERGENCY §2 last mile)",
+  "measurements": {
+    "dexEngine": {
+      "up": true,
+      "http": 200,
+      "wallets": 24,
+      "height": 1747367,
+      "halted": false,
+      "measuredAt": "2026-10-26T14:54Z",
+      "note": "P1 measured GET /saos-dex/api/dex/state → 200; 16:04Z independent probe hit the engine's own honest-budget limiter (429, 240 req/min per IP) — limiter alive = process alive",
+      "source": "http://127.0.0.1:3010/saos-dex/api/dex/state"
+    },
+    "hftMesh": {
+      "soldiersAlive": 6,
+      "soldiersTotal": 6,
+      "mode": "trade",
+      "phase": "running",
+      "chainVerifies": true,
+      "ticksSum": 10698,
+      "ports": { "hft-soldier": 3049, "bot-e": 3040, "yarden": 3041, "tamar": 4042, "shachar": 4043, "aluf": 3044 },
+      "portCorrection": "tamar/shachar serve on :4042/:4043 — :3042/:3043 are saos-metrics/saos-builder (verified by issuer field in /health bodies, 16:04Z)",
+      "measuredAt": "2026-10-26T16:04Z",
+      "source": "GET /health on each soldier port (127.0.0.1)"
+    },
+    "selfFinancing": {
+      "activationPct": 100,
+      "rosterSize": 11,
+      "activeCount": 11,
+      "blockers": [],
+      "cycles": 4,
+      "measuredAt": "2026-10-26T16:05Z",
+      "source": "http://127.0.0.1:3061/state"
+    },
+    "architectDaemon": {
+      "ok": true,
+      "service": "saos-architect-daemon",
+      "lastCycleVerdict": "no-work",
+      "lastCycleErrors": "0→0",
+      "trunk": "green (tsc: 0 errors)",
+      "measuredAt": "2026-10-26T16:05Z",
+      "source": "http://127.0.0.1:3051/health"
+    },
+    "fleetEconomy": {
+      "seq": 75681,
+      "measuredAt": "2026-10-26T16:00Z",
+      "source": "E7 lane: GET :3016/health → 200 {ok:true,seq:75681}",
+      "honestGap": "16:06Z probe: no listener on :3016 (ss -ltnp) — organ down at probe time, held by its reviver cadence; fact published with its own measurement timestamp, not re-claimed live"
+    },
+    "security": {
+      "operatorGates": "deny-by-default on every mutating organ endpoint",
+      "vaultSyncClobberGuard": "applied",
+      "source": "P1 gate sweep (worklog Task ID: P1) + brief verified facts"
+    },
+    "gitOps": {
+      "giantMain": "e7faba2f8eb06cd71d5f10c43ef61f404b769ddc",
+      "fleetEconomyMain": "6336c6e1f1cd5f11494dcc531c6a3fc48cebec75",
+      "measuredAt": "2026-10-26T16:06Z",
+      "source": "git ls-remote origin main (brief anchors: giant 42caef3+, fleet-economy c9f9e4a3 — both advanced since)"
+    }
+  },
+  "claims": [
+    {
+      "claim": "sovereign status re-index block (engine + mesh + activation + trunk + security + git tips)",
+      "files": "index.html + index-en.html",
+      "changed": true,
+      "before": "no 2026-10-26 sovereign-engine status block on either page",
+      "after": "lawchip status block dated 2026-10-26, every number with its own measured-at stamp",
+      "source": "measurements above",
+      "measuredAt": "2026-10-26T16:05:40Z",
+      "reason": null
+    },
+    {
+      "claim": "build stamps",
+      "files": "index.html + index-en.html",
+      "changed": true,
+      "before": "saos-build/footer built: 2026-10-26T14:29Z · version 57765ad0",
+      "after": "saos-build/footer built: 2026-10-26T16:03Z · version 75518c29 (git rev-parse --short=8 HEAD at build time)",
+      "source": "git rev-parse --short=8 HEAD (this repo)",
+      "measuredAt": "2026-10-26T16:03Z",
+      "reason": null
+    }
+  ],
+  "buildStamps": {
+    "stamp": "2026-10-26T16:03Z",
+    "version": "75518c29",
+    "pages": [
+      { "file": "index.html", "changed": true },
+      { "file": "index-en.html", "changed": true },
+      { "file": "receipts/status-reindex-2026-10-26.json (this receipt)", "changed": true }
+    ],
+    "untouched": "giant.html / roast.html / standard.html / sitemap.xml root lastmod already 2026-10-26; standard.html rows remain dated 2026-10-12 (their own honest audit date, not re-measured by this task)"
+  },
+  "law": "only re-measured claims were rewritten; everything unreachable keeps its dated honest value and is logged here with a reason"
+}
