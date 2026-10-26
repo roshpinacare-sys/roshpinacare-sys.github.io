@@ -1,0 +1,113 @@
+{
+  "schema": "saos/status-publication-refresh/1",
+  "at": "2026-10-26T14:29:02.480Z",
+  "task": "G76-f — Oct-26 status publication refresh (owner directive §5)",
+  "measurements": {
+    "statusJson": {
+      "generatedAt": "2026-10-26T13:56:49.440Z",
+      "summary": {
+        "ALIVE": 20,
+        "MIXED": 5,
+        "STALE": 11,
+        "IDLE": 13
+      },
+      "reposPublic": 40,
+      "source": "https://raw.githubusercontent.com/roshpinacare-sys/Domain/main/status.json"
+    },
+    "gridWatch": {
+      "generatedAt": "2026-10-26T13:21:33.496Z",
+      "source": "https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json"
+    },
+    "agent9Clock": {
+      "beatsToday": 64,
+      "revivalsToday": 3,
+      "revivalRunsToday": 3,
+      "lastRevivalAt": "2026-10-26T10:32:21Z",
+      "lastBeatAt": "2026-10-26T14:10:21Z",
+      "source": "https://api.github.com/repos/roshpinacare-sys/agent9-clock/actions/runs (runs created 2026-10-26 UTC)"
+    },
+    "continuedChain": {
+      "head": 80,
+      "headCommitAt": "2026-10-25T16:39:33Z",
+      "source": "https://raw.githubusercontent.com/roshpinacare-sys/sovereign-runner-kit/main/AGENT-COORDINATION.md + commits API?path=AGENT-COORDINATION.md"
+    },
+    "buildVersion": {
+      "head": "94d18e0c",
+      "source": "git rev-parse --short=8 HEAD (this repo)",
+      "measuredAt": "2026-10-26T14:29:02.480Z"
+    }
+  },
+  "claims": [
+    {
+      "claim": "org status citation (reposPublic + status.json generatedAt)",
+      "files": "index.html + index-en.html",
+      "changed": true,
+      "before": "count 40 / stamp 2026-10-25T15:22Z",
+      "after": "count 40 / stamp 2026-10-26T13:56Z",
+      "source": "https://raw.githubusercontent.com/roshpinacare-sys/Domain/main/status.json",
+      "measuredAt": "2026-10-26T13:56:49.440Z",
+      "reason": null
+    },
+    {
+      "claim": "CONTINUED chain head",
+      "files": "index.html + index-en.html",
+      "changed": true,
+      "before": "head #79 / commit 2026-10-24T20:31Z",
+      "after": "head #80 / commit 2026-10-25T16:39:33Z",
+      "source": "https://raw.githubusercontent.com/roshpinacare-sys/sovereign-runner-kit/main/AGENT-COORDINATION.md + commits API?path=AGENT-COORDINATION.md",
+      "measuredAt": "2026-10-25T16:39:33Z",
+      "reason": null
+    },
+    {
+      "claim": "self-chaining clock line",
+      "files": "index.html + index-en.html",
+      "changed": true,
+      "before": "72 beats · 3 revivals, measured 2026-10-25 16:09Z",
+      "after": "64 beats · 3 revivals (last 10:32Z), measured 2026-10-26 14:29Z",
+      "source": "https://api.github.com/repos/roshpinacare-sys/agent9-clock/actions/runs (runs created 2026-10-26 UTC)",
+      "measuredAt": "2026-10-26T14:29:02.480Z",
+      "reason": null
+    },
+    {
+      "claim": "GridWatch census citation",
+      "files": "giant.html",
+      "changed": true,
+      "before": "2026-10-25T15:28Z",
+      "after": "2026-10-26T13:21Z",
+      "source": "https://raw.githubusercontent.com/roshpinacare-sys/GridWatch/main/state/fleet-health.json",
+      "measuredAt": "2026-10-26T13:21:33.496Z",
+      "reason": null
+    }
+  ],
+  "buildStamps": {
+    "stamp": "2026-10-26T14:29Z",
+    "version": "94d18e0c",
+    "pages": [
+      {
+        "file": "index.html",
+        "changed": true
+      },
+      {
+        "file": "index-en.html",
+        "changed": true
+      },
+      {
+        "file": "giant.html",
+        "changed": true
+      },
+      {
+        "file": "roast.html",
+        "changed": true
+      },
+      {
+        "file": "standard.html",
+        "changed": true
+      },
+      {
+        "file": "sitemap.xml (touched root pages only)",
+        "changed": true
+      }
+    ]
+  },
+  "law": "only re-measured claims were rewritten; everything unreachable keeps its dated honest value and is logged here with a reason"
+}
