@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-26T16:03:07.963Z",
+  "generatedAt": "2026-10-26T16:03:17.756Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 92220,
+      "checked": 91146,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 92247,
+      "checked": 91169,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,13 +54,13 @@
         "pass": true
       }
     ],
-    "seq": 92220
+    "seq": 91146
   },
   "hosts": [
     {
       "name": "seal-host",
-      "ageMin": 0,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "economy-beat-host",
@@ -89,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 2,
+      "ageMin": 5,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 5,
+      "alive": true
     },
     {
       "name": "gates-host",
@@ -104,7 +104,7 @@
     },
     {
       "name": "liveness-host",
-      "ageMin": 10,
+      "ageMin": 11,
       "alive": true
     },
     {
@@ -137,45 +137,21 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 41,
-      "commits24h": 42,
-      "last": "worktree-union-push [reviver]: 3-קבצים אוחדו-ב-worktree-מבודד (origin-5ec280a ∪ local-cd35b5a) · אפס-מחיקות · העץ-החי-לא",
-      "lastAt": "2026-10-26T16:00:44Z",
-      "feed": [
-        {
-          "at": "2026-10-26T16:00:44Z",
-          "msg": "worktree-union-push [reviver]: 3-קבצים אוחדו-ב-worktree-מבודד (origin-5ec280a ∪ local-cd35b5a) · אפס-מחיקות · "
-        },
-        {
-          "at": "2026-10-26T15:57:38Z",
-          "msg": "rail-canonical-adopt: sha-verified adoption cures the erasure storm at the writer + push-triggered rail-restor"
-        },
-        {
-          "at": "2026-10-26T15:55:26Z",
-          "msg": "economy: hft receipt→ledger ingest bridge (E7)"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "coord-work",
-      "commits2h": 5,
-      "commits24h": 7,
-      "last": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)",
-      "lastAt": "2026-10-26T15:55:09Z",
-      "feed": [
-        {
-          "at": "2026-10-26T15:55:09Z",
-          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
-        },
-        {
-          "at": "2026-10-26T15:49:42Z",
-          "msg": "vault-seal [auto-economy]: 2 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        },
-        {
-          "at": "2026-10-26T15:44:09Z",
-          "msg": "vault-seal [auto-economy]: 11 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "steem",
@@ -200,11 +176,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 21,
+      "commits2h": 22,
       "commits24h": 46,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 384 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-26T15:52:55Z",
+      "last": "life-pulse [liveness-host]: engine 8/8 · 379 פעולות-2ש' · 10/11 מארחים-חיים",
+      "lastAt": "2026-10-26T16:03:08Z",
       "feed": [
+        {
+          "at": "2026-10-26T16:03:08Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 379 פעולות-2ש' · 10/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-26T15:52:55Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 384 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -212,10 +192,6 @@
         {
           "at": "2026-10-26T15:47:33Z",
           "msg": "pulse-network-renew 2026-10-26T15:47:33Z"
-        },
-        {
-          "at": "2026-10-26T15:47:31Z",
-          "msg": "execution-ledger-renew 2026-10-26T15:47:28Z"
         }
       ]
     },
@@ -242,8 +218,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 62,
-      "commits24h": 62,
+      "commits2h": 40,
+      "commits24h": 40,
       "last": "pacemaker receipt: 2026-10-26T15:56:09Z",
       "lastAt": "2026-10-26T15:56:10Z",
       "feed": [
@@ -281,22 +257,22 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 76,
-      "commits24h": 105,
-      "last": "[state] tick#1178 auto: 2026-10-26T16:02:23Z",
-      "lastAt": "2026-10-26T16:02:24Z",
+      "commits2h": 78,
+      "commits24h": 82,
+      "last": "value-scan: 2026-10-26T16:03:14Z [skip ci]",
+      "lastAt": "2026-10-26T16:03:14Z",
       "feed": [
+        {
+          "at": "2026-10-26T16:03:14Z",
+          "msg": "value-scan: 2026-10-26T16:03:14Z [skip ci]"
+        },
+        {
+          "at": "2026-10-26T16:03:13Z",
+          "msg": "pacer: beat receipt [run 40355296751]"
+        },
         {
           "at": "2026-10-26T16:02:24Z",
           "msg": "[state] tick#1178 auto: 2026-10-26T16:02:23Z"
-        },
-        {
-          "at": "2026-10-26T15:51:12Z",
-          "msg": "[federation] git-estate ledger: 2026-10-26T15:51:12Z"
-        },
-        {
-          "at": "2026-10-26T15:51:08Z",
-          "msg": "[verifier] honest verdict: 2026-10-26T15:51:06Z"
         }
       ]
     }
@@ -304,7 +280,7 @@
   "totals": {
     "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 379,
-    "commits24h": 1514
+    "commits2h": 314,
+    "commits24h": 1420
   }
 }
