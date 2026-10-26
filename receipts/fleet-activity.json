@@ -1,29 +1,29 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-26T17:35:08.475Z",
+  "generatedAt": "2026-10-26T17:35:09.300Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 143575,
-      "anchors": 0,
+      "checked": 139874,
+      "anchors": 1,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 143609,
-      "anchors": 0,
+      "checked": 139902,
+      "anchors": 1,
       "replayParity": true,
       "brokenAt": null
     },
     "verifyFlap": false,
-    "grade": "8/8",
-    "allPass": true,
+    "grade": "7/8",
+    "allPass": false,
     "claims": [
       {
         "id": "chain-integrity",
-        "pass": true
+        "pass": false
       },
       {
         "id": "law-is-book",
@@ -54,13 +54,13 @@
         "pass": true
       }
     ],
-    "seq": 143582
+    "seq": 141027
   },
   "hosts": [
     {
       "name": "seal-host",
-      "ageMin": 0,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "economy-beat-host",
@@ -89,7 +89,7 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 7,
       "alive": true
     },
     {
@@ -109,7 +109,7 @@
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     }
   ],
@@ -137,45 +137,21 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 43,
-      "commits24h": 77,
-      "last": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
-      "lastAt": "2026-10-26T17:28:46Z",
-      "feed": [
-        {
-          "at": "2026-10-26T17:28:46Z",
-          "msg": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        },
-        {
-          "at": "2026-10-26T17:27:53Z",
-          "msg": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)"
-        },
-        {
-          "at": "2026-10-26T17:27:53Z",
-          "msg": "vault-seal [seal-host]: re-seal 1 — החיים-נושמים-בין-סטפים (גל-105b)"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "coord-work",
-      "commits2h": 3,
-      "commits24h": 5,
-      "last": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)",
-      "lastAt": "2026-10-26T15:55:09Z",
-      "feed": [
-        {
-          "at": "2026-10-26T15:55:09Z",
-          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
-        },
-        {
-          "at": "2026-10-26T15:49:42Z",
-          "msg": "vault-seal [auto-economy]: 2 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        },
-        {
-          "at": "2026-10-26T15:44:09Z",
-          "msg": "vault-seal [auto-economy]: 11 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
-        }
-      ]
+      "commits2h": null,
+      "commits24h": null,
+      "last": null,
+      "lastAt": null,
+      "feed": null,
+      "error": "no-clone"
     },
     {
       "name": "steem",
@@ -239,7 +215,7 @@
     {
       "name": "Console",
       "commits2h": 85,
-      "commits24h": 133,
+      "commits24h": 111,
       "last": "pacemaker receipt: 2026-10-26T17:35:00Z",
       "lastAt": "2026-10-26T17:35:01Z",
       "feed": [
@@ -278,7 +254,7 @@
     {
       "name": "Autonomy",
       "commits2h": 64,
-      "commits24h": 156,
+      "commits24h": 131,
       "last": "[state] tick#1184 auto: 2026-10-26T17:29:28Z",
       "lastAt": "2026-10-26T17:29:28Z",
       "feed": [
@@ -298,9 +274,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 392,
-    "commits24h": 1638
+    "commits2h": 346,
+    "commits24h": 1509
   }
 }
