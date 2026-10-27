@@ -1,15 +1,60 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T12:30:02.127Z",
+  "generatedAt": "2026-10-27T12:30:26.960Z",
   "engine": {
-    "up": false,
-    "verify": null,
-    "verifySecond": null,
+    "up": true,
+    "verify": {
+      "ok": true,
+      "checked": 6048,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
+    "verifySecond": {
+      "ok": true,
+      "checked": 6130,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
     "verifyFlap": false,
-    "grade": null,
-    "allPass": null,
-    "claims": null,
-    "seq": null
+    "grade": "8/8",
+    "allPass": true,
+    "claims": [
+      {
+        "id": "chain-integrity",
+        "pass": true
+      },
+      {
+        "id": "law-is-book",
+        "pass": true
+      },
+      {
+        "id": "no-negative-balances",
+        "pass": true
+      },
+      {
+        "id": "windows-alive",
+        "pass": true
+      },
+      {
+        "id": "tax-at-law-rate",
+        "pass": true
+      },
+      {
+        "id": "owner-report-cadence",
+        "pass": true
+      },
+      {
+        "id": "runway-guard",
+        "pass": true
+      },
+      {
+        "id": "pace-at-equilibrium",
+        "pass": true
+      }
+    ],
+    "seq": 6048
   },
   "hosts": [
     {
@@ -49,7 +94,7 @@
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 10,
+      "ageMin": 11,
       "alive": true
     },
     {
@@ -92,12 +137,24 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": null,
-      "commits24h": null,
-      "last": null,
-      "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "commits2h": 4,
+      "commits24h": 4,
+      "last": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)",
+      "lastAt": "2026-10-27T12:29:56Z",
+      "feed": [
+        {
+          "at": "2026-10-27T12:29:56Z",
+          "msg": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)"
+        },
+        {
+          "at": "2026-10-27T12:29:52Z",
+          "msg": "[builder] acts=0 metrics=1 backlog=0 · צמיחה-ריבונית מאוטמת"
+        },
+        {
+          "at": "2026-10-27T12:26:44Z",
+          "msg": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
+        }
+      ]
     },
     {
       "name": "coord-work",
@@ -135,11 +192,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 8,
+      "commits2h": 9,
       "commits24h": 32,
-      "last": "life-pulse [liveness-host]: engine — · 111 פעולות-2ש' · 4/11 מארחים-חיים",
-      "lastAt": "2026-10-27T12:20:15Z",
+      "last": "life-pulse [liveness-host]: engine — · 170 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-27T12:30:03Z",
       "feed": [
+        {
+          "at": "2026-10-27T12:30:03Z",
+          "msg": "life-pulse [liveness-host]: engine — · 170 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T12:20:15Z",
           "msg": "life-pulse [liveness-host]: engine — · 111 פעולות-2ש' · 4/11 מארחים-חיים"
@@ -147,16 +208,12 @@
         {
           "at": "2026-10-27T12:19:46Z",
           "msg": "life-pulse [liveness-host]: engine — · 106 פעולות-2ש' · 5/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-27T12:03:25Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 182 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 85,
+      "commits2h": 84,
       "commits24h": 1052,
       "last": "office-worldbeat: advance the persistent world",
       "lastAt": "2026-10-27T12:28:27Z",
@@ -177,8 +234,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 13,
-      "commits24h": 13,
+      "commits2h": 12,
+      "commits24h": 12,
       "last": "pacemaker receipt: 2026-10-27T12:29:17Z",
       "lastAt": "2026-10-27T12:29:17Z",
       "feed": [
@@ -216,8 +273,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 35,
-      "commits24h": 35,
+      "commits2h": 34,
+      "commits24h": 34,
       "last": "treasury-consolidation receipt: 2026-10-27T12:25:59Z [skip ci]",
       "lastAt": "2026-10-27T12:25:59Z",
       "feed": [
@@ -239,7 +296,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 170,
-    "commits24h": 1308
+    "commits2h": 172,
+    "commits24h": 1310
   }
 }
