@@ -1,60 +1,15 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T13:11:18.214Z",
+  "generatedAt": "2026-10-27T13:11:30.767Z",
   "engine": {
-    "up": true,
-    "verify": {
-      "ok": true,
-      "checked": 53796,
-      "anchors": 0,
-      "replayParity": true,
-      "brokenAt": null
-    },
-    "verifySecond": {
-      "ok": true,
-      "checked": 53821,
-      "anchors": 0,
-      "replayParity": true,
-      "brokenAt": null
-    },
+    "up": false,
+    "verify": null,
+    "verifySecond": null,
     "verifyFlap": false,
-    "grade": "8/8",
-    "allPass": true,
-    "claims": [
-      {
-        "id": "chain-integrity",
-        "pass": true
-      },
-      {
-        "id": "law-is-book",
-        "pass": true
-      },
-      {
-        "id": "no-negative-balances",
-        "pass": true
-      },
-      {
-        "id": "windows-alive",
-        "pass": true
-      },
-      {
-        "id": "tax-at-law-rate",
-        "pass": true
-      },
-      {
-        "id": "owner-report-cadence",
-        "pass": true
-      },
-      {
-        "id": "runway-guard",
-        "pass": true
-      },
-      {
-        "id": "pace-at-equilibrium",
-        "pass": true
-      }
-    ],
-    "seq": 53796
+    "grade": null,
+    "allPass": null,
+    "claims": null,
+    "seq": null
   },
   "hosts": [
     {
@@ -64,7 +19,7 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -79,7 +34,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -89,12 +44,12 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 1,
+      "ageMin": 2,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 6,
+      "ageMin": 7,
       "alive": true
     },
     {
@@ -104,12 +59,12 @@
     },
     {
       "name": "liveness-host",
-      "ageMin": 10,
+      "ageMin": 11,
       "alive": true
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     }
   ],
@@ -137,8 +92,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 23,
-      "commits24h": 23,
+      "commits2h": 41,
+      "commits24h": 136,
       "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
       "lastAt": "2026-10-27T13:06:57Z",
       "feed": [
@@ -200,11 +155,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 16,
-      "commits24h": 39,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 250 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-27T13:01:06Z",
+      "commits2h": 17,
+      "commits24h": 41,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 288 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-27T13:11:18Z",
       "feed": [
+        {
+          "at": "2026-10-27T13:11:18Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 288 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T13:01:06Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 250 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -212,10 +171,6 @@
         {
           "at": "2026-10-27T12:50:53Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 212 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-27T12:50:33Z",
-          "msg": "life-pulse [liveness-host]: engine — · 201 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
@@ -242,11 +197,15 @@
     },
     {
       "name": "Console",
-      "commits2h": 42,
-      "commits24h": 42,
-      "last": "pacemaker receipt: 2026-10-27T13:10:36Z",
-      "lastAt": "2026-10-27T13:10:36Z",
+      "commits2h": 44,
+      "commits24h": 44,
+      "last": "pacemaker receipt: 2026-10-27T13:11:17Z",
+      "lastAt": "2026-10-27T13:11:17Z",
       "feed": [
+        {
+          "at": "2026-10-27T13:11:17Z",
+          "msg": "pacemaker receipt: 2026-10-27T13:11:17Z"
+        },
         {
           "at": "2026-10-27T13:10:36Z",
           "msg": "pacemaker receipt: 2026-10-27T13:10:36Z"
@@ -254,10 +213,6 @@
         {
           "at": "2026-10-27T13:10:16Z",
           "msg": "pacemaker receipt: 2026-10-27T13:10:16Z"
-        },
-        {
-          "at": "2026-10-27T13:09:00Z",
-          "msg": "grid-beat: 0 placed (steem 0 / hive 0) · 0 cancelled · 2026-10-27T13:09Z"
         }
       ]
     },
@@ -281,8 +236,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 65,
-      "commits24h": 65,
+      "commits2h": 66,
+      "commits24h": 66,
       "last": "[state] tick#1264 auto: 2026-10-27T13:10:24Z",
       "lastAt": "2026-10-27T13:10:24Z",
       "feed": [
@@ -304,7 +259,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 288,
-    "commits24h": 1438
+    "commits2h": 310,
+    "commits24h": 1556
   }
 }
