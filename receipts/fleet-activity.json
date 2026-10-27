@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T13:52:11.785Z",
+  "generatedAt": "2026-10-27T13:52:25.707Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 77149,
+      "checked": 36208,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 77174,
+      "checked": 36240,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 77149
+    "seq": 36208
   },
   "hosts": [
     {
@@ -64,7 +64,7 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -79,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -109,7 +109,7 @@
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     }
   ],
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 70,
-      "commits24h": 70,
+      "commits2h": 76,
+      "commits24h": 183,
       "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
       "lastAt": "2026-10-27T13:50:49Z",
       "feed": [
@@ -200,11 +200,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 22,
-      "commits24h": 49,
-      "last": "pulse-network-renew 2026-10-27T13:43:30Z",
-      "lastAt": "2026-10-27T13:43:30Z",
+      "commits2h": 23,
+      "commits24h": 51,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 453 פעולות-2ש' · 10/11 מארחים-חיים",
+      "lastAt": "2026-10-27T13:52:12Z",
       "feed": [
+        {
+          "at": "2026-10-27T13:52:12Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 453 פעולות-2ש' · 10/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T13:43:30Z",
           "msg": "pulse-network-renew 2026-10-27T13:43:30Z"
@@ -212,20 +216,20 @@
         {
           "at": "2026-10-27T13:43:28Z",
           "msg": "execution-ledger-renew 2026-10-27T13:43:25Z"
-        },
-        {
-          "at": "2026-10-27T13:42:13Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 425 פעולות-2ש' · 10/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
-      "commits2h": 96,
-      "commits24h": 1060,
-      "last": "office-worldbeat: advance the persistent world",
-      "lastAt": "2026-10-27T13:51:58Z",
+      "commits2h": 97,
+      "commits24h": 1061,
+      "last": "stale-watchdog: artifact ages measured, writers re-fired [skip ci]",
+      "lastAt": "2026-10-27T13:52:12Z",
       "feed": [
+        {
+          "at": "2026-10-27T13:52:12Z",
+          "msg": "stale-watchdog: artifact ages measured, writers re-fired [skip ci]"
+        },
         {
           "at": "2026-10-27T13:51:58Z",
           "msg": "office-worldbeat: advance the persistent world"
@@ -233,17 +237,13 @@
         {
           "at": "2026-10-27T13:47:35Z",
           "msg": "office-worldbeat: advance the persistent world"
-        },
-        {
-          "at": "2026-10-27T13:44:39Z",
-          "msg": "dex-mirror: local beat · 2026-10-27T12:52:06Z"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 76,
-      "commits24h": 76,
+      "commits2h": 77,
+      "commits24h": 77,
       "last": "pacemaker receipt: 2026-10-27T13:51:59Z",
       "lastAt": "2026-10-27T13:51:59Z",
       "feed": [
@@ -282,7 +282,7 @@
     {
       "name": "Autonomy",
       "commits2h": 77,
-      "commits24h": 85,
+      "commits24h": 86,
       "last": "pacer: beat receipt [run 40514308110]",
       "lastAt": "2026-10-27T13:41:53Z",
       "feed": [
@@ -304,7 +304,7 @@
   "totals": {
     "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 453,
-    "commits24h": 1613
+    "commits2h": 462,
+    "commits24h": 1731
   }
 }
