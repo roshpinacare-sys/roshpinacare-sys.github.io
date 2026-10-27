@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T15:04:09.254Z",
+  "generatedAt": "2026-10-27T15:05:58.839Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 77564,
+      "checked": 117719,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 77589,
+      "checked": 117742,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 77570
+    "seq": 117719
   },
   "hosts": [
     {
@@ -64,7 +64,7 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -79,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     },
     {
@@ -89,13 +89,13 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 4,
+      "ageMin": 6,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 1,
+      "alive": true
     },
     {
       "name": "gates-host",
@@ -104,12 +104,12 @@
     },
     {
       "name": "liveness-host",
-      "ageMin": 10,
+      "ageMin": 11,
       "alive": true
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     }
   ],
@@ -138,7 +138,7 @@
     {
       "name": "fleet-economy",
       "commits2h": 124,
-      "commits24h": 236,
+      "commits24h": 145,
       "last": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)",
       "lastAt": "2026-10-27T15:02:01Z",
       "feed": [
@@ -200,11 +200,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 20,
+      "commits2h": 21,
       "commits24h": 60,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 634 פעולות-2ש' · 10/11 מארחים-חיים",
-      "lastAt": "2026-10-27T14:53:54Z",
+      "last": "life-pulse [liveness-host]: engine 8/8 · 657 פעולות-2ש' · 10/11 מארחים-חיים",
+      "lastAt": "2026-10-27T15:04:09Z",
       "feed": [
+        {
+          "at": "2026-10-27T15:04:09Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 657 פעולות-2ש' · 10/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T14:53:54Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 634 פעולות-2ש' · 10/11 מארחים-חיים"
@@ -212,20 +216,20 @@
         {
           "at": "2026-10-27T14:43:38Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 619 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-27T14:33:24Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 609 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
       "commits2h": 85,
-      "commits24h": 1031,
-      "last": "office-worldbeat: advance the persistent world",
-      "lastAt": "2026-10-27T15:02:11Z",
+      "commits24h": 1029,
+      "last": "builder: PULSE_SNAPSHOT+RECEIPTS_LEDGER — דופק חי + משטחי-מוצר מתחדשים [run 40527061623]",
+      "lastAt": "2026-10-27T15:05:03Z",
       "feed": [
+        {
+          "at": "2026-10-27T15:05:03Z",
+          "msg": "builder: PULSE_SNAPSHOT+RECEIPTS_LEDGER — דופק חי + משטחי-מוצר מתחדשים [run 40527061623]"
+        },
         {
           "at": "2026-10-27T15:02:11Z",
           "msg": "office-worldbeat: advance the persistent world"
@@ -233,17 +237,13 @@
         {
           "at": "2026-10-27T15:01:16Z",
           "msg": "agent4: sovereign evidence refresh 2026-10-27T15:01:15.110Z [skip ci]"
-        },
-        {
-          "at": "2026-10-27T15:00:29Z",
-          "msg": "quality-gate: pages measured 2026-10-27T15:00:28Z [skip ci]"
         }
       ]
     },
     {
       "name": "Console",
-      "commits2h": 135,
-      "commits24h": 173,
+      "commits2h": 133,
+      "commits24h": 172,
       "last": "pacemaker receipt: 2026-10-27T15:03:34Z",
       "lastAt": "2026-10-27T15:03:34Z",
       "feed": [
@@ -281,30 +281,30 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 70,
-      "commits24h": 129,
-      "last": "pacer: beat receipt [run 40526913345]",
-      "lastAt": "2026-10-27T15:02:46Z",
+      "commits2h": 68,
+      "commits24h": 130,
+      "last": "builder: organ receipt [run 40527061623]",
+      "lastAt": "2026-10-27T15:05:13Z",
       "feed": [
+        {
+          "at": "2026-10-27T15:05:13Z",
+          "msg": "builder: organ receipt [run 40527061623]"
+        },
+        {
+          "at": "2026-10-27T15:05:03Z",
+          "msg": "wallet-artery receipt: 2026-10-27T15:05:02Z"
+        },
         {
           "at": "2026-10-27T15:02:46Z",
           "msg": "pacer: beat receipt [run 40526913345]"
-        },
-        {
-          "at": "2026-10-27T14:59:55Z",
-          "msg": "claims routing refresh: ROUTED 2026-10-27T14:59:54Z"
-        },
-        {
-          "at": "2026-10-27T14:55:43Z",
-          "msg": "sovereign-decider: 2026-10-27T14:55:43Z [skip ci]"
         }
       ]
     }
   ],
   "totals": {
-    "hostsAlive": 10,
+    "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 657,
-    "commits24h": 2027
+    "commits2h": 654,
+    "commits24h": 1934
   }
 }
