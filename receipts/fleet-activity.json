@@ -1,18 +1,18 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T13:41:58.249Z",
+  "generatedAt": "2026-10-27T13:42:12.436Z",
   "engine": {
     "up": true,
     "verify": {
       "ok": true,
-      "checked": 71423,
+      "checked": 20621,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
     "verifySecond": {
       "ok": true,
-      "checked": 71453,
+      "checked": 20711,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 71429
+    "seq": 20646
   },
   "hosts": [
     {
@@ -94,8 +94,8 @@
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 7,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "gates-host",
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 56,
-      "commits24h": 56,
+      "commits2h": 69,
+      "commits24h": 169,
       "last": "worktree-union-push [reviver]: 2-קבצים אוחדו-ב-worktree-מבודד (origin-3b03168 ∪ local-8ce5033) · אפס-מחיקות · העץ-החי-לא",
       "lastAt": "2026-10-27T13:40:07Z",
       "feed": [
@@ -200,11 +200,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 20,
-      "commits24h": 45,
-      "last": "life-pulse [liveness-host]: engine 7/8 · 394 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-27T13:31:58Z",
+      "commits2h": 21,
+      "commits24h": 47,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 410 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-27T13:41:58Z",
       "feed": [
+        {
+          "at": "2026-10-27T13:41:58Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 410 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T13:31:58Z",
           "msg": "life-pulse [liveness-host]: engine 7/8 · 394 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -212,10 +216,6 @@
         {
           "at": "2026-10-27T13:31:45Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 373 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-27T13:21:44Z",
-          "msg": "life-pulse [liveness-host]: engine — · 353 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
@@ -242,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 64,
-      "commits24h": 64,
+      "commits2h": 65,
+      "commits24h": 65,
       "last": "pacemaker receipt: 2026-10-27T13:41:40Z",
       "lastAt": "2026-10-27T13:41:41Z",
       "feed": [
@@ -282,7 +282,7 @@
     {
       "name": "Autonomy",
       "commits2h": 79,
-      "commits24h": 85,
+      "commits24h": 86,
       "last": "pacer: beat receipt [run 40514308110]",
       "lastAt": "2026-10-27T13:41:53Z",
       "feed": [
@@ -302,9 +302,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 11,
+    "hostsAlive": 10,
     "hostsTotal": 11,
-    "commits2h": 410,
-    "commits24h": 1566
+    "commits2h": 425,
+    "commits24h": 1683
   }
 }
