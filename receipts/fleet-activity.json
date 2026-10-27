@@ -1,29 +1,29 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T11:42:44.245Z",
+  "generatedAt": "2026-10-27T11:42:59.383Z",
   "engine": {
     "up": true,
     "verify": {
-      "ok": false,
-      "checked": 181963,
-      "anchors": 0,
-      "replayParity": true,
-      "brokenAt": 1
-    },
-    "verifySecond": {
       "ok": true,
-      "checked": 137,
+      "checked": 6357,
       "anchors": 0,
       "replayParity": true,
       "brokenAt": null
     },
-    "verifyFlap": true,
-    "grade": "7/8",
-    "allPass": false,
+    "verifySecond": {
+      "ok": true,
+      "checked": 6469,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
+    "verifyFlap": false,
+    "grade": "8/8",
+    "allPass": true,
     "claims": [
       {
         "id": "chain-integrity",
-        "pass": false
+        "pass": true
       },
       {
         "id": "law-is-book",
@@ -54,7 +54,7 @@
         "pass": true
       }
     ],
-    "seq": 47
+    "seq": 6390
   },
   "hosts": [
     {
@@ -64,7 +64,7 @@
     },
     {
       "name": "economy-beat-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -79,7 +79,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -109,7 +109,7 @@
     },
     {
       "name": "guardian",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     }
   ],
@@ -137,8 +137,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 6,
-      "commits24h": 101,
+      "commits2h": 4,
+      "commits24h": 4,
       "last": "vault-sync [push-reviver]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-57)",
       "lastAt": "2026-10-27T11:42:19Z",
       "feed": [
@@ -200,11 +200,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 2,
-      "commits24h": 32,
-      "last": "life-pulse [liveness-host]: engine — · 85 פעולות-2ש' · 6/11 מארחים-חיים",
-      "lastAt": "2026-10-27T11:32:42Z",
+      "commits2h": 3,
+      "commits24h": 33,
+      "last": "life-pulse [liveness-host]: engine 7/8 · 150 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-27T11:42:44Z",
       "feed": [
+        {
+          "at": "2026-10-27T11:42:44Z",
+          "msg": "life-pulse [liveness-host]: engine 7/8 · 150 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T11:32:42Z",
           "msg": "life-pulse [liveness-host]: engine — · 85 פעולות-2ש' · 6/11 מארחים-חיים"
@@ -212,17 +216,13 @@
         {
           "at": "2026-10-27T11:32:30Z",
           "msg": "life-pulse [liveness-host]: engine — · 85 פעולות-2ש' · 4/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-26T18:26:17Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 338 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
       "commits2h": 84,
-      "commits24h": 1054,
+      "commits24h": 1053,
       "last": "dex-activation: ignition tick 2026-10-27T11:41:13Z [skip ci]",
       "lastAt": "2026-10-27T11:41:13Z",
       "feed": [
@@ -281,11 +281,15 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 36,
-      "commits24h": 36,
-      "last": "fleet-artery receipts: 2026-10-27T11:42:25Z",
-      "lastAt": "2026-10-27T11:42:26Z",
+      "commits2h": 37,
+      "commits24h": 37,
+      "last": "wallet-artery receipt: 2026-10-27T11:42:50Z",
+      "lastAt": "2026-10-27T11:42:51Z",
       "feed": [
+        {
+          "at": "2026-10-27T11:42:51Z",
+          "msg": "wallet-artery receipt: 2026-10-27T11:42:50Z"
+        },
         {
           "at": "2026-10-27T11:42:26Z",
           "msg": "fleet-artery receipts: 2026-10-27T11:42:25Z"
@@ -293,10 +297,6 @@
         {
           "at": "2026-10-27T11:41:44Z",
           "msg": "grid-watch receipt: 2026-10-27T11:41:44Z"
-        },
-        {
-          "at": "2026-10-27T11:41:41Z",
-          "msg": "value-scan: 2026-10-27T11:41:40Z [skip ci]"
         }
       ]
     }
@@ -305,6 +305,6 @@
     "hostsAlive": 11,
     "hostsTotal": 11,
     "commits2h": 150,
-    "commits24h": 1392
+    "commits24h": 1296
   }
 }
