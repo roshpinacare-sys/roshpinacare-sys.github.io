@@ -1,60 +1,15 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T13:21:31.638Z",
+  "generatedAt": "2026-10-27T13:21:43.586Z",
   "engine": {
-    "up": true,
-    "verify": {
-      "ok": true,
-      "checked": 59682,
-      "anchors": 0,
-      "replayParity": true,
-      "brokenAt": null
-    },
-    "verifySecond": {
-      "ok": true,
-      "checked": 59700,
-      "anchors": 0,
-      "replayParity": true,
-      "brokenAt": null
-    },
+    "up": false,
+    "verify": null,
+    "verifySecond": null,
     "verifyFlap": false,
-    "grade": "8/8",
-    "allPass": true,
-    "claims": [
-      {
-        "id": "chain-integrity",
-        "pass": true
-      },
-      {
-        "id": "law-is-book",
-        "pass": true
-      },
-      {
-        "id": "no-negative-balances",
-        "pass": true
-      },
-      {
-        "id": "windows-alive",
-        "pass": true
-      },
-      {
-        "id": "tax-at-law-rate",
-        "pass": true
-      },
-      {
-        "id": "owner-report-cadence",
-        "pass": true
-      },
-      {
-        "id": "runway-guard",
-        "pass": true
-      },
-      {
-        "id": "pace-at-equilibrium",
-        "pass": true
-      }
-    ],
-    "seq": 59682
+    "grade": null,
+    "allPass": null,
+    "claims": null,
+    "seq": null
   },
   "hosts": [
     {
@@ -79,7 +34,7 @@
     },
     {
       "name": "saos-engine-host",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     },
     {
@@ -89,12 +44,12 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 1,
+      "ageMin": 2,
       "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 6,
+      "ageMin": 7,
       "alive": true
     },
     {
@@ -109,7 +64,7 @@
     },
     {
       "name": "guardian",
-      "ageMin": 1,
+      "ageMin": 0,
       "alive": true
     }
   ],
@@ -137,8 +92,8 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": 35,
-      "commits24h": 35,
+      "commits2h": 53,
+      "commits24h": 148,
       "last": "merge(g78-f-R3): receipts-sign hardening rescue + profit-proof suite (yield-intake ledger · volume counters · gearbox pr",
       "lastAt": "2026-10-27T13:19:35Z",
       "feed": [
@@ -200,11 +155,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 18,
-      "commits24h": 41,
-      "last": "life-pulse [liveness-host]: engine — · 310 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-27T13:11:31Z",
+      "commits2h": 19,
+      "commits24h": 43,
+      "last": "life-pulse [liveness-host]: engine 8/8 · 332 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-27T13:21:32Z",
       "feed": [
+        {
+          "at": "2026-10-27T13:21:32Z",
+          "msg": "life-pulse [liveness-host]: engine 8/8 · 332 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T13:11:31Z",
           "msg": "life-pulse [liveness-host]: engine — · 310 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -212,10 +171,6 @@
         {
           "at": "2026-10-27T13:11:18Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 288 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-27T13:01:06Z",
-          "msg": "life-pulse [liveness-host]: engine 8/8 · 250 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
@@ -242,8 +197,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 50,
-      "commits24h": 50,
+      "commits2h": 51,
+      "commits24h": 51,
       "last": "pacemaker receipt: 2026-10-27T13:21:08Z",
       "lastAt": "2026-10-27T13:21:08Z",
       "feed": [
@@ -281,8 +236,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 69,
-      "commits24h": 69,
+      "commits2h": 70,
+      "commits24h": 70,
       "last": "[tick] sovereign heartbeat: 2026-10-27T13:19:04Z",
       "lastAt": "2026-10-27T13:19:04Z",
       "feed": [
@@ -304,7 +259,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 332,
-    "commits24h": 1481
+    "commits2h": 353,
+    "commits24h": 1598
   }
 }
