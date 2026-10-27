@@ -1,6 +1,6 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T12:19:40.200Z",
+  "generatedAt": "2026-10-27T12:20:10.274Z",
   "engine": {
     "up": false,
     "verify": null,
@@ -24,8 +24,8 @@
     },
     {
       "name": "economy-node-host",
-      "ageMin": 0,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "sovereign-builder-host",
@@ -44,18 +44,18 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": null,
-      "alive": false
+      "ageMin": 0,
+      "alive": true
     },
     {
       "name": "autonomy-revive-host",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
       "name": "gates-host",
-      "ageMin": 0,
-      "alive": true
+      "ageMin": null,
+      "alive": false
     },
     {
       "name": "liveness-host",
@@ -71,22 +71,22 @@
   "repos": [
     {
       "name": "my-project",
-      "commits2h": 19,
-      "commits24h": 161,
-      "last": "vault-seal [auto-economy]: 9 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
-      "lastAt": "2026-10-27T12:08:14Z",
+      "commits2h": 23,
+      "commits24h": 165,
+      "last": "vault-sync [seal-host]: union-resolved — איחוד-ללא-מחיקות",
+      "lastAt": "2026-10-27T12:19:57Z",
       "feed": [
         {
-          "at": "2026-10-27T12:08:14Z",
-          "msg": "vault-seal [auto-economy]: 9 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
+          "at": "2026-10-27T12:19:57Z",
+          "msg": "vault-sync [seal-host]: union-resolved — איחוד-ללא-מחיקות"
         },
         {
-          "at": "2026-10-27T12:03:50Z",
-          "msg": "state-snapshot [seal-host]: 3 קבצי-אודיט → קנון (הישרדות-wipe · גל-103)"
+          "at": "2026-10-27T12:19:56Z",
+          "msg": "vault-seal [seal-host]: 16 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
         },
         {
-          "at": "2026-10-27T12:03:38Z",
-          "msg": "vault-seal [seal-host]: 2 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+          "at": "2026-10-27T12:19:36Z",
+          "msg": "worktree-union-push [reviver]: 1-קבצים אוחדו-ב-worktree-מבודד (origin-bd8c4ca ∪ local-dfcec14) · אפס-מחיקות · "
         }
       ]
     },
@@ -96,8 +96,7 @@
       "commits24h": null,
       "last": null,
       "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "feed": null
     },
     {
       "name": "coord-work",
@@ -132,11 +131,15 @@
     },
     {
       "name": "Domain",
-      "commits2h": 86,
-      "commits24h": 1051,
-      "last": "public-pulse: refresh public pulse books 2026-10-27T12:18:45Z [skip ci]",
-      "lastAt": "2026-10-27T12:18:45Z",
+      "commits2h": 87,
+      "commits24h": 1052,
+      "last": "office-worldbeat: advance the persistent world",
+      "lastAt": "2026-10-27T12:19:48Z",
       "feed": [
+        {
+          "at": "2026-10-27T12:19:48Z",
+          "msg": "office-worldbeat: advance the persistent world"
+        },
         {
           "at": "2026-10-27T12:18:45Z",
           "msg": "public-pulse: refresh public pulse books 2026-10-27T12:18:45Z [skip ci]"
@@ -144,10 +147,6 @@
         {
           "at": "2026-10-27T12:18:20Z",
           "msg": "earn-audit: chain-truth income proof [skip ci]"
-        },
-        {
-          "at": "2026-10-27T12:18:17Z",
-          "msg": "grid-sentinel: live grid matrix + aliveness enforcement 2026-10-27T12:18:17Z [skip ci]"
         }
       ]
     },
@@ -189,9 +188,9 @@
     }
   ],
   "totals": {
-    "hostsAlive": 5,
+    "hostsAlive": 4,
     "hostsTotal": 11,
-    "commits2h": 106,
-    "commits24h": 1213
+    "commits2h": 111,
+    "commits24h": 1218
   }
 }
