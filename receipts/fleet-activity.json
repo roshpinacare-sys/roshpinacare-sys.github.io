@@ -1,15 +1,60 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T12:40:19.935Z",
+  "generatedAt": "2026-10-27T12:40:39.723Z",
   "engine": {
-    "up": false,
-    "verify": null,
-    "verifySecond": null,
+    "up": true,
+    "verify": {
+      "ok": true,
+      "checked": 26297,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
+    "verifySecond": {
+      "ok": true,
+      "checked": 26406,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
     "verifyFlap": false,
-    "grade": null,
-    "allPass": null,
-    "claims": null,
-    "seq": null
+    "grade": "8/8",
+    "allPass": true,
+    "claims": [
+      {
+        "id": "chain-integrity",
+        "pass": true
+      },
+      {
+        "id": "law-is-book",
+        "pass": true
+      },
+      {
+        "id": "no-negative-balances",
+        "pass": true
+      },
+      {
+        "id": "windows-alive",
+        "pass": true
+      },
+      {
+        "id": "tax-at-law-rate",
+        "pass": true
+      },
+      {
+        "id": "owner-report-cadence",
+        "pass": true
+      },
+      {
+        "id": "runway-guard",
+        "pass": true
+      },
+      {
+        "id": "pace-at-equilibrium",
+        "pass": true
+      }
+    ],
+    "seq": 26327
   },
   "hosts": [
     {
@@ -44,7 +89,7 @@
     },
     {
       "name": "push-reviver",
-      "ageMin": 0,
+      "ageMin": 1,
       "alive": true
     },
     {
@@ -92,12 +137,24 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": null,
-      "commits24h": null,
-      "last": null,
-      "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "commits2h": 8,
+      "commits24h": 8,
+      "last": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס",
+      "lastAt": "2026-10-27T12:35:58Z",
+      "feed": [
+        {
+          "at": "2026-10-27T12:35:58Z",
+          "msg": "vault-seal [auto-economy]: 3 files — אטימה-חוזרת, כלום לא מת עם הסנדבוקס"
+        },
+        {
+          "at": "2026-10-27T12:30:32Z",
+          "msg": "vault-sync [seal-host]: -s ours — טיפ-הענן-נרשם-כאב-קדמון · הספר-החי-הוא-הקאנון (גל-55)"
+        },
+        {
+          "at": "2026-10-27T12:30:31Z",
+          "msg": "vault-seal [seal-host]: 6 files — כלום לא מת עם הסנדבוקס (גל-98 · R319-custody)"
+        }
+      ]
     },
     {
       "name": "coord-work",
@@ -143,11 +200,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 10,
+      "commits2h": 11,
       "commits24h": 34,
-      "last": "life-pulse [liveness-host]: engine 8/8 · 172 פעולות-2ש' · 11/11 מארחים-חיים",
-      "lastAt": "2026-10-27T12:30:27Z",
+      "last": "life-pulse [liveness-host]: engine — · 195 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-27T12:40:20Z",
       "feed": [
+        {
+          "at": "2026-10-27T12:40:20Z",
+          "msg": "life-pulse [liveness-host]: engine — · 195 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T12:30:27Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 172 פעולות-2ש' · 11/11 מארחים-חיים"
@@ -155,17 +216,13 @@
         {
           "at": "2026-10-27T12:30:03Z",
           "msg": "life-pulse [liveness-host]: engine — · 170 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-27T12:20:15Z",
-          "msg": "life-pulse [liveness-host]: engine — · 111 פעולות-2ש' · 4/11 מארחים-חיים"
         }
       ]
     },
     {
       "name": "Domain",
       "commits2h": 82,
-      "commits24h": 1052,
+      "commits24h": 1051,
       "last": "content-gate: cadence+dup book 2026-10-27T12:39:09Z [skip ci]",
       "lastAt": "2026-10-27T12:39:09Z",
       "feed": [
@@ -185,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 21,
-      "commits24h": 21,
+      "commits2h": 20,
+      "commits24h": 20,
       "last": "fee-law: 2026-10-27T12:39:08Z · verdict: LIVE-AT-BASE (measured volatility does not exceed the base fee right now) · all",
       "lastAt": "2026-10-27T12:39:08Z",
       "feed": [
@@ -224,8 +281,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 48,
-      "commits24h": 48,
+      "commits2h": 47,
+      "commits24h": 47,
       "last": "[verifier] honest verdict: 2026-10-27T12:39:37Z",
       "lastAt": "2026-10-27T12:39:37Z",
       "feed": [
@@ -247,7 +304,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 195,
-    "commits24h": 1336
+    "commits2h": 202,
+    "commits24h": 1341
   }
 }
