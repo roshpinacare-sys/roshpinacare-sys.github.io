@@ -1,15 +1,60 @@
 {
   "schema": "fleet-activity/1",
-  "generatedAt": "2026-10-27T12:50:32.478Z",
+  "generatedAt": "2026-10-27T12:50:52.478Z",
   "engine": {
-    "up": false,
-    "verify": null,
-    "verifySecond": null,
+    "up": true,
+    "verify": {
+      "ok": true,
+      "checked": 41812,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
+    "verifySecond": {
+      "ok": true,
+      "checked": 41832,
+      "anchors": 0,
+      "replayParity": true,
+      "brokenAt": null
+    },
     "verifyFlap": false,
-    "grade": null,
-    "allPass": null,
-    "claims": null,
-    "seq": null
+    "grade": "8/8",
+    "allPass": true,
+    "claims": [
+      {
+        "id": "chain-integrity",
+        "pass": true
+      },
+      {
+        "id": "law-is-book",
+        "pass": true
+      },
+      {
+        "id": "no-negative-balances",
+        "pass": true
+      },
+      {
+        "id": "windows-alive",
+        "pass": true
+      },
+      {
+        "id": "tax-at-law-rate",
+        "pass": true
+      },
+      {
+        "id": "owner-report-cadence",
+        "pass": true
+      },
+      {
+        "id": "runway-guard",
+        "pass": true
+      },
+      {
+        "id": "pace-at-equilibrium",
+        "pass": true
+      }
+    ],
+    "seq": 41812
   },
   "hosts": [
     {
@@ -92,12 +137,24 @@
     },
     {
       "name": "fleet-economy",
-      "commits2h": null,
-      "commits24h": null,
-      "last": null,
-      "lastAt": null,
-      "feed": null,
-      "error": "no-clone"
+      "commits2h": 12,
+      "commits24h": 12,
+      "last": "worktree-union-push [reviver]: 4-קבצים אוחדו-ב-worktree-מבודד (origin-7fb8142 ∪ local-40cbc04) · אפס-מחיקות · העץ-החי-לא",
+      "lastAt": "2026-10-27T12:50:01Z",
+      "feed": [
+        {
+          "at": "2026-10-27T12:50:01Z",
+          "msg": "worktree-union-push [reviver]: 4-קבצים אוחדו-ב-worktree-מבודד (origin-7fb8142 ∪ local-40cbc04) · אפס-מחיקות · "
+        },
+        {
+          "at": "2026-10-27T12:46:48Z",
+          "msg": "fix(economy-receipts): t64 rail rescue — b64-unwrap 3 + reland wave1980 receipt (byte-true adopted lineage, su"
+        },
+        {
+          "at": "2026-10-27T12:45:27Z",
+          "msg": "[builder] acts=2 metrics=3 backlog=0 · צמיחה-ריבונית מאוטמת"
+        }
+      ]
     },
     {
       "name": "coord-work",
@@ -143,11 +200,15 @@
     },
     {
       "name": "root-site",
-      "commits2h": 13,
+      "commits2h": 14,
       "commits24h": 37,
-      "last": "execution-ledger-union-renew 2026-10-27T12:44:44Z",
-      "lastAt": "2026-10-27T12:44:50Z",
+      "last": "life-pulse [liveness-host]: engine — · 201 פעולות-2ש' · 11/11 מארחים-חיים",
+      "lastAt": "2026-10-27T12:50:33Z",
       "feed": [
+        {
+          "at": "2026-10-27T12:50:33Z",
+          "msg": "life-pulse [liveness-host]: engine — · 201 פעולות-2ש' · 11/11 מארחים-חיים"
+        },
         {
           "at": "2026-10-27T12:44:50Z",
           "msg": "execution-ledger-union-renew 2026-10-27T12:44:44Z"
@@ -155,10 +216,6 @@
         {
           "at": "2026-10-27T12:40:40Z",
           "msg": "life-pulse [liveness-host]: engine 8/8 · 202 פעולות-2ש' · 11/11 מארחים-חיים"
-        },
-        {
-          "at": "2026-10-27T12:40:20Z",
-          "msg": "life-pulse [liveness-host]: engine — · 195 פעולות-2ש' · 11/11 מארחים-חיים"
         }
       ]
     },
@@ -185,8 +242,8 @@
     },
     {
       "name": "Console",
-      "commits2h": 23,
-      "commits24h": 23,
+      "commits2h": 22,
+      "commits24h": 22,
       "last": "local-gates [sovereign-machine]: G4+G7 measured — 2026-10-27T12:49Z",
       "lastAt": "2026-10-27T12:49:55Z",
       "feed": [
@@ -224,8 +281,8 @@
     },
     {
       "name": "Autonomy",
-      "commits2h": 49,
-      "commits24h": 49,
+      "commits2h": 48,
+      "commits24h": 48,
       "last": "pacer: beat receipt [run 40506623222]",
       "lastAt": "2026-10-27T12:48:09Z",
       "feed": [
@@ -247,7 +304,7 @@
   "totals": {
     "hostsAlive": 11,
     "hostsTotal": 11,
-    "commits2h": 201,
-    "commits24h": 1347
+    "commits2h": 212,
+    "commits24h": 1357
   }
 }
