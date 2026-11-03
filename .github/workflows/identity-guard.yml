@@ -16,6 +16,14 @@
 # users.noreply), github-actions[bot] (both noreply forms), actions@github.com
 # and roshpinacare@gmail.com may author or commit. Anything else is an
 # unidentified writer — torn loudly on push, counted weekly by the census.
+# [wave 19.72 · trace 1a1a230f30703e81] web-flow committer class admitted: bare
+# noreply@github.com (GitHub's own machine merge committer, 'GitHub <noreply@github.com>')
+# is the SAME trust class as github-actions[bot]/actions@github.com — GitHub infrastructure
+# itself, zero humans, and NOT the dangerous NAME@users.noreply.github.com namespace the
+# law was built against (measured T-74/T-76). Measured today: the SAOS-UNION merger lands
+# lawful-content merge commits whose committer is the web-flow identity; denying them made
+# every merger push re-tear on the HEAD~40 fallback (Pulse issue #28 alarm loop).
+#
 # [wave 19.65 · trace 1a161d7681ed4225] this file upgraded v1→v3 — one law
 # text, the whole estate: Domain 793210f33, Zip 01735378, runner-kit (ledger
 # push), Console (its own push), and this pages-root front-door file. Saos-dex carries the same law behind its
@@ -69,7 +77,7 @@ jobs:
           # lane law. Enumerated classes (noreply, container) were approximations;
           # every sandbox default now falls to the same single rule:
           # no allowlist match = violation.
-          ALLOWED='^([0-9]+\+roshpinacare-sys@users\.noreply\.github\.com|roshpinacare-sys@users\.noreply\.github\.com|([0-9]+\+)?github-actions\[bot\]@users\.noreply\.github\.com|[^@]+@fleet\.local|[^@]+@agents\.roshpinacare-sys|roshpinacare@gmail\.com|actions@github\.com)$'
+          ALLOWED='^([0-9]+\+roshpinacare-sys@users\.noreply\.github\.com|roshpinacare-sys@users\.noreply\.github\.com|([0-9]+\+)?github-actions\[bot\]@users\.noreply\.github\.com|[^@]+@fleet\.local|[^@]+@agents\.roshpinacare-sys|roshpinacare@gmail\.com|actions@github\.com|noreply@github\.com)$'
           BEFORE="${{ github.event.before }}"
           AFTER="${{ github.sha }}"
           if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then
@@ -107,7 +115,7 @@ jobs:
           # unlawful-identity commit. This job NEVER fails on findings (report-only,
           # org-gitleaks T-w class) — the wound stays registered and counted; only a
           # scan error fails.
-          ALLOWED='^([0-9]+\+roshpinacare-sys@users\.noreply\.github\.com|roshpinacare-sys@users\.noreply\.github\.com|([0-9]+\+)?github-actions\[bot\]@users\.noreply\.github\.com|[^@]+@fleet\.local|[^@]+@agents\.roshpinacare-sys|roshpinacare@gmail\.com|actions@github\.com)$'
+          ALLOWED='^([0-9]+\+roshpinacare-sys@users\.noreply\.github\.com|roshpinacare-sys@users\.noreply\.github\.com|([0-9]+\+)?github-actions\[bot\]@users\.noreply\.github\.com|[^@]+@fleet\.local|[^@]+@agents\.roshpinacare-sys|roshpinacare@gmail\.com|actions@github\.com|noreply@github\.com)$'
           VIOLATIONS="$(git log --pretty='%H|%ae|%ce|%ad|%s' --date=iso origin/main 2>/dev/null | ALLOWED="$ALLOWED" awk -F'|' '
             $2 !~ ENVIRON["ALLOWED"] || $3 !~ ENVIRON["ALLOWED"]
           ' || true)"
@@ -184,7 +192,7 @@ jobs:
           # Same law text as the push guard (v3 deny-by-default), same allowlist.
           # Window is recent-only: old wounds belong to the weekly report-only
           # deep sweep and to owner-side history rewrite (DECISIONS #29).
-          ALLOWED='^([0-9]+\+roshpinacare-sys@users\.noreply\.github\.com|roshpinacare-sys@users\.noreply\.github\.com|([0-9]+\+)?github-actions\[bot\]@users\.noreply\.github\.com|[^@]+@fleet\.local|[^@]+@agents\.roshpinacare-sys|roshpinacare@gmail\.com|actions@github\.com)$'
+          ALLOWED='^([0-9]+\+roshpinacare-sys@users\.noreply\.github\.com|roshpinacare-sys@users\.noreply\.github\.com|([0-9]+\+)?github-actions\[bot\]@users\.noreply\.github\.com|[^@]+@fleet\.local|[^@]+@agents\.roshpinacare-sys|roshpinacare@gmail\.com|actions@github\.com|noreply@github\.com)$'
           VIOLATIONS="$(git log --pretty='%H|%ae|%ce|%ad|%s' --date=iso --since='26 hours ago' origin/main 2>/dev/null | ALLOWED="$ALLOWED" awk -F'|' '
             $2 !~ ENVIRON["ALLOWED"] || $3 !~ ENVIRON["ALLOWED"]
           ' || true)"
