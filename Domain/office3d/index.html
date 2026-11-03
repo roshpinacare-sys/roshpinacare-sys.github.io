@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>מפקדת הצי — עמדת-פיקוד חיה | SAOS</title>
+    <meta
+      name="description"
+      content="עמדת-הפיקוד החיה של מפקדת הצי: קיר-אמת של הגיט, דופק-עורקים, אוצר מול רצפה, שעון-ירושלים — הכל חי מערוץ-קנון אחד, אפס תלות, אפס קבצי-bundle."
+    />
+    <style>
+      :root {
+        --bg: #f3f1ec; --card: #faf8f3; --ink: #2c2a26; --muted: #6b6b6b;
+        --line: rgba(60, 52, 40, 0.16); --ok: #2e7d4f; --warn: #b45309; --bad: #b3261e; --accent: #8a6d3b;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.75 "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 20px 16px 40px; }
+      header.hero { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px; border-bottom: 2px solid var(--line); padding-bottom: 14px; margin-bottom: 18px; }
+      h1 { font-size: 22px; margin: 0; font-weight: 800; }
+      .eyebrow { font-size: 12.5px; color: var(--muted); letter-spacing: 0.4px; }
+      .clock { margin-inline-start: auto; text-align: left; direction: ltr; font-variant-numeric: tabular-nums; }
+      .clock b { font-size: 21px; font-weight: 800; }
+      .clock span { display: block; font-size: 11.5px; color: var(--muted); }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+      .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+      .card .l { font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }
+      .card .v { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: embed; text-align: right; }
+      .card .s { font-size: 11.5px; color: var(--muted); direction: ltr; unicode-bidi: embed; overflow-wrap: anywhere; }
+      .card.alert { border-color: rgba(179, 38, 30, 0.45); background: #fdf3f2; }
+      .card.alert .v { color: var(--bad); }
+      .verdicts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+      .pill { border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+      .pill.ok { color: var(--ok); border-color: rgba(46, 125, 79, 0.4); background: #f0f7f2; }
+      .pill.warn { color: var(--warn); border-color: rgba(180, 83, 9, 0.4); background: #fdf6ec; }
+      .pill.bad { color: var(--bad); border-color: rgba(179, 38, 30, 0.4); background: #fdf3f2; }
+      .pill.mut { color: var(--muted); background: #f4f2ee; }
+      section { margin-top: 22px; }
+      h2 { font-size: 16px; font-weight: 800; margin: 0 0 8px; }
+      nav.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; }
+      nav.links a { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.12s ease, border-color 0.12s ease; }
+      nav.links a:hover { transform: translateY(-1px); border-color: var(--accent); }
+      nav.links a small { display: block; font-weight: 400; color: var(--muted); font-size: 11.5px; }
+      .law { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 10px; font-size: 12px; color: var(--muted); text-align: center; }
+      .law a { color: inherit; }
+      @media (max-width: 560px) { .clock { margin-inline-start: 0; } h1 { font-size: 19px; } }
+    </style>
+    <script src="/Domain/canon.js" defer></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero">
+        <div>
+          <h1>מפקדת הצי · עמדת-פיקוד חיה</h1>
+          <div class="eyebrow">אפס-תלות · אפס-bundle · ערוץ-קנון אחד חי · מספר-אחד מקור-אחד</div>
+        </div>
+        <div class="clock" aria-live="off">
+          <b id="jl-clock">--:--:--</b>
+          <span>Jerusalem · Asia/Jerusalem</span>
+        </div>
+      </header>
+
+      <section aria-label="קיר-אמת של הגיט">
+        <h2>קיר-אמת · הגיט הנמדד</h2>
+        <div class="grid">
+          <div class="card"><div class="l">ריפואים · סך-הכל</div><div class="v"><span data-canon="repos.total">49</span></div><div class="s">GitHub measured</div></div>
+          <div class="card"><div class="l">פומביים / פרטיים</div><div class="v"><span data-canon="repos.public">40</span> / <span data-canon="repos.private">9</span></div><div class="s">visibility split</div></div>
+          <div class="card"><div class="l">עורקים · פועמים מהסך</div><div class="v"><span data-canon="arteries.beating">71</span>/<span data-canon="arteries.total">396</span></div><div class="s">workflows · pulse</div></div>
+          <div class="card"><div class="l">מילויים · לכל-החיים / פנקס</div><div class="v"><span data-canon="fills.lifetime">730</span> / <span data-canon="fills.ledger">121</span></div><div class="s">execution ledger</div></div>
+          <div class="card"><div class="l">רשתות רווח</div><div class="v"><span data-canon="networks.count">7</span></div><div class="s">accounts scanned</div></div>
+          <div class="card"><div class="l">חשבונות · מפקד / פנקס</div><div class="v"><span data-canon="accounts.census">19</span> / <span data-canon="accounts.ledger">31</span></div><div class="s">census / ledger</div></div>
+        </div>
+      </section>
+
+      <section aria-label="אוצר מול רצפה">
+        <h2>אוצר מול רצפה</h2>
+        <div class="grid">
+          <div class="card" id="treasury-card"><div class="l">אוצר STEEM · נמדד</div><div class="v"><span data-canon="treasury.steem">175.009</span></div><div class="s">local-census (measured)</div></div>
+          <div class="card"><div class="l">רצפת-אוצר · חוק-מוגן</div><div class="v"><span data-canon="treasury.floor">3000</span></div><div class="s">protected floor</div></div>
+          <div class="card" id="floor-card"><div class="l">מצב-רצפה</div><div class="v" id="floor-status">BELOW-FLOOR</div><div class="s" id="floor-note">האוצר-מתחת-לרצפה · ההפרש-מחושב-חי</div></div>
+        </div>
+      </section>
+
+      <section aria-label="קיר-פסקי-הדופק">
+        <h2>פסקי-דופק · דפי-הצי</h2>
+        <div class="verdicts">
+          <span class="pill ok">ALIVE <span data-canon="verdicts.ALIVE">18</span></span>
+          <span class="pill warn">MIXED <span data-canon="verdicts.MIXED">7</span></span>
+          <span class="pill bad">STALE <span data-canon="verdicts.STALE">11</span></span>
+          <span class="pill mut">IDLE <span data-canon="verdicts.IDLE">13</span></span>
+          <span class="pill mut">הנחיות-פתוחות <span data-canon="directives.open">41</span></span>
+        </div>
+      </section>
+
+      <section aria-label="כניסות-מהירות">
+        <h2>כניסות-מהירות</h2>
+        <nav class="links">
+          <a href="/Console/index.html">Console<small>הקונסולה הריבונית</small></a>
+          <a href="/Domain/index.html">Domain<small>שער-הבית החי</small></a>
+          <a href="/live.html">Live<small>מצב-חי מאוורר</small></a>
+          <a href="/Domain/status/index.html">Status<small>דופק-מערכת + status.json</small></a>
+          <a href="/Domain/wallet-truth.html">Wallet-Truth<small>אמת-הארנק</small></a>
+          <a href="/GridWatch/index.html">GridWatch<small>משגיח-הגריד</small></a>
+          <a href="/Pulse/index.html">Pulse<small>דופק-הפרסום</small></a>
+          <a href="/Domain/verify/index.html">Verify<small>אימות-עצמאי</small></a>
+        </nav>
+      </section>
+
+      <div class="law">
+        <div>חוק-האיחוד: מצב-אחד · כל-טענה-מול-מקור-חי · אין-טענה-בלי-תאריך · סתירה-נסגרת-בפאטץ'-מדויק</div>
+        <div>מקור-חי: <a href="/Domain/status.json">status.json</a> · ערוץ-הקנון: <a href="/Domain/canon.json">canon.json</a> · כל-הערכים-בעמדה-זו-מתעדכנים-אוטונומית</div>
+      </div>
+    </div>
+
+    <script>
+      // שעון-ירושלים חי — שנייה-שנייה, בלי-תלות-חוץ
+      (function () {
+        var el = document.getElementById("jl-clock");
+        if (!el) return;
+        var fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Jerusalem", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
+        var tick = function () { try { el.textContent = fmt.format(new Date()); } catch (e) {} };
+        tick(); setInterval(tick, 1000);
+      })();
+      // מחשבון-רצפה חי — ניזון-מערוץ-הקנון (canon.js מעדכן-את-ה-spans ואז-ההפרש-מחושב-מחדש)
+      (function () {
+        var card = document.getElementById("floor-card");
+        var st = document.getElementById("floor-status");
+        var note = document.getElementById("floor-note");
+        if (!card || !st) return;
+        function num(key, fallback) {
+          var els = document.querySelectorAll('[data-canon="' + key + '"]');
+          if (!els.length) return fallback;
+          var n = parseFloat(String(els[0].textContent).replace(/,/g, ""));
+          return isNaN(n) ? fallback : n;
+        }
+        function refresh() {
+          var steem = num("treasury.steem", 0);
+          var floor = num("treasury.floor", 3000);
+          if (steem >= floor && steem > 0) {
+            st.textContent = "ABOVE-FLOOR";
+            st.style.color = "var(--ok)";
+            card.classList.remove("alert");
+            note.textContent = "האוצר-מעל-הרצפה · " + (steem - floor).toFixed(3) + " STEEM מעל-החוק";
+          } else {
+            st.textContent = "BELOW-FLOOR";
+            st.style.color = "var(--bad)";
+            card.classList.add("alert");
+            note.textContent = "חסר " + Math.max(0, floor - steem).toFixed(3) + " STEEM לרצפה · ההפרש-מחושב-חי";
+          }
+        }
+        refresh();
+        [400, 1200, 3000, 6000, 12000, 20000].forEach(function (ms) { setTimeout(refresh, ms); });
+        setInterval(refresh, 15000);
+      })();
+    </script>
+  </body>
+</html>
