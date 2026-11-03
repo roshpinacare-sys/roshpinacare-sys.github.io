@@ -3,156 +3,928 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>מפקדת הצי — עמדת-פיקוד חיה | SAOS</title>
+    <title>מפקדת-הצי · עמדת-פיקוד תלת-ממדית | SAOS</title>
     <meta
       name="description"
-      content="עמדת-הפיקוד החיה של מפקדת הצי: קיר-אמת של הגיט, דופק-עורקים, אוצר מול רצפה, שעון-ירושלים — הכל חי מערוץ-קנון אחד, אפס תלות, אפס קבצי-bundle."
+      content="עמדת-הפיקוד התלת-ממדית של מפקדת-הצי: 49 עמדות-ריפו חיות, אובליסק-אוצר מול רצפת-החוק, עורקים פועמים, טבעות-רשת — הכל ניזון-חי מערוץ-קנון אחד (SAOS-CANON)."
+    />
+    <link
+      rel="icon"
+      href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect width="16" height="16" rx="3" fill="%238a6d3b"/><rect x="4" y="6" width="8" height="7" fill="%232e7d4f"/></svg>'
     />
     <style>
       :root {
         --bg: #f3f1ec; --card: #faf8f3; --ink: #2c2a26; --muted: #6b6b6b;
-        --line: rgba(60, 52, 40, 0.16); --ok: #2e7d4f; --warn: #b45309; --bad: #b3261e; --accent: #8a6d3b;
+        --line: #e8e4de; --ok: #2e7d4f; --warn: #b45309; --bad: #b3261e; --accent: #8a6d3b;
       }
       * { box-sizing: border-box; }
-      html, body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.75 "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; }
-      .wrap { max-width: 980px; margin: 0 auto; padding: 20px 16px 40px; }
-      header.hero { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px; border-bottom: 2px solid var(--line); padding-bottom: 14px; margin-bottom: 18px; }
-      h1 { font-size: 22px; margin: 0; font-weight: 800; }
-      .eyebrow { font-size: 12.5px; color: var(--muted); letter-spacing: 0.4px; }
-      .clock { margin-inline-start: auto; text-align: left; direction: ltr; font-variant-numeric: tabular-nums; }
-      .clock b { font-size: 21px; font-weight: 800; }
-      .clock span { display: block; font-size: 11.5px; color: var(--muted); }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
-      .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
-      .card .l { font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }
-      .card .v { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: embed; text-align: right; }
-      .card .s { font-size: 11.5px; color: var(--muted); direction: ltr; unicode-bidi: embed; overflow-wrap: anywhere; }
-      .card.alert { border-color: rgba(179, 38, 30, 0.45); background: #fdf3f2; }
-      .card.alert .v { color: var(--bad); }
-      .verdicts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
-      .pill { border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); font-variant-numeric: tabular-nums; }
-      .pill.ok { color: var(--ok); border-color: rgba(46, 125, 79, 0.4); background: #f0f7f2; }
-      .pill.warn { color: var(--warn); border-color: rgba(180, 83, 9, 0.4); background: #fdf6ec; }
-      .pill.bad { color: var(--bad); border-color: rgba(179, 38, 30, 0.4); background: #fdf3f2; }
-      .pill.mut { color: var(--muted); background: #f4f2ee; }
-      section { margin-top: 22px; }
-      h2 { font-size: 16px; font-weight: 800; margin: 0 0 8px; }
-      nav.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; }
-      nav.links a { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.12s ease, border-color 0.12s ease; }
-      nav.links a:hover { transform: translateY(-1px); border-color: var(--accent); }
-      nav.links a small { display: block; font-weight: 400; color: var(--muted); font-size: 11.5px; }
-      .law { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 10px; font-size: 12px; color: var(--muted); text-align: center; }
-      .law a { color: inherit; }
-      @media (max-width: 560px) { .clock { margin-inline-start: 0; } h1 { font-size: 19px; } }
+      html, body { margin: 0; height: 100%; }
+      body {
+        background: var(--bg); color: var(--ink);
+        font: 15px/1.7 "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif;
+        overflow: hidden;
+      }
+      body.flatmode { overflow: auto; }
+      #stage { position: fixed; inset: 0; z-index: 0; }
+      #stage canvas { display: block; }
+
+      /* ── פס-עליון ─────────────────────────────── */
+      .topbar {
+        position: fixed; top: 0; inset-inline: 0; z-index: 20;
+        display: flex; align-items: center; flex-wrap: wrap; gap: 6px 16px;
+        padding: 8px 14px;
+        background: rgba(250, 248, 243, 0.86);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      .brand h1 { font-size: 16px; margin: 0; font-weight: 800; letter-spacing: 0.2px; }
+      .eyebrow { font-size: 11px; color: var(--muted); letter-spacing: 0.3px; }
+      .badge {
+        background: #fdf3f2; color: var(--bad); border: 1px solid rgba(179, 38, 30, 0.42);
+        border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 700;
+      }
+      .live-at {
+        font-size: 11.5px; color: var(--muted); max-width: 34ch;
+        overflow: hidden; text-overflow: ellipsis; white-space: nowrap; direction: ltr; unicode-bidi: embed;
+      }
+      .clock { margin-inline-start: auto; text-align: left; direction: ltr; font-variant-numeric: tabular-nums; line-height: 1.3; }
+      .clock b { font-size: 18px; font-weight: 800; }
+      .clock span { display: block; font-size: 10.5px; color: var(--muted); }
+
+      /* ── לוח-ערכים צד ─────────────────────────── */
+      .panel {
+        position: fixed; top: 64px; inset-inline-start: 12px; z-index: 20;
+        width: 300px; max-height: calc(100vh - 196px); overflow: auto;
+        background: rgba(250, 248, 243, 0.94);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px;
+        box-shadow: 0 8px 30px rgba(60, 52, 40, 0.10);
+      }
+      .panel h2 { font-size: 12.5px; margin: 0 0 8px; font-weight: 800; color: var(--accent); letter-spacing: 0.5px; }
+      .row {
+        display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+        padding: 5px 0; border-bottom: 1px dashed var(--line); font-size: 13.5px;
+      }
+      .row .l { color: var(--muted); font-size: 12.5px; }
+      .row .v { font-weight: 800; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: embed; text-align: left; white-space: nowrap; }
+      .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 2px; }
+      .chip {
+        border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 700;
+        border: 1px solid var(--line); font-variant-numeric: tabular-nums; background: #f4f2ee; color: var(--muted);
+      }
+      .chip.ok { color: var(--ok); border-color: rgba(46, 125, 79, 0.4); background: #f0f7f2; }
+      .chip.warn { color: var(--warn); border-color: rgba(180, 83, 9, 0.4); background: #fdf6ec; }
+      .chip.bad { color: var(--bad); border-color: rgba(179, 38, 30, 0.4); background: #fdf3f2; }
+      .selbox { margin-top: 10px; border: 1px solid var(--line); background: #fffdf9; border-radius: 10px; padding: 9px 11px; font-size: 12.5px; }
+      .selbox b { font-size: 13.5px; }
+      .selbox .zc { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 5px; }
+      .hint { margin-top: 9px; font-size: 11px; color: var(--muted); }
+      .sec-label { margin-top: 8px; font-size: 12px; color: var(--accent); font-weight: 700; }
+
+      /* ── כלי-עזר וכפתורים ────────────────────── */
+      .btn {
+        min-width: 44px; min-height: 44px; border: 1px solid var(--line);
+        background: var(--card); color: var(--ink); border-radius: 10px;
+        font: 700 13px/1 system-ui, sans-serif; cursor: pointer; padding: 0 12px;
+        transition: border-color 0.15s ease, transform 0.15s ease;
+      }
+      .btn:hover { border-color: var(--accent); }
+      .btn:active { transform: scale(0.97); }
+      .btn[aria-pressed="true"] { border-color: var(--ok); color: var(--ok); background: #f0f7f2; }
+      .panel-toggle { position: fixed; z-index: 21; inset-inline-start: 12px; bottom: 104px; display: none; }
+      .ctl { position: fixed; z-index: 21; inset-inline-end: 12px; bottom: 104px; display: flex; flex-direction: column; gap: 8px; }
+
+      /* ── תיבת-רמז (tooltip) ───────────────────── */
+      .tip {
+        position: fixed; z-index: 30; pointer-events: none;
+        background: rgba(44, 42, 38, 0.94); color: #faf8f3;
+        border-radius: 10px; padding: 7px 12px; font-size: 12.5px; font-weight: 700;
+        transform: translate(-50%, -130%); white-space: nowrap;
+        box-shadow: 0 6px 18px rgba(44, 42, 38, 0.25);
+      }
+      .tip small { display: block; font-weight: 400; color: #cfc9bd; font-size: 10.5px; }
+
+      /* ── תחתית: חותמת-זמן ────────────────────── */
+      .footwrap { position: fixed; bottom: 0; inset-inline: 0; z-index: 20; background: rgba(243, 241, 236, 0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+      /* ── גיבוי דו-ממדי ────────────────────────── */
+      #flat { max-width: 1040px; margin: 76px auto 140px; padding: 0 16px; }
+      #flat h2 { font-size: 16px; margin: 18px 0 8px; font-weight: 800; }
+      .fnote {
+        background: #fdf6ec; border: 1px solid rgba(180, 83, 9, 0.4); color: var(--warn);
+        border-radius: 10px; padding: 8px 12px; font-size: 13px; font-weight: 700;
+      }
+      .fgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+      .fcard { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+      .fcard .l { font-size: 12px; color: var(--muted); }
+      .fcard .v { font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: embed; text-align: right; }
+      .tbar { height: 14px; background: #efece5; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; direction: ltr; margin: 8px 0 6px; }
+      .tbar .fill { height: 100%; width: 2%; background: var(--bad); border-radius: 999px; transition: width 0.6s ease; }
+      .tbar .fill.ok { background: var(--ok); }
+
+      noscript div { margin: 90px 16px 0; text-align: center; font-weight: 700; color: var(--bad); }
+
+      @media (max-width: 760px) {
+        .brand h1 { font-size: 13.5px; }
+        .eyebrow, .live-at { display: none; }
+        .clock b { font-size: 15px; }
+        .panel {
+          top: auto; bottom: 96px; inset-inline: 8px; width: auto; max-height: 46vh;
+          transform: translateY(14px); opacity: 0; pointer-events: none;
+        }
+        .panel.open { transform: none; opacity: 1; pointer-events: auto; }
+        .panel-toggle { display: block; }
+        .ctl { flex-direction: row; bottom: 96px; }
+        .tip { font-size: 11.5px; }
+      }
     </style>
     <script src="/Domain/canon.js" defer></script>
+    <script type="importmap">
+      {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+    </script>
   </head>
   <body>
-    <div class="wrap">
-      <header class="hero">
-        <div>
-          <h1>מפקדת הצי · עמדת-פיקוד חיה</h1>
-          <div class="eyebrow">אפס-תלות · אפס-bundle · ערוץ-קנון אחד חי · מספר-אחד מקור-אחד</div>
-        </div>
-        <div class="clock" aria-live="off">
-          <b id="jl-clock">--:--:--</b>
-          <span>Jerusalem · Asia/Jerusalem</span>
-        </div>
-      </header>
+    <noscript><div>עמדת-הפיקוד דורשת-JavaScript · הפעילו-JS כדי-לראות את מפקדת-הצי החיה</div></noscript>
 
-      <section aria-label="קיר-אמת של הגיט">
-        <h2>קיר-אמת · הגיט הנמדד</h2>
-        <div class="grid">
-          <div class="card"><div class="l">ריפואים · סך-הכל</div><div class="v"><span data-canon="repos.total">49</span></div><div class="s">GitHub measured</div></div>
-          <div class="card"><div class="l">פומביים / פרטיים</div><div class="v"><span data-canon="repos.public">40</span> / <span data-canon="repos.private">9</span></div><div class="s">visibility split</div></div>
-          <div class="card"><div class="l">עורקים · פועמים מהסך</div><div class="v"><span data-canon="arteries.beating">71</span>/<span data-canon="arteries.total">396</span></div><div class="s">workflows · pulse</div></div>
-          <div class="card"><div class="l">מילויים · לכל-החיים / פנקס</div><div class="v"><span data-canon="fills.lifetime">730</span> / <span data-canon="fills.ledger">121</span></div><div class="s">execution ledger</div></div>
-          <div class="card"><div class="l">רשתות רווח</div><div class="v"><span data-canon="networks.count">7</span></div><div class="s">accounts scanned</div></div>
-          <div class="card"><div class="l">חשבונות · מפקד / פנקס</div><div class="v"><span data-canon="accounts.census">19</span> / <span data-canon="accounts.ledger">31</span></div><div class="s">census / ledger</div></div>
-        </div>
-      </section>
+    <!-- זירת-תלת-ממד -->
+    <div id="stage" aria-label="זירת-פיקוד תלת-ממדית של מפקדת-הצי"></div>
+    <div class="tip" id="tip" hidden></div>
 
-      <section aria-label="אוצר מול רצפה">
-        <h2>אוצר מול רצפה</h2>
-        <div class="grid">
-          <div class="card" id="treasury-card"><div class="l">אוצר STEEM · נמדד</div><div class="v"><span data-canon="treasury.steem">175.009</span></div><div class="s">local-census (measured)</div></div>
-          <div class="card"><div class="l">רצפת-אוצר · חוק-מוגן</div><div class="v"><span data-canon="treasury.floor">3000</span></div><div class="s">protected floor</div></div>
-          <div class="card" id="floor-card"><div class="l">מצב-רצפה</div><div class="v" id="floor-status">BELOW-FLOOR</div><div class="s" id="floor-note">האוצר-מתחת-לרצפה · ההפרש-מחושב-חי</div></div>
-        </div>
-      </section>
-
-      <section aria-label="קיר-פסקי-הדופק">
-        <h2>פסקי-דופק · דפי-הצי</h2>
-        <div class="verdicts">
-          <span class="pill ok">ALIVE <span data-canon="verdicts.ALIVE">18</span></span>
-          <span class="pill warn">MIXED <span data-canon="verdicts.MIXED">7</span></span>
-          <span class="pill bad">STALE <span data-canon="verdicts.STALE">11</span></span>
-          <span class="pill mut">IDLE <span data-canon="verdicts.IDLE">13</span></span>
-          <span class="pill mut">הנחיות-פתוחות <span data-canon="directives.open">41</span></span>
-        </div>
-      </section>
-
-      <section aria-label="כניסות-מהירות">
-        <h2>כניסות-מהירות</h2>
-        <nav class="links">
-          <a href="/Console/index.html">Console<small>הקונסולה הריבונית</small></a>
-          <a href="/Domain/index.html">Domain<small>שער-הבית החי</small></a>
-          <a href="/live.html">Live<small>מצב-חי מאוורר</small></a>
-          <a href="/Domain/status/index.html">Status<small>דופק-מערכת + status.json</small></a>
-          <a href="/Domain/wallet-truth.html">Wallet-Truth<small>אמת-הארנק</small></a>
-          <a href="/GridWatch/index.html">GridWatch<small>משגיח-הגריד</small></a>
-          <a href="/Pulse/index.html">Pulse<small>דופק-הפרסום</small></a>
-          <a href="/Domain/verify/index.html">Verify<small>אימות-עצמאי</small></a>
-        </nav>
-      </section>
-
-      <div class="law">
-        <div>חוק-האיחוד: מצב-אחד · כל-טענה-מול-מקור-חי · אין-טענה-בלי-תאריך · סתירה-נסגרת-בפאטץ'-מדויק</div>
-        <div>מקור-חי: <a href="/Domain/status.json">status.json</a> · ערוץ-הקנון: <a href="/Domain/canon.json">canon.json</a> · כל-הערכים-בעמדה-זו-מתעדכנים-אוטונומית</div>
+    <!-- פס-עליון -->
+    <header class="topbar">
+      <div class="brand">
+        <h1>מפקדת-הצי · עמדת-פיקוד תלת-ממדית</h1>
+        <div class="eyebrow">SAOS · מספר-אחד · מקור-אחד · ערוץ-קנון חי</div>
       </div>
+      <span class="badge" id="canon-badge" hidden>אין-חיבור-לקנון</span>
+      <span class="live-at" data-canon="generatedAtLabel">קנון-חי · רשת-ריבונית SAOS</span>
+      <div class="clock" aria-live="off">
+        <b id="jl-clock">--:--:--</b>
+        <span>Jerusalem · Asia/Jerusalem</span>
+      </div>
+    </header>
+
+    <!-- לוח-ערכים חי -->
+    <aside class="panel" id="panel" aria-label="לוח-ערכים חי">
+      <h2>לוח-ערכים חי · קנון</h2>
+      <div class="row"><span class="l">ריפואים · סך-הכל</span><span class="v"><span data-canon="repos.total">49</span></span></div>
+      <div class="row"><span class="l">פומביים / פרטיים</span><span class="v"><span data-canon="repos.public">40</span> / <span data-canon="repos.private">9</span></span></div>
+      <div class="row"><span class="l">עורקים-פועמים</span><span class="v"><span data-canon="arteries.beating">76</span> / <span data-canon="arteries.total">396</span></span></div>
+      <div class="row"><span class="l">מילויים · לכל-החיים</span><span class="v"><span data-canon="fills.lifetime">730</span></span></div>
+      <div class="row"><span class="l">רשתות רווח</span><span class="v"><span data-canon="networks.count">7</span></span></div>
+      <div class="row"><span class="l">חשבונות · מפקד</span><span class="v"><span data-canon="accounts.census">19</span></span></div>
+      <div class="row"><span class="l">אוצר STEEM · נמדד</span><span class="v"><span data-canon="treasury.steem">217.33</span></span></div>
+      <div class="row"><span class="l">רצפת-אוצר · חוק-מוגן</span><span class="v"><span data-canon="treasury.floor">3000</span></span></div>
+      <div class="row"><span class="l">מצב-רצפה</span><span class="v floor-line" style="direction: rtl; text-align: right; color: var(--bad)">מתחת-לרצפה</span></div>
+      <div class="row"><span class="l">הנחיות-פתוחות</span><span class="v"><span data-canon="directives.open">58</span></span></div>
+      <div class="sec-label">פסק-דין חי · פסקי-דופק</div>
+      <div class="chips">
+        <span class="chip ok">חי <span data-canon="verdicts.ALIVE">18</span></span>
+        <span class="chip warn">מעורב <span data-canon="verdicts.MIXED">7</span></span>
+        <span class="chip bad">רדום <span data-canon="verdicts.STALE">11</span></span>
+        <span class="chip">מושבת <span data-canon="verdicts.IDLE">13</span></span>
+      </div>
+      <div class="selbox" id="sel-box" hidden>
+        <b id="sel-title">עמדה</b>
+        <div id="sel-body"></div>
+      </div>
+      <div class="hint">גרירה = סיבוב · גלגלת = זום · לחיצה-על-עמדה = בחירה</div>
+    </aside>
+    <button class="btn panel-toggle" id="panel-btn" aria-label="פתיחה/סגירה של לוח-הערכים" aria-expanded="false">☰</button>
+
+    <!-- כלי-מצלמה -->
+    <div class="ctl" id="ctl">
+      <button class="btn" id="spin-btn" aria-pressed="true" title="סיבוב-אוטומטי של המצלמה">סיבוב</button>
+      <button class="btn" id="reset-btn" title="איפוס-מצלמה">אפס-מצלמה</button>
     </div>
 
-    <script>
-      // שעון-ירושלים חי — שנייה-שנייה, בלי-תלות-חוץ
+    <!-- גיבוי דו-ממדי (WebGL לא-זמין) -->
+    <main id="flat" hidden>
+      <div class="fnote">תצוגת-מפגן דו-ממדית · מנוע-התלת-ממד (WebGL) אינו-זמין בדפדפן-זה · כל-הערכים-חיים מערוץ-הקנון</div>
+      <h2>מפקדת-הצי · לוח-ערכים</h2>
+      <div class="fgrid">
+        <div class="fcard"><div class="l">ריפואים · סך-הכל</div><div class="v"><span data-canon="repos.total">49</span></div><div class="l">פומביים <span data-canon="repos.public">40</span> · פרטיים <span data-canon="repos.private">9</span></div></div>
+        <div class="fcard"><div class="l">עורקים-פועמים</div><div class="v"><span data-canon="arteries.beating">76</span>/<span data-canon="arteries.total">396</span></div><div class="l">דופק-workflows</div></div>
+        <div class="fcard"><div class="l">מילויים · לכל-החיים</div><div class="v"><span data-canon="fills.lifetime">730</span></div><div class="l">פנקס-ביצוע</div></div>
+        <div class="fcard"><div class="l">רשתות רווח</div><div class="v"><span data-canon="networks.count">7</span></div><div class="l">חשבונות-נסרקו <span data-canon="accounts.census">19</span></div></div>
+        <div class="fcard"><div class="l">הנחיות-פתוחות</div><div class="v"><span data-canon="directives.open">58</span></div><div class="l">פנקס-הנחיות</div></div>
+      </div>
+      <h2>אוצר מול-רצפה</h2>
+      <div class="fcard">
+        <div class="l">אוצר STEEM מול רצפת-החוק</div>
+        <div class="v"><span data-canon="treasury.steem">217.33</span> / <span data-canon="treasury.floor">3000</span></div>
+        <div class="tbar"><div class="fill" id="flat-bar-fill"></div></div>
+        <div class="floor-line" style="font-weight: 700; color: var(--bad)">מתחת-לרצפה</div>
+      </div>
+      <h2>פסק-דין חי</h2>
+      <div class="chips">
+        <span class="chip ok">חי <span data-canon="verdicts.ALIVE">18</span></span>
+        <span class="chip warn">מעורב <span data-canon="verdicts.MIXED">7</span></span>
+        <span class="chip bad">רדום <span data-canon="verdicts.STALE">11</span></span>
+        <span class="chip">מושבת <span data-canon="verdicts.IDLE">13</span></span>
+      </div>
+    </main>
+
+    <!-- חותמת-זמן ארכיטקטונית (דפוס-מחייב מהריפו) -->
+    <div class="footwrap">
+      <div dir="rtl" style="border-top:1px solid #e8e4de;margin-top:24px;padding:14px 8px;font:12px/1.7 system-ui,sans-serif;color:#6b6b6b;text-align:center">חותמת-זמן ארכיטקטונית: <time datetime="2026-11-03T21:03:57.000Z">2026-11-03</time> · מקור-חי: <a href="https://roshpinacare-sys.github.io/Domain/status.json" style="color:inherit;text-decoration:underline">status.json</a> · <span data-canon="generatedAtLabel">רשת-ריבונית SAOS</span></div>
+    </div>
+
+    <!-- סקריפט-אתחול קלאסי: שעון · קנון-גיבוי · נפילה-לדו-ממד · watchdog -->
+    <script id="boot">
       (function () {
-        var el = document.getElementById("jl-clock");
-        if (!el) return;
-        var fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Jerusalem", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
-        var tick = function () { try { el.textContent = fmt.format(new Date()); } catch (e) {} };
-        tick(); setInterval(tick, 1000);
-      })();
-      // מחשבון-רצפה חי — ניזון-מערוץ-הקנון (canon.js מעדכן-את-ה-spans ואז-ההפרש-מחושב-מחדש)
-      (function () {
-        var card = document.getElementById("floor-card");
-        var st = document.getElementById("floor-status");
-        var note = document.getElementById("floor-note");
-        if (!card || !st) return;
-        function num(key, fallback) {
-          var els = document.querySelectorAll('[data-canon="' + key + '"]');
-          if (!els.length) return fallback;
-          var n = parseFloat(String(els[0].textContent).replace(/,/g, ""));
-          return isNaN(n) ? fallback : n;
+        "use strict";
+        var D = (window.__deck = { mode: "pending", values: null, at: "", flat: false });
+        function $(id) { return document.getElementById(id); }
+        function fmt(n) { try { return Number(n).toLocaleString("en-US"); } catch (e) { return String(n); } }
+
+        /* נפילה-ללוח-דו-ממדי — לעולם-לא-מסך-ריק */
+        function fallback() {
+          if (D.flat) return;
+          D.flat = true; D.mode = "flat";
+          var st = $("stage"), fl = $("flat"), tip = $("tip"), ctl = $("ctl"), pb = $("panel-btn");
+          if (st) st.hidden = true;
+          if (tip) tip.hidden = true;
+          if (ctl) ctl.hidden = true;
+          if (pb) pb.hidden = true;
+          if (fl) fl.hidden = false;
+          document.body.classList.add("flatmode");
+          var p = $("panel");
+          if (p && window.innerWidth <= 760) p.classList.remove("open");
         }
-        function refresh() {
-          var steem = num("treasury.steem", 0);
-          var floor = num("treasury.floor", 3000);
-          if (steem >= floor && steem > 0) {
-            st.textContent = "ABOVE-FLOOR";
-            st.style.color = "var(--ok)";
-            card.classList.remove("alert");
-            note.textContent = "האוצר-מעל-הרצפה · " + (steem - floor).toFixed(3) + " STEEM מעל-החוק";
-          } else {
-            st.textContent = "BELOW-FLOOR";
-            st.style.color = "var(--bad)";
-            card.classList.add("alert");
-            note.textContent = "חסר " + Math.max(0, floor - steem).toFixed(3) + " STEEM לרצפה · ההפרש-מחושב-חי";
+        D.fallback = fallback;
+
+        /* watchdog: אם-המודול התלת-ממדי לא-עלה-בזמן → דו-ממד */
+        setTimeout(function () { if (D.mode === "pending") fallback(); }, 6000);
+
+        /* שעון-ירושלים · שנייה-שנייה */
+        var clockEl = $("jl-clock");
+        function tickClock() {
+          try {
+            clockEl.textContent = new Intl.DateTimeFormat("en-GB", {
+              timeZone: "Asia/Jerusalem", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit"
+            }).format(new Date());
+          } catch (e) {}
+        }
+        if (clockEl) { tickClock(); setInterval(tickClock, 1000); }
+
+        /* מצב-רצפה · לוח-דו-ממדי */
+        function applyFlat(v) {
+          var st = Number(v["treasury.steem"]), fl = Number(v["treasury.floor"]);
+          if (isFinite(st) && isFinite(fl) && fl > 0) {
+            var pct = Math.max(1, Math.min(100, (st / fl) * 100));
+            var bar = $("flat-bar-fill");
+            if (bar) { bar.style.width = pct.toFixed(2) + "%"; bar.className = st >= fl ? "fill ok" : "fill"; }
+            var lines = document.querySelectorAll(".floor-line");
+            for (var i = 0; i < lines.length; i++) {
+              if (st >= fl) {
+                lines[i].textContent = "מעל-הרצפה · +" + fmt(+(st - fl).toFixed(3)) + " STEEM";
+                lines[i].style.color = "var(--ok)";
+              } else {
+                lines[i].textContent = "מתחת-לרצפה · חסר " + fmt(+(fl - st).toFixed(3)) + " STEEM";
+                lines[i].style.color = "var(--bad)";
+              }
+            }
           }
         }
-        refresh();
-        [400, 1200, 3000, 6000, 12000, 20000].forEach(function (ms) { setTimeout(refresh, ms); });
-        setInterval(refresh, 15000);
+        function updateGen(at) {
+          var g = document.querySelectorAll('[data-canon="generatedAtLabel"]');
+          for (var i = 0; i < g.length; i++) g[i].textContent = "קנון-חי: " + (at || "");
+        }
+        function setBadge(on) { var b = $("canon-badge"); if (b) b.hidden = !on; }
+
+        /* ערוץ-קנון: canon.js הוא-המקור — האזנה + גיבוי-fetch ישיר */
+        window.addEventListener("saos-canon", function (e) {
+          var c = e && e.detail; var v = (c && c.values) || c || {};
+          D.values = v; D.at = (c && c.at) || D.at;
+          setBadge(false);
+          applyFlat(v);
+        });
+
+        var retryTimer = null;
+        function fetchDirect() {
+          var urls = ["/Domain/canon.json", "https://roshpinacare-sys.github.io/Domain/canon.json"];
+          var i = 0;
+          function step() {
+            if (i >= urls.length) {
+              setBadge(true);
+              if (retryTimer) clearTimeout(retryTimer);
+              retryTimer = setTimeout(fetchDirect, 60000);
+              return;
+            }
+            var u = urls[i++];
+            fetch(u, { cache: "no-store" })
+              .then(function (r) { if (!r.ok) throw new Error("http"); return r.json(); })
+              .then(function (c) {
+                if (!c || !c.values) throw new Error("shape");
+                D.values = c.values; D.at = c.at || "";
+                setBadge(false); applyFlat(c.values); updateGen(c.at);
+              })
+              .catch(step);
+          }
+          try { step(); } catch (e) { setBadge(true); }
+        }
+        setTimeout(function () { if (!D.values) fetchDirect(); }, 1500);
+
+        /* כפתור-לוח-צד (מובייל) */
+        var pb = $("panel-btn"), panel = $("panel");
+        if (pb && panel) {
+          pb.addEventListener("click", function () {
+            var open = panel.classList.toggle("open");
+            pb.textContent = open ? "✕" : "☰";
+            pb.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+          if (window.innerWidth <= 760) { panel.classList.remove("open"); pb.textContent = "☰"; }
+        }
+
+        /* כשל-טעינה-של-מודול-תלת-ממד (CDN/importmap) */
+        var mod = $("deck-module");
+        if (mod) mod.addEventListener("error", function () { fallback(); });
       })();
     </script>
-  <script src="../assets/bidi-fix.js" defer></script>
-</body>
+
+    <!-- מנוע-תלת-ממד: Three.js r160 · OrbitControls · InstancedMesh -->
+    <script type="module" id="deck-module">
+      import * as THREE from "three";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+      const D = window.__deck || (window.__deck = { mode: "pending", values: null, at: "", flat: false, fallback: function () {} });
+      const $ = (id) => document.getElementById(id);
+      const stage = $("stage"), tipEl = $("tip"), selBox = $("sel-box"), selTitle = $("sel-title"), selBody = $("sel-body");
+
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+      const fmt = (n) => { try { return Number(n).toLocaleString("en-US"); } catch (e) { return String(n); } };
+
+      /* קנון-בנייה: ערכי-ברירת-מחדל עד-שהקנון-החי-מגיע */
+      const DEFAULTS = {
+        "repos.total": 49, "repos.public": 40, "repos.private": 9,
+        "arteries.total": 396, "arteries.beating": 76, "fills.lifetime": 730,
+        "networks.count": 7, "accounts.census": 19,
+        "treasury.steem": 217.33, "treasury.floor": 3000, "directives.open": 58,
+        "verdicts.ALIVE": 18, "verdicts.MIXED": 7, "verdicts.STALE": 11, "verdicts.IDLE": 13
+      };
+
+      const PAL = { bg: 0xf3f1ec, grid1: 0xd8d2c4, grid2: 0xe5e1d8, bronze: 0x8a6d3b, red: 0xb3261e, emerald: 0x2e7d4f, laneIdle: 0xb5ad9c };
+      const VERDICTS = [
+        { key: "ALIVE", he: "חי", color: 0x2e7d4f },
+        { key: "MIXED", he: "מעורב", color: 0xb45309 },
+        { key: "STALE", he: "רדום", color: 0x8a8271 },
+        { key: "IDLE", he: "מושבת", color: 0xb7b1a3 }
+      ];
+      const H_FLOOR = 9.2;          /* גובה-ייצוג רצפת-האוצר */
+      const MAXD = 160, MAXLANES = 190, SAMPLES = 22;
+
+      let seed = 20261103;
+      const rnd = () => { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+
+      let renderer = null, scene, camera, controls, deskMesh, ringSel;
+      let obelisk, floorRing, gapCyl, labelSprite, labelTex = null;
+      let laneLinesBeating, laneLinesIdle, pulsePts, ringsGroup;
+      const ringMeshes = [];
+      let desks = [], N = 0;
+      let ca = -1, cm = -1, cs = -1, ci = -1, cSt = -1, cFl = -1, cAt = -1, cAb = -1, cNn = -1;
+      let belowFloor = true, targetH = 0.6;
+      let lanes = [], laneCount = 0, beating = 0;
+      let pulseRate = 1.6, pulseRateT = 1.6, time = 0;
+      let hoverId = -1, selId = -1;
+      let focusing = false, focusTo = new THREE.Vector3();
+      const dummy = new THREE.Object3D(), tmpC = new THREE.Color();
+      let setRunning = null;
+
+      const zoneOf = (x, z) =>
+        Math.abs(x) >= Math.abs(z) ? (x >= 0 ? "מגזר-מזרח" : "מגזר-מערב") : (z >= 0 ? "מגזר-דרום" : "מגזר-צפון");
+
+      function bez(p0, p1, p2, t) {
+        const u = 1 - t;
+        return new THREE.Vector3(
+          u * u * p0.x + 2 * u * t * p1.x + t * t * p2.x,
+          u * u * p0.y + 2 * u * t * p1.y + t * t * p2.y,
+          u * u * p0.z + 2 * u * t * p1.z + t * t * p2.z
+        );
+      }
+
+      function writeMatrix(i, s) {
+        const d = desks[i];
+        dummy.position.set(d.x, 0.7 * d.h * s, d.z);
+        dummy.scale.set(s, d.h * s, s);
+        dummy.rotation.set(0, 0, 0);
+        dummy.updateMatrix();
+        deskMesh.setMatrixAt(i, dummy.matrix);
+      }
+
+      function reassignDesks(total, a, m, s, idle) {
+        N = clamp(total | 0, 1, Math.min(MAXD, 76));
+        const cnt = { ALIVE: clamp(a | 0, 0, N), MIXED: clamp(m | 0, 0, N), STALE: clamp(s | 0, 0, N) };
+        cnt.IDLE = Math.max(0, N - cnt.ALIVE - cnt.MIXED - cnt.STALE);
+        const cells = [];
+        for (let gx = -4; gx <= 4; gx++)
+          for (let gz = -4; gz <= 4; gz++) {
+            const d = Math.hypot(gx, gz);
+            if (d >= 1.35 && d <= 4.6) cells.push({ x: gx * 2.15, z: gz * 2.15, d });
+          }
+        cells.sort((p, q) => p.d - q.d);
+        const list = [];
+        for (const v of VERDICTS) for (let k = 0; k < cnt[v.key]; k++) list.push(v.key);
+        while (list.length < N) list.push("IDLE");
+        for (let i = list.length - 1; i > 0; i--) {
+          const j = Math.floor(rnd() * (i + 1));
+          const t = list[i]; list[i] = list[j]; list[j] = t;
+        }
+        desks = [];
+        for (let i = 0; i < N; i++) {
+          const c = cells[i % cells.length];
+          const vd = VERDICTS.find((v) => v.key === list[i]) || VERDICTS[3];
+          desks.push({
+            x: c.x, z: c.z, h: 1.0 + rnd() * 0.55, verdict: vd,
+            base: new THREE.Color(vd.color), curC: new THREE.Color(vd.color),
+            phase: rnd() * Math.PI * 2, curS: 1
+          });
+        }
+        deskMesh.count = N;
+        for (let i = 0; i < N; i++) { writeMatrix(i, 1); deskMesh.setColorAt(i, desks[i].curC); }
+        deskMesh.instanceMatrix.needsUpdate = true;
+        if (deskMesh.instanceColor) deskMesh.instanceColor.needsUpdate = true;
+        hoverId = -1; selId = -1; selBox.hidden = true;
+        if (cAt >= 0 && N >= 2) rebuildArteries();
+      }
+
+      function rebuildArteries() {
+        laneCount = clamp(cAt | 0, 0, MAXLANES);
+        beating = clamp(cAb | 0, 0, laneCount);
+        lanes = [];
+        if (laneCount > 0 && N >= 2) {
+          const idx = [];
+          for (let i = 0; i < N; i++) idx.push(i);
+          for (let i = idx.length - 1; i > 0; i--) {
+            const j = Math.floor(rnd() * (i + 1));
+            const t = idx[i]; idx[i] = idx[j]; idx[j] = t;
+          }
+          for (let i = 0; i < laneCount; i++) {
+            const da = desks[idx[i % N]], db = desks[idx[(i * 7 + 3) % N]];
+            const p0 = new THREE.Vector3(da.x, 0.7 * da.h + 0.18, da.z);
+            const p2 = new THREE.Vector3(db.x, 0.7 * db.h + 0.18, db.z);
+            const mid = p0.clone().add(p2).multiplyScalar(0.5);
+            const dist = p0.distanceTo(p2);
+            mid.y += 1.4 + dist * 0.3 + rnd() * 0.8;
+            mid.x += (rnd() - 0.5) * 1.2;
+            mid.z += (rnd() - 0.5) * 1.2;
+            const pts = [];
+            for (let k = 0; k < SAMPLES; k++) pts.push(bez(p0, mid, p2, k / (SAMPLES - 1)));
+            lanes.push({ pts, speed: 0.05 + rnd() * 0.07, phase: rnd() });
+          }
+        }
+        const posB = [], posI = [];
+        lanes.forEach((ln, i) => {
+          const arr = i < beating ? posB : posI;
+          for (let k = 0; k < SAMPLES - 1; k++)
+            arr.push(ln.pts[k].x, ln.pts[k].y, ln.pts[k].z, ln.pts[k + 1].x, ln.pts[k + 1].y, ln.pts[k + 1].z);
+        });
+        const setGeom = (mesh, arr) => {
+          mesh.geometry.dispose();
+          const g = new THREE.BufferGeometry();
+          g.setAttribute("position", new THREE.BufferAttribute(new Float32Array(arr), 3));
+          mesh.geometry = g;
+        };
+        setGeom(laneLinesBeating, posB);
+        setGeom(laneLinesIdle, posI);
+        pulsePts.geometry.setDrawRange(0, beating);
+      }
+
+      function buildRings(n) {
+        for (const m of ringMeshes) { ringsGroup.remove(m); m.geometry.dispose(); m.material.dispose(); }
+        ringMeshes.length = 0;
+        for (let i = 0; i < n; i++) {
+          const r = 10.8 + i * 0.85;
+          const arc = Math.PI * (1.1 + ((i * 37) % 10) / 10 * 0.5);
+          const m = new THREE.Mesh(
+            new THREE.TorusGeometry(r, 0.035, 6, 110, arc),
+            new THREE.MeshBasicMaterial({ color: PAL.bronze, transparent: true, opacity: 0.3 })
+          );
+          m.rotation.x = Math.PI / 2;
+          m.rotation.z = rnd() * Math.PI * 2;
+          m.userData.speed = 0.05 + ((i * 29) % 10) / 10 * 0.1;
+          ringsGroup.add(m);
+          ringMeshes.push(m);
+        }
+        cNn = n;
+      }
+
+      function drawLabel() {
+        const c = document.createElement("canvas");
+        c.width = 560; c.height = 208;
+        const g = c.getContext("2d");
+        const col = belowFloor ? "#b3261e" : "#2e7d4f";
+        const rr = 26, w = 548, h = 196;
+        g.beginPath();
+        g.moveTo(rr, 6); g.lineTo(w - rr, 6); g.quadraticCurveTo(w - 2, 6, w - 2, 6 + rr);
+        g.lineTo(w - 2, h - rr - 2); g.quadraticCurveTo(w - 2, h - 2, w - rr - 2, h - 2);
+        g.lineTo(rr, h - 2); g.quadraticCurveTo(2, h - 2, 2, h - rr - 2);
+        g.lineTo(2, 6 + rr); g.quadraticCurveTo(2, 6, rr, 6); g.closePath();
+        g.fillStyle = "rgba(250,248,243,0.97)"; g.fill();
+        g.lineWidth = 7; g.strokeStyle = col; g.stroke();
+        g.direction = "rtl"; g.textAlign = "center"; g.textBaseline = "middle";
+        g.fillStyle = col;
+        g.font = "800 56px system-ui,'Segoe UI',Arial,sans-serif";
+        g.fillText(belowFloor ? "מתחת-לרצפה" : "מעל-הרצפה", 280, 78);
+        g.fillStyle = "#6b6b6b";
+        g.font = "600 40px system-ui,'Segoe UI',Arial,sans-serif";
+        g.fillText(fmt(cSt) + " / " + fmt(cFl) + " STEEM", 280, 152);
+        if (labelTex) labelTex.dispose();
+        labelTex = new THREE.CanvasTexture(c);
+        labelTex.colorSpace = THREE.SRGBColorSpace;
+        labelSprite.material.map = labelTex;
+        labelSprite.material.needsUpdate = true;
+      }
+
+      function sceneApply(v) {
+        v = v || {};
+        const num = (k, d) => { const n = Number(v[k]); return Number.isFinite(n) ? n : d; };
+        const total = num("repos.total", 49);
+        const a = num("verdicts.ALIVE", 18), m = num("verdicts.MIXED", 7), s = num("verdicts.STALE", 11), idle = num("verdicts.IDLE", 13);
+        if (total !== N || a !== ca || m !== cm || s !== cs || idle !== ci) {
+          ca = a; cm = m; cs = s; ci = idle;
+          reassignDesks(total, a, m, s, idle);
+        }
+        const st = num("treasury.steem", 217.33), fl = num("treasury.floor", 3000);
+        if (st !== cSt || fl !== cFl) {
+          cSt = st; cFl = fl; belowFloor = st < fl;
+          targetH = clamp(H_FLOOR * (st / Math.max(fl, 1)), 0.55, H_FLOOR * 1.5);
+          drawLabel();
+        }
+        const at = num("arteries.total", 396), ab = num("arteries.beating", 76);
+        if (at !== cAt || ab !== cAb) {
+          cAt = at; cAb = ab;
+          if (N >= 2) rebuildArteries();
+          pulseRateT = 1.1 + 2.6 * (ab / Math.max(at, 1));
+        }
+        const nn = clamp(num("networks.count", 7) | 0, 0, 12);
+        if (nn !== cNn) buildRings(nn);
+      }
+
+      function buildScene() {
+        try {
+          renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+          if (!renderer.getContext()) throw new Error("no-context");
+          D.mode = "3d";
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.shadowMap.enabled = true;
+          renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+          stage.appendChild(renderer.domElement);
+
+          scene = new THREE.Scene();
+          scene.background = new THREE.Color(PAL.bg);
+          scene.fog = new THREE.Fog(PAL.bg, 42, 105);
+
+          camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 300);
+          camera.position.set(20, 15.5, 21);
+
+          const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          controls = new OrbitControls(camera, renderer.domElement);
+          controls.target.set(0, 2.1, 0);
+          controls.enableDamping = true;
+          controls.dampingFactor = 0.06;
+          controls.minDistance = 7;
+          controls.maxDistance = 60;
+          controls.maxPolarAngle = 1.42;
+          controls.minPolarAngle = 0.15;
+          controls.autoRotate = !reduceMotion;
+          controls.autoRotateSpeed = 0.45;
+          controls.addEventListener("start", () => { controls.autoRotate = false; focusing = false; });
+
+          scene.add(new THREE.HemisphereLight(0xfdfaf2, 0xb9ad97, 0.95));
+          const sun = new THREE.DirectionalLight(0xfff1dc, 1.25);
+          sun.position.set(18, 28, 10);
+          sun.castShadow = true;
+          sun.shadow.mapSize.set(1024, 1024);
+          sun.shadow.camera.left = -20; sun.shadow.camera.right = 20;
+          sun.shadow.camera.top = 20; sun.shadow.camera.bottom = -20;
+          sun.shadow.camera.near = 2; sun.shadow.camera.far = 80;
+          sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
+          scene.add(sun);
+          scene.add(new THREE.AmbientLight(0xfff6e8, 0.25));
+
+          /* רצפה: גרדיאנט נייר + גריד עדין */
+          const gc = document.createElement("canvas");
+          gc.width = gc.height = 512;
+          const g2 = gc.getContext("2d");
+          const gr = g2.createRadialGradient(256, 256, 40, 256, 256, 256);
+          gr.addColorStop(0, "#f9f6f0"); gr.addColorStop(0.55, "#f1ede4"); gr.addColorStop(1, "#e6e1d5");
+          g2.fillStyle = gr; g2.fillRect(0, 0, 512, 512);
+          const gtex = new THREE.CanvasTexture(gc);
+          gtex.colorSpace = THREE.SRGBColorSpace;
+          const ground = new THREE.Mesh(
+            new THREE.CircleGeometry(36, 72),
+            new THREE.MeshStandardMaterial({ map: gtex, roughness: 1, metalness: 0 })
+          );
+          ground.rotation.x = -Math.PI / 2;
+          ground.receiveShadow = true;
+          scene.add(ground);
+          const grid = new THREE.GridHelper(64, 64, PAL.grid1, PAL.grid2);
+          grid.material.transparent = true;
+          grid.material.opacity = 0.55;
+          grid.position.y = 0.02;
+          scene.add(grid);
+
+          /* עמדות-ריפו: InstancedMesh */
+          deskMesh = new THREE.InstancedMesh(
+            new THREE.BoxGeometry(1.05, 1.4, 1.05),
+            new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.82, metalness: 0.04 }),
+            MAXD
+          );
+          deskMesh.castShadow = true;
+          deskMesh.receiveShadow = true;
+          deskMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+          scene.add(deskMesh);
+
+          ringSel = new THREE.Mesh(
+            new THREE.TorusGeometry(0.95, 0.05, 8, 40),
+            new THREE.MeshBasicMaterial({ color: PAL.bronze })
+          );
+          ringSel.rotation.x = Math.PI / 2;
+          ringSel.visible = false;
+          scene.add(ringSel);
+
+          /* אובליסק-אוצר + טבעת-רצפה אדומה */
+          obelisk = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.42, 0.95, 1, 4, 1),
+            new THREE.MeshStandardMaterial({ color: PAL.bronze, roughness: 0.5, metalness: 0.35, flatShading: true })
+          );
+          obelisk.rotation.y = Math.PI / 4;
+          obelisk.castShadow = true;
+          obelisk.scale.y = 0.6;
+          obelisk.position.y = 0.3;
+          scene.add(obelisk);
+          floorRing = new THREE.Mesh(
+            new THREE.TorusGeometry(2.35, 0.07, 10, 60),
+            new THREE.MeshBasicMaterial({ color: PAL.red, transparent: true, opacity: 0.85 })
+          );
+          floorRing.rotation.x = Math.PI / 2;
+          floorRing.position.y = H_FLOOR;
+          scene.add(floorRing);
+          gapCyl = new THREE.Mesh(
+            new THREE.CylinderGeometry(2.35, 2.35, 1, 48, 1, true),
+            new THREE.MeshBasicMaterial({ color: PAL.red, transparent: true, opacity: 0.06, side: THREE.DoubleSide, depthWrite: false })
+          );
+          gapCyl.position.y = H_FLOOR / 2;
+          gapCyl.scale.y = H_FLOOR;
+          scene.add(gapCyl);
+
+          labelSprite = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthWrite: false }));
+          labelSprite.scale.set(5.0, 1.8, 1);
+          labelSprite.position.set(0, 2.0, 0);
+          scene.add(labelSprite);
+
+          /* עורקים */
+          laneLinesBeating = new THREE.LineSegments(
+            new THREE.BufferGeometry(),
+            new THREE.LineBasicMaterial({ color: PAL.emerald, transparent: true, opacity: 0.4 })
+          );
+          laneLinesIdle = new THREE.LineSegments(
+            new THREE.BufferGeometry(),
+            new THREE.LineBasicMaterial({ color: PAL.laneIdle, transparent: true, opacity: 0.22 })
+          );
+          scene.add(laneLinesBeating, laneLinesIdle);
+          const pgeo = new THREE.BufferGeometry();
+          pgeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(MAXLANES * 3), 3));
+          pulsePts = new THREE.Points(
+            pgeo,
+            new THREE.PointsMaterial({ color: PAL.emerald, size: 0.3, transparent: true, opacity: 0.95, depthWrite: false })
+          );
+          scene.add(pulsePts);
+
+          /* טבעות-רשת */
+          ringsGroup = new THREE.Group();
+          scene.add(ringsGroup);
+
+          /* אתחול-מקנון-הבנייה ואז-ערכים-חיים-אם-כבר-הגיעו */
+          sceneApply(DEFAULTS);
+          if (D.values) sceneApply(D.values);
+          return true;
+        } catch (e) {
+          D.mode = "pending";
+          return false;
+        }
+      }
+
+      function update(dt) {
+        time += dt;
+        pulseRate += (pulseRateT - pulseRate) * 0.05;
+
+        /* עמדות: דופק-אמרלד, זוהר-ריחוף, הגדלה-חלקה */
+        for (let i = 0; i < N; i++) {
+          const d = desks[i];
+          let b = 1;
+          if (d.verdict.key === "ALIVE") b = 0.78 + 0.22 * Math.sin(time * pulseRate * 2 + d.phase);
+          if (i === hoverId || i === selId) b *= 1.28;
+          tmpC.copy(d.base).multiplyScalar(b);
+          d.curC.lerp(tmpC, 0.16);
+          deskMesh.setColorAt(i, d.curC);
+          const ts = i === hoverId ? 1.26 : i === selId ? 1.15 : 1;
+          if (Math.abs(d.curS - ts) > 0.0015) {
+            d.curS += (ts - d.curS) * 0.18;
+            writeMatrix(i, d.curS);
+            deskMesh.instanceMatrix.needsUpdate = true;
+          }
+        }
+        if (deskMesh.instanceColor) deskMesh.instanceColor.needsUpdate = true;
+
+        /* אובליסק: צלילה/עלייה חלקה לגובה-היעד */
+        const hDiff = targetH - obelisk.scale.y;
+        if (Math.abs(hDiff) > 0.001) {
+          obelisk.scale.y += hDiff * Math.min(1, dt * 3.2);
+          obelisk.position.y = obelisk.scale.y / 2;
+        }
+        labelSprite.position.set(0, obelisk.scale.y + 1.45, 0);
+        floorRing.material.opacity = belowFloor ? 0.55 + 0.3 * Math.sin(time * 2.2) : 0.85;
+
+        /* טבעות-רשת מסתובבות */
+        for (const m of ringMeshes) m.rotation.z += m.userData.speed * dt;
+
+        /* חלקיקי-עורקים פועמים */
+        if (beating > 0) {
+          const p = pulsePts.geometry.attributes.position;
+          for (let i = 0; i < beating; i++) {
+            const ln = lanes[i];
+            const t = (time * ln.speed + ln.phase) % 1;
+            const k = t * (SAMPLES - 1);
+            const k0 = Math.floor(k);
+            const f = k - k0;
+            const A = ln.pts[k0], B = ln.pts[Math.min(k0 + 1, SAMPLES - 1)];
+            p.setXYZ(i, A.x + (B.x - A.x) * f, A.y + (B.y - A.y) * f, A.z + (B.z - A.z) * f);
+          }
+          p.needsUpdate = true;
+          pulsePts.material.opacity = 0.75 + 0.25 * Math.sin(time * 3);
+        }
+
+        /* טבעת-בחירה */
+        if (selId >= 0 && desks[selId]) {
+          ringSel.visible = true;
+          ringSel.position.set(desks[selId].x, 0.09, desks[selId].z);
+          ringSel.rotation.z = time * 0.8;
+        } else {
+          ringSel.visible = false;
+        }
+
+        /* התמקדות-מצלמה עדינה */
+        if (focusing) {
+          controls.target.lerp(focusTo, 0.08);
+          if (controls.target.distanceTo(focusTo) < 0.05) focusing = false;
+        }
+      }
+
+      /* ── אינטראקציה: ריחוף · בחירה · רימוז ── */
+      function wireInteraction() {
+        const raycaster = new THREE.Raycaster();
+        const ndc = new THREE.Vector2();
+        let pendingMove = null, downPos = null, downT = 0;
+
+        function pick(e) {
+          const r = renderer.domElement.getBoundingClientRect();
+          ndc.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+          ndc.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+          raycaster.setFromCamera(ndc, camera);
+          const hits = raycaster.intersectObject(deskMesh);
+          if (hits.length && hits[0].instanceId != null && hits[0].instanceId < N) return hits[0].instanceId;
+          return -1;
+        }
+        function showTip(i, e) {
+          const d = desks[i];
+          tipEl.innerHTML =
+            "עמדת-ריפו #" + (i + 1) + " · מצב: " + d.verdict.he +
+            "<small>אזור: " + zoneOf(d.x, d.z) + " · פסק: " + d.verdict.key + "</small>";
+          tipEl.hidden = false;
+          const x = clamp(e.clientX, 90, window.innerWidth - 90);
+          const y = clamp(e.clientY, 70, window.innerHeight - 40);
+          tipEl.style.left = x + "px";
+          tipEl.style.top = y + "px";
+        }
+        function select(i) {
+          selId = i;
+          const d = desks[i];
+          const zone = zoneOf(d.x, d.z);
+          const zc = { ALIVE: 0, MIXED: 0, STALE: 0, IDLE: 0 };
+          for (const x of desks) if (zoneOf(x.x, x.z) === zone) zc[x.verdict.key]++;
+          selTitle.textContent = "עמדת-ריפו #" + (i + 1) + " · " + zone;
+          selBody.innerHTML =
+            'מצב: <b style="color:' +
+            (d.verdict.key === "ALIVE" ? "var(--ok)" : d.verdict.key === "MIXED" ? "var(--warn)" : d.verdict.key === "STALE" ? "var(--bad)" : "var(--muted)") +
+            '">' + d.verdict.he + "</b> · פסק-דופק: " + d.verdict.key +
+            '<div class="zc">' +
+            '<span class="chip ok">חי ' + zc.ALIVE + "</span>" +
+            '<span class="chip warn">מעורב ' + zc.MIXED + "</span>" +
+            '<span class="chip bad">רדום ' + zc.STALE + "</span>" +
+            '<span class="chip">מושבת ' + zc.IDLE + "</span></div>";
+          selBox.hidden = false;
+          focusing = true;
+          focusTo.set(d.x * 0.72, 1.6, d.z * 0.72);
+        }
+        function clearSel() {
+          selId = -1;
+          selBox.hidden = true;
+        }
+
+        renderer.domElement.addEventListener("pointermove", (e) => {
+          if (e.pointerType !== "mouse") return;
+          pendingMove = e;
+        });
+        renderer.domElement.addEventListener("pointerdown", (e) => {
+          downPos = [e.clientX, e.clientY];
+          downT = performance.now();
+        });
+        renderer.domElement.addEventListener("pointerup", (e) => {
+          if (!downPos) return;
+          const dx = e.clientX - downPos[0], dy = e.clientY - downPos[1];
+          const isTap = Math.hypot(dx, dy) < 7 && performance.now() - downT < 650;
+          downPos = null;
+          if (!isTap) return;
+          const id = pick(e);
+          if (id >= 0) select(id); else clearSel();
+        });
+        renderer.domElement.addEventListener("pointerleave", () => {
+          hoverId = -1;
+          tipEl.hidden = true;
+          pendingMove = null;
+        });
+
+        /* עדכון-ריחוף בתוך-לולאת-הרינדור */
+        const hoverTick = () => {
+          if (pendingMove) {
+            const e = pendingMove;
+            pendingMove = null;
+            hoverId = pick(e);
+            if (hoverId >= 0) { showTip(hoverId, e); renderer.domElement.style.cursor = "pointer"; }
+            else { tipEl.hidden = true; renderer.domElement.style.cursor = "grab"; }
+          }
+        };
+        return hoverTick;
+      }
+
+      function startEngine() {
+        const hoverTick = wireInteraction();
+
+        /* כפתורי-מצלמה */
+        const spinBtn = $("spin-btn"), resetBtn = $("reset-btn");
+        if (spinBtn)
+          spinBtn.addEventListener("click", () => {
+            controls.autoRotate = !controls.autoRotate;
+            spinBtn.setAttribute("aria-pressed", controls.autoRotate ? "true" : "false");
+          });
+        if (resetBtn)
+          resetBtn.addEventListener("click", () => {
+            focusing = true;
+            focusTo.set(0, 2.1, 0);
+            camera.position.set(20, 15.5, 21);
+          });
+
+        window.addEventListener("resize", () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        });
+        renderer.domElement.addEventListener("webglcontextlost", (e) => {
+          e.preventDefault();
+          if (typeof D.fallback === "function") D.fallback();
+        });
+
+        /* ערוץ-קנון → עיצוב-מחדש של הזירה */
+        window.addEventListener("saos-canon", (e) => {
+          const c = e && e.detail;
+          const v = (c && c.values) || c;
+          if (!v) return;
+          try { sceneApply(v); } catch (err) {}
+        });
+
+        const clock3 = new THREE.Clock();
+        let rafId = 0, running = false;
+        function frame() {
+          if (D.flat) { setRunning(false); return; }
+          rafId = requestAnimationFrame(frame);
+          const dt = Math.min(clock3.getDelta(), 0.05);
+          try { hoverTick(); update(dt); } catch (err) {}
+          controls.update();
+          renderer.render(scene, camera);
+        }
+        setRunning = (on) => {
+          if (on && !running) { running = true; clock3.getDelta(); rafId = requestAnimationFrame(frame); }
+          else if (!on && running) { running = false; cancelAnimationFrame(rafId); }
+        };
+        document.addEventListener("visibilitychange", () => setRunning(!document.hidden));
+        setRunning(true);
+      }
+
+      /* ── הרצה ── */
+      if (D.mode === "pending") {
+        let ok = false;
+        try { ok = buildScene(); } catch (e) { ok = false; }
+        if (ok) {
+          try { startEngine(); } catch (e) { D.fallback(); }
+        } else {
+          try { if (renderer) renderer.dispose(); } catch (e) {}
+          if (typeof D.fallback === "function") D.fallback();
+        }
+      }
+    </script>
+  </body>
 </html>
