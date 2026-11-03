@@ -1,4 +1,4 @@
-/*! SAOS-CANON/1 · מספר-אחד, מקור-אחד, חי · sovereign-union-forge 2026-11-03T16:01:35.547Z
+/*! SAOS-CANON/1 · מספר-אחד, מקור-אחד, חי · sovereign-union-forge 2026-11-03T22:56:54.142Z
  * שימוש: <script src="/Domain/canon.js" defer></script>
  * ואז בכל-מקום-בדף: <span data-canon="repos.total">49</span> — הערך-הסטטי-הוא-קנון-הבנייה,
  * ו-canon.js מרים-אותו-חי מ-/Domain/canon.json.
@@ -37,4 +37,15 @@
   // הקנון-מנצח: מיושם-מחדש-בקצב-הולך-ונדיר-עד-15 שניות + ב-load
   [300, 1000, 2500, 5000, 9000, 15000].forEach(function (ms) { setTimeout(function () { tryFetch(0); }, ms); });
   window.addEventListener("load", function () { setTimeout(function () { tryFetch(0); }, 150); });
+  // ── לייב-אמיתי · דפוס dsh-superagent ──
+  // 1) SSE מאותו-מקור (שרת-חי בלבד — github.io ייכשל-שקט וייפול-לסקר):
+  //    /api/live-stream מזרים אירוע 'canon' בכל-שינוי-מצב-מדוד (≤4ש׳)
+  try {
+    var es = new EventSource("/api/live-stream");
+    es.addEventListener("canon", function (e) { try { apply(JSON.parse(e.data)); } catch (err) {} });
+    es.onerror = function () { try { es.close(); } catch (err) {} };
+  } catch (e) { /* אין-EventSource — הסקר-מטה-ממשיך */ }
+  // 2) סקר-מתמשך כל 30ש׳ לנצח (לא-עוצר אחרי-15ש׳ — העמוד-חי גם-שעות-אחרי-פתיחה):
+  //    על github.io ה-canon.json מתעדכן ע"י זרימות-העבודה — הסקר קולט אותן בלי דחיפה
+  setInterval(function () { tryFetch(0); }, 30000);
 })();
