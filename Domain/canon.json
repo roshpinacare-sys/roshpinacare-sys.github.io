@@ -1,6 +1,6 @@
 {
  "schema": "SAOS-CANON/1",
- "at": "2026-11-03T16:15:33.770Z",
+ "at": "2026-11-03T16:19:52.549Z",
  "law": "מצב-אחד · כל-טענה-מול-מקור-חי · אין-טענה-בלי-תאריך · סתירה-אינה-נסגרת-בטענה-כנה-אלא-בפאטץ'-מדויק",
  "values": {
   "repos.total": 49,
@@ -15,7 +15,7 @@
   "accounts.ledger": 31,
   "treasury.steem": 175.017,
   "treasury.floor": 3000,
-  "directives.open": 49,
+  "directives.open": 41,
   "verdicts.ALIVE": 18,
   "verdicts.MIXED": 7,
   "verdicts.STALE": 11,
