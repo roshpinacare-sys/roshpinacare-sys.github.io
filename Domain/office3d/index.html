@@ -912,7 +912,7 @@
           poly(shp, "rgba(0,0,0,0.42)");
           var fp = [PP(x0, y0, 0.06), PP(x0 + w, y0, 0.06), PP(x0 + w, y0 + d, 0.06), PP(x0, y0 + d, 0.06)];
           rm.poly = fp;
-          poly(fp, rm.main ? fl : "#2e2820", isHover ? ACC : "rgba(240,232,214,0.26)", isHover ? 1.8 : 0.7);
+          poly(fp, rm.main ? fl : mix("#332c22", v.c, 0.10), isHover ? ACC : "rgba(240,232,214,0.26)", isHover ? 1.8 : 0.7);
           if (isHover) {
             ctx.save(); ctx.globalAlpha = 0.5; poly(fp, null, ACC, 2.2); ctx.restore();
           }
@@ -924,11 +924,17 @@
             poly(cfp, null, ACC2, 1.6);
             ctx.globalAlpha = fog > 0 ? 1 - fog : 1;
           }
-          // קירות-אחוריים (צפוני + מערבי — בית-בובות)
-          var wallTint = rm.main ? mix("#282219", v.c, 0.22) : "#3a3428";
+          // קירות-אחוריים (צפוני + מערבי — בית-בובות) · רובעים-קריאים: קירות-בהירים + קו-גג-בצבע-פסק-הדופק
+          var wallTint = rm.main ? mix("#282219", v.c, 0.22) : mix("#453d2f", v.c, 0.16);
           poly(wallPts(x0, y0, w, "x", h), shade2(wallTint, 0.82), "rgba(240,232,214,0.16)", 1);
           poly(wallPts(x0, y0, d, "y", h), shade2(wallTint, 1.04), "rgba(240,232,214,0.20)", 1);
-          poly([PP(x0 - 0.02, y0 - 0.02, h), PP(x0 + w + 0.02, y0 - 0.02, h), PP(x0 + w + 0.02, y0 + d + 0.02, h), PP(x0 - 0.02, y0 + d + 0.02, h)], mix(wallTint, "#000000", 0.35));
+          poly([PP(x0 - 0.02, y0 - 0.02, h), PP(x0 + w + 0.02, y0 - 0.02, h), PP(x0 + w + 0.02, y0 + d + 0.02, h), PP(x0 - 0.02, y0 + d + 0.02, h)], mix(wallTint, "#000000", 0.30));
+          // קו-גג-בצבע-פסק-הדופק (רק-רובעים · קריאות-הרצועות-מרחוק)
+          if (!rm.main && !dimmed) {
+            ctx.save(); ctx.globalAlpha = 0.55;
+            poly([PP(x0, y0, h + 0.015), PP(x0 + w, y0, h + 0.015), PP(x0 + w, y0 + d, h + 0.015), PP(x0, y0 + d, h + 0.015)], null, v.c, 1.6);
+            ctx.restore();
+          }
           // חלונות-גלויים-על-הקיר-הצפוני (אור-חם · רק-חדרים-ראשיים)
           if (rm.main && !dimmed) {
             var wins = Math.min(2, Math.max(1, Math.round(w / 1.6)));
@@ -1174,7 +1180,7 @@
           ctx.strokeStyle = "rgba(10,8,6,0.8)"; ctx.lineWidth = 1; ctx.stroke();
           ctx.fillStyle = INK; ctx.font = "bold " + Math.max(9, 10.5 * cam.z) + "px system-ui";
           ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-          var tp = PP(x, y + dep / 2, hgt + 0.42);
+          var tp = PP(x, y + dep / 2, hgt + 0.30);
           ctx.fillText("אוצר " + tre.toFixed(0) + " / רצפה " + floor, tp.x, tp.y);
           if (alarm) {
             ctx.fillStyle = "#ff8a80";
@@ -1280,12 +1286,14 @@
               ctx.beginPath(); ctx.arc(p.x, p.y, 5.5, 0, 6.283); ctx.stroke();
             }
           });
-          // מסגרת-המצלמה
+          // מסגרת-המצלמה (מהודקת-בתוך-המפה — נמדד: בלי-הידוק-היא-בורחת-מחוץ-למסגרת)
           var half = 9 / Math.max(0.32, cam.z);
           var c0 = mm(cam.x - half, cam.y - half), c1 = mm(cam.x + half, cam.y + half);
           ctx.strokeStyle = "rgba(255,210,122,0.75)";
           ctx.lineWidth = 1;
-          ctx.strokeRect(Math.min(c0.x, c1.x), Math.min(c0.y, c1.y), Math.abs(c1.x - c0.x), Math.abs(c1.y - c0.y));
+          var rx0 = Math.max(rx + 1.5, Math.min(c0.x, c1.x)), rx1 = Math.min(rx + mw - 1.5, Math.max(c0.x, c1.x));
+          var ry0 = Math.max(ry + 1.5, Math.min(c0.y, c1.y)), ry1 = Math.min(ry + mh - 1.5, Math.max(c0.y, c1.y));
+          ctx.strokeRect(rx0, ry0, rx1 - rx0, ry1 - ry0);
           ctx.fillStyle = MUT;
           ctx.font = "bold 9px system-ui";
           ctx.textAlign = "right"; ctx.textBaseline = "top";
@@ -1355,7 +1363,7 @@
             el.style.display = "";
             el.style.left = p2.x + "px";
             el.style.top = p2.y + "px";
-            var v = VERD[b.v];
+            var v = VERD[b.v] || VERD.IDLE; // ALIVE2-רובע אין-לו-רשומה-ב-VERD — נפילה-כנה (נמדד: בלי-זה TypeError → לולאת-הציור-מתה)
             el.innerHTML = '<span class="dot" style="background:' + v.c + ';color:' + v.c + '"></span><b>' + b.he + "</b> · " + b.rooms.length + " ריפואים";
             el.style.opacity = "0.8";
           });
