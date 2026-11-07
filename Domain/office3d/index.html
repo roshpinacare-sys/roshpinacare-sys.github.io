@@ -6,17 +6,17 @@
     <title>מפקדת הצי — המחנה החי | SAOS</title>
     <meta
       name="description"
-      content="מחנה-הצי החי: דיורמת-פיקוד איזומטרית של 50 הריפואים — כל-חדר הוא ריפו, כל-עורק פועם נמדד, האוצר מול הרצפה גלוי, הכל ניזון מערוץ-הקנון ומדופק-הגריד החיים. קובץ-אחד, אפס-תלות, אפס-bundle."
+      content="מחנה-הצי החי · משמרת-לילה: דיורמת-פיקוד איזומטרית חיה של 50 הריפואים — חיילים-עובדים, שליחי-דופק-על-הדרכים, עצים, אור-מנורות, ערפל-עומק ומסך-כניסה-קולנועי. כל-עורק-פועם-נמדד, האוצר-מול-הרצפה-גלוי, הכל-ניזון-מערוץ-הקנון. קובץ-אחד, אפס-תלות, אפס-bundle."
     />
     <style>
       :root {
-        --bg: #f3f1ec; --card: #faf8f3; --ink: #2c2a26; --muted: #6b6b6b;
-        --line: rgba(60, 52, 40, 0.16); --ok: #2e7d4f; --warn: #b45309; --bad: #b3261e; --accent: #8a6d3b;
-        --paper-deep: #eae6dd; --glass: rgba(250, 248, 243, 0.88);
+        --bg: #171310; --card: #211c16; --ink: #f0e8d6; --muted: #a2957f;
+        --line: rgba(240, 232, 214, 0.16); --ok: #43d17c; --warn: #eda23f; --bad: #ef5350; --accent: #e8b45a;
+        --paper-deep: #2a241c; --glass: rgba(26, 21, 16, 0.86);
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.75 "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; }
-      .wrap { max-width: 980px; margin: 0 auto; padding: 20px 16px 40px; }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 20px 16px 40px; }
       header.hero { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px; border-bottom: 2px solid var(--line); padding-bottom: 14px; margin-bottom: 18px; }
       h1 { font-size: 22px; margin: 0; font-weight: 800; }
       .eyebrow { font-size: 12.5px; color: var(--muted); letter-spacing: 0.4px; }
@@ -24,30 +24,55 @@
       .clock b { font-size: 21px; font-weight: 800; }
       .clock span { display: block; font-size: 11.5px; color: var(--muted); }
 
-      /* ===== הדיורמה ===== */
-      .diorama-wrap { position: relative; border: 1px solid var(--line); border-radius: 16px; background:
-        radial-gradient(1200px 500px at 50% -140px, rgba(138, 109, 59, 0.10), transparent 60%), var(--bg);
-        overflow: hidden; }
-      #campus { display: block; width: 100%; height: clamp(380px, 62vh, 640px); touch-action: none; cursor: grab; }
+      /* ===== הדיורמה · משמרת-לילה ===== */
+      .diorama-wrap { position: relative; border: 1px solid rgba(240, 232, 214, 0.13); border-radius: 18px; background:
+        radial-gradient(1300px 560px at 50% -160px, rgba(232, 180, 90, 0.09), transparent 62%),
+        radial-gradient(900px 700px at 50% 118%, rgba(70, 52, 30, 0.20), transparent 60%),
+        #14100c;
+        overflow: hidden; animation: campIn 0.7s ease both; }
+      @keyframes campIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+      #campus { display: block; width: 100%; height: clamp(440px, 68vh, 730px); touch-action: none; cursor: grab; }
       #campus.grabbing { cursor: grabbing; }
-      .hud-top { position: absolute; top: 10px; inset-inline: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; pointer-events: none; }
-      .hud-pill { pointer-events: auto; display: inline-flex; align-items: center; gap: 7px; background: var(--glass); backdrop-filter: blur(8px);
-        border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
-      .hud-pill .d { width: 8px; height: 8px; border-radius: 999px; display: inline-block; }
+      .hud-top { position: absolute; top: 10px; inset-inline: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; pointer-events: none; z-index: 5; }
+      .hud-pill { pointer-events: auto; display: inline-flex; align-items: center; gap: 7px; background: var(--glass); backdrop-filter: blur(9px);
+        border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink); }
+      .hud-pill .d { width: 8px; height: 8px; border-radius: 999px; display: inline-block; box-shadow: 0 0 6px currentColor; }
       .hud-pill b { direction: ltr; unicode-bidi: embed; }
-      .hud-pill.alert { border-color: rgba(179, 38, 30, 0.5); color: var(--bad); animation: lampPulse 1.6s ease-in-out infinite; }
-      .hud-pill.new { border-color: rgba(138, 109, 59, 0.55); color: var(--accent); cursor: pointer; }
-      .hud-btn { pointer-events: auto; border: 1px solid var(--line); background: var(--glass); border-radius: 999px; width: 30px; height: 30px;
+      .hud-pill.alert { border-color: rgba(239, 83, 80, 0.55); color: #ff8a80; animation: lampPulse 1.6s ease-in-out infinite; }
+      .hud-pill.new { border-color: rgba(232, 180, 90, 0.6); color: var(--accent); cursor: pointer; }
+      .hud-btn { pointer-events: auto; border: 1px solid var(--line); background: var(--glass); backdrop-filter: blur(9px); border-radius: 999px; width: 32px; height: 32px;
         font-size: 14px; font-weight: 800; color: var(--ink); cursor: pointer; line-height: 1; }
-      .hud-btn:hover { border-color: var(--accent); }
+      .hud-btn:hover { border-color: var(--accent); color: var(--accent); }
       @keyframes lampPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.62; } }
 
-      #tip { position: absolute; pointer-events: none; background: #26231f; color: #f6f3ec; border-radius: 10px; padding: 8px 11px;
-        font-size: 12px; line-height: 1.5; max-width: 260px; opacity: 0; transform: translateY(4px); transition: opacity 0.14s, transform 0.14s; z-index: 6; }
+      /* צ'יפי-סינון */
+      #filters { position: absolute; top: 46px; inset-inline-start: 10px; display: flex; flex-wrap: wrap; gap: 5px; z-index: 5; pointer-events: none; }
+      .fchip { pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; background: var(--glass); backdrop-filter: blur(9px); border: 1px solid var(--line);
+        border-radius: 999px; padding: 3px 11px; font-size: 12px; font-weight: 700; color: var(--muted); cursor: pointer; font-family: inherit; }
+      .fchip .d { width: 7px; height: 7px; border-radius: 999px; }
+      .fchip b { direction: ltr; unicode-bidi: embed; font-variant-numeric: tabular-nums; }
+      .fchip.on { color: var(--ink); border-color: var(--accent); box-shadow: 0 0 0 1px rgba(232, 180, 90, 0.35); }
+      .fchip:hover { color: var(--ink); }
+
+      /* פאנל-עורקים-בריצה */
+      #sidepanel { position: absolute; bottom: 56px; inset-inline-end: 10px; width: min(252px, 44%); background: var(--glass); backdrop-filter: blur(10px);
+        border: 1px solid var(--line); border-radius: 14px; padding: 9px 11px 7px; z-index: 5; }
+      #sidepanel h4 { margin: 0 0 6px; font-size: 11.5px; font-weight: 800; color: var(--muted); letter-spacing: 0.3px; display: flex; align-items: center; gap: 6px; }
+      #sidepanel h4 .live { width: 7px; height: 7px; border-radius: 999px; background: var(--bad); animation: lampPulse 1.4s infinite; flex: none; }
+      .sp-row { display: flex; align-items: center; gap: 7px; padding: 4px 2px; border-top: 1px dashed rgba(240, 232, 214, 0.1); font-size: 11.5px; cursor: pointer; border-radius: 8px; }
+      .sp-row:hover { background: rgba(232, 180, 90, 0.08); }
+      .sp-row:first-of-type { border-top: 0; }
+      .sp-row .rn { direction: ltr; unicode-bidi: embed; font-weight: 700; flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+      .sp-row .st { font-size: 10px; font-weight: 800; border-radius: 999px; padding: 0 7px; white-space: nowrap; }
+      .sp-row .ag { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+      #sidepanel .empty { color: var(--muted); font-size: 11.5px; padding: 4px 2px; }
+
+      #tip { position: absolute; pointer-events: none; background: rgba(16, 12, 9, 0.95); color: #f6efe0; border: 1px solid rgba(240, 232, 214, 0.2); border-radius: 11px; padding: 8px 11px;
+        font-size: 12px; line-height: 1.55; max-width: 270px; opacity: 0; transform: translateY(4px); transition: opacity 0.14s, transform 0.14s; z-index: 6; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5); }
       #tip.on { opacity: 1; transform: none; }
       #tip b { font-size: 12.5px; }
 
-      #drawer { position: absolute; top: 0; bottom: 0; inset-inline-end: 0; width: min(380px, 94%); background: var(--glass); backdrop-filter: blur(12px);
+      #drawer { position: absolute; top: 0; bottom: 0; inset-inline-end: 0; width: min(392px, 94%); background: rgba(24, 19, 14, 0.96); backdrop-filter: blur(12px);
         border-inline-start: 1px solid var(--line); transform: translateX(110%); transition: transform 0.28s ease; z-index: 7; display: flex; flex-direction: column; }
       html[dir="rtl"] #drawer { transform: translateX(-110%); }
       #drawer.open { transform: none !important; }
@@ -58,38 +83,38 @@
       .art-row { display: flex; align-items: center; gap: 8px; padding: 7px 4px; border-bottom: 1px dashed var(--line); font-size: 12.5px; }
       .art-row code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; direction: ltr; unicode-bidi: embed; flex: 1; overflow-wrap: anywhere; }
       .chip { border-radius: 999px; padding: 1px 9px; font-size: 11px; font-weight: 800; border: 1px solid var(--line); white-space: nowrap; }
-      .chip.ok { color: var(--ok); border-color: rgba(46,125,79,.4); background: #f0f7f2; }
-      .chip.warn { color: var(--warn); border-color: rgba(180,83,9,.4); background: #fdf6ec; }
-      .chip.bad { color: var(--bad); border-color: rgba(179,38,30,.4); background: #fdf3f2; }
-      .chip.mut { color: var(--muted); background: #f4f2ee; }
+      .chip.ok { color: var(--ok); border-color: rgba(67, 209, 124, 0.45); background: rgba(67, 209, 124, 0.09); }
+      .chip.warn { color: var(--warn); border-color: rgba(237, 162, 63, 0.45); background: rgba(237, 162, 63, 0.09); }
+      .chip.bad { color: var(--bad); border-color: rgba(239, 83, 80, 0.45); background: rgba(239, 83, 80, 0.09); }
+      .chip.mut { color: var(--muted); background: rgba(240, 232, 214, 0.06); }
       .drawer-note { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
       .drawer-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
       .drawer-links a { border: 1px solid var(--line); border-radius: 10px; padding: 5px 12px; font-size: 12.5px; font-weight: 700; color: var(--ink); text-decoration: none; }
-      .drawer-links a:hover { border-color: var(--accent); }
+      .drawer-links a:hover { border-color: var(--accent); color: var(--accent); }
 
       #ticker { position: absolute; bottom: 10px; inset-inline: 10px; display: flex; justify-content: center; pointer-events: none; }
-      #ticker .bar { pointer-events: auto; display: inline-flex; align-items: center; gap: 9px; background: var(--glass); backdrop-filter: blur(8px);
-        border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 12.5px; max-width: min(680px, 96%); }
-      #ticker .live { width: 8px; height: 8px; border-radius: 999px; background: var(--bad); animation: lampPulse 1.4s infinite; flex: none; }
+      #ticker .bar { pointer-events: auto; display: inline-flex; align-items: center; gap: 9px; background: var(--glass); backdrop-filter: blur(9px);
+        border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 12.5px; max-width: min(700px, 96%); color: var(--ink); }
+      #ticker .live { width: 8px; height: 8px; border-radius: 999px; background: var(--bad); box-shadow: 0 0 8px var(--bad); animation: lampPulse 1.4s infinite; flex: none; }
       #ticker .txt { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; direction: rtl; }
       #ticker .txt b { direction: ltr; unicode-bidi: embed; }
       #ticker .fade { animation: tickIn 0.45s ease; }
       @keyframes tickIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 
       #camctrl { position: absolute; bottom: 52px; inset-inline-start: 10px; display: flex; flex-direction: column; gap: 6px; }
-      #helpbox { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(243,241,236,0.72); z-index: 9; }
+      #helpbox { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(10, 7, 5, 0.72); z-index: 9; }
       #helpbox.on { display: flex; }
-      #helpbox .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px; max-width: 420px; }
+      #helpbox .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px; max-width: 440px; }
       #helpbox h3 { margin: 0 0 8px; font-size: 15px; }
       #helpbox table { border-collapse: collapse; font-size: 13px; }
       #helpbox td { padding: 3px 10px; border-bottom: 1px dashed var(--line); }
       #helpbox td:first-child { direction: ltr; text-align: left; font-family: ui-monospace, Menlo, monospace; font-size: 12px; font-weight: 700; white-space: nowrap; }
-      .rlbl { position: absolute; transform: translate(-50%, -100%); background: var(--card); border: 1px solid var(--line); border-radius: 999px;
-        padding: 2px 10px; font-size: 11.5px; font-weight: 700; white-space: nowrap; cursor: pointer; display: flex; gap: 6px; align-items: center;
-        box-shadow: 0 1px 4px rgba(44,42,38,0.08); z-index: 4; }
-      .rlbl .dot { width: 7px; height: 7px; border-radius: 999px; }
-      .rlbl .cnt { color: var(--accent); font-weight: 800; }
-      .rlbl .newm { color: var(--accent); }
+      .rlbl { position: absolute; transform: translate(-50%, -100%); background: rgba(22, 17, 13, 0.94); border: 1px solid rgba(240, 232, 214, 0.24); border-radius: 999px;
+        padding: 3px 11px; font-size: 12.5px; font-weight: 700; white-space: nowrap; cursor: pointer; display: flex; gap: 6px; align-items: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55); z-index: 4; color: var(--ink); font-family: inherit; }
+      .rlbl .dot { width: 8px; height: 8px; border-radius: 999px; box-shadow: 0 0 7px currentColor; }
+      .rlbl .cnt { background: var(--accent); color: #201709; border-radius: 999px; padding: 0 7px; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 11.5px; }
+      .rlbl .newm { color: var(--accent); text-shadow: 0 0 6px rgba(232, 180, 90, 0.8); }
       .rlbl:hover { border-color: var(--accent); }
       #srcnote { text-align: center; font-size: 11.5px; color: var(--muted); margin-top: 8px; }
       #srcnote b { direction: ltr; unicode-bidi: embed; }
@@ -100,14 +125,14 @@
       .card .l { font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }
       .card .v { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; direction: ltr; unicode-bidi: embed; text-align: right; }
       .card .s { font-size: 11.5px; color: var(--muted); direction: ltr; unicode-bidi: embed; overflow-wrap: anywhere; }
-      .card.alert { border-color: rgba(179, 38, 30, 0.45); background: #fdf3f2; }
+      .card.alert { border-color: rgba(239, 83, 80, 0.5); background: rgba(239, 83, 80, 0.07); }
       .card.alert .v { color: var(--bad); }
       .verdicts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
       .pill { border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); font-variant-numeric: tabular-nums; }
-      .pill.ok { color: var(--ok); border-color: rgba(46, 125, 79, 0.4); background: #f0f7f2; }
-      .pill.warn { color: var(--warn); border-color: rgba(180, 83, 9, 0.4); background: #fdf6ec; }
-      .pill.bad { color: var(--bad); border-color: rgba(179, 38, 30, 0.4); background: #fdf3f2; }
-      .pill.mut { color: var(--muted); background: #f4f2ee; }
+      .pill.ok { color: var(--ok); border-color: rgba(67, 209, 124, 0.45); background: rgba(67, 209, 124, 0.08); }
+      .pill.warn { color: var(--warn); border-color: rgba(237, 162, 63, 0.45); background: rgba(237, 162, 63, 0.08); }
+      .pill.bad { color: var(--bad); border-color: rgba(239, 83, 80, 0.45); background: rgba(239, 83, 80, 0.08); }
+      .pill.mut { color: var(--muted); background: rgba(240, 232, 214, 0.06); }
       section { margin-top: 22px; }
       h2 { font-size: 16px; font-weight: 800; margin: 0 0 8px; }
       nav.links { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; }
@@ -116,8 +141,8 @@
       nav.links a small { display: block; font-weight: 400; color: var(--muted); font-size: 11.5px; }
       .law { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 10px; font-size: 12px; color: var(--muted); text-align: center; }
       .law a { color: inherit; }
-      @media (max-width: 560px) { .clock { margin-inline-start: 0; } h1 { font-size: 19px; } #campus { height: 66vh; } #drawer { width: 100%; border-inline-start: none; border-top: 1px solid var(--line); top: auto; height: 62%; border-radius: 16px 16px 0 0; } #hudVerds, #hudDir { display: none; } #ticker { bottom: calc(10px + env(safe-area-inset-bottom, 0px)); } }
-      @media (prefers-reduced-motion: reduce) { .hud-pill.alert, #ticker .live { animation: none; } }
+      @media (max-width: 560px) { .clock { margin-inline-start: 0; } h1 { font-size: 19px; } #campus { height: 70vh; } #drawer { width: 100%; border-inline-start: none; border-top: 1px solid var(--line); top: auto; height: 62%; border-radius: 16px 16px 0 0; } #hudVerds, #hudDir { display: none; } #sidepanel { display: none; } #filters { top: 44px; } #ticker { bottom: calc(10px + env(safe-area-inset-bottom, 0px)); } }
+      @media (prefers-reduced-motion: reduce) { .hud-pill.alert, #ticker .live, #sidepanel h4 .live { animation: none; } .diorama-wrap { animation: none; } }
     </style>
     <script src="/Domain/canon.js" defer></script>
   </head>
@@ -126,7 +151,7 @@
       <header class="hero">
         <div>
           <h1>מפקדת הצי · המחנה החי</h1>
-          <div class="eyebrow">דיורמת-פיקוד איזומטרית · כל-חדר-הוא-ריפו מדוד · אפס-תלות · אפס-bundle · ערוץ-קנון אחד</div>
+          <div class="eyebrow">משמרת-לילה · דיורמת-פיקוד איזומטרית · חיילים-עובדים · שליחי-דופק על-הדרכים · אפס-תלות · אפס-bundle</div>
         </div>
         <div class="clock" aria-live="off">
           <b id="jl-clock">--:--:--</b>
@@ -137,10 +162,15 @@
       <section aria-label="מחנה-הצי החי">
         <h2>מחנה-הצי · הדיורמה החיה</h2>
         <div class="diorama-wrap" id="dwrap">
-          <canvas id="campus" aria-label="דיורמת-הקמפוס: 50 ריפואים, כיכר-הקנון, באר-האוצר — לחיצה על חדר פותחת פרטים"></canvas>
+          <canvas id="campus" aria-label="דיורמת-הקמפוס: 50 ריפואים, כיכר-הקנון, באר-האוצר, חיילים-עובדים ושליחי-דופק — לחיצה על חדר פותחת פרטים"></canvas>
           <div class="hud-top" id="hudTop"></div>
+          <div id="filters" role="group" aria-label="סינון-לפי-פסק-דופק"></div>
           <div id="labels"></div>
           <div id="tip" role="tooltip"></div>
+          <div id="sidepanel" aria-label="עורקים-בריצה-עכשיו">
+            <h4><span class="live"></span>בריצה-עכשיו · עורקים-חיים</h4>
+            <div id="spBody"></div>
+          </div>
           <div id="camctrl">
             <button class="hud-btn" id="camHome" aria-label="מסגרת-הבית" title="מסגרת-הבית (0)">⌂</button>
             <button class="hud-btn" id="camIn" aria-label="התקרב" title="התקרב (+)">+</button>
@@ -165,6 +195,7 @@
                 <tr><td>0 / Esc</td><td>חזרה למסגרת-הבית · סגירת-חלון</td></tr>
                 <tr><td>+ / −</td><td>התקרבות / התרחקות</td></tr>
                 <tr><td>חצים</td><td>הזזת-המצלמה</td></tr>
+                <tr><td>1..4 ב-Shift</td><td>סינון-מהיר: חי · מעורב · איטי · רדום</td></tr>
                 <tr><td>n</td><td>מה-חדש-מאז-הביקור</td></tr>
                 <tr><td>r</td><td>רענון-מדידה מהקרקע</td></tr>
                 <tr><td>?</td><td>עזרה זו</td></tr>
@@ -268,7 +299,7 @@
         setInterval(refresh, 15000);
       })();
 
-      /* ================= דיורמת-הקמפוס · מנוע-איזו עצמאי (קנבס-2D, אפס-תלות) ================= */
+      /* ================= דיורמת-הקמפוס · מנוע-איזו עצמאי v7 · משמרת-לילה ================= */
       (function () {
         "use strict";
         var cv = document.getElementById("campus");
@@ -278,16 +309,17 @@
         var reduceMotion = false;
         try { reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
-        /* ---- צבעוני-המחנה (נייר-מדידה שלנו) ---- */
-        var INK = "#2c2a26", MUT = "#6b6b6b";
-        var HUES = ["#b3563a", "#3a7d78", "#b3863a", "#7d3a68", "#4a6d8c", "#4f7d3f", "#8c3a4a", "#7a7d3a"];
+        /* ---- צבעוני-המשמרת (לילה-חם · נייר-מדידה-בחושך) ---- */
+        var INK = "#f0e8d6", MUT = "#a2957f", ACC = "#e8b45a", ACC2 = "#ffd27a";
+        var BG = "#191510";
+        var HUES = ["#e07a5f", "#5fb8a5", "#e0b45f", "#c583b8", "#7fa8d9", "#8fd06a", "#d97f8f", "#b8c46a"];
         var VERD = {
-          ALIVE:  { c: "#2e7d4f", he: "חי" },
-          MIXED:  { c: "#b45309", he: "מעורב" },
-          STALE:  { c: "#8a6d3b", he: "איטי" },
-          IDLE:   { c: "#8d867a", he: "רדום" }
+          ALIVE: { c: "#43d17c", he: "חי" },
+          MIXED: { c: "#eda23f", he: "מעורב" },
+          STALE: { c: "#d8c25c", he: "איטי" },
+          IDLE:  { c: "#8d867a", he: "רדום" }
         };
-        var FLOORS = { ALIVE: "#faf8f3", MIXED: "#f2ede2", STALE: "#e9e2d2", IDLE: "#e0dacc" };
+        var FLOORS = { ALIVE: "#26332a", MIXED: "#332b1f", STALE: "#312c1f", IDLE: "#262219" };
 
         /* ---- snapshot מוטמע · קנון-הבנייה (האמת-האחרונה-הידועה בעת-הבנייה) ---- */
         var EMBED = {
@@ -316,30 +348,35 @@
 
         var SITE_LINK = { "Domain": "/Domain/index.html", "Console": "/Console/index.html", "GridWatch": "/GridWatch/index.html", "Pulse": "/Pulse/index.html" };
 
-        /* ---- תצוגה ---- */
+        /* ---- תצוגה-ומצלמה ---- */
         var cam = { x: 0, y: 0, z: 1 }, camT = { x: 0, y: 0, z: 1 };
+        var homeCam = { x: 0, y: 0, z: 1 };
+        var fly = null; // {t0,dur,from,to} · טיסה-חלקה בין-עמדות
         var W = 0, H = 0;
         var ISO_C = Math.cos(Math.PI / 6), ISO_S = Math.sin(Math.PI / 6);
         var TILE = 46;
-        var rooms = []; // {repo, x, y, w, d, main, hue, ver, poly:[4 pts screen], labelEl, new}
+        var rooms = []; // {r,x,y,w,d,main,hue,ver,poly,labelEl,new,ph,beats}
+        var trees = [];
         var focusRepo = null;
         var hover = null;
+        var FV = null; // סינון-פסק-דופק
         var pointer = { x: 0, y: 0 };
+        var ready0 = false;
 
-        function P(x, y, z) {
-          var ix = (x - y) * ISO_C, iy = (x + y) * ISO_S - (z || 0);
-          return { x: W / 2 + (ix - cam.x * ISO_C + cam.y * ISO_C) * TILE * cam.z,
-                   y: H * 0.54 + (iy - cam.x * ISO_S - cam.y * ISO_S) * TILE * cam.z };
-        }
-        /* פשוט-יותר: מרכז-מצלמה במרחב-iso */
+        function ease(k) { k = Math.max(0, Math.min(1, k)); return k * k * (3 - 2 * k); }
+        function lerp(a, b, k) { return a + (b - a) * k; }
         function camIso() { return { ix: (cam.x - cam.y) * ISO_C, iy: (cam.x + cam.y) * ISO_S }; }
         function PP(x, y, z) {
           var c = camIso();
           var ix = (x - y) * ISO_C, iy = (x + y) * ISO_S - (z || 0);
           return { x: W / 2 + (ix - c.ix) * TILE * cam.z, y: H * 0.52 + (iy - c.iy) * TILE * cam.z };
         }
+        function fogOf(x, y) { var d = Math.hypot(x, y); return Math.max(0, Math.min(1, (d - 7.5) / 11)) * 0.45; }
 
         /* ---- בניית-הפריסה ---- */
+        function mkRoom(r, x, y, w, d, main, idx) {
+          return { r: r, x: x, y: y, w: w, d: d, main: main, hue: HUES[idx % HUES.length], ver: r.verdict, poly: null, new: false, ph: (idx * 1.7) % 6.28, beats: false };
+        }
         function buildLayout() {
           rooms = [];
           var sorted = M.repos.slice().sort(function (a, b) { return b.n - a.n; });
@@ -359,10 +396,15 @@
             var row = Math.floor(i / 11), col = i % 11;
             rooms.push(mkRoom(r, -10 + col * 2.0, -8.4 - row * 2.3, 1.5, 1.15, false, 8 + i));
           });
-        }
-        function mkRoom(r, x, y, w, d, main, idx) {
-          var hue = HUES[idx % HUES.length];
-          return { r: r, x: x, y: y, w: w, d: d, main: main, hue: hue, ver: r.verdict, poly: null, new: false, ph: (idx * 1.7) % 6.28 };
+          // עצי-המחנה — בין-חדרי-הטבעת (זוויות-ביניים) ובשולי-רובע-המחסן
+          trees = [];
+          for (var k = 0; k < 8; k++) {
+            var a2 = -Math.PI / 2 + (k + 0.5) * (Math.PI / 4);
+            trees.push({ x: Math.cos(a2) * 3.35, y: Math.sin(a2) * 3.35, ph: k * 0.9, s: 0.9 + ((k * 37) % 10) / 22 });
+          }
+          [[7.7, -6.6], [-7.6, -6.3], [8.3, 5.6], [-7.9, 6.1], [2.9, 7.9]].forEach(function (p, j) {
+            trees.push({ x: p[0], y: p[1], ph: j * 1.3 + 0.4, s: 1.05 });
+          });
         }
 
         /* ---- מה-חדש-מאז-הביקור (localStorage · מפתחות-תוכן-יציבים) ---- */
@@ -378,7 +420,7 @@
         function loadSeen() {
           try {
             var raw = localStorage.getItem(SEEN_KEY);
-            if (!raw) { markSeen(); return; } // ביקור-ראשון: הכל-נחשב-נקרא — אין-הצפה
+            if (!raw) { markSeen(); return; }
             var seen = {}; JSON.parse(raw).forEach(function (k) { seen[k] = 1; });
             freshKeys = {};
             currentKeys().forEach(function (k) { if (!seen[k]) freshKeys[k] = 1; });
@@ -408,7 +450,7 @@
           var tre = c["treasury.steem"], floor = c["treasury.floor"];
           var below = tre < floor;
           t.innerHTML =
-            '<span class="hud-pill"><span class="d" style="background:' + VERD.ALIVE.c + '"></span>עורקים <b>' + beat + "/" + tot + "</b> פועמים</span>" +
+            '<span class="hud-pill"><span class="d" style="background:' + VERD.ALIVE.c + ';color:' + VERD.ALIVE.c + '"></span>עורקים <b>' + beat + "/" + tot + "</b> פועמים</span>" +
             '<span class="hud-pill' + (below ? " alert" : "") + '">' + (below ? "⚠ " : "") + 'אוצר <b>' + tre.toFixed(3) + "</b> / רצפה <b>" + floor + "</b></span>" +
             '<span class="hud-pill" id="hudDir">הנחיות-פתוחות <b>' + (c["directives.open"] || 0) + "</b></span>" +
             '<span class="hud-pill" id="hudVerds" title="פסקי-דופק">חי <b>' + (c["verdicts.ALIVE"] || 0) + "</b> · מעורב <b>" + (c["verdicts.MIXED"] || 0) + "</b> · איטי <b>" + (c["verdicts.STALE"] || 0) + "</b> · רדום <b>" + (c["verdicts.IDLE"] || 0) + "</b></span>" +
@@ -417,6 +459,55 @@
           var nb = document.getElementById("hudNew");
           if (nb) nb.onclick = markSeen;
           renderNewBadge();
+          buildFilters();
+        }
+
+        /* ---- צ'יפי-סינון (עמום-על-אי-התאמה — כמו-הדמו) ---- */
+        function buildFilters() {
+          var box = document.getElementById("filters");
+          if (!box) return;
+          var c = M.canon;
+          var defs = [
+            [null, "הכל", c["repos.total"]],
+            ["ALIVE", "חי", c["verdicts.ALIVE"]],
+            ["MIXED", "מעורב", c["verdicts.MIXED"]],
+            ["STALE", "איטי", c["verdicts.STALE"]],
+            ["IDLE", "רדום", c["verdicts.IDLE"]]
+          ];
+          box.innerHTML = "";
+          defs.forEach(function (d) {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "fchip" + (FV === d[0] ? " on" : "");
+            b.innerHTML = (d[0] ? '<span class="d" style="background:' + VERD[d[0]].c + ';box-shadow:0 0 5px ' + VERD[d[0]].c + '"></span>' : "") + d[1] + " <b>" + (d[2] || 0) + "</b>";
+            b.onclick = function () { FV = FV === d[0] ? null : d[0]; buildFilters(); renderOnce(); };
+            box.appendChild(b);
+          });
+        }
+
+        /* ---- פאנל-העורקים-בריצה-עכשיו ---- */
+        function buildSidepanel() {
+          var box = document.getElementById("spBody");
+          if (!box) return;
+          var rows = [];
+          var src = M.statusArts || EMBED.arteries;
+          Object.keys(src).forEach(function (repo) {
+            (src[repo] || []).forEach(function (a) {
+              if (a[1] === "RUNNING" || a[1] === "WARM") rows.push({ repo: repo, name: a[0], st: a[1], last: a[2] });
+            });
+          });
+          rows.sort(function (a, b) { return (a.last || 0) - (b.last || 0); });
+          if (!rows.length) { box.innerHTML = '<div class="empty">אין-עורקים-בריצה-כרגע · נמדד</div>'; return; }
+          box.innerHTML = "";
+          rows.slice(0, 7).forEach(function (r) {
+            var el = document.createElement("div");
+            el.className = "sp-row";
+            el.innerHTML = '<span class="rn">' + r.repo + " / " + r.name + '</span>' +
+              '<span class="st chip ' + (r.st === "RUNNING" ? "bad" : "warn") + '" style="border:0">' + (r.st === "RUNNING" ? "ריצה" : "חם") + "</span>" +
+              '<span class="ag">' + (r.last === null || r.last === undefined ? "·" : r.last + "ד'") + "</span>";
+            el.onclick = function () { var rm = rooms.find(function (q) { return q.r.repo === r.repo; }); if (rm) enterRoom(rm); };
+            box.appendChild(el);
+          });
         }
 
         /* ---- טיקר-הדופק ---- */
@@ -424,12 +515,15 @@
         function buildTicks() {
           TICKS = [];
           var c = M.canon;
-          TICKS.push("דופק-הגריד: <b>" + c["arteries.beating"] + "/" + c["arteries.total"] + "</b> עורקים פועמים על-פני <b>" + c["repos.total"] + "</b> ריפואים");
-          TICKS.push("אוצר נמדד: <b>" + c["treasury.steem"] + "</b> STEEM · רצפה-חוק: <b>" + c["treasury.floor"] + "</b> · מצב: BELOW-FLOOR");
-          TICKS.push("מילויים-חיים: <b>" + c["fills.lifetime"] + "</b> לכל-החיים · <b>" + c["fills.ledger"] + "</b> בפנקס");
+          var run = 0;
+          var src = M.statusArts || EMBED.arteries;
+          Object.keys(src).forEach(function (k) { (src[k] || []).forEach(function (a) { if (a[1] === "RUNNING" || a[1] === "WARM") run++; }); });
+          TICKS.push("דופק-הגריד: <b>" + c["arteries.beating"] + "/" + c["arteries.total"] + "</b> עורקים פועמים · <b>" + run + "</b> בריצה-עכשיו");
+          TICKS.push("אוצר נמדד: <b>" + c["treasury.steem"] + "</b> STEEM · רצפה-חוק: <b>" + c["treasury.floor"] + "</b> · מצב: " + (c["treasury.steem"] < c["treasury.floor"] ? "BELOW-FLOOR" : "ABOVE-FLOOR"));
+          TICKS.push("מילויים-חיים: <b>" + (c["fills.lifetime"] || 0) + "</b> לכל-החיים · <b>" + (c["fills.ledger"] || 0) + "</b> בפנקס");
           var lit = 0;
           Object.keys(REPOMAP).forEach(function (k) { if (REPOMAP[k].verdict === "ALIVE") lit++; });
-          TICKS.push("ריפואים-חיים: <b>" + lit + "</b> מתוך <b>" + M.repos.length + "</b> · נמדד: <b>" + M.at.slice(0, 10) + " " + M.at.slice(11, 16) + "Z</b>");
+          TICKS.push("ריפואים-חיים: <b>" + lit + "</b> מתוך <b>" + M.repos.length + "</b> · שליחי-הדופק-על-הדרכים · נמדד: <b>" + M.at.slice(0, 10) + " " + M.at.slice(11, 16) + "Z</b>");
         }
         var tickIdx = 0;
         function rotateTick() {
@@ -449,14 +543,132 @@
           if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.stroke(); }
         }
         function wallPts(x, y, len, dir, h) {
-          // dir "x": קיר לאורך ציר-x (צפון) · dir "y": לאורך ציר-y (מערב)
           if (dir === "x") return [PP(x, y, 0), PP(x + len, y, 0), PP(x + len, y, h), PP(x, y, h)];
           return [PP(x, y, 0), PP(x, y + len, 0), PP(x, y + len, h), PP(x, y, h)];
         }
-        function shade(hex, f) {
-          var n = parseInt(hex.slice(1), 16), r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
-          r = Math.round(r * f); g = Math.round(g * f); b = Math.round(b * f);
-          return "rgb(" + r + "," + g + "," + b + ")";
+        function hex2rgb(h) { var n = parseInt(h.slice(1), 16); return [(n >> 16) & 255, (n >> 8) & 255, n & 255]; }
+        function shade(hex, f) { var c = hex2rgb(hex); return "rgb(" + Math.round(c[0] * f) + "," + Math.round(c[1] * f) + "," + Math.round(c[2] * f) + ")"; }
+        function mix(hA, hB, k) {
+          var a = hex2rgb(hA), b = hex2rgb(hB);
+          return "rgb(" + Math.round(lerp(a[0], b[0], k)) + "," + Math.round(lerp(a[1], b[1], k)) + "," + Math.round(lerp(a[2], b[2], k)) + ")";
+        }
+        function glow(x, y, r, col, alpha) {
+          var g = ctx.createRadialGradient(x, y, 1, x, y, r);
+          g.addColorStop(0, "rgba(255,255,255," + (alpha * 0.5).toFixed(3) + ")");
+          g.addColorStop(0.35, col.replace("rgb(", "rgba(").replace(")", "," + alpha.toFixed(3) + ")"));
+          g.addColorStop(1, "rgba(0,0,0,0)");
+          ctx.fillStyle = g;
+          ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
+        }
+
+        /* ---- קרקע-הלילה ---- */
+        function drawGround() {
+          ctx.fillStyle = BG;
+          ctx.fillRect(0, 0, W, H);
+          ctx.strokeStyle = "rgba(240,232,214,0.05)";
+          ctx.lineWidth = 1;
+          for (var gx = -18; gx <= 18; gx += 2) {
+            ctx.beginPath(); ctx.moveTo(PP(gx, -18, 0).x, PP(gx, -18, 0).y); ctx.lineTo(PP(gx, 18, 0).x, PP(gx, 18, 0).y); ctx.stroke();
+          }
+          for (var gy = -18; gy <= 18; gy += 2) {
+            ctx.beginPath(); ctx.moveTo(PP(-18, gy, 0).x, PP(-18, gy, 0).y); ctx.lineTo(PP(18, gy, 0).x, PP(18, gy, 0).y); ctx.stroke();
+          }
+        }
+
+        /* ---- עצי-המחנה ---- */
+        function drawTree(tr, t) {
+          var sway = reduceMotion ? 0 : Math.sin(t * 0.9 + tr.ph) * 0.045;
+          var b = PP(tr.x, tr.y, 0);
+          var s = tr.s * cam.z;
+          // צל
+          ctx.beginPath(); ctx.ellipse(b.x + 3 * s, b.y + 1 * s, 9 * s, 4 * s, 0, 0, 6.283);
+          ctx.fillStyle = "rgba(0,0,0,0.35)"; ctx.fill();
+          // גזע
+          ctx.fillStyle = "#4a3a28";
+          ctx.fillRect(b.x - 1.6 * s, b.y - 9 * s, 3.2 * s, 9 * s);
+          // צמרת-כפולה
+          var top = PP(tr.x + sway, tr.y, 0.52 * tr.s);
+          ctx.beginPath(); ctx.arc(top.x, top.y, 8.5 * s, 0, 6.283); ctx.fillStyle = "#2f5a3c"; ctx.fill();
+          var top2 = PP(tr.x + sway * 1.4 - 0.06, tr.y + 0.05, 0.72 * tr.s);
+          ctx.beginPath(); ctx.arc(top2.x, top2.y, 6 * s, 0, 6.283); ctx.fillStyle = "#3f7a4e"; ctx.fill();
+          // נצנוץ-ירח
+          if (!reduceMotion) {
+            ctx.beginPath(); ctx.arc(top.x - 2.2 * s, top.y - 2 * s, 1.2 * s, 0, 6.283);
+            ctx.fillStyle = "rgba(240,232,214,0.35)"; ctx.fill();
+          }
+        }
+
+        /* ---- חיילי-הצי (הדמויות) ---- */
+        function drawSoldier(sx, sy, hue, o) {
+          // o: {bob, z2 (גודל), lead, sleep, alert, ph}
+          var z = cam.z * (o.z2 || 1);
+          var base = PP(sx, sy, 0.10);
+          var bob = o.bob || 0;
+          // צל
+          ctx.beginPath(); ctx.ellipse(base.x, base.y + 1.5 * z, 7 * z, 3 * z, 0, 0, 6.283);
+          ctx.fillStyle = "rgba(0,0,0,0.4)"; ctx.fill();
+          // רגליים-קטנות
+          ctx.fillStyle = shade(hue, 0.55);
+          ctx.fillRect(base.x - 3.4 * z, base.y - 3 * z, 2.6 * z, 3 * z);
+          ctx.fillRect(base.x + 0.8 * z, base.y - 3 * z, 2.6 * z, 3 * z);
+          // גוף-מעוגל
+          var bw = 9 * z, bh = 12.5 * z;
+          var byy = base.y - 3 * z - bh - bob * TILE * z * 0.55;
+          ctx.beginPath();
+          if (ctx.roundRect) ctx.roundRect(base.x - bw / 2, byy, bw, bh, 4.5 * z);
+          else ctx.rect(base.x - bw / 2, byy, bw, bh);
+          ctx.fillStyle = hue; ctx.fill();
+          ctx.strokeStyle = "rgba(10,8,6,0.7)"; ctx.lineWidth = 1; ctx.stroke();
+          // נגה-עליון-על-הגוף
+          ctx.beginPath(); ctx.ellipse(base.x - 1.5 * z, byy + 3 * z, 2.4 * z, 3.4 * z, -0.4, 0, 6.283);
+          ctx.fillStyle = "rgba(255,255,255,0.22)"; ctx.fill();
+          // ראש
+          var hp = PP(sx, sy, 0.10 + 0.42 * (o.z2 || 1) + bob);
+          var hr = 5.2 * z;
+          ctx.beginPath(); ctx.arc(hp.x, hp.y - bob * TILE * z * 0.3, hr, 0, 6.283);
+          ctx.fillStyle = shade(hue, 1.12); ctx.fill(); ctx.stroke();
+          // עיניים — פעימה-אישית (ph)
+          var blink = o.sleep || (!reduceMotion && ((tGlob + (o.ph || 0)) % 4.2) < 0.12);
+          var ey = hp.y - bob * TILE * z * 0.3 - 0.6 * z;
+          if (blink) {
+            ctx.strokeStyle = "#141210"; ctx.lineWidth = 1.2 * z;
+            ctx.beginPath(); ctx.moveTo(hp.x - 3 * z, ey); ctx.lineTo(hp.x - 1 * z, ey);
+            ctx.moveTo(hp.x + 1 * z, ey); ctx.lineTo(hp.x + 3 * z, ey); ctx.stroke();
+          } else {
+            ctx.fillStyle = "#fff";
+            ctx.beginPath();
+            ctx.arc(hp.x - 1.9 * z, ey, 1.5 * z, 0, 6.283);
+            ctx.arc(hp.x + 1.9 * z, ey, 1.5 * z, 0, 6.283);
+            ctx.fill();
+            ctx.fillStyle = "#141210";
+            ctx.beginPath();
+            ctx.arc(hp.x - 1.7 * z, ey + 0.2 * z, 0.7 * z, 0, 6.283);
+            ctx.arc(hp.x + 2.1 * z, ey + 0.2 * z, 0.7 * z, 0, 6.283);
+            ctx.fill();
+            // נצנוץ
+            ctx.fillStyle = "rgba(255,255,255,0.9)";
+            ctx.beginPath(); ctx.arc(hp.x - 2.1 * z, ey - 0.5 * z, 0.4 * z, 0, 6.283); ctx.fill();
+          }
+          // כתר-מוביל
+          if (o.lead) {
+            var cy2 = hp.y - bob * TILE * z * 0.3 - hr - 2 * z;
+            ctx.fillStyle = "#f5b82e";
+            ctx.beginPath();
+            ctx.moveTo(cy2 - 4 * z, cy2 + 2.6 * z); ctx.lineTo(cy2 - 4 * z, cy2 - 1.4 * z);
+            ctx.lineTo(cy2 - 2 * z, cy2 + 0.6 * z); ctx.lineTo(cy2, cy2 - 2.2 * z);
+            ctx.lineTo(cy2 + 2 * z, cy2 + 0.6 * z); ctx.lineTo(cy2 + 4 * z, cy2 - 1.4 * z);
+            ctx.lineTo(cy2 + 4 * z, cy2 + 2.6 * z); ctx.closePath(); ctx.fill();
+          }
+          // בועת-חדש
+          if (o.alert) {
+            var ax = hp.x + 7 * z, ay = hp.y - bob * TILE * z * 0.3 - hr - 6 * z;
+            if (!reduceMotion) ay += Math.abs(Math.sin(tGlob * 3)) * 2 * z;
+            ctx.beginPath(); ctx.arc(ax, ay, 3.6 * z, 0, 6.283);
+            ctx.fillStyle = ACC; ctx.fill();
+            ctx.fillStyle = "#201709"; ctx.font = "bold " + Math.max(6, 5.2 * z) + "px system-ui";
+            ctx.textAlign = "center"; ctx.textBaseline = "middle";
+            ctx.fillText("!", ax, ay + 0.5);
+          }
         }
 
         function drawRoom(rm, t) {
@@ -465,35 +677,65 @@
           var h = rm.main ? 0.92 : 0.55;
           var x = rm.x, y = rm.y, w = rm.w, d = rm.d;
           var x0 = x - w / 2, y0 = y - d / 2;
+          var fog = fogOf(x, y);
+          var dimmed = FV && rm.ver !== FV;
+          var isHover = hover === rm || focusRepo === rm.r.repo;
+          ctx.save();
+          if (fog > 0) ctx.globalAlpha = 1 - fog;
+          // צל-עוגן-על-הקרקע
+          var shp = [PP(x0 - 0.10, y0 - 0.10, 0.02), PP(x0 + w + 0.14, y0 - 0.10, 0.02), PP(x0 + w + 0.14, y0 + d + 0.16, 0.02), PP(x0 - 0.10, y0 + d + 0.16, 0.02)];
+          poly(shp, "rgba(0,0,0,0.42)");
           // רצפה
-          var fp = [PP(x0, y0, 0.05), PP(x0 + w, y0, 0.05), PP(x0 + w, y0 + d, 0.05), PP(x0, y0 + d, 0.05)];
+          var fp = [PP(x0, y0, 0.06), PP(x0 + w, y0, 0.06), PP(x0 + w, y0 + d, 0.06), PP(x0, y0 + d, 0.06)];
           rm.poly = fp;
-          poly(fp, fl, hover === rm ? "#8a6d3b" : "rgba(44,42,38,0.5)", hover === rm ? 2 : 1);
+          poly(fp, rm.main ? fl : "#2a251d", isHover ? ACC : "rgba(240,232,214,0.22)", isHover ? 1.8 : 0.7);
+          if (isHover) { // הילת-ריחוף
+            ctx.save(); ctx.globalAlpha = 0.5; poly(fp, null, ACC, 2.2); ctx.restore();
+          }
           if (rm.new) { // טבעת-חדש
             var k = reduceMotion ? 0.5 : ((t * 0.5 + rm.ph) % 1);
-            var ex = 1 + k * 0.5, ey = 1 + k * 0.5;
-            var cfp = [PP(x - w / 2 * ex, y0 + d / 2 - d / 2 * ex, 0.07), PP(x0 + w / 2 + w / 2 * ex, y0 + d / 2 - d / 2 * ex, 0.07), PP(x0 + w / 2 + w / 2 * ex, y0 + d / 2 + d / 2 * ex, 0.07), PP(x - w / 2 * ex, y0 + d / 2 + d / 2 * ex, 0.07)];
-            ctx.globalAlpha = (1 - k) * 0.55;
-            poly(cfp, null, "#8a6d3b", 1.6);
-            ctx.globalAlpha = 1;
+            var ex = 1 + k * 0.5;
+            var cfp = [PP(x - w / 2 * ex, y - d / 2 * ex, 0.08), PP(x + w / 2 * ex, y - d / 2 * ex, 0.08), PP(x + w / 2 * ex, y + d / 2 * ex, 0.08), PP(x - w / 2 * ex, y + d / 2 * ex, 0.08)];
+            ctx.globalAlpha *= (1 - k) * 0.6;
+            poly(cfp, null, ACC2, 1.6);
+            ctx.globalAlpha = fog > 0 ? 1 - fog : 1;
           }
-          // קירות-האחוריים (הצפוני + המערבי — הקדמיים פתוחים: בית-בובות)
-          poly(wallPts(x0, y0, w, "x", h), shade(v.c, rm.main ? 0.30 : 0.26), "rgba(44,42,38,0.55)", 1);
-          poly(wallPts(x0, y0, d, "y", h), shade(v.c, rm.main ? 0.38 : 0.32), "rgba(44,42,38,0.55)", 1);
-          // פנים-החדר: שולחנות + חיילי-הצי (רק בחדרים הראשיים)
+          // קירות-אחוריים (צפוני + מערבי — בית-בובות)
+          var wallTint = rm.main ? mix("#241f18", v.c, 0.20) : "#332d24";
+          poly(wallPts(x0, y0, w, "x", h), shade2(wallTint, 0.78), "rgba(240,232,214,0.14)", 1);
+          poly(wallPts(x0, y0, d, "y", h), shade2(wallTint, 1.0), "rgba(240,232,214,0.18)", 1);
+          // כתרית-קיר
+          poly([PP(x0 - 0.02, y0 - 0.02, h), PP(x0 + w + 0.02, y0 - 0.02, h), PP(x0 + w + 0.02, y0 + d + 0.02, h), PP(x0 - 0.02, y0 + d + 0.02, h)], mix(wallTint, "#000000", 0.35));
+          // פנים
           if (rm.main) {
-            var crew = Math.min(4, Math.max(2, Math.round(rm.r.n / 12) + 1));
+            var crew = Math.min(5, Math.max(2, Math.round(rm.r.n / 14) + 2));
             for (var i = 0; i < crew; i++) {
-              var sx = x0 + 0.5 + (i % 2) * (w - 1.1), sy = y0 + 0.75 + Math.floor(i / 2) * 0.85;
-              var bob = reduceMotion ? 0 : Math.abs(Math.sin(t * 1.6 + rm.ph + i)) * 0.03;
-              drawSoldier(sx, sy, rm.hue, bob);
-              var dp = PP(sx, sy + 0.34, 0.34); // שולחן
-              poly([PP(sx - 0.28, sy + 0.18, 0.33), PP(sx + 0.28, sy + 0.18, 0.33), PP(sx + 0.28, sy + 0.5, 0.33), PP(sx - 0.28, sy + 0.5, 0.33)], "#3b3833", "rgba(44,42,38,0.6)", 0.8);
+              var sx = x0 + 0.55 + (i % 2) * (w - 1.25), sy = y0 + 0.8 + Math.floor(i / 2) * 0.8;
+              var bob = reduceMotion ? 0 : (Math.abs(Math.sin(t * 1.7 + rm.ph + i * 1.3)) * 0.05 + ((t + rm.ph + i) % 9 < 0.4 ? Math.sin(((t + rm.ph + i) % 9) / 0.4 * Math.PI) * 0.12 : 0));
+              // שולחן
+              poly([PP(sx - 0.3, sy + 0.16, 0.30), PP(sx + 0.3, sy + 0.16, 0.30), PP(sx + 0.3, sy + 0.52, 0.30), PP(sx - 0.3, sy + 0.52, 0.30)], "#151210", "rgba(240,232,214,0.16)", 0.7);
+              // מסך-נוצץ
+              var mp = PP(sx + 0.14, sy + 0.2, 0.44);
+              var scrGlow = 0.55 + 0.35 * Math.sin(t * 2.4 + rm.ph + i * 1.7);
+              ctx.fillStyle = "rgba(143,208,106," + (0.35 + scrGlow * 0.4).toFixed(2) + ")";
+              ctx.fillRect(mp.x - 3.4 * cam.z, mp.y - 2.6 * cam.z, 6.8 * cam.z, 5.2 * cam.z);
+              drawSoldier(sx, sy, rm.hue, { bob: bob, z2: i === 0 ? 1.22 : 1, lead: i === 0, sleep: false, alert: rm.new && i === 0, ph: rm.ph + i * 0.37 });
             }
+            // נורת-מנורה-חמה + זוהר
+            var lp = PP(x, y - 0.1, h + 0.32);
+            var lampCol = v.c;
+            if (!reduceMotion) {
+              ctx.save();
+              ctx.globalCompositeOperation = "lighter";
+              var pulse = 0.16 + 0.05 * Math.sin(t * 2.2 + rm.ph) + (rm.new ? 0.06 : 0);
+              glow(lp.x, lp.y, 30 * cam.z, hexGlow(lampCol), pulse);
+              ctx.restore();
+            }
+            ctx.beginPath(); ctx.arc(lp.x, lp.y, 2.4 * cam.z, 0, 6.283);
+            ctx.fillStyle = mix(lampCol, "#ffffff", 0.5); ctx.fill();
           } else if (rm.ver === "IDLE") {
-            // דלת-סגורה — רדום
-            var dl = PP(x - 0.14, y + d / 2 - 0.02, 0.4);
-            ctx.fillStyle = "rgba(44,42,38,0.35)";
+            var dl = PP(x - 0.14, y + d / 2 - 0.02, 0.38);
+            ctx.fillStyle = "rgba(240,232,214,0.14)";
             ctx.fillRect(dl.x - 4, dl.y - 9, 8, 9);
           }
           // שעוני-העורקים על-קו-הגג
@@ -501,21 +743,22 @@
           var nD = rm.main ? Math.min(rm.r.n, 7) : Math.min(rm.r.n, 3);
           for (var a = 0; a < nD; a++) {
             var dx = x0 + (w / (nD + 1)) * (a + 1);
-            var ap = PP(dx, y0 - 0.02, h + 0.14);
-            var rr = (rm.main ? 0.14 : 0.09) * TILE * cam.z;
+            var ap = PP(dx, y0 - 0.02, h + 0.16);
+            var rr = Math.min((rm.main ? 0.14 : 0.09) * TILE * cam.z, rm.main ? 8.5 : 6);
             var info = arts && arts[a];
             var col = v.c;
             var conclBad = info && info[3] === "fail";
-            if (conclBad) col = "#b3261e";
+            if (conclBad) col = "#ef5350";
+            if (!reduceMotion && (!info || info[1] === "RUNNING" || info[1] === "WARM")) {
+              ctx.save(); ctx.globalCompositeOperation = "lighter";
+              var pk = (t * 0.9 + a * 0.7 + rm.ph) % 1;
+              glow(ap.x, ap.y, rr * (1 + pk * 1.6), hexGlow(col), (1 - pk) * 0.35);
+              ctx.restore();
+            }
             ctx.beginPath(); ctx.arc(ap.x, ap.y, rr, 0, 6.283);
             ctx.fillStyle = col; ctx.fill();
-            ctx.strokeStyle = "rgba(44,42,38,0.7)"; ctx.lineWidth = 1; ctx.stroke();
-            if (!reduceMotion && (!info || info[1] === "RUNNING" || info[1] === "WARM")) {
-              var pk = (t * 0.9 + a * 0.7 + rm.ph) % 1;
-              ctx.beginPath(); ctx.arc(ap.x, ap.y, rr * (1 + pk * 1.4), 0, 6.283);
-              ctx.strokeStyle = col; ctx.globalAlpha = (1 - pk) * 0.6; ctx.stroke(); ctx.globalAlpha = 1;
-            }
-            if (info && info[3] === null) { // יושר-כנה: ריצה-בעיצומה — אין-סיום
+            ctx.strokeStyle = "rgba(10,8,6,0.8)"; ctx.lineWidth = 1; ctx.stroke();
+            if (info && info[3] === null) {
               ctx.fillStyle = "#fff";
               ctx.font = "bold " + Math.max(7, rr) + "px system-ui";
               ctx.textAlign = "center"; ctx.textBaseline = "middle";
@@ -524,82 +767,80 @@
             if (conclBad) { ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(ap.x - rr * 0.45, ap.y - rr * 0.45); ctx.lineTo(ap.x + rr * 0.45, ap.y + rr * 0.45); ctx.stroke(); }
           }
           if (rm.main && rm.r.n > 7) {
-            var lp = PP(x + w / 2 + 0.15, y0, h + 0.14);
-            ctx.fillStyle = MUT; ctx.font = "bold " + Math.max(9, 10 * cam.z) + "px system-ui";
+            var lp2 = PP(x + w / 2 + 0.18, y0, h + 0.16);
+            ctx.fillStyle = MUT;
+            ctx.font = "bold " + Math.max(9, 10 * cam.z) + "px system-ui";
             ctx.textAlign = "left"; ctx.textBaseline = "middle";
-            ctx.fillText("+" + (rm.r.n - 7), lp.x, lp.y);
+            ctx.fillText("+" + (rm.r.n - 7), lp2.x, lp2.y);
           }
+          // כיסוי-סינון — עמעום-חד-צדדי (כמו-הדמו)
+          if (dimmed) {
+            ctx.save();
+            ctx.globalAlpha = 0.62;
+            poly([PP(x0 - 0.15, y0 - 0.15, 0), PP(x0 + w + 0.15, y0 - 0.15, 0), PP(x0 + w + 0.15, y0 + d + 0.15, 0), PP(x0 - 0.15, y0 + d + 0.15, 0)], BG);
+            poly([PP(x0 - 0.15, y0 - 0.15, h), PP(x0 + w + 0.15, y0 - 0.15, h), PP(x0 + w + 0.15, y0 + d + 0.15, h), PP(x0 - 0.15, y0 + d + 0.15, h)], BG);
+            ctx.restore();
+          }
+          ctx.restore();
+        }
+        function shade2(rgbStr, f) { // גוון-על-rgb() קיים
+          var m = rgbStr.match(/\d+/g);
+          if (!m) return rgbStr;
+          return "rgb(" + Math.round(m[0] * f) + "," + Math.round(m[1] * f) + "," + Math.round(m[2] * f) + ")";
+        }
+        function hexGlow(hex) {
+          var c = hex2rgb(hex);
+          return "rgb(" + c[0] + "," + c[1] + "," + c[2] + ")";
         }
 
-        function drawSoldier(sx, sy, hue, bob) {
-          var b = PP(sx, sy, 0.06);
-          var z = cam.z;
-          // גוף
-          ctx.fillStyle = hue;
-          var bw = 7 * z, bh = 11 * z;
-          ctx.beginPath();
-          if (ctx.roundRect) ctx.roundRect(b.x - bw / 2, b.y - bh - bob * TILE * z, bw, bh, 3.5 * z);
-          else ctx.rect(b.x - bw / 2, b.y - bh - bob * TILE * z, bw, bh);
-          ctx.fill();
-          ctx.strokeStyle = "rgba(44,42,38,0.65)"; ctx.lineWidth = 0.8; ctx.stroke();
-          // ראש
-          var hp = PP(sx, sy, 0.06 + 0.34 + bob);
-          ctx.beginPath(); ctx.arc(hp.x, hp.y, 4.6 * z, 0, 6.283);
-          ctx.fillStyle = hue; ctx.fill(); ctx.stroke();
-          // עיניים (כלפי-המצלמה)
-          ctx.fillStyle = "#fff";
-          ctx.beginPath(); ctx.arc(hp.x - 1.6 * z, hp.y - 0.5 * z, 1.1 * z, 0, 6.283); ctx.arc(hp.x + 1.6 * z, hp.y - 0.5 * z, 1.1 * z, 0, 6.283); ctx.fill();
-          ctx.fillStyle = INK;
-          var blink = reduceMotion ? false : ((Date.now() / 1000 * 1 + 0) % 4.2) < 0.12;
-          if (!blink) {
-            ctx.beginPath(); ctx.arc(hp.x - 1.6 * z, hp.y - 0.5 * z, 0.5 * z, 0, 6.283); ctx.arc(hp.x + 1.6 * z, hp.y - 0.5 * z, 0.5 * z, 0, 6.283); ctx.fill();
-          }
-        }
-
+        /* ---- כיכר-הקנון ---- */
         function drawPlaza(t) {
           var c = PP(0, 0, 0.02);
           var R = 1.55 * TILE * cam.z;
           ctx.save();
           ctx.translate(c.x, c.y);
           ctx.scale(1, ISO_S * 2);
-          // מדרכה
           ctx.beginPath(); ctx.arc(0, 0, R, 0, 6.283);
-          ctx.fillStyle = "#efe9dc"; ctx.fill();
-          ctx.strokeStyle = "rgba(44,42,38,0.35)"; ctx.lineWidth = 1 / cam.z; ctx.stroke();
-          // טבעות-רדאר (פעימת-הקנון)
+          ctx.fillStyle = "#26211a"; ctx.fill();
+          ctx.strokeStyle = "rgba(240,232,214,0.22)"; ctx.lineWidth = 1 / cam.z; ctx.stroke();
           if (!reduceMotion) {
             for (var k = 0; k < 3; k++) {
               var ph = (t * 0.32 + k / 3) % 1;
               ctx.beginPath(); ctx.arc(0, 0, R * (0.4 + ph * 0.95), 0, 6.283);
-              ctx.strokeStyle = "#8a6d3b"; ctx.globalAlpha = (1 - ph) * 0.45; ctx.lineWidth = 1.4 / cam.z; ctx.stroke();
+              ctx.strokeStyle = ACC; ctx.globalAlpha = (1 - ph) * 0.4; ctx.lineWidth = 1.4 / cam.z; ctx.stroke();
             }
             ctx.globalAlpha = 1;
           }
           ctx.restore();
         }
 
+        /* ---- מגדל-הקנון (אובליסק + שעון-ירושלים — הקונספט-נשמר) ---- */
         function drawBeacon(t) {
-          // מגדל-הקנון: אובליסק + שעון-ירושלים
           var base = 0.62, hgt = 1.9;
           var x = 0, y = 0;
-          poly([PP(x - base / 2, y - base / 2, 0), PP(x + base / 2, y - base / 2, 0), PP(x + base / 2, y + base / 2, 0), PP(x - base / 2, y + base / 2, 0)], "#d9d2c2", "rgba(44,42,38,0.6)", 1);
+          poly([PP(x - base / 2, y - base / 2, 0), PP(x + base / 2, y - base / 2, 0), PP(x + base / 2, y + base / 2, 0), PP(x - base / 2, y + base / 2, 0)], "#3a332a", "rgba(240,232,214,0.2)", 1);
           var h0 = 0.22;
           var sh = 0.40;
-          poly([PP(x - sh / 2, y - sh / 2, h0), PP(x + sh / 2, y - sh / 2, h0), PP(x + sh / 2, y + sh / 2, h0), PP(x - sh / 2, y + sh / 2, h0)], "#c8c0ac", "rgba(44,42,38,0.6)", 1);
+          poly([PP(x - sh / 2, y - sh / 2, h0), PP(x + sh / 2, y - sh / 2, h0), PP(x + sh / 2, y + sh / 2, h0), PP(x - sh / 2, y + sh / 2, h0)], "#443c30", "rgba(240,232,214,0.2)", 1);
           var top = PP(x, y, hgt);
           var bot = PP(x, y, h0);
           var wd = sh * 0.72 * TILE * cam.z;
-          poly([{ x: top.x, y: top.y }, { x: bot.x + wd, y: bot.y }, { x: bot.x + wd * 0.4, y: bot.y }, { x: top.x, y: top.y + 0 }], "#b3ab96", "rgba(44,42,38,0.55)", 0.8);
-          poly([{ x: top.x, y: top.y }, { x: bot.x - wd, y: bot.y }, { x: bot.x - wd * 0.4, y: bot.y }, { x: top.x, y: top.y }], "#c3bba6", "rgba(44,42,38,0.55)", 0.8);
-          // פסגה
+          poly([{ x: top.x, y: top.y }, { x: bot.x + wd, y: bot.y }, { x: bot.x + wd * 0.4, y: bot.y }, { x: top.x, y: top.y }], "#504636", "rgba(240,232,214,0.16)", 0.8);
+          poly([{ x: top.x, y: top.y }, { x: bot.x - wd, y: bot.y }, { x: bot.x - wd * 0.4, y: bot.y }, { x: top.x, y: top.y }], "#5a5040", "rgba(240,232,214,0.16)", 0.8);
           var tip = PP(x, y, hgt + 0.34);
-          poly([{ x: top.x - wd * 0.75, y: top.y }, { x: top.x + wd * 0.75, y: top.y }, { x: tip.x, y: tip.y }], "#8a6d3b", "rgba(44,42,38,0.5)", 0.8);
+          poly([{ x: top.x - wd * 0.75, y: top.y }, { x: top.x + wd * 0.75, y: top.y }, { x: tip.x, y: tip.y }], ACC, "rgba(240,232,214,0.3)", 0.8);
+          // אור-פסגה-חי
+          if (!reduceMotion) {
+            ctx.save(); ctx.globalCompositeOperation = "lighter";
+            glow(tip.x, tip.y, 16 * cam.z, hexGlow(ACC), 0.22 + 0.1 * Math.sin(t * 2.6));
+            ctx.restore();
+          }
           // דיאל-השעון — ירושלים חיה
           var cp = PP(x, y, hgt - 0.52);
           var cr = 0.30 * TILE * cam.z;
           ctx.beginPath(); ctx.arc(cp.x, cp.y, cr, 0, 6.283);
-          ctx.fillStyle = "#faf8f3"; ctx.fill();
-          ctx.strokeStyle = INK; ctx.lineWidth = 1.4; ctx.stroke();
+          ctx.fillStyle = "#f6efdd"; ctx.fill();
+          ctx.strokeStyle = "#241f18"; ctx.lineWidth = 1.6; ctx.stroke();
           var now = new Date();
           try {
             var f = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Jerusalem", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
@@ -611,12 +852,11 @@
               ctx.lineTo(cp.x + Math.cos(a) * len, cp.y + Math.sin(a) * len);
               ctx.strokeStyle = col; ctx.lineWidth = wd2; ctx.lineCap = "round"; ctx.stroke();
             }
-            hand(hh * 30 + mm * 0.5, cr * 0.5, 2.2, INK);
-            hand(mm * 6, cr * 0.72, 1.6, INK);
-            if (!reduceMotion) hand(ss * 6, cr * 0.8, 0.9, "#b3261e");
-            ctx.beginPath(); ctx.arc(cp.x, cp.y, 1.8, 0, 6.283); ctx.fillStyle = INK; ctx.fill();
+            hand(hh * 30 + mm * 0.5, cr * 0.5, 2.2, "#241f18");
+            hand(mm * 6, cr * 0.72, 1.6, "#241f18");
+            if (!reduceMotion) hand(ss * 6, cr * 0.8, 0.9, "#ef5350");
+            ctx.beginPath(); ctx.arc(cp.x, cp.y, 1.8, 0, 6.283); ctx.fillStyle = "#241f18"; ctx.fill();
           } catch (e) {}
-          // כיתוב-מיקרו
           ctx.fillStyle = MUT;
           ctx.font = Math.max(8, 9 * cam.z) + "px system-ui";
           ctx.textAlign = "center"; ctx.textBaseline = "top";
@@ -624,80 +864,115 @@
           ctx.fillText("ערוץ-הקנון", lp.x, lp.y);
         }
 
+        /* ---- באר-האוצר (האמת-הגלויה — נשמרת-ומודגשת) ---- */
         function drawTreasury(t) {
-          // באר-האוצר: מד-אנכי חי — אוצר מול רצפה (מרחב-פנוי במערב-הכיכר — לא-מוסתרת)
-          var x = -4.4, y = 2.6;
+          var x = -6.9, y = 3.7;
           var w = 0.9, dep = 0.7, hgt = 1.6;
           var x0 = x - w / 2, y0 = y - dep / 2;
-          poly([PP(x0, y0, 0), PP(x0 + w, y0, 0), PP(x0 + w, y0 + dep, 0), PP(x0, y0 + dep, 0)], "#e3dccb", "rgba(44,42,38,0.55)", 1);
-          // מסגרת-המד
+          var fog = fogOf(x, y);
+          ctx.save();
+          if (fog > 0) ctx.globalAlpha = 1 - fog;
+          poly([PP(x0, y0, 0), PP(x0 + w, y0, 0), PP(x0 + w, y0 + dep, 0), PP(x0, y0 + dep, 0)], "#2c261e", "rgba(240,232,214,0.18)", 1);
           var fq = [PP(x0, y0, hgt), PP(x0 + w * 0.4, y0, hgt), PP(x0 + w * 0.4, y0 + dep * 0.8, hgt), PP(x0, y0 + dep * 0.8, hgt)];
-          poly(fq, "#f6f2e8", "rgba(44,42,38,0.6)", 1);
+          poly(fq, "#383126", "rgba(240,232,214,0.22)", 1);
           var tre = M.canon["treasury.steem"] || 0, floor = M.canon["treasury.floor"] || 3000;
           var lv = Math.max(0.02, Math.min(1, tre / floor));
           var fillTop = hgt * lv;
-          var fq2 = [PP(x0 + 0.05, y0 + 0.04, fillTop), PP(x0 + w * 0.4 - 0.05, y0 + 0.04, fillTop), PP(x0 + w * 0.4 - 0.05, y0 + dep * 0.8 - 0.05, 0.06), PP(x0 + 0.05, y0 + dep * 0.8 - 0.05, 0.06)];
-          poly(fq2, tre >= floor ? "#2e7d4f" : "#b3261e", "rgba(44,42,38,0.5)", 0.8);
-          // נורית-אזעקה
-          var lp = PP(x0 + w * 0.2, y0 - 0.05, hgt + 0.22);
           var alarm = tre < floor;
-          var glow = alarm && !reduceMotion ? (0.5 + 0.5 * Math.abs(Math.sin(t * 3))) : 1;
+          var fq2 = [PP(x0 + 0.05, y0 + 0.04, fillTop), PP(x0 + w * 0.4 - 0.05, y0 + 0.04, fillTop), PP(x0 + w * 0.4 - 0.05, y0 + dep * 0.8 - 0.05, 0.06), PP(x0 + 0.05, y0 + dep * 0.8 - 0.05, 0.06)];
+          poly(fq2, alarm ? "#ef5350" : "#43d17c", "rgba(10,8,6,0.5)", 0.8);
+          // זוהר-הבאר
+          if (!reduceMotion) {
+            ctx.save(); ctx.globalCompositeOperation = "lighter";
+            var ap2 = PP(x0 + w * 0.2, y0 + dep * 0.4, fillTop * 0.6);
+            glow(ap2.x, ap2.y, 26 * cam.z, alarm ? hexGlow("#ef5350") : hexGlow("#43d17c"), 0.14 + (alarm ? 0.1 * Math.abs(Math.sin(t * 3)) : 0));
+            ctx.restore();
+          }
+          var lp = PP(x0 + w * 0.2, y0 - 0.05, hgt + 0.22);
+          var g2 = alarm && !reduceMotion ? (0.5 + 0.5 * Math.abs(Math.sin(t * 3))) : 1;
           ctx.beginPath(); ctx.arc(lp.x, lp.y, 0.11 * TILE * cam.z, 0, 6.283);
-          ctx.fillStyle = alarm ? "#b3261e" : "#2e7d4f"; ctx.globalAlpha = glow; ctx.fill(); ctx.globalAlpha = 1;
-          ctx.strokeStyle = "rgba(44,42,38,0.7)"; ctx.lineWidth = 1; ctx.stroke();
-          // תווית
+          ctx.fillStyle = alarm ? "#ef5350" : "#43d17c"; ctx.globalAlpha *= g2 === 0 ? 1 : Math.max(0.35, g2); ctx.fill();
+          ctx.globalAlpha = fog > 0 ? 1 - fog : 1;
+          ctx.strokeStyle = "rgba(10,8,6,0.8)"; ctx.lineWidth = 1; ctx.stroke();
           ctx.fillStyle = INK; ctx.font = "bold " + Math.max(9, 10.5 * cam.z) + "px system-ui";
           ctx.textAlign = "center"; ctx.textBaseline = "bottom";
           var tp = PP(x, y + dep / 2, hgt + 0.42);
           ctx.fillText("אוצר " + tre.toFixed(0) + " / רצפה " + floor, tp.x, tp.y);
           if (alarm) {
-            ctx.fillStyle = "#b3261e";
+            ctx.fillStyle = "#ff8a80";
             ctx.font = "bold " + Math.max(8, 9 * cam.z) + "px system-ui";
             ctx.fillText("BELOW-FLOOR", tp.x, tp.y - 14 * cam.z);
           }
+          ctx.restore();
         }
 
+        /* ---- הדרכים ---- */
+        function roadQ(rm, u) {
+          var mx = rm.x * 0.22, my = rm.y * 0.22;
+          var iu = 1 - u;
+          return { x: iu * iu * 0 + 2 * iu * u * mx + u * u * rm.x, y: iu * iu * 0 + 2 * iu * u * my + u * u * rm.y };
+        }
         function drawRoads(t) {
           rooms.forEach(function (rm) {
             if (!rm.main) return;
-            var mx = rm.x * 0.22, my = rm.y * 0.22; // נקודת-בקרה: קשת דרך-הכיכר
             ctx.beginPath();
             var steps = 16, off = reduceMotion ? 0 : -t * 0.5;
             ctx.setLineDash([5, 7]);
             ctx.lineDashOffset = off * TILE * cam.z * 0.12;
             for (var i = 0; i <= steps; i++) {
-              var u = i / steps, iu = 1 - u;
-              var wx = iu * iu * 0 + 2 * iu * u * mx + u * u * rm.x;
-              var wy = iu * iu * 0 + 2 * iu * u * my + u * u * rm.y;
-              var p = PP(wx, wy, 0.02);
+              var u = i / steps;
+              var p = PP(roadQ(rm, u).x, roadQ(rm, u).y, 0.02);
               i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
             }
-            ctx.strokeStyle = "rgba(138,109,59,0.5)";
+            ctx.strokeStyle = "rgba(232,180,90,0.34)";
             ctx.lineWidth = Math.max(1.2, 2.2 * cam.z);
             ctx.stroke();
             ctx.setLineDash([]);
           });
         }
 
-        function drawGround() {
-          ctx.fillStyle = "#f3f1ec";
+        /* ---- שליחי-הדופק (ה-beats-הולכים-מהכיכר-אל-החדרים) ---- */
+        function drawCouriers(t) {
+          if (reduceMotion) return;
+          rooms.forEach(function (rm) {
+            if (!rm.main) return;
+            var beating = rm.ver === "ALIVE" || (function () {
+              var arts = arteryInfo(rm.r.repo);
+              return !!(arts && arts.some(function (a) { return a[1] === "RUNNING" || a[1] === "WARM"; }));
+            })();
+            if (!beating) return;
+            var per = 9 + (rm.ph % 5);
+            var f = ((t + rm.ph * 1.3) % per) / per;
+            if (f > 0.72) return; // שהות-בחדר
+            var u = ease(f / 0.72);
+            var q = roadQ(rm, u), q2 = roadQ(rm, Math.min(1, u + 0.02));
+            var p = PP(q.x, q.y, 0.14), p2 = PP(q2.x, q2.y, 0.14);
+            // זנב-שביט
+            ctx.strokeStyle = "rgba(255,210,122,0.5)";
+            ctx.lineWidth = 1.6;
+            ctx.beginPath(); ctx.moveTo(p2.x, p2.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+            ctx.save(); ctx.globalCompositeOperation = "lighter";
+            glow(p.x, p.y, 8 * cam.z, hexGlow(ACC2), 0.5);
+            ctx.restore();
+            ctx.beginPath(); ctx.arc(p.x, p.y, 2.1 * cam.z, 0, 6.283);
+            ctx.fillStyle = ACC2; ctx.fill();
+          });
+        }
+
+        /* ---- ויניאטה-קולנועית ---- */
+        function drawVignette() {
+          var g = ctx.createRadialGradient(W / 2, H * 0.46, Math.min(W, H) * 0.38, W / 2, H * 0.52, Math.max(W, H) * 0.74);
+          g.addColorStop(0, "rgba(0,0,0,0)");
+          g.addColorStop(1, "rgba(6,4,2,0.5)");
+          ctx.fillStyle = g;
           ctx.fillRect(0, 0, W, H);
-          // רשת-נייר-מדידה עדינה במרחב-iso
-          var step = 2;
-          ctx.strokeStyle = "rgba(60,52,40,0.06)";
-          ctx.lineWidth = 1;
-          for (var gx = -16; gx <= 16; gx += step) {
-            ctx.beginPath(); ctx.moveTo(PP(gx, -16, 0).x, PP(gx, -16, 0).y); ctx.lineTo(PP(gx, 16, 0).x, PP(gx, 16, 0).y); ctx.stroke();
-          }
-          for (var gy = -16; gy <= 16; gy += step) {
-            ctx.beginPath(); ctx.moveTo(PP(-16, gy, 0).x, PP(-16, gy, 0).y); ctx.lineTo(PP(16, gy, 0).x, PP(16, gy, 0).y); ctx.stroke();
-          }
         }
 
         /* ---- תוויות-DOM מוקרנות ---- */
         var labelsBox = document.getElementById("labels");
         function ensureLabels() {
-          labelsBox.innerHTML = ""; // סקר-חי בונה-חדרים-מחדש — תוויות-מהדור-הקודם מתרוקנות
+          labelsBox.innerHTML = "";
+          dormLabelEl = null; // הריקון-מנתק-את-תווית-הרובע — חובה-איפוס (נמדד: בלי-זה-היא-נשארת-מנותקת)
           rooms.forEach(function (rm) {
             if (rm.labelEl) return;
             var el = document.createElement("button");
@@ -708,26 +983,58 @@
             rm.labelEl = el;
           });
         }
-        function projectLabels(visAll) {
+        function projectLabels() {
           rooms.forEach(function (rm) {
             var el = rm.labelEl;
             if (!el) return;
             var p = PP(rm.x, rm.y - rm.d / 2, (rm.main ? 0.92 : 0.55) + 0.42);
-            var on = rm.main || cam.z > 0.72 || hover === rm || focusRepo === rm.r.repo;
+            var on = rm.main || hover === rm || focusRepo === rm.r.repo;
             el.style.display = on ? "" : "none";
             if (!on) return;
             el.style.left = p.x + "px";
             el.style.top = p.y + "px";
             var v = VERD[rm.ver];
-            el.innerHTML = '<span class="dot" style="background:' + v.c + '"></span><span style="direction:ltr;unicode-bidi:embed">' + rm.r.repo + "</span>" +
+            el.innerHTML = '<span class="dot" style="background:' + v.c + ';color:' + v.c + '"></span><span style="direction:ltr;unicode-bidi:embed">' + rm.r.repo + "</span>" +
               (rm.main ? '<span class="cnt">' + rm.r.n + "</span>" : "") + (rm.new ? '<span class="newm">✦</span>' : "");
-            if (focusRepo && focusRepo !== rm.r.repo) el.style.opacity = "0.35"; else el.style.opacity = "";
+            var op = 1;
+            if (FV && rm.ver !== FV) op = 0.28;
+            else if (focusRepo && focusRepo !== rm.r.repo) op = 0.35;
+            var fog = fogOf(rm.x, rm.y);
+            el.style.opacity = String(op * (1 - fog * 0.8));
           });
+          // תווית-רובע-המחסן (מסגרת-אחת-במקום-40) · צפונית-לבלוק
+          var dorms = rooms.filter(function (r) { return !r.main; });
+          if (dorms.length && cam.z < 0.8 && !dormLabelEl) {
+            dormLabelEl = document.createElement("div");
+            dormLabelEl.className = "rlbl";
+            dormLabelEl.style.pointerEvents = "none";
+            labelsBox.appendChild(dormLabelEl);
+          }
+          if (dormLabelEl) {
+            if (!dorms.length || cam.z >= 0.8) { dormLabelEl.style.display = "none"; }
+            else {
+              var minY = 1e9;
+              dorms.forEach(function (dr) { minY = Math.min(minY, dr.y - dr.d / 2); });
+              var cx2 = 4.5, cy2 = -11.5;
+              var p2 = PP(cx2, cy2, 0.6);
+              dormLabelEl.style.display = "";
+              dormLabelEl.style.left = p2.x + "px";
+              dormLabelEl.style.top = p2.y + "px";
+              dormLabelEl.innerHTML = '<span class="dot" style="background:#8d867a;color:#8d867a"></span>רובע-המחסן · <span style="direction:ltr;unicode-bidi:embed">' + dorms.length + "</span> ריפואים";
+              dormLabelEl.style.opacity = "0.75";
+            }
+          }
         }
+        var dormLabelEl = null;
 
-        /* ---- מסגרת-הבית (התאמה-אוטומטית) ---- */
+        /* ---- מסגרת-הבית (התאמה-אוטומטית · נגזר-מהחדרים-בפועל) ---- */
         function fitHome() {
-          var x0 = -11.4, x1 = 11.4, y0 = -15.6, y1 = 7.6;
+          var x0 = -11.6, x1 = 11.6, y0 = -17.4, y1 = 7.9;
+          rooms.forEach(function (rm) {
+            x0 = Math.min(x0, rm.x - rm.w / 2 - 0.4); x1 = Math.max(x1, rm.x + rm.w / 2 + 0.4);
+            y0 = Math.min(y0, rm.y - rm.d / 2 - 1.1); y1 = Math.max(y1, rm.y + rm.d / 2 + 0.5);
+          });
+          y0 = Math.min(y0, -17.4); y1 = Math.max(y1, 7.9);
           var corners = [[x0, y0], [x1, y0], [x0, y1], [x1, y1]];
           var minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
           cam.z = 1;
@@ -736,33 +1043,53 @@
             minx = Math.min(minx, p.x); maxx = Math.max(maxx, p.x);
             miny = Math.min(miny, p.y); maxy = Math.max(maxy, p.y);
           });
-          var padT = 56, padB = 62, padS = 14;
+          var padT = 92, padB = 118, padS = 18;
           var zx = (W - padS * 2) / (maxx - minx);
           var zy = (H - padT - padB) / (maxy - miny);
-          cam.z = Math.max(0.34, Math.min(2.0, Math.min(zx, zy)));
+          cam.z = Math.max(0.32, Math.min(2.0, Math.min(zx, zy)));
           var cxIso = ((x0 - y0) * ISO_C + (x1 - y1) * ISO_C) / 2;
           var cyIso = ((x0 + y0) * ISO_S + (x1 + y1) * ISO_S) / 2;
           cam.x = (cxIso / ISO_C + cyIso / ISO_S) / 2;
           cam.y = (cyIso / ISO_S - cxIso / ISO_C) / 2;
           camT = { x: cam.x, y: cam.y, z: cam.z };
+          homeCam = { x: cam.x, y: cam.y, z: cam.z };
+        }
+
+        /* ---- טיסות-מצלמה ---- */
+        function flyTo(to, dur) {
+          fly = { t0: performance.now(), dur: dur || 900, from: { x: cam.x, y: cam.y, z: cam.z }, to: to };
+          camT = { x: to.x, y: to.y, z: to.z };
         }
 
         /* ---- לולאת-ציור ---- */
-        var raf = 0, lastLabel = 0;
+        var raf = 0, tGlob = 0;
         function frame(ts) {
           raf = 0;
           if (document.hidden) { schedule(); return; }
           var t = ts / 1000;
-          cam.x += (camT.x - cam.x) * 0.14; cam.y += (camT.y - cam.y) * 0.14; cam.z += (camT.z - cam.z) * 0.14;
+          tGlob = t;
+          if (fly) {
+            var k = ease((performance.now() - fly.t0) / fly.dur);
+            cam.x = lerp(fly.from.x, fly.to.x, k);
+            cam.y = lerp(fly.from.y, fly.to.y, k);
+            cam.z = lerp(fly.from.z, fly.to.z, k);
+            if (k >= 1) fly = null;
+          } else {
+            cam.x += (camT.x - cam.x) * 0.16; cam.y += (camT.y - cam.y) * 0.16; cam.z += (camT.z - cam.z) * 0.16;
+          }
           drawGround();
           drawRoads(t);
           drawPlaza(t);
-          var ordered = rooms.slice().sort(function (a, b) { return (a.x + a.y) - (b.x + b.y); });
-          ordered.forEach(function (rm) { drawRoom(rm, t); });
+          var items = rooms.slice().map(function (rm) { return { kind: "r", o: rm, key: rm.x + rm.y }; })
+            .concat(trees.map(function (tr) { return { kind: "t", o: tr, key: tr.x + tr.y }; }));
+          items.sort(function (a, b) { return a.key - b.key; });
+          items.forEach(function (it) { if (it.kind === "r") drawRoom(it.o, t); else drawTree(it.o, t); });
           drawTreasury(t);
           drawBeacon(t);
+          drawCouriers(t);
+          drawVignette();
           projectLabels();
-          if (reduceMotion) return; // תנועה-מופחתת: פריים-בודד לפי-אירוע
+          if (reduceMotion) return;
           schedule();
         }
         function schedule() { if (!raf && !reduceMotion) raf = requestAnimationFrame(frame); }
@@ -782,6 +1109,7 @@
         var dragging = false, moved = 0, lastP = null, pinch0 = 0;
         cv.addEventListener("pointerdown", function (e) {
           dragging = true; moved = 0; lastP = { x: e.clientX, y: e.clientY };
+          fly = null; // משיכה-מבטלת-טיסה
           cv.setPointerCapture(e.pointerId);
           cv.classList.add("grabbing");
         });
@@ -792,14 +1120,17 @@
             var dx = e.clientX - lastP.x, dy = e.clientY - lastP.y;
             moved += Math.abs(dx) + Math.abs(dy);
             lastP = { x: e.clientX, y: e.clientY };
-            var k = 1 / (TILE * cam.z);
-            camT.x -= (dx * ISO_C * 0.5 - dy * 0) * k * 1.9;
-            camT.y += (dx * ISO_C * 0.5 + dy * 1) * k * 1.9;
+            // פאן-איזו-נכון: היפוך-מלא-של-ההיטל
+            var S = TILE * cam.z;
+            var d1 = dx / (S * ISO_C), d2 = dy / (S * ISO_S);
+            camT.x -= (d1 + d2) / 2;
+            camT.y -= (d2 - d1) / 2;
             cam.x = camT.x; cam.y = camT.y;
           } else {
             var rm = roomAt(pointer.x, pointer.y);
             if (rm !== hover) { hover = rm; cv.style.cursor = rm ? "pointer" : "grab"; }
             showTip(rm);
+            if (!reduceMotion) schedule();
           }
         });
         cv.addEventListener("pointerup", function (e) {
@@ -825,7 +1156,7 @@
           }
         }, { passive: true });
         function zoomAt(f) {
-          camT.z = Math.max(0.34, Math.min(2.4, camT.z * f));
+          camT.z = Math.max(0.32, Math.min(2.4, camT.z * f));
         }
         var tip = document.getElementById("tip");
         function showTip(rm) {
@@ -841,23 +1172,24 @@
             "<br>עורקים: <b>" + rm.r.n + "</b> · " + rm.r.vis + (rm.new ? "<br>✦ חדש-מאז-הביקור" : "") + extra +
             "<br><span style='opacity:.8'>לחיצה: פרטי-הריפו →</span>";
           var rect = cv.getBoundingClientRect();
-          tip.style.left = Math.min(rect.width - 270, pointer.x + 14) + "px";
+          tip.style.left = Math.min(rect.width - 280, pointer.x + 14) + "px";
           tip.style.top = Math.max(8, pointer.y - 10) + "px";
           tip.classList.add("on");
         }
 
         /* ---- חדר-פרטים ---- */
         var drawer = document.getElementById("drawer");
+        var sidepanel = document.getElementById("sidepanel");
         function enterRoom(rm) {
           focusRepo = rm.r.repo;
-          camT.x = rm.x; camT.y = rm.y; camT.z = rm.main ? 1.55 : 1.9;
+          flyTo({ x: rm.x, y: rm.y, z: rm.main ? 1.55 : 1.95 }, 850);
           drawer.classList.add("open");
           drawer.setAttribute("aria-hidden", "false");
+          if (sidepanel) { sidepanel.style.opacity = "0"; sidepanel.style.pointerEvents = "none"; }
           document.getElementById("drName").textContent = rm.r.repo;
           var vc = document.getElementById("drVerdict");
           var v = VERD[rm.ver];
           vc.textContent = rm.ver + " · " + v.he;
-          vc.style.color = ""; vc.style.borderColor = "";
           vc.className = "chip " + (rm.ver === "ALIVE" ? "ok" : rm.ver === "MIXED" ? "warn" : rm.ver === "STALE" ? "bad" : "mut");
           document.getElementById("drVis").textContent = rm.r.vis;
           var arts = arteryInfo(rm.r.repo);
@@ -890,7 +1222,8 @@
           focusRepo = null;
           drawer.classList.remove("open");
           drawer.setAttribute("aria-hidden", "true");
-          fitHome();
+          if (sidepanel) { sidepanel.style.opacity = ""; sidepanel.style.pointerEvents = ""; }
+          flyTo({ x: homeCam.x, y: homeCam.y, z: homeCam.z }, 800);
           renderOnce();
         }
         document.getElementById("drClose").addEventListener("click", exitRoom);
@@ -900,6 +1233,11 @@
           if (/input|textarea/i.test((e.target && e.target.tagName) || "")) return;
           var ring = rooms.filter(function (r) { return r.main; });
           if (e.key >= "1" && e.key <= "8" && ring[+e.key - 1]) { enterRoom(ring[+e.key - 1]); return; }
+          var codeShift = e.shiftKey && /^Digit[1-4]$/.test(e.code || "");
+          if (codeShift) {
+            FV = ["ALIVE", "MIXED", "STALE", "IDLE"][Number(e.code.slice(5)) - 1];
+            buildFilters(); renderOnce(); return;
+          }
           if (e.key === "0" || e.key === "h") { exitRoom(); return; }
           if (e.key === "Escape") {
             if (document.getElementById("helpbox").classList.contains("on")) { document.getElementById("helpbox").classList.remove("on"); return; }
@@ -911,10 +1249,10 @@
           if (e.key === "n") { markSeen(); return; }
           if (e.key === "r") { pull(true); return; }
           var step = 1.6;
-          if (e.key === "ArrowUp") { camT.y -= step; cam.y = camT.y; renderOnce(); }
-          if (e.key === "ArrowDown") { camT.y += step; cam.y = camT.y; renderOnce(); }
-          if (e.key === "ArrowLeft") { camT.x -= step; cam.x = camT.x; renderOnce(); }
-          if (e.key === "ArrowRight") { camT.x += step; cam.x = camT.x; renderOnce(); }
+          if (e.key === "ArrowUp") { camT.y -= step; cam.y = camT.y; fly = null; renderOnce(); }
+          if (e.key === "ArrowDown") { camT.y += step; cam.y = camT.y; fly = null; renderOnce(); }
+          if (e.key === "ArrowLeft") { camT.x -= step; cam.x = camT.x; fly = null; renderOnce(); }
+          if (e.key === "ArrowRight") { camT.x += step; cam.x = camT.x; fly = null; renderOnce(); }
         });
         ["camHome", "camIn", "camOut", "camHelp"].forEach(function (id) {
           document.getElementById(id).addEventListener("click", function () {
@@ -931,7 +1269,7 @@
           W = rect.width; H = rect.height;
           cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
           ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-          fitHome();
+          if (!focusRepo) fitHome();
           renderOnce();
         }
         window.addEventListener("resize", function () { clearTimeout(cv._rz); cv._rz = setTimeout(resize, 150); });
@@ -964,7 +1302,7 @@
                 return { repo: r.repo, vis: r.vis, verdict: r.verdict, n: (r.arteries || []).length, arts: [], new: false };
               });
               REPOMAP = {}; M.repos.forEach(function (r) { REPOMAP[r.repo] = r; });
-              buildLayout(); ensureLabels(); hud(); buildTicks(); loadSeen();
+              buildLayout(); ensureLabels(); hud(); buildTicks(); buildSidepanel(); loadSeen();
             }
             renderOnce();
           });
@@ -972,17 +1310,24 @@
         try {
           window.addEventListener("saos-canon", function (ev) {
             var c = ev && ev.detail;
-            if (c && c.values) { Object.assign(M.canon, c.values); if (c.at) M.at = c.at; hud(); buildTicks(); loadSeen(); renderOnce(); }
+            if (c && c.values) { Object.assign(M.canon, c.values); if (c.at) M.at = c.at; hud(); buildTicks(); buildSidepanel(); loadSeen(); renderOnce(); }
           });
         } catch (e) {}
 
-        /* ---- עלייה-לאוויר ---- */
+        /* ---- עלייה-לאוויר · כניסה-קולנועית ---- */
         buildLayout();
         ensureLabels();
         hud();
         buildTicks();
+        buildSidepanel();
         loadSeen();
         resize();
+        // טיסת-פתיחה: מהגבוה-והרחוק אל-מסגרת-הבית
+        if (!reduceMotion) {
+          cam.z = homeCam.z * 1.65;
+          cam.y = homeCam.y - 2.4;
+          flyTo({ x: homeCam.x, y: homeCam.y, z: homeCam.z }, 1400);
+        }
         rotateTick();
         setInterval(rotateTick, 4500);
         setInterval(function () { pull(false); }, 60000);
