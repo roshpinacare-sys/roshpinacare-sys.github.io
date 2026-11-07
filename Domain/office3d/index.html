@@ -385,7 +385,7 @@
           var ring = alive.slice(0, 8);
           var dorm = rest.concat(alive.slice(8));
           var order = dorm.slice().sort(function (a, b) {
-            var rank = { MIXED: 0, STALE: 1, IDLE: 2 };
+            var rank = { MIXED: <span data-canon="verdicts.MIXED">6</span>, STALE: <span data-canon="verdicts.STALE">11</span>, IDLE: <span data-canon="verdicts.IDLE">13</span> };
             return (rank[a.verdict] ?? 3) - (rank[b.verdict] ?? 3) || b.n - a.n;
           });
           ring.forEach(function (r, i) {
