@@ -429,7 +429,7 @@
         };
         var FLOORS = { ALIVE: "#2a3a30", MIXED: "#392f20", STALE: "#362f20", IDLE: "#2b271d" };
         var DISTRICTS = [
-          { v: "ALIVE2", he: "רובע-החיים-הנוספים" },
+          { v: "ALIVE<span data-canon="verdicts.ALIVE">23</span>", he: "רובע-החיים-הנוספים" },
           { v: "MIXED", he: "רובע-המעורבים" },
           { v: "STALE", he: "רובע-האיטיים" },
           { v: "IDLE",  he: "רובע-הרדומים" }
@@ -515,7 +515,7 @@
           // כולל רובע-עבור ה-ALIVE-שמעבר-לטבעת (נמדד 2026-11-07: בלי-זה 14 ריפואים-חיים-נשרו-מהמחנה)
           var aliveRest = alive.slice(8);
           var bands = DISTRICTS.map(function (d) {
-            var list = d.v === "ALIVE2"
+            var list = d.v === "ALIVE<span data-canon="verdicts.ALIVE">23</span>"
               ? aliveRest
               : rest.filter(function (r) { return r.verdict === d.v; });
             return { v: d.v, he: d.he, list: list, y: 0, rooms: [] };
@@ -1363,7 +1363,7 @@
             el.style.display = "";
             el.style.left = p2.x + "px";
             el.style.top = p2.y + "px";
-            var v = VERD[b.v] || VERD.IDLE; // ALIVE2-רובע אין-לו-רשומה-ב-VERD — נפילה-כנה (נמדד: בלי-זה TypeError → לולאת-הציור-מתה)
+            var v = VERD[b.v] || VERD.IDLE; // ALIVE<span data-canon="verdicts.ALIVE">23</span>-רובע אין-לו-רשומה-ב-VERD — נפילה-כנה (נמדד: בלי-זה TypeError → לולאת-הציור-מתה)
             el.innerHTML = '<span class="dot" style="background:' + v.c + ';color:' + v.c + '"></span><b>' + b.he + "</b> · " + b.rooms.length + " ריפואים";
             el.style.opacity = "0.8";
           });
