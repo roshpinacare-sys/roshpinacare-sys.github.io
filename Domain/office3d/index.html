@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>מפקדת הצי — עמדת-פיקוד חיה | SAOS</title>
+    <title>מפקדת הצי — המחנה החי | SAOS</title>
     <meta
       name="description"
-      content="עמדת-הפיקוד החיה של מפקדת הצי: קיר-אמת של הגיט, דופק-עורקים, אוצר מול רצפה, שעון-ירושלים — הכל חי מערוץ-קנון אחד, אפס תלות, אפס קבצי-bundle."
+      content="מחנה-הצי החי: דיורמת-פיקוד איזומטרית של 50 הריפואים — כל-חדר הוא ריפו, כל-עורק פועם נמדד, האוצר מול הרצפה גלוי, הכל ניזון מערוץ-הקנון ומדופק-הגריד החיים. קובץ-אחד, אפס-תלות, אפס-bundle."
     />
     <style>
       :root {
         --bg: #f3f1ec; --card: #faf8f3; --ink: #2c2a26; --muted: #6b6b6b;
         --line: rgba(60, 52, 40, 0.16); --ok: #2e7d4f; --warn: #b45309; --bad: #b3261e; --accent: #8a6d3b;
+        --paper-deep: #eae6dd; --glass: rgba(250, 248, 243, 0.88);
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.75 "Heebo", system-ui, -apple-system, "Segoe UI", sans-serif; }
@@ -22,6 +23,78 @@
       .clock { margin-inline-start: auto; text-align: left; direction: ltr; font-variant-numeric: tabular-nums; }
       .clock b { font-size: 21px; font-weight: 800; }
       .clock span { display: block; font-size: 11.5px; color: var(--muted); }
+
+      /* ===== הדיורמה ===== */
+      .diorama-wrap { position: relative; border: 1px solid var(--line); border-radius: 16px; background:
+        radial-gradient(1200px 500px at 50% -140px, rgba(138, 109, 59, 0.10), transparent 60%), var(--bg);
+        overflow: hidden; }
+      #campus { display: block; width: 100%; height: clamp(380px, 62vh, 640px); touch-action: none; cursor: grab; }
+      #campus.grabbing { cursor: grabbing; }
+      .hud-top { position: absolute; top: 10px; inset-inline: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; pointer-events: none; }
+      .hud-pill { pointer-events: auto; display: inline-flex; align-items: center; gap: 7px; background: var(--glass); backdrop-filter: blur(8px);
+        border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; }
+      .hud-pill .d { width: 8px; height: 8px; border-radius: 999px; display: inline-block; }
+      .hud-pill b { direction: ltr; unicode-bidi: embed; }
+      .hud-pill.alert { border-color: rgba(179, 38, 30, 0.5); color: var(--bad); animation: lampPulse 1.6s ease-in-out infinite; }
+      .hud-pill.new { border-color: rgba(138, 109, 59, 0.55); color: var(--accent); cursor: pointer; }
+      .hud-btn { pointer-events: auto; border: 1px solid var(--line); background: var(--glass); border-radius: 999px; width: 30px; height: 30px;
+        font-size: 14px; font-weight: 800; color: var(--ink); cursor: pointer; line-height: 1; }
+      .hud-btn:hover { border-color: var(--accent); }
+      @keyframes lampPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.62; } }
+
+      #tip { position: absolute; pointer-events: none; background: #26231f; color: #f6f3ec; border-radius: 10px; padding: 8px 11px;
+        font-size: 12px; line-height: 1.5; max-width: 260px; opacity: 0; transform: translateY(4px); transition: opacity 0.14s, transform 0.14s; z-index: 6; }
+      #tip.on { opacity: 1; transform: none; }
+      #tip b { font-size: 12.5px; }
+
+      #drawer { position: absolute; top: 0; bottom: 0; inset-inline-end: 0; width: min(380px, 94%); background: var(--glass); backdrop-filter: blur(12px);
+        border-inline-start: 1px solid var(--line); transform: translateX(110%); transition: transform 0.28s ease; z-index: 7; display: flex; flex-direction: column; }
+      html[dir="rtl"] #drawer { transform: translateX(-110%); }
+      #drawer.open { transform: none !important; }
+      #drawer .dh { display: flex; align-items: center; gap: 8px; padding: 14px 16px 10px; border-bottom: 1px solid var(--line); }
+      #drawer .dh h3 { margin: 0; font-size: 16px; font-weight: 800; direction: ltr; unicode-bidi: embed; }
+      #drawer .dh .x { margin-inline-start: auto; }
+      #drawer .db { padding: 12px 16px 18px; overflow-y: auto; }
+      .art-row { display: flex; align-items: center; gap: 8px; padding: 7px 4px; border-bottom: 1px dashed var(--line); font-size: 12.5px; }
+      .art-row code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; direction: ltr; unicode-bidi: embed; flex: 1; overflow-wrap: anywhere; }
+      .chip { border-radius: 999px; padding: 1px 9px; font-size: 11px; font-weight: 800; border: 1px solid var(--line); white-space: nowrap; }
+      .chip.ok { color: var(--ok); border-color: rgba(46,125,79,.4); background: #f0f7f2; }
+      .chip.warn { color: var(--warn); border-color: rgba(180,83,9,.4); background: #fdf6ec; }
+      .chip.bad { color: var(--bad); border-color: rgba(179,38,30,.4); background: #fdf3f2; }
+      .chip.mut { color: var(--muted); background: #f4f2ee; }
+      .drawer-note { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
+      .drawer-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+      .drawer-links a { border: 1px solid var(--line); border-radius: 10px; padding: 5px 12px; font-size: 12.5px; font-weight: 700; color: var(--ink); text-decoration: none; }
+      .drawer-links a:hover { border-color: var(--accent); }
+
+      #ticker { position: absolute; bottom: 10px; inset-inline: 10px; display: flex; justify-content: center; pointer-events: none; }
+      #ticker .bar { pointer-events: auto; display: inline-flex; align-items: center; gap: 9px; background: var(--glass); backdrop-filter: blur(8px);
+        border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 12.5px; max-width: min(680px, 96%); }
+      #ticker .live { width: 8px; height: 8px; border-radius: 999px; background: var(--bad); animation: lampPulse 1.4s infinite; flex: none; }
+      #ticker .txt { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; direction: rtl; }
+      #ticker .txt b { direction: ltr; unicode-bidi: embed; }
+      #ticker .fade { animation: tickIn 0.45s ease; }
+      @keyframes tickIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+      #camctrl { position: absolute; bottom: 52px; inset-inline-start: 10px; display: flex; flex-direction: column; gap: 6px; }
+      #helpbox { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(243,241,236,0.72); z-index: 9; }
+      #helpbox.on { display: flex; }
+      #helpbox .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px 22px; max-width: 420px; }
+      #helpbox h3 { margin: 0 0 8px; font-size: 15px; }
+      #helpbox table { border-collapse: collapse; font-size: 13px; }
+      #helpbox td { padding: 3px 10px; border-bottom: 1px dashed var(--line); }
+      #helpbox td:first-child { direction: ltr; text-align: left; font-family: ui-monospace, Menlo, monospace; font-size: 12px; font-weight: 700; white-space: nowrap; }
+      .rlbl { position: absolute; transform: translate(-50%, -100%); background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+        padding: 2px 10px; font-size: 11.5px; font-weight: 700; white-space: nowrap; cursor: pointer; display: flex; gap: 6px; align-items: center;
+        box-shadow: 0 1px 4px rgba(44,42,38,0.08); z-index: 4; }
+      .rlbl .dot { width: 7px; height: 7px; border-radius: 999px; }
+      .rlbl .cnt { color: var(--accent); font-weight: 800; }
+      .rlbl .newm { color: var(--accent); }
+      .rlbl:hover { border-color: var(--accent); }
+      #srcnote { text-align: center; font-size: 11.5px; color: var(--muted); margin-top: 8px; }
+      #srcnote b { direction: ltr; unicode-bidi: embed; }
+
+      /* ===== קיר-האמת (נשמר) ===== */
       .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
       .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
       .card .l { font-size: 12.5px; color: var(--muted); margin-bottom: 2px; }
@@ -43,7 +116,8 @@
       nav.links a small { display: block; font-weight: 400; color: var(--muted); font-size: 11.5px; }
       .law { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 10px; font-size: 12px; color: var(--muted); text-align: center; }
       .law a { color: inherit; }
-      @media (max-width: 560px) { .clock { margin-inline-start: 0; } h1 { font-size: 19px; } }
+      @media (max-width: 560px) { .clock { margin-inline-start: 0; } h1 { font-size: 19px; } #campus { height: 66vh; } #drawer { width: 100%; border-inline-start: none; border-top: 1px solid var(--line); top: auto; height: 62%; border-radius: 16px 16px 0 0; } #hudVerds, #hudDir { display: none; } #ticker { bottom: calc(10px + env(safe-area-inset-bottom, 0px)); } }
+      @media (prefers-reduced-motion: reduce) { .hud-pill.alert, #ticker .live { animation: none; } }
     </style>
     <script src="/Domain/canon.js" defer></script>
   </head>
@@ -51,8 +125,8 @@
     <div class="wrap">
       <header class="hero">
         <div>
-          <h1>מפקדת הצי · עמדת-פיקוד חיה</h1>
-          <div class="eyebrow">אפס-תלות · אפס-bundle · ערוץ-קנון אחד חי · מספר-אחד מקור-אחד</div>
+          <h1>מפקדת הצי · המחנה החי</h1>
+          <div class="eyebrow">דיורמת-פיקוד איזומטרית · כל-חדר-הוא-ריפו מדוד · אפס-תלות · אפס-bundle · ערוץ-קנון אחד</div>
         </div>
         <div class="clock" aria-live="off">
           <b id="jl-clock">--:--:--</b>
@@ -60,12 +134,53 @@
         </div>
       </header>
 
+      <section aria-label="מחנה-הצי החי">
+        <h2>מחנה-הצי · הדיורמה החיה</h2>
+        <div class="diorama-wrap" id="dwrap">
+          <canvas id="campus" aria-label="דיורמת-הקמפוס: 50 ריפואים, כיכר-הקנון, באר-האוצר — לחיצה על חדר פותחת פרטים"></canvas>
+          <div class="hud-top" id="hudTop"></div>
+          <div id="labels"></div>
+          <div id="tip" role="tooltip"></div>
+          <div id="camctrl">
+            <button class="hud-btn" id="camHome" aria-label="מסגרת-הבית" title="מסגרת-הבית (0)">⌂</button>
+            <button class="hud-btn" id="camIn" aria-label="התקרב" title="התקרב (+)">+</button>
+            <button class="hud-btn" id="camOut" aria-label="התרחק" title="התרחק (−)">−</button>
+            <button class="hud-btn" id="camHelp" aria-label="עזרה" title="קיצורי-מקלדת (?)">?</button>
+          </div>
+          <div id="ticker"><div class="bar"><span class="live"></span><span class="txt" id="tickTxt">…</span></div></div>
+          <div id="drawer" aria-hidden="true">
+            <div class="dh">
+              <h3 id="drName">—</h3>
+              <span id="drVerdict" class="chip mut">—</span>
+              <span id="drVis" class="chip mut" style="font-weight:600">—</span>
+              <button class="hud-btn x" id="drClose" aria-label="סגור">✕</button>
+            </div>
+            <div class="db" id="drBody"></div>
+          </div>
+          <div id="helpbox">
+            <div class="card">
+              <h3>קיצורי-מקלדת</h3>
+              <table>
+                <tr><td>1–8</td><td>כניסה לחדרי-הטבעת (הריפואים הפעילים)</td></tr>
+                <tr><td>0 / Esc</td><td>חזרה למסגרת-הבית · סגירת-חלון</td></tr>
+                <tr><td>+ / −</td><td>התקרבות / התרחקות</td></tr>
+                <tr><td>חצים</td><td>הזזת-המצלמה</td></tr>
+                <tr><td>n</td><td>מה-חדש-מאז-הביקור</td></tr>
+                <tr><td>r</td><td>רענון-מדידה מהקרקע</td></tr>
+                <tr><td>?</td><td>עזרה זו</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div id="srcnote">מקור-חי: <b>status.json</b> + <b>canon.json</b> · סקר-כל-60 שניות · אין-טענה-בלי-תאריך-נמדד</div>
+      </section>
+
       <section aria-label="קיר-אמת של הגיט">
         <h2>קיר-אמת · הגיט הנמדד</h2>
         <div class="grid">
-          <div class="card"><div class="l">ריפואים · סך-הכל</div><div class="v"><span data-canon="repos.total">49</span></div><div class="s">GitHub measured</div></div>
-          <div class="card"><div class="l">פומביים / פרטיים</div><div class="v"><span data-canon="repos.public">40</span> / <span data-canon="repos.private">9</span></div><div class="s">visibility split</div></div>
-          <div class="card"><div class="l">עורקים · פועמים מהסך</div><div class="v"><span data-canon="arteries.beating">71</span>/<span data-canon="arteries.total">396</span></div><div class="s">workflows · pulse</div></div>
+          <div class="card"><div class="l">ריפואים · סך-הכל</div><div class="v"><span data-canon="repos.total">50</span></div><div class="s">GitHub measured</div></div>
+          <div class="card"><div class="l">פומביים / פרטיים</div><div class="v"><span data-canon="repos.public">41</span> / <span data-canon="repos.private">9</span></div><div class="s">visibility split</div></div>
+          <div class="card"><div class="l">עורקים · פועמים מהסך</div><div class="v"><span data-canon="arteries.beating">77</span>/<span data-canon="arteries.total">411</span></div><div class="s">workflows · pulse</div></div>
           <div class="card"><div class="l">מילויים · לכל-החיים / פנקס</div><div class="v"><span data-canon="fills.lifetime">730</span> / <span data-canon="fills.ledger">121</span></div><div class="s">execution ledger</div></div>
           <div class="card"><div class="l">רשתות רווח</div><div class="v"><span data-canon="networks.count">7</span></div><div class="s">accounts scanned</div></div>
           <div class="card"><div class="l">חשבונות · מפקד / פנקס</div><div class="v"><span data-canon="accounts.census">19</span> / <span data-canon="accounts.ledger">31</span></div><div class="s">census / ledger</div></div>
@@ -75,7 +190,7 @@
       <section aria-label="אוצר מול רצפה">
         <h2>אוצר מול רצפה</h2>
         <div class="grid">
-          <div class="card" id="treasury-card"><div class="l">אוצר STEEM · נמדד</div><div class="v"><span data-canon="treasury.steem">175.009</span></div><div class="s">local-census (measured)</div></div>
+          <div class="card" id="treasury-card"><div class="l">אוצר STEEM · נמדד</div><div class="v"><span data-canon="treasury.steem">181.277</span></div><div class="s">local-census (measured)</div></div>
           <div class="card"><div class="l">רצפת-אוצר · חוק-מוגן</div><div class="v"><span data-canon="treasury.floor">3000</span></div><div class="s">protected floor</div></div>
           <div class="card" id="floor-card"><div class="l">מצב-רצפה</div><div class="v" id="floor-status">BELOW-FLOOR</div><div class="s" id="floor-note">האוצר-מתחת-לרצפה · ההפרש-מחושב-חי</div></div>
         </div>
@@ -84,11 +199,11 @@
       <section aria-label="קיר-פסקי-הדופק">
         <h2>פסקי-דופק · דפי-הצי</h2>
         <div class="verdicts">
-          <span class="pill ok">ALIVE <span data-canon="verdicts.ALIVE">18</span></span>
-          <span class="pill warn">MIXED <span data-canon="verdicts.MIXED">7</span></span>
+          <span class="pill ok">ALIVE <span data-canon="verdicts.ALIVE">20</span></span>
+          <span class="pill warn">MIXED <span data-canon="verdicts.MIXED">6</span></span>
           <span class="pill bad">STALE <span data-canon="verdicts.STALE">11</span></span>
           <span class="pill mut">IDLE <span data-canon="verdicts.IDLE">13</span></span>
-          <span class="pill mut">הנחיות-פתוחות <span data-canon="directives.open">41</span></span>
+          <span class="pill mut">הנחיות-פתוחות <span data-canon="directives.open">18</span></span>
         </div>
       </section>
 
@@ -113,7 +228,7 @@
     </div>
 
     <script>
-      // שעון-ירושלים חי — שנייה-שנייה, בלי-תלות-חוץ
+      /* ================= שעון-ירושלים (נשמר) ================= */
       (function () {
         var el = document.getElementById("jl-clock");
         if (!el) return;
@@ -121,7 +236,7 @@
         var tick = function () { try { el.textContent = fmt.format(new Date()); } catch (e) {} };
         tick(); setInterval(tick, 1000);
       })();
-      // מחשבון-רצפה חי — ניזון-מערוץ-הקנון (canon.js מעדכן-את-ה-spans ואז-ההפרש-מחושב-מחדש)
+      /* ================= מחשבון-רצפה (נשמר) ================= */
       (function () {
         var card = document.getElementById("floor-card");
         var st = document.getElementById("floor-status");
@@ -151,6 +266,728 @@
         refresh();
         [400, 1200, 3000, 6000, 12000, 20000].forEach(function (ms) { setTimeout(refresh, ms); });
         setInterval(refresh, 15000);
+      })();
+
+      /* ================= דיורמת-הקמפוס · מנוע-איזו עצמאי (קנבס-2D, אפס-תלות) ================= */
+      (function () {
+        "use strict";
+        var cv = document.getElementById("campus");
+        if (!cv || !cv.getContext) return;
+        var ctx = cv.getContext("2d");
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var reduceMotion = false;
+        try { reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+        /* ---- צבעוני-המחנה (נייר-מדידה שלנו) ---- */
+        var INK = "#2c2a26", MUT = "#6b6b6b";
+        var HUES = ["#b3563a", "#3a7d78", "#b3863a", "#7d3a68", "#4a6d8c", "#4f7d3f", "#8c3a4a", "#7a7d3a"];
+        var VERD = {
+          ALIVE:  { c: "#2e7d4f", he: "חי" },
+          MIXED:  { c: "#b45309", he: "מעורב" },
+          STALE:  { c: "#8a6d3b", he: "איטי" },
+          IDLE:   { c: "#8d867a", he: "רדום" }
+        };
+        var FLOORS = { ALIVE: "#faf8f3", MIXED: "#f2ede2", STALE: "#e9e2d2", IDLE: "#e0dacc" };
+
+        /* ---- snapshot מוטמע · קנון-הבנייה (האמת-האחרונה-הידועה בעת-הבנייה) ---- */
+        var EMBED = {
+          at: "2026-11-07T14:44:31.671Z",
+          canon: { "repos.total": 50, "repos.public": 41, "repos.private": 9, "arteries.total": 411, "arteries.beating": 77,
+                   "treasury.steem": 181.277, "treasury.floor": 3000, "directives.open": 18,
+                   "verdicts.ALIVE": 20, "verdicts.MIXED": 6, "verdicts.STALE": 11, "verdicts.IDLE": 13 },
+          repos: [["agent9-clock","public","ALIVE",2],["Autonomy","public","ALIVE",59],["Console","public","ALIVE",26],["Domain","public","ALIVE",100],["dynamis","public","ALIVE",7],["fleet-economy","public","ALIVE",3],["FleetHQ","public","ALIVE",7],["giant","public","ALIVE",7],["GridWatch","public","ALIVE",5],["Pulse","public","ALIVE",5],["roshpinacare-sys.github.io","public","ALIVE",4],["Sandbox","public","ALIVE",35],["saos-agents","public","ALIVE",2],["saos-dex","public","ALIVE",16],["saos-runtime","public","ALIVE",39],["sovereign-beacon","public","ALIVE",3],["sovereign-lighthouse","public","ALIVE",3],["sovereign-runner-kit","public","ALIVE",12],["steem","public","ALIVE",10],["Zip","public","ALIVE",17],["ops-forge","public","MIXED",1],["ops-intake","public","MIXED",1],["saos-sovereign-platform","public","MIXED",4],["Saosmartwallet","public","MIXED",5],["sovereign-executor","public","MIXED",1],["TruthRail","public","MIXED",2],["Adsmarket","public","STALE",3],["anchor-baseline","public","STALE",4],["Defi","public","STALE",3],["execution-fabric","public","STALE",1],["Project-files","public","STALE",3],["roshpina","public","STALE",4],["sandbox-private","public","STALE",1],["saos-control-center","public","STALE",3],["saos-jummper","public","STALE",6],["saos-sovereign-foundry","public","STALE",3],["Sdk","public","STALE",4],["estate-agent-9","private","IDLE",0],["negen","private","IDLE",0],["ops-control","private","IDLE",0],["oss-scanner","public","IDLE",0],["sanbox","private","IDLE",0],["saos-console","private","IDLE",0],["saos-console-zai","private","IDLE",0],["saos-coordination","private","IDLE",0],["saos-desk","public","IDLE",0],["saos-markets","public","IDLE",0],["saos-owner-channel","public","IDLE",0],["SovereignConsole","private","IDLE",0],["vault-home","private","IDLE",0]],
+          arteries: { "Domain": [["pages-deploy.yml","WARM",42,"success"],["fleet-heartbeat.yml","RUNNING",3,null],["fill-ledger-cron.yml","WARM",58,"success"],["hive-beat-t21.yml","WARM",61,"success"],["dex-xc-cron.yml","WARM",66,"success"]],
+                      "saos-runtime": [["sovereign-runtime","RUNNING",12,null],["grid-backup","WARM",47,"success"]],
+                      "Console": [["pages-deploy","WARM",51,"success"],["canon-forge","WARM",33,"success"]] }
+        };
+
+        /* ---- מצב-חי ---- */
+        var M = {
+          canon: Object.assign({}, EMBED.canon),
+          liveCanon: false,
+          repos: EMBED.repos.map(function (r) { return { repo: r[0], vis: r[1], verdict: r[2], n: r[3], arts: [] }; }),
+          at: EMBED.at,
+          live: false
+        };
+        var REPOMAP = {};
+        M.repos.forEach(function (r) { REPOMAP[r.repo] = r; });
+        function arteryInfo(repo) { return (M.statusArts && M.statusArts[repo]) || EMBED.arteries[repo] || null; }
+        M.statusArts = null;
+
+        var SITE_LINK = { "Domain": "/Domain/index.html", "Console": "/Console/index.html", "GridWatch": "/GridWatch/index.html", "Pulse": "/Pulse/index.html" };
+
+        /* ---- תצוגה ---- */
+        var cam = { x: 0, y: 0, z: 1 }, camT = { x: 0, y: 0, z: 1 };
+        var W = 0, H = 0;
+        var ISO_C = Math.cos(Math.PI / 6), ISO_S = Math.sin(Math.PI / 6);
+        var TILE = 46;
+        var rooms = []; // {repo, x, y, w, d, main, hue, ver, poly:[4 pts screen], labelEl, new}
+        var focusRepo = null;
+        var hover = null;
+        var pointer = { x: 0, y: 0 };
+
+        function P(x, y, z) {
+          var ix = (x - y) * ISO_C, iy = (x + y) * ISO_S - (z || 0);
+          return { x: W / 2 + (ix - cam.x * ISO_C + cam.y * ISO_C) * TILE * cam.z,
+                   y: H * 0.54 + (iy - cam.x * ISO_S - cam.y * ISO_S) * TILE * cam.z };
+        }
+        /* פשוט-יותר: מרכז-מצלמה במרחב-iso */
+        function camIso() { return { ix: (cam.x - cam.y) * ISO_C, iy: (cam.x + cam.y) * ISO_S }; }
+        function PP(x, y, z) {
+          var c = camIso();
+          var ix = (x - y) * ISO_C, iy = (x + y) * ISO_S - (z || 0);
+          return { x: W / 2 + (ix - c.ix) * TILE * cam.z, y: H * 0.52 + (iy - c.iy) * TILE * cam.z };
+        }
+
+        /* ---- בניית-הפריסה ---- */
+        function buildLayout() {
+          rooms = [];
+          var sorted = M.repos.slice().sort(function (a, b) { return b.n - a.n; });
+          var alive = sorted.filter(function (r) { return r.verdict === "ALIVE"; });
+          var rest = sorted.filter(function (r) { return r.verdict !== "ALIVE"; });
+          var ring = alive.slice(0, 8);
+          var dorm = rest.concat(alive.slice(8));
+          var order = dorm.slice().sort(function (a, b) {
+            var rank = { MIXED: 0, STALE: 1, IDLE: 2 };
+            return (rank[a.verdict] ?? 3) - (rank[b.verdict] ?? 3) || b.n - a.n;
+          });
+          ring.forEach(function (r, i) {
+            var ang = -Math.PI / 2 + i * (Math.PI * 2 / 8);
+            rooms.push(mkRoom(r, Math.cos(ang) * 5.9, Math.sin(ang) * 5.9, 3.1, 2.35, true, i));
+          });
+          order.forEach(function (r, i) {
+            var row = Math.floor(i / 11), col = i % 11;
+            rooms.push(mkRoom(r, -10 + col * 2.0, -8.4 - row * 2.3, 1.5, 1.15, false, 8 + i));
+          });
+        }
+        function mkRoom(r, x, y, w, d, main, idx) {
+          var hue = HUES[idx % HUES.length];
+          return { r: r, x: x, y: y, w: w, d: d, main: main, hue: hue, ver: r.verdict, poly: null, new: false, ph: (idx * 1.7) % 6.28 };
+        }
+
+        /* ---- מה-חדש-מאז-הביקור (localStorage · מפתחות-תוכן-יציבים) ---- */
+        var SEEN_KEY = "saos-office-seen/2";
+        var freshKeys = {};
+        function currentKeys() {
+          var ks = [];
+          M.repos.forEach(function (r) { ks.push("repo:" + r.repo + ":" + r.verdict); });
+          ks.push("beats:" + (M.canon["arteries.beating"] || 0));
+          ks.push("treasury:" + (M.canon["treasury.steem"] || 0));
+          return ks;
+        }
+        function loadSeen() {
+          try {
+            var raw = localStorage.getItem(SEEN_KEY);
+            if (!raw) { markSeen(); return; } // ביקור-ראשון: הכל-נחשב-נקרא — אין-הצפה
+            var seen = {}; JSON.parse(raw).forEach(function (k) { seen[k] = 1; });
+            freshKeys = {};
+            currentKeys().forEach(function (k) { if (!seen[k]) freshKeys[k] = 1; });
+            M.repos.forEach(function (r) { r.new = !!freshKeys["repo:" + r.repo + ":" + r.verdict]; });
+            renderNewBadge();
+          } catch (e) {}
+        }
+        function markSeen() {
+          try { localStorage.setItem(SEEN_KEY, JSON.stringify(currentKeys())); } catch (e) {}
+          freshKeys = {};
+          M.repos.forEach(function (r) { r.new = false; });
+          renderNewBadge();
+        }
+        var newCount = 0;
+        function renderNewBadge() {
+          newCount = Object.keys(freshKeys).length;
+          var b = document.getElementById("hudNew");
+          if (!b) return;
+          if (newCount > 0) { b.style.display = ""; b.innerHTML = "✦ <span>" + newCount + "</span> חדש"; b.title = "מה-חדש-מאז-הביקור-הקודם · לחיצה: סימון-כנקרא"; }
+          else { b.style.display = "none"; }
+        }
+
+        /* ---- HUD ---- */
+        function hud() {
+          var t = document.getElementById("hudTop");
+          var c = M.canon, beat = c["arteries.beating"], tot = c["arteries.total"];
+          var tre = c["treasury.steem"], floor = c["treasury.floor"];
+          var below = tre < floor;
+          t.innerHTML =
+            '<span class="hud-pill"><span class="d" style="background:' + VERD.ALIVE.c + '"></span>עורקים <b>' + beat + "/" + tot + "</b> פועמים</span>" +
+            '<span class="hud-pill' + (below ? " alert" : "") + '">' + (below ? "⚠ " : "") + 'אוצר <b>' + tre.toFixed(3) + "</b> / רצפה <b>" + floor + "</b></span>" +
+            '<span class="hud-pill" id="hudDir">הנחיות-פתוחות <b>' + (c["directives.open"] || 0) + "</b></span>" +
+            '<span class="hud-pill" id="hudVerds" title="פסקי-דופק">חי <b>' + (c["verdicts.ALIVE"] || 0) + "</b> · מעורב <b>" + (c["verdicts.MIXED"] || 0) + "</b> · איטי <b>" + (c["verdicts.STALE"] || 0) + "</b> · רדום <b>" + (c["verdicts.IDLE"] || 0) + "</b></span>" +
+            '<span class="hud-pill new" id="hudNew" style="display:none"></span>' +
+            '<span class="hud-pill" style="font-weight:600;color:' + (M.live ? "var(--ok)" : M.liveCanon ? "var(--warn)" : "var(--muted)") + '" id="hudSrc" title="מקור-המדידה">' + (M.live ? "חי · דופק-מלא" : M.liveCanon ? "חי · קנון-בלבד" : "snapshot מוטמע") + " · <b>" + M.at.slice(11, 16) + "Z</b></span>";
+          var nb = document.getElementById("hudNew");
+          if (nb) nb.onclick = markSeen;
+          renderNewBadge();
+        }
+
+        /* ---- טיקר-הדופק ---- */
+        var TICKS = [];
+        function buildTicks() {
+          TICKS = [];
+          var c = M.canon;
+          TICKS.push("דופק-הגריד: <b>" + c["arteries.beating"] + "/" + c["arteries.total"] + "</b> עורקים פועמים על-פני <b>" + c["repos.total"] + "</b> ריפואים");
+          TICKS.push("אוצר נמדד: <b>" + c["treasury.steem"] + "</b> STEEM · רצפה-חוק: <b>" + c["treasury.floor"] + "</b> · מצב: BELOW-FLOOR");
+          TICKS.push("מילויים-חיים: <b>" + c["fills.lifetime"] + "</b> לכל-החיים · <b>" + c["fills.ledger"] + "</b> בפנקס");
+          var lit = 0;
+          Object.keys(REPOMAP).forEach(function (k) { if (REPOMAP[k].verdict === "ALIVE") lit++; });
+          TICKS.push("ריפואים-חיים: <b>" + lit + "</b> מתוך <b>" + M.repos.length + "</b> · נמדד: <b>" + M.at.slice(0, 10) + " " + M.at.slice(11, 16) + "Z</b>");
+        }
+        var tickIdx = 0;
+        function rotateTick() {
+          var el = document.getElementById("tickTxt");
+          if (!el || !TICKS.length) return;
+          tickIdx = (tickIdx + 1) % TICKS.length;
+          el.innerHTML = TICKS[tickIdx];
+          el.classList.remove("fade"); void el.offsetWidth; el.classList.add("fade");
+        }
+
+        /* ---- ציור-עזר ---- */
+        function poly(pts, fill, stroke, lw) {
+          ctx.beginPath();
+          pts.forEach(function (p, i) { i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y); });
+          ctx.closePath();
+          if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+          if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.stroke(); }
+        }
+        function wallPts(x, y, len, dir, h) {
+          // dir "x": קיר לאורך ציר-x (צפון) · dir "y": לאורך ציר-y (מערב)
+          if (dir === "x") return [PP(x, y, 0), PP(x + len, y, 0), PP(x + len, y, h), PP(x, y, h)];
+          return [PP(x, y, 0), PP(x, y + len, 0), PP(x, y + len, h), PP(x, y, h)];
+        }
+        function shade(hex, f) {
+          var n = parseInt(hex.slice(1), 16), r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+          r = Math.round(r * f); g = Math.round(g * f); b = Math.round(b * f);
+          return "rgb(" + r + "," + g + "," + b + ")";
+        }
+
+        function drawRoom(rm, t) {
+          var v = VERD[rm.ver] || VERD.IDLE;
+          var fl = FLOORS[rm.ver] || FLOORS.IDLE;
+          var h = rm.main ? 0.92 : 0.55;
+          var x = rm.x, y = rm.y, w = rm.w, d = rm.d;
+          var x0 = x - w / 2, y0 = y - d / 2;
+          // רצפה
+          var fp = [PP(x0, y0, 0.05), PP(x0 + w, y0, 0.05), PP(x0 + w, y0 + d, 0.05), PP(x0, y0 + d, 0.05)];
+          rm.poly = fp;
+          poly(fp, fl, hover === rm ? "#8a6d3b" : "rgba(44,42,38,0.5)", hover === rm ? 2 : 1);
+          if (rm.new) { // טבעת-חדש
+            var k = reduceMotion ? 0.5 : ((t * 0.5 + rm.ph) % 1);
+            var ex = 1 + k * 0.5, ey = 1 + k * 0.5;
+            var cfp = [PP(x - w / 2 * ex, y0 + d / 2 - d / 2 * ex, 0.07), PP(x0 + w / 2 + w / 2 * ex, y0 + d / 2 - d / 2 * ex, 0.07), PP(x0 + w / 2 + w / 2 * ex, y0 + d / 2 + d / 2 * ex, 0.07), PP(x - w / 2 * ex, y0 + d / 2 + d / 2 * ex, 0.07)];
+            ctx.globalAlpha = (1 - k) * 0.55;
+            poly(cfp, null, "#8a6d3b", 1.6);
+            ctx.globalAlpha = 1;
+          }
+          // קירות-האחוריים (הצפוני + המערבי — הקדמיים פתוחים: בית-בובות)
+          poly(wallPts(x0, y0, w, "x", h), shade(v.c, rm.main ? 0.30 : 0.26), "rgba(44,42,38,0.55)", 1);
+          poly(wallPts(x0, y0, d, "y", h), shade(v.c, rm.main ? 0.38 : 0.32), "rgba(44,42,38,0.55)", 1);
+          // פנים-החדר: שולחנות + חיילי-הצי (רק בחדרים הראשיים)
+          if (rm.main) {
+            var crew = Math.min(4, Math.max(2, Math.round(rm.r.n / 12) + 1));
+            for (var i = 0; i < crew; i++) {
+              var sx = x0 + 0.5 + (i % 2) * (w - 1.1), sy = y0 + 0.75 + Math.floor(i / 2) * 0.85;
+              var bob = reduceMotion ? 0 : Math.abs(Math.sin(t * 1.6 + rm.ph + i)) * 0.03;
+              drawSoldier(sx, sy, rm.hue, bob);
+              var dp = PP(sx, sy + 0.34, 0.34); // שולחן
+              poly([PP(sx - 0.28, sy + 0.18, 0.33), PP(sx + 0.28, sy + 0.18, 0.33), PP(sx + 0.28, sy + 0.5, 0.33), PP(sx - 0.28, sy + 0.5, 0.33)], "#3b3833", "rgba(44,42,38,0.6)", 0.8);
+            }
+          } else if (rm.ver === "IDLE") {
+            // דלת-סגורה — רדום
+            var dl = PP(x - 0.14, y + d / 2 - 0.02, 0.4);
+            ctx.fillStyle = "rgba(44,42,38,0.35)";
+            ctx.fillRect(dl.x - 4, dl.y - 9, 8, 9);
+          }
+          // שעוני-העורקים על-קו-הגג
+          var arts = arteryInfo(rm.r.repo);
+          var nD = rm.main ? Math.min(rm.r.n, 7) : Math.min(rm.r.n, 3);
+          for (var a = 0; a < nD; a++) {
+            var dx = x0 + (w / (nD + 1)) * (a + 1);
+            var ap = PP(dx, y0 - 0.02, h + 0.14);
+            var rr = (rm.main ? 0.14 : 0.09) * TILE * cam.z;
+            var info = arts && arts[a];
+            var col = v.c;
+            var conclBad = info && info[3] === "fail";
+            if (conclBad) col = "#b3261e";
+            ctx.beginPath(); ctx.arc(ap.x, ap.y, rr, 0, 6.283);
+            ctx.fillStyle = col; ctx.fill();
+            ctx.strokeStyle = "rgba(44,42,38,0.7)"; ctx.lineWidth = 1; ctx.stroke();
+            if (!reduceMotion && (!info || info[1] === "RUNNING" || info[1] === "WARM")) {
+              var pk = (t * 0.9 + a * 0.7 + rm.ph) % 1;
+              ctx.beginPath(); ctx.arc(ap.x, ap.y, rr * (1 + pk * 1.4), 0, 6.283);
+              ctx.strokeStyle = col; ctx.globalAlpha = (1 - pk) * 0.6; ctx.stroke(); ctx.globalAlpha = 1;
+            }
+            if (info && info[3] === null) { // יושר-כנה: ריצה-בעיצומה — אין-סיום
+              ctx.fillStyle = "#fff";
+              ctx.font = "bold " + Math.max(7, rr) + "px system-ui";
+              ctx.textAlign = "center"; ctx.textBaseline = "middle";
+              ctx.fillText("·", ap.x, ap.y + 0.5);
+            }
+            if (conclBad) { ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(ap.x - rr * 0.45, ap.y - rr * 0.45); ctx.lineTo(ap.x + rr * 0.45, ap.y + rr * 0.45); ctx.stroke(); }
+          }
+          if (rm.main && rm.r.n > 7) {
+            var lp = PP(x + w / 2 + 0.15, y0, h + 0.14);
+            ctx.fillStyle = MUT; ctx.font = "bold " + Math.max(9, 10 * cam.z) + "px system-ui";
+            ctx.textAlign = "left"; ctx.textBaseline = "middle";
+            ctx.fillText("+" + (rm.r.n - 7), lp.x, lp.y);
+          }
+        }
+
+        function drawSoldier(sx, sy, hue, bob) {
+          var b = PP(sx, sy, 0.06);
+          var z = cam.z;
+          // גוף
+          ctx.fillStyle = hue;
+          var bw = 7 * z, bh = 11 * z;
+          ctx.beginPath();
+          if (ctx.roundRect) ctx.roundRect(b.x - bw / 2, b.y - bh - bob * TILE * z, bw, bh, 3.5 * z);
+          else ctx.rect(b.x - bw / 2, b.y - bh - bob * TILE * z, bw, bh);
+          ctx.fill();
+          ctx.strokeStyle = "rgba(44,42,38,0.65)"; ctx.lineWidth = 0.8; ctx.stroke();
+          // ראש
+          var hp = PP(sx, sy, 0.06 + 0.34 + bob);
+          ctx.beginPath(); ctx.arc(hp.x, hp.y, 4.6 * z, 0, 6.283);
+          ctx.fillStyle = hue; ctx.fill(); ctx.stroke();
+          // עיניים (כלפי-המצלמה)
+          ctx.fillStyle = "#fff";
+          ctx.beginPath(); ctx.arc(hp.x - 1.6 * z, hp.y - 0.5 * z, 1.1 * z, 0, 6.283); ctx.arc(hp.x + 1.6 * z, hp.y - 0.5 * z, 1.1 * z, 0, 6.283); ctx.fill();
+          ctx.fillStyle = INK;
+          var blink = reduceMotion ? false : ((Date.now() / 1000 * 1 + 0) % 4.2) < 0.12;
+          if (!blink) {
+            ctx.beginPath(); ctx.arc(hp.x - 1.6 * z, hp.y - 0.5 * z, 0.5 * z, 0, 6.283); ctx.arc(hp.x + 1.6 * z, hp.y - 0.5 * z, 0.5 * z, 0, 6.283); ctx.fill();
+          }
+        }
+
+        function drawPlaza(t) {
+          var c = PP(0, 0, 0.02);
+          var R = 1.55 * TILE * cam.z;
+          ctx.save();
+          ctx.translate(c.x, c.y);
+          ctx.scale(1, ISO_S * 2);
+          // מדרכה
+          ctx.beginPath(); ctx.arc(0, 0, R, 0, 6.283);
+          ctx.fillStyle = "#efe9dc"; ctx.fill();
+          ctx.strokeStyle = "rgba(44,42,38,0.35)"; ctx.lineWidth = 1 / cam.z; ctx.stroke();
+          // טבעות-רדאר (פעימת-הקנון)
+          if (!reduceMotion) {
+            for (var k = 0; k < 3; k++) {
+              var ph = (t * 0.32 + k / 3) % 1;
+              ctx.beginPath(); ctx.arc(0, 0, R * (0.4 + ph * 0.95), 0, 6.283);
+              ctx.strokeStyle = "#8a6d3b"; ctx.globalAlpha = (1 - ph) * 0.45; ctx.lineWidth = 1.4 / cam.z; ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+          }
+          ctx.restore();
+        }
+
+        function drawBeacon(t) {
+          // מגדל-הקנון: אובליסק + שעון-ירושלים
+          var base = 0.62, hgt = 1.9;
+          var x = 0, y = 0;
+          poly([PP(x - base / 2, y - base / 2, 0), PP(x + base / 2, y - base / 2, 0), PP(x + base / 2, y + base / 2, 0), PP(x - base / 2, y + base / 2, 0)], "#d9d2c2", "rgba(44,42,38,0.6)", 1);
+          var h0 = 0.22;
+          var sh = 0.40;
+          poly([PP(x - sh / 2, y - sh / 2, h0), PP(x + sh / 2, y - sh / 2, h0), PP(x + sh / 2, y + sh / 2, h0), PP(x - sh / 2, y + sh / 2, h0)], "#c8c0ac", "rgba(44,42,38,0.6)", 1);
+          var top = PP(x, y, hgt);
+          var bot = PP(x, y, h0);
+          var wd = sh * 0.72 * TILE * cam.z;
+          poly([{ x: top.x, y: top.y }, { x: bot.x + wd, y: bot.y }, { x: bot.x + wd * 0.4, y: bot.y }, { x: top.x, y: top.y + 0 }], "#b3ab96", "rgba(44,42,38,0.55)", 0.8);
+          poly([{ x: top.x, y: top.y }, { x: bot.x - wd, y: bot.y }, { x: bot.x - wd * 0.4, y: bot.y }, { x: top.x, y: top.y }], "#c3bba6", "rgba(44,42,38,0.55)", 0.8);
+          // פסגה
+          var tip = PP(x, y, hgt + 0.34);
+          poly([{ x: top.x - wd * 0.75, y: top.y }, { x: top.x + wd * 0.75, y: top.y }, { x: tip.x, y: tip.y }], "#8a6d3b", "rgba(44,42,38,0.5)", 0.8);
+          // דיאל-השעון — ירושלים חיה
+          var cp = PP(x, y, hgt - 0.52);
+          var cr = 0.30 * TILE * cam.z;
+          ctx.beginPath(); ctx.arc(cp.x, cp.y, cr, 0, 6.283);
+          ctx.fillStyle = "#faf8f3"; ctx.fill();
+          ctx.strokeStyle = INK; ctx.lineWidth = 1.4; ctx.stroke();
+          var now = new Date();
+          try {
+            var f = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Jerusalem", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
+            var p = f.formatToParts(now), g = function (tp) { return Number((p.find(function (q) { return q.type === tp; }) || {}).value || 0); };
+            var hh = g("hour") % 12, mm = g("minute"), ss = g("second");
+            function hand(ang, len, wd2, col) {
+              var a = ang * Math.PI / 180 - Math.PI / 2;
+              ctx.beginPath(); ctx.moveTo(cp.x, cp.y);
+              ctx.lineTo(cp.x + Math.cos(a) * len, cp.y + Math.sin(a) * len);
+              ctx.strokeStyle = col; ctx.lineWidth = wd2; ctx.lineCap = "round"; ctx.stroke();
+            }
+            hand(hh * 30 + mm * 0.5, cr * 0.5, 2.2, INK);
+            hand(mm * 6, cr * 0.72, 1.6, INK);
+            if (!reduceMotion) hand(ss * 6, cr * 0.8, 0.9, "#b3261e");
+            ctx.beginPath(); ctx.arc(cp.x, cp.y, 1.8, 0, 6.283); ctx.fillStyle = INK; ctx.fill();
+          } catch (e) {}
+          // כיתוב-מיקרו
+          ctx.fillStyle = MUT;
+          ctx.font = Math.max(8, 9 * cam.z) + "px system-ui";
+          ctx.textAlign = "center"; ctx.textBaseline = "top";
+          var lp = PP(x, y, hgt + 0.62);
+          ctx.fillText("ערוץ-הקנון", lp.x, lp.y);
+        }
+
+        function drawTreasury(t) {
+          // באר-האוצר: מד-אנכי חי — אוצר מול רצפה (מרחב-פנוי במערב-הכיכר — לא-מוסתרת)
+          var x = -4.4, y = 2.6;
+          var w = 0.9, dep = 0.7, hgt = 1.6;
+          var x0 = x - w / 2, y0 = y - dep / 2;
+          poly([PP(x0, y0, 0), PP(x0 + w, y0, 0), PP(x0 + w, y0 + dep, 0), PP(x0, y0 + dep, 0)], "#e3dccb", "rgba(44,42,38,0.55)", 1);
+          // מסגרת-המד
+          var fq = [PP(x0, y0, hgt), PP(x0 + w * 0.4, y0, hgt), PP(x0 + w * 0.4, y0 + dep * 0.8, hgt), PP(x0, y0 + dep * 0.8, hgt)];
+          poly(fq, "#f6f2e8", "rgba(44,42,38,0.6)", 1);
+          var tre = M.canon["treasury.steem"] || 0, floor = M.canon["treasury.floor"] || 3000;
+          var lv = Math.max(0.02, Math.min(1, tre / floor));
+          var fillTop = hgt * lv;
+          var fq2 = [PP(x0 + 0.05, y0 + 0.04, fillTop), PP(x0 + w * 0.4 - 0.05, y0 + 0.04, fillTop), PP(x0 + w * 0.4 - 0.05, y0 + dep * 0.8 - 0.05, 0.06), PP(x0 + 0.05, y0 + dep * 0.8 - 0.05, 0.06)];
+          poly(fq2, tre >= floor ? "#2e7d4f" : "#b3261e", "rgba(44,42,38,0.5)", 0.8);
+          // נורית-אזעקה
+          var lp = PP(x0 + w * 0.2, y0 - 0.05, hgt + 0.22);
+          var alarm = tre < floor;
+          var glow = alarm && !reduceMotion ? (0.5 + 0.5 * Math.abs(Math.sin(t * 3))) : 1;
+          ctx.beginPath(); ctx.arc(lp.x, lp.y, 0.11 * TILE * cam.z, 0, 6.283);
+          ctx.fillStyle = alarm ? "#b3261e" : "#2e7d4f"; ctx.globalAlpha = glow; ctx.fill(); ctx.globalAlpha = 1;
+          ctx.strokeStyle = "rgba(44,42,38,0.7)"; ctx.lineWidth = 1; ctx.stroke();
+          // תווית
+          ctx.fillStyle = INK; ctx.font = "bold " + Math.max(9, 10.5 * cam.z) + "px system-ui";
+          ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+          var tp = PP(x, y + dep / 2, hgt + 0.42);
+          ctx.fillText("אוצר " + tre.toFixed(0) + " / רצפה " + floor, tp.x, tp.y);
+          if (alarm) {
+            ctx.fillStyle = "#b3261e";
+            ctx.font = "bold " + Math.max(8, 9 * cam.z) + "px system-ui";
+            ctx.fillText("BELOW-FLOOR", tp.x, tp.y - 14 * cam.z);
+          }
+        }
+
+        function drawRoads(t) {
+          rooms.forEach(function (rm) {
+            if (!rm.main) return;
+            var mx = rm.x * 0.22, my = rm.y * 0.22; // נקודת-בקרה: קשת דרך-הכיכר
+            ctx.beginPath();
+            var steps = 16, off = reduceMotion ? 0 : -t * 0.5;
+            ctx.setLineDash([5, 7]);
+            ctx.lineDashOffset = off * TILE * cam.z * 0.12;
+            for (var i = 0; i <= steps; i++) {
+              var u = i / steps, iu = 1 - u;
+              var wx = iu * iu * 0 + 2 * iu * u * mx + u * u * rm.x;
+              var wy = iu * iu * 0 + 2 * iu * u * my + u * u * rm.y;
+              var p = PP(wx, wy, 0.02);
+              i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
+            }
+            ctx.strokeStyle = "rgba(138,109,59,0.5)";
+            ctx.lineWidth = Math.max(1.2, 2.2 * cam.z);
+            ctx.stroke();
+            ctx.setLineDash([]);
+          });
+        }
+
+        function drawGround() {
+          ctx.fillStyle = "#f3f1ec";
+          ctx.fillRect(0, 0, W, H);
+          // רשת-נייר-מדידה עדינה במרחב-iso
+          var step = 2;
+          ctx.strokeStyle = "rgba(60,52,40,0.06)";
+          ctx.lineWidth = 1;
+          for (var gx = -16; gx <= 16; gx += step) {
+            ctx.beginPath(); ctx.moveTo(PP(gx, -16, 0).x, PP(gx, -16, 0).y); ctx.lineTo(PP(gx, 16, 0).x, PP(gx, 16, 0).y); ctx.stroke();
+          }
+          for (var gy = -16; gy <= 16; gy += step) {
+            ctx.beginPath(); ctx.moveTo(PP(-16, gy, 0).x, PP(-16, gy, 0).y); ctx.lineTo(PP(16, gy, 0).x, PP(16, gy, 0).y); ctx.stroke();
+          }
+        }
+
+        /* ---- תוויות-DOM מוקרנות ---- */
+        var labelsBox = document.getElementById("labels");
+        function ensureLabels() {
+          labelsBox.innerHTML = ""; // סקר-חי בונה-חדרים-מחדש — תוויות-מהדור-הקודם מתרוקנות
+          rooms.forEach(function (rm) {
+            if (rm.labelEl) return;
+            var el = document.createElement("button");
+            el.className = "rlbl";
+            el.type = "button";
+            el.addEventListener("click", function (ev) { ev.stopPropagation(); enterRoom(rm); });
+            labelsBox.appendChild(el);
+            rm.labelEl = el;
+          });
+        }
+        function projectLabels(visAll) {
+          rooms.forEach(function (rm) {
+            var el = rm.labelEl;
+            if (!el) return;
+            var p = PP(rm.x, rm.y - rm.d / 2, (rm.main ? 0.92 : 0.55) + 0.42);
+            var on = rm.main || cam.z > 0.72 || hover === rm || focusRepo === rm.r.repo;
+            el.style.display = on ? "" : "none";
+            if (!on) return;
+            el.style.left = p.x + "px";
+            el.style.top = p.y + "px";
+            var v = VERD[rm.ver];
+            el.innerHTML = '<span class="dot" style="background:' + v.c + '"></span><span style="direction:ltr;unicode-bidi:embed">' + rm.r.repo + "</span>" +
+              (rm.main ? '<span class="cnt">' + rm.r.n + "</span>" : "") + (rm.new ? '<span class="newm">✦</span>' : "");
+            if (focusRepo && focusRepo !== rm.r.repo) el.style.opacity = "0.35"; else el.style.opacity = "";
+          });
+        }
+
+        /* ---- מסגרת-הבית (התאמה-אוטומטית) ---- */
+        function fitHome() {
+          var x0 = -11.4, x1 = 11.4, y0 = -15.6, y1 = 7.6;
+          var corners = [[x0, y0], [x1, y0], [x0, y1], [x1, y1]];
+          var minx = 1e9, maxx = -1e9, miny = 1e9, maxy = -1e9;
+          cam.z = 1;
+          corners.forEach(function (c) {
+            var p = PP(c[0], c[1], 0);
+            minx = Math.min(minx, p.x); maxx = Math.max(maxx, p.x);
+            miny = Math.min(miny, p.y); maxy = Math.max(maxy, p.y);
+          });
+          var padT = 56, padB = 62, padS = 14;
+          var zx = (W - padS * 2) / (maxx - minx);
+          var zy = (H - padT - padB) / (maxy - miny);
+          cam.z = Math.max(0.34, Math.min(2.0, Math.min(zx, zy)));
+          var cxIso = ((x0 - y0) * ISO_C + (x1 - y1) * ISO_C) / 2;
+          var cyIso = ((x0 + y0) * ISO_S + (x1 + y1) * ISO_S) / 2;
+          cam.x = (cxIso / ISO_C + cyIso / ISO_S) / 2;
+          cam.y = (cyIso / ISO_S - cxIso / ISO_C) / 2;
+          camT = { x: cam.x, y: cam.y, z: cam.z };
+        }
+
+        /* ---- לולאת-ציור ---- */
+        var raf = 0, lastLabel = 0;
+        function frame(ts) {
+          raf = 0;
+          if (document.hidden) { schedule(); return; }
+          var t = ts / 1000;
+          cam.x += (camT.x - cam.x) * 0.14; cam.y += (camT.y - cam.y) * 0.14; cam.z += (camT.z - cam.z) * 0.14;
+          drawGround();
+          drawRoads(t);
+          drawPlaza(t);
+          var ordered = rooms.slice().sort(function (a, b) { return (a.x + a.y) - (b.x + b.y); });
+          ordered.forEach(function (rm) { drawRoom(rm, t); });
+          drawTreasury(t);
+          drawBeacon(t);
+          projectLabels();
+          if (reduceMotion) return; // תנועה-מופחתת: פריים-בודד לפי-אירוע
+          schedule();
+        }
+        function schedule() { if (!raf && !reduceMotion) raf = requestAnimationFrame(frame); }
+        function renderOnce() { if (reduceMotion) frame(performance.now()); else schedule(); }
+
+        /* ---- אינטראקציה ---- */
+        function roomAt(px, py) {
+          for (var i = rooms.length - 1; i >= 0; i--) {
+            var rm = rooms[i], pl = rm.poly;
+            if (!pl) continue;
+            var minX = Math.min(pl[0].x, pl[1].x, pl[2].x, pl[3].x), maxX = Math.max(pl[0].x, pl[1].x, pl[2].x, pl[3].x);
+            var minY = Math.min(pl[0].y, pl[1].y, pl[2].y, pl[3].y), maxY = Math.max(pl[0].y, pl[1].y, pl[2].y, pl[3].y);
+            if (px >= minX && px <= maxX && py >= minY && py <= maxY) return rm;
+          }
+          return null;
+        }
+        var dragging = false, moved = 0, lastP = null, pinch0 = 0;
+        cv.addEventListener("pointerdown", function (e) {
+          dragging = true; moved = 0; lastP = { x: e.clientX, y: e.clientY };
+          cv.setPointerCapture(e.pointerId);
+          cv.classList.add("grabbing");
+        });
+        cv.addEventListener("pointermove", function (e) {
+          var rect = cv.getBoundingClientRect();
+          pointer.x = e.clientX - rect.left; pointer.y = e.clientY - rect.top;
+          if (dragging && lastP) {
+            var dx = e.clientX - lastP.x, dy = e.clientY - lastP.y;
+            moved += Math.abs(dx) + Math.abs(dy);
+            lastP = { x: e.clientX, y: e.clientY };
+            var k = 1 / (TILE * cam.z);
+            camT.x -= (dx * ISO_C * 0.5 - dy * 0) * k * 1.9;
+            camT.y += (dx * ISO_C * 0.5 + dy * 1) * k * 1.9;
+            cam.x = camT.x; cam.y = camT.y;
+          } else {
+            var rm = roomAt(pointer.x, pointer.y);
+            if (rm !== hover) { hover = rm; cv.style.cursor = rm ? "pointer" : "grab"; }
+            showTip(rm);
+          }
+        });
+        cv.addEventListener("pointerup", function (e) {
+          dragging = false; cv.classList.remove("grabbing");
+          if (moved < 7) {
+            var rect = cv.getBoundingClientRect();
+            var rm = roomAt(e.clientX - rect.left, e.clientY - rect.top);
+            if (rm) enterRoom(rm);
+          }
+        });
+        cv.addEventListener("pointerleave", function () { hover = null; showTip(null); });
+        cv.addEventListener("wheel", function (e) {
+          e.preventDefault();
+          zoomAt(e.deltaY < 0 ? 1.16 : 1 / 1.16);
+        }, { passive: false });
+        cv.addEventListener("touchstart", function (e) {
+          if (e.touches.length === 2) pinch0 = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+        }, { passive: true });
+        cv.addEventListener("touchmove", function (e) {
+          if (e.touches.length === 2 && pinch0) {
+            var d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+            zoomAt(d / pinch0); pinch0 = d;
+          }
+        }, { passive: true });
+        function zoomAt(f) {
+          camT.z = Math.max(0.34, Math.min(2.4, camT.z * f));
+        }
+        var tip = document.getElementById("tip");
+        function showTip(rm) {
+          if (!rm) { tip.classList.remove("on"); return; }
+          var v = VERD[rm.ver];
+          var arts = arteryInfo(rm.r.repo);
+          var extra = "";
+          if (arts && arts.length) {
+            var run = arts.filter(function (a) { return a[1] === "RUNNING" || a[1] === "WARM"; }).length;
+            extra = "<br>פועמים-עכשיו: " + run + " · דוגמה: <b style='direction:ltr;unicode-bidi:embed'>" + arts[0][0] + "</b>";
+          }
+          tip.innerHTML = "<b style='direction:ltr;unicode-bidi:embed'>" + rm.r.repo + "</b> · " + v.he +
+            "<br>עורקים: <b>" + rm.r.n + "</b> · " + rm.r.vis + (rm.new ? "<br>✦ חדש-מאז-הביקור" : "") + extra +
+            "<br><span style='opacity:.8'>לחיצה: פרטי-הריפו →</span>";
+          var rect = cv.getBoundingClientRect();
+          tip.style.left = Math.min(rect.width - 270, pointer.x + 14) + "px";
+          tip.style.top = Math.max(8, pointer.y - 10) + "px";
+          tip.classList.add("on");
+        }
+
+        /* ---- חדר-פרטים ---- */
+        var drawer = document.getElementById("drawer");
+        function enterRoom(rm) {
+          focusRepo = rm.r.repo;
+          camT.x = rm.x; camT.y = rm.y; camT.z = rm.main ? 1.55 : 1.9;
+          drawer.classList.add("open");
+          drawer.setAttribute("aria-hidden", "false");
+          document.getElementById("drName").textContent = rm.r.repo;
+          var vc = document.getElementById("drVerdict");
+          var v = VERD[rm.ver];
+          vc.textContent = rm.ver + " · " + v.he;
+          vc.style.color = ""; vc.style.borderColor = "";
+          vc.className = "chip " + (rm.ver === "ALIVE" ? "ok" : rm.ver === "MIXED" ? "warn" : rm.ver === "STALE" ? "bad" : "mut");
+          document.getElementById("drVis").textContent = rm.r.vis;
+          var arts = arteryInfo(rm.r.repo);
+          var b = document.getElementById("drBody");
+          var rows = "";
+          if (arts && arts.length) {
+            arts.forEach(function (a) {
+              var cls = a[3] === "success" ? "ok" : a[3] === "fail" ? "bad" : "warn";
+              var concl = a[3] === "success" ? "✓ הצליח" : a[3] === "fail" ? "✗ נכשל" : "· בריצה";
+              var lastTxt = (a[2] === null || a[2] === undefined) ? "מעולם-לא" : "לפני " + a[2] + " דק'";
+              rows += '<div class="art-row"><code>' + a[0] + '</code><span class="chip mut">' + a[1] + '</span><span class="chip mut">' + lastTxt + "</span>" + '<span class="chip ' + cls + '">' + concl + "</span></div>";
+            });
+          } else if (rm.r.n > 0) {
+            rows = '<div class="art-row" style="color:var(--muted)">' + rm.r.n + " עורקים מדודים · פירוט-הריצות-האחרונות מגיע בסקר-הדופק הבא</div>";
+          } else {
+            rows = '<div class="art-row" style="color:var(--muted)">אפס-עורקים · ריפו-רדום (נמדד)</div>';
+          }
+          var site = SITE_LINK[rm.r.repo];
+          b.innerHTML = "<p style='margin:0 0 6px;font-size:13px'>פסק-דופק: <b>" + rm.ver + "</b> · עורקים: <b>" + rm.r.n + "</b>" + (rm.new ? " · <span style='color:var(--accent)'>✦ חדש-מאז-הביקור</span>" : "") + "</p>" +
+            rows +
+            '<p class="drawer-note">הכל נמדד מהקרקע: status.json · נורית "· בריצה" = אין-סיום-עדיין (יושר-כנה, לא-ניחוש).</p>' +
+            '<div class="drawer-links"><a href="https://github.com/roshpinacare-sys/' + rm.r.repo + '" target="_blank" rel="noopener">פתח-בגיט ↗</a>' +
+            (site ? '<a href="' + site + '">דף-הצי שלו ↗</a>' : "") + "</div>" +
+            '<button class="hud-btn" id="markSeen2" style="width:auto;padding:6px 14px;margin-top:14px;font-size:12px">סמן-הכל-כנקרא</button>';
+          var ms2 = document.getElementById("markSeen2");
+          if (ms2) ms2.onclick = markSeen;
+          renderOnce();
+        }
+        function exitRoom() {
+          focusRepo = null;
+          drawer.classList.remove("open");
+          drawer.setAttribute("aria-hidden", "true");
+          fitHome();
+          renderOnce();
+        }
+        document.getElementById("drClose").addEventListener("click", exitRoom);
+
+        /* ---- מקלדת ---- */
+        window.addEventListener("keydown", function (e) {
+          if (/input|textarea/i.test((e.target && e.target.tagName) || "")) return;
+          var ring = rooms.filter(function (r) { return r.main; });
+          if (e.key >= "1" && e.key <= "8" && ring[+e.key - 1]) { enterRoom(ring[+e.key - 1]); return; }
+          if (e.key === "0" || e.key === "h") { exitRoom(); return; }
+          if (e.key === "Escape") {
+            if (document.getElementById("helpbox").classList.contains("on")) { document.getElementById("helpbox").classList.remove("on"); return; }
+            exitRoom(); return;
+          }
+          if (e.key === "+" || e.key === "=") { zoomAt(1.2); renderOnce(); return; }
+          if (e.key === "-" || e.key === "_") { zoomAt(1 / 1.2); renderOnce(); return; }
+          if (e.key === "?") { var hb = document.getElementById("helpbox"); hb.classList.toggle("on"); return; }
+          if (e.key === "n") { markSeen(); return; }
+          if (e.key === "r") { pull(true); return; }
+          var step = 1.6;
+          if (e.key === "ArrowUp") { camT.y -= step; cam.y = camT.y; renderOnce(); }
+          if (e.key === "ArrowDown") { camT.y += step; cam.y = camT.y; renderOnce(); }
+          if (e.key === "ArrowLeft") { camT.x -= step; cam.x = camT.x; renderOnce(); }
+          if (e.key === "ArrowRight") { camT.x += step; cam.x = camT.x; renderOnce(); }
+        });
+        ["camHome", "camIn", "camOut", "camHelp"].forEach(function (id) {
+          document.getElementById(id).addEventListener("click", function () {
+            if (id === "camHome") exitRoom();
+            if (id === "camIn") { zoomAt(1.25); renderOnce(); }
+            if (id === "camOut") { zoomAt(1 / 1.25); renderOnce(); }
+            if (id === "camHelp") document.getElementById("helpbox").classList.toggle("on");
+          });
+        });
+
+        /* ---- שינוי-גודל ---- */
+        function resize() {
+          var rect = cv.getBoundingClientRect();
+          W = rect.width; H = rect.height;
+          cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          fitHome();
+          renderOnce();
+        }
+        window.addEventListener("resize", function () { clearTimeout(cv._rz); cv._rz = setTimeout(resize, 150); });
+
+        /* ---- משיכת-מדידה-חיה ---- */
+        var CANON_URLS = ["/Domain/canon.json", "https://roshpinacare-sys.github.io/Domain/canon.json"];
+        var STATUS_URLS = ["/Domain/status.json", "https://roshpinacare-sys.github.io/Domain/status.json"];
+        function firstOk(urls) {
+          var i = 0;
+          function tryNext() {
+            if (i >= urls.length) return Promise.resolve(null);
+            var u = urls[i++] + (urls[i - 1].indexOf("?") > -1 ? "&" : "?") + "_=" + Date.now();
+            return fetch(u, { cache: "no-store", signal: (function(){ try { return AbortSignal.timeout(9000); } catch (e) { return undefined; } })() })
+              .then(function (r) { if (!r.ok) return tryNext(); return r.json().catch(function () { return tryNext(); }); })
+              .catch(function () { return tryNext(); });
+          }
+          return tryNext();
+        }
+        function pull(manual) {
+          firstOk(CANON_URLS).then(function (c) {
+            if (c && c.values) { Object.assign(M.canon, c.values); if (c.at) M.at = c.at; M.liveCanon = true; }
+            return firstOk(STATUS_URLS);
+          }).then(function (s) {
+            if (s && Array.isArray(s.repos)) {
+              M.live = true;
+              M.at = s.generatedAt || M.at;
+              M.statusArts = {};
+              M.repos = s.repos.map(function (r) {
+                M.statusArts[r.repo] = (r.arteries || []).slice(0, 8).map(function (a) { return [a.p, a.v, a.last, a.concl]; });
+                return { repo: r.repo, vis: r.vis, verdict: r.verdict, n: (r.arteries || []).length, arts: [], new: false };
+              });
+              REPOMAP = {}; M.repos.forEach(function (r) { REPOMAP[r.repo] = r; });
+              buildLayout(); ensureLabels(); hud(); buildTicks(); loadSeen();
+            }
+            renderOnce();
+          });
+        }
+        try {
+          window.addEventListener("saos-canon", function (ev) {
+            var c = ev && ev.detail;
+            if (c && c.values) { Object.assign(M.canon, c.values); if (c.at) M.at = c.at; hud(); buildTicks(); loadSeen(); renderOnce(); }
+          });
+        } catch (e) {}
+
+        /* ---- עלייה-לאוויר ---- */
+        buildLayout();
+        ensureLabels();
+        hud();
+        buildTicks();
+        loadSeen();
+        resize();
+        rotateTick();
+        setInterval(rotateTick, 4500);
+        setInterval(function () { pull(false); }, 60000);
+        document.addEventListener("visibilitychange", function () { if (!document.hidden) { pull(false); renderOnce(); } });
+        pull(false);
       })();
     </script>
   <script src="../assets/bidi-fix.js" defer></script>
