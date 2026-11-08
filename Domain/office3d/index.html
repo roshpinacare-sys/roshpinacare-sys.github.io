@@ -189,7 +189,7 @@
       nav.links a small { display: block; font-weight: 400; color: var(--muted); font-size: 11.5px; }
       .law { margin-top: 26px; border-top: 1px solid var(--line); padding-top: 10px; font-size: 12px; color: var(--muted); text-align: center; }
       .law a { color: inherit; }
-      @media (max-width: 560px) { .clock { margin-inline-start: 0; } h1 { font-size: 19px; } #campus { height: 70vh; } #drawer { width: 100%; border-inline-start: none; border-top: 1px solid var(--line); top: auto; height: 62%; border-radius: 16px 16px 0 0; } #hudVerds, #hudDir { display: none; } #sidepanel, #attention { display: none; } #camctrl { bottom: 52px; } #filters { top: 44px; overflow-x: auto; flex-wrap: nowrap; } #ticker { bottom: calc(10px + env(safe-area-inset-bottom, 0px)); } }
+      @media (max-width: 560px) { .clock { margin-inline-start: 0; } h1 { font-size: 19px; } #campus { height: 70vh; } #drawer { width: 100%; border-inline-start: none; border-top: 1px solid var(--line); top: auto; height: 62%; border-radius: 16px 16px 0 0; } #hudVerds, #hudDir { display: none; } #sidepanel, #attention { display: none; } #camctrl { bottom: 52px; } #filters { top: 44px; flex-wrap: wrap; max-width: calc(100% - 20px); row-gap: 4px; } #ticker { bottom: calc(10px + env(safe-area-inset-bottom, 0px)); } }
       @media (prefers-reduced-motion: reduce) { .hud-pill.alert, #ticker .live, .glasswin h4 .live { animation: none; } .diorama-wrap { animation: none; } }
       #scrollbars ::-webkit-scrollbar, .res::-webkit-scrollbar, .db::-webkit-scrollbar, .fb::-webkit-scrollbar { width: 8px; }
       .res::-webkit-scrollbar-thumb, .db::-webkit-scrollbar-thumb, .fb::-webkit-scrollbar-thumb { background: rgba(240,232,214,0.18); border-radius: 8px; }
@@ -292,6 +292,25 @@
       }
 
 </style>
+      <style>
+      /* ================= v10 · "משמעת-התצוגה" · שכבת-על ================= */
+      /* חוק-1 · HUD: שורה-אחת-בלבד — גלילה-אופקית-עדינה, אף-פעם-לא-נערם-על-הקנבס */
+      .hud-top { flex-wrap: wrap; max-width: 100%; row-gap: 4px; }
+      .hud-top::-webkit-scrollbar { display: none; }
+      .hud-top > * { flex: 0 0 auto; }
+      .hud-top .hud-pill { max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .hud-top > *, #filters > * { flex: 0 1 auto; min-width: 0; }
+      #hudSrc { max-width: 320px; }
+      /* חוק-3 · אף-תווית-לא-מסתירה-את-השליטה-במצלמה */
+      #camctrl { z-index: 9; }
+      /* נייד: גלולות-מוקטנות · מקור-האמת-הארוך-נסתר (מידע-אבחון, לא-אזעקה) · כותרות-מוגבלות-רוחב */
+      @media (max-width: 700px) {
+        #hudSrc { display: none !important; }
+        .hud-top .hud-pill { font-size: 11.5px; padding: 3px 9px; gap: 5px; }
+        .dh2 { font-size: 11px; padding: 2px 9px; max-width: 52vw; overflow: hidden; text-overflow: ellipsis; }
+        .rlbl { font-size: 11px; }
+      }
+      </style>
 
 <style>
       /* ================= v9 · "הכניסה-הראשית" · שכבת-על ================= */
@@ -794,7 +813,7 @@
       <header class="hero">
         <div>
           <h1>מפקדת הצי · המחנה החי</h1>
-          <div class="eyebrow">מנוע v9 · "הכניסה-הראשית" · סיור-מודרך-לכל-מי-שנכנס · טבעות-הדופק הקריאות · אזעקה-אחת · אפס-תלות · אפס-bundle</div>
+          <div class="eyebrow">מנוע v11 · "העיצוב-הישן-חוזר" · דיורמת-פיקוד איזומטרית · רובעים-חיים · פנים-חדרים · חיפוש-ומפה · אפס-תלות · אפס-bundle</div>
         </div>
         <div class="clock" aria-live="off">
           <b id="jl-clock">--:--:--</b>
@@ -982,7 +1001,7 @@
          אזעקה-אחת-במקום-חמש · EMBED-עקבי-מהקרקע · אפס-קריסה-שתיקה · אפס-תלות · קובץ-אחד. */
       (function () {
         "use strict";
-        var ENGINE = "v9";
+        var ENGINE = "v11";
         var cv = document.getElementById("campus");
         var bootErr = null;
         window.SAOS_OFFICE3D = { ok: false, engine: ENGINE, err: null, rooms: 0, districts: 0, camZ: 0, atMin: null, lastPullOk: false, errs: [], at: null, fitZ: 0 };
@@ -1101,7 +1120,7 @@
           var cam = { x: 0, y: -2, z: 1.7 }, camT = { x: 0, y: -2, z: 0.53 };
           var homeCam = { x: 0, y: -2, z: 0.53 };
           var W = 0, H = 0, DPR = 1, CX = 0, CY = 0;
-          var ZMIN = 0.2, ZMAX = 2.4, LABEL_GATE = 0.46;
+          var ZMIN = 0.2, ZMAX = 2.4, LABEL_GATE = 0.46, LABEL_GATE_HI = 1.05, HEADER_GATE = 0.95;
           var reduceMotion = false;
           try { reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
           function PP(x, y, z) {
@@ -1665,21 +1684,70 @@
               var hh = headers[j];
               var hp = PP(hh.x, hh.y, 0.4);
               if (hh.el._sig !== headerSig(hh)) { renderHeader(hh); hh.el._sig = headerSig(hh); }
-              hh.el.style.display = inInterior ? "none" : "block";
-              if (!inInterior) { hh.el.style.transform = "translate(-50%,-50%) translate(" + Math.round(hp.x) + "px," + Math.round(hp.y) + "px)"; hh.el.style.left = "0"; hh.el.style.top = "0"; placed.push({ x0: hp.x - 80, y0: hp.y - 14, x1: hp.x + 80, y1: hp.y + 14 }); }
+              hh.el.style.display = (!inInterior && cam.z < HEADER_GATE) ? "block" : "none";
+              if (!inInterior && cam.z < HEADER_GATE) { var hwH = Math.max(40, ((hh.el && hh.el.offsetWidth) || 150) / 2 + 6); var effHx = Math.min(Math.max(hp.x, hwH + 4), Math.max(hwH + 4, (labelsBox.parentNode && labelsBox.parentNode.clientWidth || 360) - hwH - 4)); hh.el.style.transform = "translate(-50%,-50%) translate(" + Math.round(effHx) + "px," + Math.round(hp.y) + "px)"; hh.el.style.left = "0"; hh.el.style.top = "0"; placed.push({ x0: effHx - hwH, y0: hp.y - 14, x1: effHx + hwH, y1: hp.y + 14 }); }
             }
-            for (var i = 0; i < rooms.length; i++) {
-              var r = rooms[i];
-              var p = PP(r.x, r.y, (r.hero ? 1.06 : 0.84));
-              var vis = !inInterior && (r.hero || cam.z >= LABEL_GATE || hoverRoom === r || focusRoom === r || filterOn === r.verdict);
-              if (vis && !r.hero) { // מנע-חפיפה (ליבה-וכותרות-קודם)
-                var rect = { x0: p.x - 72, y0: p.y - 26, x1: p.x + 72, y1: p.y + 2 };
-                for (var q = 0; q < placed.length; q++) { if (rectHit(rect, placed[q])) { vis = false; break; } }
-                if (vis) placed.push(rect);
-              } else if (vis) { placed.push({ x0: p.x - 90, y0: p.y - 26, x1: p.x + 90, y1: p.y + 2 }); }
-              if (r.lbl._sig !== labelSig(r)) { renderLabel(r); r.lbl._sig = labelSig(r); }
-              r.lbl.style.display = vis ? "block" : "none";
-              if (vis) { r.lbl.style.transform = "translate(-50%,-110%) translate(" + Math.round(p.x) + "px," + Math.round(p.y) + "px)"; r.lbl.style.left = "0"; r.lbl.style.top = "0"; }
+            var cw = (labelsBox.parentNode && labelsBox.parentNode.clientWidth) || 360;
+            var blocked = [];
+            try { var tbr = camctrl.getBoundingClientRect(), cbr = labelsBox.parentNode.getBoundingClientRect();
+                  blocked.push({ x0: tbr.left - cbr.left - 8, y0: tbr.top - cbr.top - 8, x1: tbr.right - cbr.left + 8, y1: tbr.bottom - cbr.top + 8 }); } catch (e) {}
+            for (var pass = 0; pass < 2; pass++) {
+              for (var i = 0; i < rooms.length; i++) {
+                var r = rooms[i];
+                if ((pass === 0) !== !!r.hero) continue; // מעבר-א: ראשיי-רובעים-מקבלים-מקום-ראשונים · מעבר-ב: השאר
+                var p = PP(r.x, r.y, (r.hero ? 1.06 : 0.84));
+                var forced = (hoverRoom === r || focusRoom === r || filterOn === r.verdict);
+                var vis = !inInterior && (r.hero || forced || cam.z >= LABEL_GATE_HI);
+                var halfW = Math.max(40, ((r.lbl && r.lbl.offsetWidth) || 150) / 2 + 6); // רוחב-אמת-של-התווית (לא-הנחה)
+                var effX = Math.min(Math.max(p.x, halfW + 4), Math.max(halfW + 4, cw - halfW - 4)); // הצמדה-אופקית: אף-תווית-לא-יוצאת-מהמסך
+                var effY = p.y;
+                if (blocked.length) { var bz = blocked[0]; // אף-תווית-לא-מכסה-את-עמודת-המצלמה (ראשיים-כלולים)
+                  if (effX - halfW < bz.x1 && effX + halfW > bz.x0 && effY > bz.y0 - 30 && effY < bz.y1 + 8) effX = bz.x1 + halfW; }
+                if (vis && pass === 1 && !forced) { // מנע-חפיפה: הראשיים-והכותרות-כבר-בפנים
+                  var rect = { x0: effX - halfW, y0: effY - 26, x1: effX + halfW, y1: effY + 2 };
+                  for (var q = 0; q < placed.length; q++) { if (rectHit(rect, placed[q])) { vis = false; break; } }
+                  if (vis) placed.push(rect);
+                } else if (vis) {
+                  if (pass === 0) { // ראשי-מול-קיים (ראשיים-וכותרות): הזחה-אנכית-חכמה — 6-מועמדים
+                    var cands = [0, 24, -24, 48, -48, 72, -72, 96, -96, 120];
+                    var cleared = false;
+                    for (var ci = 0; ci < cands.length; ci++) {
+                      var rect0 = { x0: effX - halfW, y0: effY + cands[ci] - 26, x1: effX + halfW, y1: effY + cands[ci] + 2 };
+                      var clash = false;
+                      for (var q3 = 0; q3 < placed.length; q3++) { if (rectHit(rect0, placed[q3])) { clash = true; break; } }
+                      if (!clash) { effY += cands[ci]; cleared = true; break; }
+                    }
+                    if (!cleared) { // מילט-דטרמיניסטי: מתחת-לכל-החוסמים-החופפים-אופקית (עם-וריפיקציה)
+                      for (var tries = 0; tries < 4 && !cleared; tries++) {
+                        var maxY1 = effY - 26;
+                        for (var q4 = 0; q4 < placed.length; q4++) {
+                          var rr = placed[q4];
+                          if (rr.x0 < effX + halfW && effX - halfW < rr.x1 && rr.y1 > maxY1) maxY1 = rr.y1;
+                        }
+                        effY = maxY1 + 26;
+                        var rect1 = { x0: effX - halfW, y0: effY - 26, x1: effX + halfW, y1: effY + 2 };
+                        cleared = true;
+                        for (var q5 = 0; q5 < placed.length; q5++) { if (rectHit(rect1, placed[q5])) { cleared = false; break; } }
+                      }
+                      if (!cleared) effY += 48;
+                    }
+                  }
+                  placed.push({ x0: effX - halfW, y0: effY - 26, x1: effX + halfW, y1: effY + 2 });
+                }
+                if (r.lbl._sig !== labelSig(r)) { renderLabel(r); r.lbl._sig = labelSig(r); }
+                r.lbl.style.display = vis ? "block" : "none";
+                if (vis) {
+                  r.lbl.style.transform = "translate(-50%,-110%) translate(" + Math.round(effX) + "px," + Math.round(effY) + "px)";
+                  r.lbl.style.left = "0"; r.lbl.style.top = "0";
+                  // חוק-v8-המשולב: ערפל-עומק · היעלמות-עדינה-בקצוות (אף-חיתוך-גלוי)
+                  var fog = fogOf(r.x, r.y);
+                  var edge = Math.max(0, Math.min((p.x - 16) / 60, (cw - p.x - 16) / 60, 1));
+                  var op = (r.hero ? 0.96 : 0.88) * (1 - fog * 0.6) * edge;
+                  var floor = r.hero ? 0.55 : 0.42; // רצפת-קריאות: ערפל-לעולם-לא-מסתיר-תווית-פעילה
+                  r.lbl.style.opacity = String(Math.max(vis ? floor : 0, op));
+                  if (op < 0.2) r.lbl.style.display = "none";
+                }
+              }
             }
           }
 
