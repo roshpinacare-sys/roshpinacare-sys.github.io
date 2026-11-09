@@ -1,13 +1,13 @@
 {
  "schema": "SAOS-CANON/1",
- "at": "2026-11-09T20:43:03.961Z",
+ "at": "2026-11-09T20:58:06.468Z",
  "law": "מצב-אחד · כל-טענה-מול-מקור-חי · אין-טענה-בלי-תאריך · סתירה-אינה-נסגרת-בטענה-כנה-אלא-בפאטץ'-מדויק",
  "values": {
   "repos.total": 50,
   "repos.public": 41,
   "repos.private": 9,
   "arteries.total": 411,
-  "arteries.beating": 46,
+  "arteries.beating": 95,
   "fills.lifetime": 730,
   "fills.ledger": 121,
   "networks.count": 7,
@@ -16,14 +16,14 @@
   "treasury.steem": 140.762,
   "treasury.floor": 3000,
   "directives.open": 18,
-  "verdicts.ALIVE": 17,
-  "verdicts.MIXED": 8,
-  "verdicts.STALE": 12,
+  "verdicts.ALIVE": 19,
+  "verdicts.MIXED": 5,
+  "verdicts.STALE": 13,
   "verdicts.IDLE": 13
  },
  "source": {
-  "repos.total": "github-api · מדידה-חיה@2026-11-09T20:43:01.806Z",
-  "fills.lifetime": "Domain/execution-state.json@2026-11-09T18:58:27.070Z",
+  "repos.total": "github-api · מדידה-חיה@2026-11-09T20:58:03.095Z",
+  "fills.lifetime": "Domain/execution-state.json@2026-11-09T20:42:59.068Z",
   "networks.count": "external-profit · accountsScanned=7 + 7-network-wallet",
   "treasury.steem": "local-census (measured)"
  }
