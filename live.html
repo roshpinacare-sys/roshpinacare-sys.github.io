@@ -64,7 +64,7 @@ fetch("receipts/fleet-activity.json?t="+Date.now(),{cache:"no-store"}).then(func
   document.getElementById("repos").innerHTML=(d.repos||[]).map(function(r){
     return "<tr><td>"+r.name+"</td><td class='mono'>"+(r.commits2h!=null?r.commits2h:"—")+"</td><td class='mono'>"+(r.commits24h!=null?r.commits24h:"—")+"</td><td>"+ago(r.lastAt)+"</td><td class='msg'>"+(r.last||"—")+"</td></tr>"}).join("");
 }).catch(function(){document.getElementById("pulse").textContent="המדידה-לא-זמינה-כרגע"});
-</script><!-- SAOS-TIME-ANCHOR/1 · sovereign-union-forge 2026-11-09T11:21:36.906Z -->
-<div dir="rtl" style="border-top:1px solid #e8e4de;margin-top:24px;padding:14px 8px;font:12px/1.7 system-ui,sans-serif;color:#6b6b6b;text-align:center">חותמת-זמן ארכיטקטונית: <time datetime="2026-11-09T11:21:36.906Z">2026-11-09</time> · מקור-חי: <a href="https://roshpinacare-sys.github.io/Domain/status.json" style="color:inherit;text-decoration:underline">status.json</a> · <span data-canon="generatedAtLabel">רשת-ריבונית SAOS</span></div>
+</script><!-- SAOS-TIME-ANCHOR/1 · sovereign-union-forge 2026-11-09T11:50:04.382Z -->
+<div dir="rtl" style="border-top:1px solid #e8e4de;margin-top:24px;padding:14px 8px;font:12px/1.7 system-ui,sans-serif;color:#6b6b6b;text-align:center">חותמת-זמן ארכיטקטונית: <time datetime="2026-11-09T11:50:04.382Z">2026-11-09</time> · מקור-חי: <a href="https://roshpinacare-sys.github.io/Domain/status.json" style="color:inherit;text-decoration:underline">status.json</a> · <span data-canon="generatedAtLabel">רשת-ריבונית SAOS</span></div>
 <script src="/Domain/canon.js" defer></script>
 </body></html>
