@@ -1,13 +1,13 @@
 {
  "schema": "SAOS-CANON/1",
- "at": "2026-11-18T09:05:13.998Z",
+ "at": "2026-11-18T09:39:47.931Z",
  "law": "מצב-אחד · כל-טענה-מול-מקור-חי · אין-טענה-בלי-תאריך · סתירה-אינה-נסגרת-בטענה-כנה-אלא-בפאטץ'-מדויק",
  "values": {
   "repos.total": 54,
   "repos.public": 45,
   "repos.private": 9,
   "arteries.total": 428,
-  "arteries.beating": 78,
+  "arteries.beating": 65,
   "fills.lifetime": 730,
   "fills.ledger": 121,
   "networks.count": 7,
@@ -16,15 +16,15 @@
   "treasury.steem": 0,
   "treasury.floor": 3000,
   "directives.open": 27,
-  "verdicts.ALIVE": 16,
+  "verdicts.ALIVE": 17,
   "verdicts.MIXED": 11,
-  "verdicts.STALE": 11,
+  "verdicts.STALE": 10,
   "verdicts.IDLE": 16
  },
  "source": {
-  "repos.total": "Domain/status.json · סטטי-לא-עצמאי@2026-11-18T07:23:45.433Z",
-  "fills.lifetime": "Domain/execution-state.json@2026-11-18T06:31:38.087Z",
-  "networks.count": "external-profit · accountsScanned=7 + 7-network-wallet",
+  "repos.total": "github-api · מדידה-חיה@2026-11-18T09:35:23.688Z",
+  "fills.lifetime": "Domain/execution-state.json@2026-11-18T09:05:11.124Z",
+  "networks.count": "fallback-אחרון-הידוע · external-profit-לא-זמין",
   "treasury.steem": "local-census (measured)"
  }
 }
